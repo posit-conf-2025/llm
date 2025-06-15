@@ -3,7 +3,7 @@ WORKSHOP_TITLE
 
 ### posit::conf(2025)
 
-by James Blair
+by Joe Cheng and Garrick Aden-Buie
 
 -----
 
