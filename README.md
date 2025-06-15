@@ -1,4 +1,4 @@
-WORKSHOP_TITLE
+Programming with LLM APIs: A Beginner's Guide in R and Python
 ================
 
 ### posit::conf(2025)
