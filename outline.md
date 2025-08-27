@@ -45,11 +45,23 @@
 - (10m) Choosing a model
   - Overview of major providers: OpenAI, Anthropic, Google, ollama
   - Tradeoffs: capability, context length, speed, cost, intelligence
-- (10m) Vision
-- (10m) Other attachments (e.g. PDF)
+
+- (20m) Multimodal input (vision, PDF)
+  - Activity: images of food and ask for recipes
+  - Activity(alt): images of plots and ask for interpretation
+  - Activity: extract a table from a PDF (as markdown)
+
 - (20m) Structured output
-- (20m) Parallel/batch calls
-- (20m) Customizing model behavior with system prompt
+  - Explain `ellmer::type_*()` or [pydantic model in chatlas](https://posit-dev.github.io/chatlas/get-started/structured-data.html)
+  - Activity: extract ingredients and steps from a recipe
+  - Activity: extract a rich data frame from the PDF from before
+  - Note [use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
+
+- (10m) Parallel/batch calls
+  - Support will hopefully land in chatlas before conf
+  - Activity: Extract recipe data in parallel or batch
+
+- (30m) Customizing model behavior with system prompt
   - Prompt engineering best practices, in particular the system prompt
   - Activity: create [the prompt for the quiz game show](https://github.com/jcheng5/llm-quickstart/blob/main/02-tools-prompt.md)
 
@@ -91,7 +103,8 @@
 
 > A look at more advanced topics, including MCP and agents.
 
-- (20m) Querychat
+- (10m) querychat
+  - Activity: Add querychat into an existing shiny app
 
 - (20m) MCP
   - Overview of MCP and how it works
@@ -102,9 +115,10 @@
     - fetcher: https://github.com/jae-jae/fetcher-mcp
     - git-ingest: https://github.com/adhikasp/mcp-git-ingest
     - github: https://arc.net/l/quote/bvfqahnx
+    - context7: https://github.com/upstash/context7
 
 - (30m) Agents
 
-- (20m) The Future of AI (Fireside Chat with Joe)
+- (30m) The Future of AI (Fireside Chat with Joe)
 
 - (10m) Wrap-up
