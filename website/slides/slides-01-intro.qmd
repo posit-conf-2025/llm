@@ -1,0 +1,200 @@
+---
+title: Welcome!
+subtitle: Programming with LLMs
+author: <code>posit::conf(2025)</code>
+date: 2025-09-16
+
+format:
+  revealjs:
+    html-math-method: plain
+    slide-level: 2
+    theme:
+      - slides.scss
+
+editor:
+  render-on-save: true
+---
+
+## Welcome to Level&nbsp;Up&nbsp;with Shiny&nbsp;for&nbsp;R {.middle .text-center .fs-step-2}
+
+* Find a seat where you can see the screen!
+
+* Join the Posit Cloud workspace: [pos.it/level-up-shiny-24-cloud]{.code .purple}
+
+* Join the Discord from [https://pos.it/conf]{.code .purple}
+
+* **WiFI**: Posit Conf 2024 | `conf2024`
+
+```{=html}
+<style>
+.reveal .footer {
+  font-size: 1em !important;
+}
+</style>
+```
+
+# 🤝 Introductions 🤝 {.middle}
+
+## Meet us
+
+- Garrick
+- Carson
+- Barret
+- Kalau
+- Andrew
+
+## Code of Conduct
+
+**Please Review:** [posit.co/code-of-conduct](https://posit.co/code-of-conduct/)
+
+💙 Treat everyone with respect \
+🧡 Everyone should feel welcome and safe
+
+**Reporting:**
+
+🗣️ any posit::conf staff member (t-shirt) or Info desk \
+📧 `conf@posit.co`
+
+## Meet each other {.middle}
+
+::: {.fs-step-3 .incremental}
+* 👋 Hi, my name is ...
+
+* 💼 My first job was ...
+
+* 💡 What did you learn from that job?
+:::
+
+# About this workshop {.middle}
+
+## WiFi {.text-center .middle}
+
+::: {.fs-step-3 style="min-width: 500px"}
+| WiFi | Posit Conf 2024 |
+|------|-----------------|
+| Pass | `conf2024`      |
+:::
+
+
+## posit::conf(2024) Things to Know
+
+::: incremental
+* There will be a gender-neutral bathroom on levels `3:7`
+* Meditation/prayer room: 503
+    * Mon & Tues 7am - 7pm
+    * Wed 7am - 5pm
+* Mothers room: 509
+:::
+
+## posit::conf(2024) Social Media
+
+* [Red lanyards]{.red .b} available to those who don't wish to be photographed
+
+* `#PositConf2024` for all things conf
+
+* `#LevelUpShiny` for this workshop
+
+## Questions
+
+::: {.flex .flex-column .fs-step-4 .justify-center-ns .text-center style="min-height: 60vh"}
+🙋 🙋‍♀️ 🙋‍♂️ \
+Please ask questions!
+:::
+
+
+## Stickies
+
+::: {.easy-columns style="margin-top: var(--space-xl); font-size: var(--step-3);"}
+::: {.flex .flex-column .items-center .justify-center .text-center}
+🟩
+
+All good \
+I'm done
+:::
+::: {.flex .flex-column .items-center .justify-center .text-center}
+🟥
+
+Not great \
+Need time or help
+:::
+:::
+
+
+## Schedule
+
+{{< partial ../partials/schedule.qmd >}}
+
+## Schedule
+
+::: {.table-highlight-even}
+{{< partial ../partials/schedule.qmd >}}
+:::
+
+## Schedule
+
+::: {.table-what-matters}
+{{< partial ../partials/schedule.qmd >}}
+:::
+
+
+## Discord
+
+::: {.easy-columns}
+::: col
+1. Go [posit.co/conference](https://posit.co/conference)
+1. Click **Login**
+1. Find and click the discord banner
+:::
+::: col
+![](assets/discord-banner.png)
+:::
+:::
+
+
+::: {.text-center .fs-step-2}
+Our workshop channel \
+[#workshop-level-up-shiny]{.code .purple}
+:::
+
+
+# Computering {.middle .text-center}
+
+## Posit Cloud
+
+::: {.fs-step-3}
+**Step 1.** Join the [Level Up for Shiny Posit Cloud workspace](../setup.qmd#using-posit-cloud)
+
+::: fragment
+**Step 2.** Start `level-up-shiny` assignment
+
+::: text-center
+![](../assets/posit-cloud-project.png){width="80%"}
+:::
+:::
+:::
+
+
+## Cloud session {.text-center}
+
+![](../assets/posit-cloud-project-session.png){style="max-height: 700px"}
+
+
+## File organization
+
+::: {.table-no-border style="--row-padding: var(--space-xs);"}
+|  |  |
+|:---|:------------|
+| `_exercises/` | Files for **Your Turn** exercises |
+| `_examples/` | Files for my demo examples |
+| `website/` | The website and slides |
+| `./*` | Lots of project related files you can ignore |
+:::
+
+## Exercise Solutions
+
+::: {.flex .flex-column .fs-step-2 .justify-center-ns .items-center-ns style="min-height: 60vh"}
+👨‍💻 👩‍💻 `_exercises/01_app.R` \
+[&nbsp;&nbsp;&nbsp;🫣&nbsp;&nbsp;&nbsp; `_exercises/01_solution_app.R`]{.fragment}
+:::
+
+# Let's Dive In! {.middle}

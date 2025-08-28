@@ -3,6 +3,8 @@
 ### Setup
 
 - [ ] Quarto website
+  - [ ] hero image
+  - [ ] favicons
 - [ ] App for sharing API keys
 
 ### Morning 1

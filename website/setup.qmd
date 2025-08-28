@@ -1,0 +1,126 @@
+---
+title: Getting Setup
+---
+
+### What to bring
+
+**Bring your [personal laptop]{.text-danger} and a power cord.**
+This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.
+
+We’ll be using [Posit Cloud](https://posit.cloud) ([details below](#using-posit-cloud)), so you don’t need to set up anything on your computer.
+
+## Create Accounts
+
+In this workshop, we'll be using a few different online services.
+If you don't already have accounts with these services, you'll need to create them before we get started.
+
+* [Posit Cloud](#using-posit-cloud)
+
+* [GitHub](https://github.com/join)
+  * Used to login to the Posit Connect instance set up for this workshop.
+  * Did you know? You can use your GitHub account to log in to Posit Cloud, too!
+
+* [Discord](https://discord.com/register)
+  * Used to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.
+  * Make sure your [display name](https://support.discord.com/hc/en-us/articles/12620128861463-New-Usernames-Display-Names#h_01GXPQABMYGEHGPRJJXJMPHF5C) is the one you used to register for the conference.
+  * Closer to the conference start, you'll be able to join the `{{< meta conference.name >}}` Discord server via the event portal at <https:://posi.it/conf-event-portal>.
+  * Our workshop channel is [`{{< meta workshop.discord_channel >}}`]({{< meta workshop.links.discord >}}).
+
+
+## Using Posit Cloud
+
+::: {.callout-note title="Recommended Workflow"}
+The easiest way to get started is to use the Posit Cloud workspace I've prepared for you.
+
+::: lead
+Join the Posit Cloud workspace at [{{< meta workshop.links.cloud_short.text >}}]({{< meta workshop.links.cloud_short.href >}}).
+:::
+:::
+
+<!--
+::: {.callout-warning title="Posit Cloud Space Not Yet Available"}
+The link to join the space is not yet available.
+This page will be updated on the day of the workshop.
+
+You will need a Posit Cloud account and you can create one for free at [posit.cloud/plans](https://posit.cloud/plans).
+Click "Learn more" under the Free plan to sign up.
+:::
+-->
+
+I've prepared a Posit Cloud workspace for workshop participants with a project for you to use during our time together.
+The project contains all of the files and packages pre-installed and ready to go.
+All you need to do is log in and start coding!
+
+If you already have a Posit Cloud account, first [join the level-up-shiny space on Posit Cloud]({{< meta workshop.links.cloud >}}).
+Otherwise [sign up for a free account](https://posit.cloud/plans) and then join the space.
+You can create an account with your email or login with Google, GitHub or Clever.
+
+Once you're part of the [level-up-shiny space]({{< meta workshop.links.cloud >}}), select the `level-up-shiny` assignment to create and launch a new project just for you.
+
+::: {.shadow-lg .p-2 .border .border-1 .rounded-2 .text-center}
+![](assets/posit-cloud-project.png){.img-fluid alt=""}
+:::
+
+
+## Using Your Own Computer
+
+::: {.callout-caution title="Advanced Workflow"}
+**This is not the recommended workflow.** I recommend [using the Posit Cloud workspace](#using-posit-cloud) to avoid having to set everything up yourself.
+
+That said, if you prefer to use your own computer, it's entirely possible.
+:::
+
+If you prefer to use your own computer, you can [clone the repository]({{< meta workshop.links.repo >}}) and install the necessary packages.
+I used [R 4.4](https://r-project.org) but any recent version of R (>= 4.1) should work.
+
+You can use the [usethis](https://usethis.r-lib.org) package to quickly clone the repository:
+
+```r
+usethis::create_from_github(
+  "posit-conf-2024/level-up-shiny",
+  # Decide where to put the project here:
+  destdir = "~/Desktop/level-up-shiny"
+)
+```
+
+This will download the repository and open the project in RStudio.
+
+### With renv
+
+Inside the project, use the `renv` package to install the necessary packages:
+
+```r
+renv::restore()
+```
+
+For very speedy installation, I recommend telling renv to use [pak](https://pak.r-lib.org/) to install packages:
+
+```r
+Sys.setenv(RENV_CONFIG_PAK_ENABLED = "true")
+renv::restore()
+```
+
+### Without renv
+
+Sometimes `renv` can be a little tricky to get set up.
+Fortunately, there's an alternative installation method that should work just as well.
+
+First, disable `renv`:
+
+```r
+renv::deactivate()
+```
+
+Then install use [pak](https://pak.r-lib.org) to install the necessary packages:
+
+```r
+# install.packages("pak")
+pak::local_install_deps(dependencies = TRUE)
+```
+
+Or with [remotes](https://remotes.r-lib.org):
+
+```r
+# install.packages("remotes")
+remotes::install_deps(dependencies = TRUE)
+```

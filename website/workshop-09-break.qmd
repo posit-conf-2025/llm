@@ -1,0 +1,12 @@
+---
+title: ☕ Break
+description: >
+  Go touch grass!
+  We'll be back here at 15:30.
+duration: 30min
+time: 15:00 - 15:30
+countdown:
+  box_shadow: none
+---
+
+![Image by DALL-E 3](assets/gen-ai/data-scientist-coffee-bench.png)

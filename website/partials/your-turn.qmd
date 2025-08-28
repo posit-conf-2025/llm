@@ -1,0 +1,9 @@
+::: lead
+<i class="bi bi-folder-symlink-fill"></i> `{{ file }}`
+:::
+
+::: {.callout-note title="Exercise Code" collapse="true"}
+```{.r filename="{{ file }}"}
+# code here
+```
+:::

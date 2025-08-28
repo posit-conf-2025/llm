@@ -1,0 +1,12 @@
+---
+title: ☕ Break
+description: >
+  Get up and move around!
+  We'll start back up at 11:00.
+duration: 30min
+time: 10:30 - 11:00
+countdown:
+  box_shadow: none
+---
+
+![Image by DALL-E 3](assets/gen-ai/data-scientist-having-coffee.png)

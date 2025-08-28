@@ -1,0 +1,38 @@
+---
+title: Anatomy of a conversation
+description: Programmatically conversing with LLMs
+description-short: Programmatically conversing with LLMs
+duration: 40min
+
+editor: { render-on-save: true }
+---
+
+## Slides
+
+{{< revealjs "slides/slides-02-bslib.html" class="ratio ratio-16x9" >}}
+
+## Outline
+
+- (20m) Anatomy of a conversation
+  - To get a get a response, you send a message via HTTP
+  - Message roles: system, user, assistant
+  - Activity: Word guessing game
+    - System prompt: _You are playing a word guessing game. At each turn, guess the word and tell us what it is._
+    - We give a few questions to ask
+    - Also include a modifier in the first message, e.g. "In ____, ..." picking from "British English", "pirate", "Spanish", etc.
+    - The modifier in the first message steers subsequent answers
+  - The conversation is **stateless**
+    - Use **clearbot** to walk through an example, showing the requests and responses
+    - First: _Using British spellings, guess the word for the person living next door._
+    - Second: _What helps a car move smoothly down the road?_
+    - Clear the chat and try second question again.
+
+- (20m) How do LLMs work?
+  - [_How to Talk to Robots_ slides](https://connect.posit.it/ai-intro-posit/slides/slides-01-intro.html) from Intro to AI course
+  - Tokens as the fundamental unit
+  - Example: https://connect.posit.it/ai-intro-token-possibilities
+
+- (20m) Shinychat basics
+  - Activity: `live_console()` and `live_browser()` (or `chat.console()` and `chat.app()`)
+  - Making your own shinychat app with `chat.ui()` and `chat.append()`. R users can use the chat module with `chat_mod_server()`.
+  - Activity: Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.

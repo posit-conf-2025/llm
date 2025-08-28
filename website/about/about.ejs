@@ -1,0 +1,24 @@
+
+```{=html}
+<div class="d-grid gap-4" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+<% for (const item of items) { %>
+    <div class="text-center">
+        <img class="rounded-circle img-fluid" src="<%- item.image %>" style="max-width: 200px">
+        <p class="fs-4 mt-2 mb-0 font-monospace"><%- item.name %></p>
+        <p class="mb-0"><%- item.role %></p>
+        <% if (item.instructor) { %>
+            <p><span class="badge text-bg-danger">Instructor</span></p>
+        <% } else { %>
+            <p><span class="badge text-bg-secondary">Assistant</span></p>
+        <% } %>
+        <% if (item.links) { %>
+            <div class="btn-group" role="group" aria-label="Links for <%- item.name %>">
+            <% for (const link of item.links) { %>
+                <a class="btn btn-<%- link.class || "info" %>" href="<%- link.href %>"><i class="bi bi-<%- link.icon %>"></i> <%- link.text %></a>
+            <% } %>
+            </div>
+        <% } %>
+    </div>
+<% } %>
+</div>
+```

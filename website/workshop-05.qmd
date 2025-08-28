@@ -1,0 +1,19 @@
+---
+title: Prompt Engineering
+description: Getting LLMs to do what you want through effective prompting.
+description-short: Getting LLMs to do what you want
+duration: 40min
+---
+
+## Slides
+
+{{< revealjs "slides/slides-05-modules.html" class="ratio ratio-16x9" >}}
+
+## Outline
+
+- (35m) Prompting engineering and hallucinations
+  - Activity: images of mpg vs weight and ask for interpretation
+  - Activity (part 1): same question, but we've replaced the image with random noise
+  - Activity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image
+  - Prompt engineering best practices, in particular the system prompt
+  - Activity: create [the prompt for the quiz game show](https://github.com/jcheng5/llm-quickstart/blob/main/02-tools-prompt.md)

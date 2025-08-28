@@ -1,0 +1,68 @@
+---
+title: "Our Team"
+
+sidebar: false
+repo-actions: false
+page-navigation: false
+
+listing:
+  template: about.ejs
+  contents:
+    - name: Garrick Aden-Buie
+      instructor: true
+      role: "Software Engineer, Shiny"
+      image: garrick.jpg
+      links:
+      - icon: github
+        text: GitHub
+        href: https://github.com/gadenbuie
+      - icon: mastodon
+        text: Mastodon
+        href: https://fosstodon.org/@grrrck
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/garrick-aden-buie/
+    - name: Carson Sievert
+      role: "Software Engineer, Shiny"
+      image: carson.png
+      links:
+      - icon: github
+        text: GitHub
+        href: https://github.com/cpsievert
+      - icon: mastodon
+        text: Mastodon
+        href: https://fosstodon.org/@cpsievert
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/carsonsievert/
+    - name: Barret Schloerke
+      role: "Software Engineer, Shiny"
+      image: barret.png
+      links:
+      - icon: github
+        text: GitHub
+        href: https://github.com/schloerke
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/schloerke/
+    - name: Kalau Tanaka-Pesamino
+      role: Solutions Engineer, Posit
+      image: kalau.png
+      links:
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/kalauonaona-t-753487b7/
+    - name: Andrew Holz
+      role: Head of Engineering, Posit
+      image: andrew.png
+      links:
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/andrewholz/
+---
+
+::: column-body
+::: {#listing}
+
+:::
+:::

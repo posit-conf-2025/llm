@@ -1,0 +1,25 @@
+---
+title: Overview
+
+listing:
+  - id: schedule
+    type: table
+    sort:
+      - file
+    sort-ui: false
+    filter-ui: false
+    fields: 
+      - title
+      - time
+      - description-short
+    field-display-names: 
+      description-short: Description
+    contents:
+      - "workshop-*.qmd"
+      - "!workshop-06-chat*.qmd"
+---
+
+## Schedule
+
+::: {#schedule}
+:::

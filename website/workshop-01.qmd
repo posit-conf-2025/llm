@@ -1,0 +1,25 @@
+---
+title: Welcome and getting started
+description: Hello and welcome to the workshop!
+description-short: Hello and welcome to the workshop!
+duration: 30min
+time: 9:00
+
+editor: { render-on-save: true }
+---
+
+## Slides
+
+{{< revealjs "slides/slides-01-intro.html" height="600px" class="ratio ratio-16x9" >}}
+
+## Outline
+
+- (10m) Welcome, introductions, workshop expectations
+  - Activity: introduce yourself to your neighbors
+
+- (10m) Set-up and verify API access
+  - Activity: simple script to verify API access (write an "I'm at posit::conf(2025) social media post")
+
+- (10m) Think empirically, be pragmatic
+  - Getting into the right mindset for working with LLMs
+  - This section gives us some extra time to troubleshoot any setup issues

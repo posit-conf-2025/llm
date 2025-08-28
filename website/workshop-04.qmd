@@ -1,0 +1,30 @@
+---
+title: Programming with LLMs
+description: A deeper dive into the things you can do with LLMs when you're programming with them that are harder to do in a chat interface.
+description-short: Advanced LLM programming techniques
+duration: 50min
+---
+
+## Slides
+
+{{< revealjs "slides/slides-04-code-style.html" class="ratio ratio-16x9" >}}
+
+## Resources
+
+- (10m) Choosing a model
+  - Overview of major providers: OpenAI, Anthropic, Google, ollama
+  - Tradeoffs: capability, context length, speed, cost, intelligence
+  - Activity: same question, change one string to switch models, e.g. `chat("openai")`, `chat("anthropic")`.
+
+- (15m) Multi-modal input (vision, PDF)
+  - Activity: images of food and ask for recipes
+  - Activity: take a PDF of a recipe, turn it into markdown
+
+- (15m) Structured output
+  - Explain `ellmer::type_*()` or [pydantic model in chatlas](https://posit-dev.github.io/chatlas/get-started/structured-data.html)
+  - Activity: Extract rich data from the recipe PDF
+  - Note [use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
+
+- (15m) Parallel/batch calls
+  - Support will hopefully land in chatlas before conf
+  - Activity: Extract recipe data in parallel or batch

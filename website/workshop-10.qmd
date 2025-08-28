@@ -1,0 +1,44 @@
+---
+title: Beyond Tools
+description: |
+  Looking beyond integrations to explore what’s next: Model Context Protocol (MCP), practical agent patterns, and the near future of AI-assisted development.
+description-short: Exploring the future of AI
+duration: 90
+---
+
+## Slides
+
+{{< revealjs "slides/slides-13-thanks.html" class="ratio ratio-16x9" >}}
+
+## Outline
+
+- (10m) querychat
+  - Activity: Add querychat into an existing shiny app
+
+- (10m) MCP
+  - Overview of MCP and how it works
+  - Activity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)
+    - ArXiV: https://github.com/andybrandt/mcp-simple-arxiv
+    - webpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp
+    - stocky: https://github.com/joelio/stocky
+    - fetcher: https://github.com/jae-jae/fetcher-mcp
+    - git-ingest: https://github.com/adhikasp/mcp-git-ingest
+    - github: https://arc.net/l/quote/bvfqahnx
+    - context7: https://github.com/upstash/context7
+
+- (30m) Agents
+  - Hadley/Willison definition: Agents are LLMs with a read tool and a write tool
+  - The "you know it when you see it" definition: autonomous LLMs, long context, minimal intervention
+  - Demobot demo
+
+- (30m) The Future of AI
+  - Where do we go from here? Let's talk fears and hopes.
+
+- (5m) Wrap-up
+  - Feedback survey
+
+## Workshop Survey
+
+Please take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!
+
+[pos.it/conf-workshop-survey](https://pos.it/conf-workshop-survey)

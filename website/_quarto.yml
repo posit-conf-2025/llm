@@ -1,0 +1,108 @@
+project:
+  type: website
+  preview:
+    port: 7567
+  render:
+    - "./*.qmd"
+    - "slides/*.qmd"
+    - "about/index.qmd"
+  resources:
+    - slides
+
+website:
+  title: "Programming with LLMs"
+  description: "A beginner's guide to programming with large language models in R and Python"
+  site-url: https://posit-conf-2025.github.io/llm
+
+  # TODO: Update these images
+  favicon: assets/posit-conf-favicon.png
+  twitter-card:
+    creator: "@grrrck"
+    site: "@posit-dev"
+    image: assets/open-graph-card-2.png
+  open-graph:
+    image: assets/open-graph-card-2.png
+
+  # announcement:
+  #   icon: cone-striped
+  #   dismissible: true
+  #   content: |
+  #     Welcome to [posit::conf]{.font-monospace}! Please join the [[level-up-shiny]{.font-monospace} Posit Cloud space](setup.qmd#using-posit-cloud).
+  #   type: info
+
+  page-footer: |
+    <a href="https:://posi.it/conf-event-portal">posit::conf(2025)</a>
+
+  repo-url: https://github.com/posit-conf-2025/llm
+  repo-subdir: website
+  repo-actions: [edit, issue]
+
+  navbar:
+    title: "Programming with LLMs"
+    foreground: black
+    background: white
+    left:
+      - href: index.qmd
+        text: Home
+      - href: workshop.qmd
+        text: Workshop
+      - href: setup.qmd
+        text: Setup
+      - href: about/index.qmd
+        text: Team
+    tools:
+      - icon: github
+        href: https://github.com/posit-conf-2025/llm
+        aria-label: Workshop materials
+      - icon: discord
+        href: https://discord.com/channels/1381993558437007490/1402378610861408266
+        aria-label: Discord channel
+
+  page-navigation: true
+
+  sidebar:
+    - id: workshop
+      style: docked
+      type: light
+      background: light
+      foreground: dark
+      contents:
+        - workshop.qmd
+        - text: '<div class="sidebar-divider font-monospace">Morning 1</div>'
+        - workshop-01.qmd
+        - workshop-02.qmd
+        - workshop-03-break.qmd
+        - text: '<div class="sidebar-divider font-monospace">Morning 2</div>'
+        - workshop-04.qmd
+        - workshop-05.qmd
+        - workshop-06-break.qmd
+        - text: '<div class="sidebar-divider font-monospace">Afternoon 1</div>'
+        - workshop-07.qmd
+        - workshop-08.qmd
+        - workshop-09-break.qmd
+        - text: '<div class="sidebar-divider font-monospace">Afternoon 2</div>'
+        - workshop-10.qmd
+
+format:
+  html:
+    theme: [zephyr, styles.scss]
+    toc: true
+    lightbox: true
+    include-before-body:
+      - text: <script>document.querySelector('.navbar').dataset.bsTheme = 'light';</script>
+      - text: |
+          <script>
+            const icons = document.querySelectorAll(".quarto-navigation-tool")
+            icons.forEach(icon => {
+              icon.dataset.bsToggle = "tooltip"
+              icon.dataset.bsPlacement = "bottom"
+              icon.dataset.bsTitle = icon.getAttribute("aria-label")
+              new bootstrap.Tooltip(icon)
+            })
+          </script>
+
+filters:
+  - auto-dark
+
+editor:
+  render-on-save: true

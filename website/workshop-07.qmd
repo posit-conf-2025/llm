@@ -1,0 +1,28 @@
+---
+title: Augmented Generation
+description: How to add knowledge to LLMs and make them more useful for specific tasks.
+description-short: Adding knowledge to LLMs
+duration: 40min
+---
+
+## Slides
+
+{{< revealjs "slides/slides-06-javascript.html" class="ratio ratio-16x9" >}}
+
+## Outline
+
+- (10m) Manual RAG
+  - Activity: Data science coding assistant
+    - Given a data science task using `polars` or `dplyr`, ask an LLM to generate or explain code, first without any context.
+    - Then, give it the relevant section of the `polars` or `dplyr` documentation and see how much better the response is.
+
+- (30m) RAG
+  - High-level overview of how RAG works
+  - Activity: Build a dynamic RAG system
+    - We'll have the complete, raw `dplyr` or `polars` documentation.
+    - Preprocess and compute embeddings for each chunk using `ragnar` or `llama-index`
+      - https://posit-dev.github.io/chatlas/misc/RAG.html#dynamic-retrieval
+      - https://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag
+    - Add a tool that searches the embeddings and returns the top few chunks
+      - chatlas: this means writing a function
+      - ellmer: Use `ragnar`

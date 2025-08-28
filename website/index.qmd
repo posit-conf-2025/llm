@@ -1,0 +1,101 @@
+---
+title: Programming with LLMs
+subtitle: posit::conf(2025)
+
+image: assets/erik-skof-Xn8ilXVKntg-unsplash.png
+
+twitter-card:
+  image: assets/open-graph-card.png
+
+open-graph:
+  image: assets/open-graph-card.png
+
+title-block-banner: true
+title-block-style: default
+
+sidebar: false
+
+editor: { render-on-save: true }
+engine: markdown
+---
+
+```{=html}
+<style>
+.quarto-title-banner {
+    color: var(--bs-body-bg);
+    background-image: url({{< meta image >}});
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    transition: filter 45s;
+}
+.quarto-title {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    grid-column: unset !important;
+}
+.quarto-title > * {
+    z-index: 1;
+    position: relative;
+}
+.quarto-title-banner .quarto-title::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    /* background-color: rgba(255, 255, 255, 0.25); */
+    z-index: 0;
+}
+.quarto-title-banner h1 {
+    color: var(--bs-body-bg);
+    font-weight: 300 !important;
+    font-size: max(min(4vw, 2.5em), 1.5em);
+    text-wrap: pretty;
+}
+@media (max-width: 575.98px) {
+    .quarto-title-banner {
+        height: 300px;
+    }
+}
+</style>
+<script>
+function setHue() {
+    const randomHue = Math.random() * 360
+    document.querySelector('.quarto-title-banner').style.filter = `hue-rotate(${randomHue}deg)`
+}
+setHue()
+document.addEventListener("DOMContentLoaded", setHue)
+</script>
+```
+
+::: {.lead .mb-4}
+**Workshop at [{{< meta workshop.conference.name >}}]({{< meta workshop.conference.link >}})**<br>{{< meta workshop.date >}}<br>{{< meta workshop.time >}}<br>{{< meta workshop.location >}}
+:::
+
+## Introduction
+
+Large Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.
+
+Participants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:
+
+- Coding with LLMs unlocks possibilities beyond standard tools
+- No advanced AI background is required
+- Implementing AI can be both accessible and exciting
+
+Designed for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and touches on advanced topics like fine-tuning and Retrieval-Augmented Generation (RAG). Attendees will gain hands-on experience through guided or personal projects, providing the confidence to start their LLM journey.
+
+## Links
+
+::: {.lead .fs-3}
+📘 [Workshop Materials](workshop.qmd)
+
+🔧 [Getting Setup](setup.qmd)
+
+🧑‍💻 [Join Posit Cloud Space](setup.qmd#using-posit-cloud)
+
+👾 [Discord]({{< meta workshop.links.discord >}}) ([signup instructions](setup.qmd#create-accounts))
+
+📦 [Repository]({{< meta workshop.links.repo >}})
+
+🎡 [{{< meta workshop.links.conf.name >}}]({{< meta workshop.links.conf.href >}})
+:::

@@ -1,0 +1,14 @@
+```{=html}
+<style>
+:root {
+  --countdown-color-running-background: var(--bs-white);
+  --countdown-color-running-text: var(--bs-teal);
+}
+</style>
+```
+
+::: {.column-screen-inset-right .position-relative style="height: 80vh"}
+{{=<% %>=}}
+{{< countdown <% time %> top=0 left=0 right=0 bottom=0 class="countdown-fullscreen" margin=0 font_size="20vw" >}}
+<%={{ }}=%>
+:::
