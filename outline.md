@@ -45,27 +45,29 @@
 - (10m) Choosing a model
   - Overview of major providers: OpenAI, Anthropic, Google, ollama
   - Tradeoffs: capability, context length, speed, cost, intelligence
+  - Activity: same question, change one string to switch models, e.g. `chat("openai")`, `chat("anthropic")`.
 
-- (20m) Multimodal input (vision, PDF)
+- (15m) Multi-modal input (vision, PDF)
   - Activity: images of food and ask for recipes
-  - Activity(alt): images of plots and ask for interpretation
-  - Activity: extract a table from a PDF (as markdown)
+  - Activity: take a PDF of a recipe, turn it into markdown
 
-- (20m) Structured output
+- (15m) Structured output
   - Explain `ellmer::type_*()` or [pydantic model in chatlas](https://posit-dev.github.io/chatlas/get-started/structured-data.html)
-  - Activity: extract ingredients and steps from a recipe
-  - Activity: extract a rich data frame from the PDF from before
+  - Activity: Extract rich data from the recipe PDF
   - Note [use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
 
-- (10m) Parallel/batch calls
+- (15m) Parallel/batch calls
   - Support will hopefully land in chatlas before conf
   - Activity: Extract recipe data in parallel or batch
 
-- (30m) Customizing model behavior with system prompt
+- (35m) Prompting engineering and hallucinations
+  - Activity: images of mpg vs weight and ask for interpretation
+  - Activity (part 1): same question, but we've replaced the image with random noise
+  - Activity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image
   - Prompt engineering best practices, in particular the system prompt
   - Activity: create [the prompt for the quiz game show](https://github.com/jcheng5/llm-quickstart/blob/main/02-tools-prompt.md)
 
-## Morning 3: Augmented Generation (90m)
+## Afternoon 1: Augmented Generation (90m)
 
 > How to add knowledge to LLMs and make them more useful for specific tasks. We implement a simple RAG system, which also naturally introduces the concept of tool calling.
 
@@ -99,14 +101,14 @@
   - Activity: Track answers and score in the app (add/update value boxes)
   - Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.
 
-## Morning 4: Beyond Tools (90m)
+## Afternoon 2: Beyond Tools (90m)
 
 > A look at more advanced topics, including MCP and agents.
 
 - (10m) querychat
   - Activity: Add querychat into an existing shiny app
 
-- (20m) MCP
+- (10m) MCP
   - Overview of MCP and how it works
   - Activity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)
     - ArXiV: https://github.com/andybrandt/mcp-simple-arxiv
@@ -118,7 +120,12 @@
     - context7: https://github.com/upstash/context7
 
 - (30m) Agents
+  - Hadley/Willison definition: Agents are LLMs with a read tool and a write tool
+  - The "you know it when you see it" definition: autonomous LLMs, long context, minimal intervention
+  - Demobot demo
 
-- (30m) The Future of AI (Fireside Chat with Joe)
+- (30m) The Future of AI
+  - Where do we go from here? Let's talk fears and hopes.
 
-- (10m) Wrap-up
+- (5m) Wrap-up
+  - Feedback survey
