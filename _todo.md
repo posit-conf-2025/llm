@@ -9,12 +9,12 @@
 
 ### Morning 1
 
-- [ ] 01_hello: Script to verify API access
-- [ ] 02_word-games: Word guessing game
+- [x] 01_hello: Script to verify API access
+- [x] 02_word-games: Word guessing game
 - [ ] 03_demo_clearbot
 - [ ] 04_demo_token-possibilities
 - [ ] 05_live: Basic live console/app script
-- [ ] 06_word-games-2: Reverse word guessing game
+- [x] 06_word-games-2: Reverse word guessing game
 
 ### Morning 2
 
