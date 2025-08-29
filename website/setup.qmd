@@ -23,7 +23,7 @@ If you don't already have accounts with these services, you'll need to create th
 * [Discord](https://discord.com/register)
   * Used to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.
   * Make sure your [display name](https://support.discord.com/hc/en-us/articles/12620128861463-New-Usernames-Display-Names#h_01GXPQABMYGEHGPRJJXJMPHF5C) is the one you used to register for the conference.
-  * Closer to the conference start, you'll be able to join the `{{< meta conference.name >}}` Discord server via the event portal at <https:://posi.it/conf-event-portal>.
+  * Closer to the conference start, you'll be able to join the `{{< meta workshop.conference.name >}}` Discord server via the event portal at <https:://posi.it/conf-event-portal>.
   * Our workshop channel is [`{{< meta workshop.discord_channel >}}`]({{< meta workshop.links.discord >}}).
 
 
