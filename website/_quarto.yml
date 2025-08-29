@@ -39,8 +39,8 @@ website:
 
   navbar:
     title: "Programming with LLMs"
-    foreground: black
-    background: white
+    background: "#000"
+    foreground: white
     left:
       - href: index.qmd
         text: Home
@@ -85,11 +85,11 @@ website:
 
 format:
   html:
-    theme: [zephyr, styles.scss]
+    theme: [zephyr, styles.scss, styles-page-transition.scss]
     toc: true
     lightbox: true
     include-before-body:
-      - text: <script>document.querySelector('.navbar').dataset.bsTheme = 'light';</script>
+      - text: <script>document.querySelector('.navbar').dataset.bsTheme = 'dark';</script>
       - text: |
           <script>
             const icons = document.querySelectorAll(".quarto-navigation-tool")

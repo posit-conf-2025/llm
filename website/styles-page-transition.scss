@@ -1,0 +1,59 @@
+/*-- scss:rules --*/
+@media screen and (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+/* Define the view transition name for the main content */
+#quarto-document-content {
+  view-transition-name: main-content;
+}
+
+/* Customize the transition for the main content */
+::view-transition-old(main-content) {
+  animation: slide-out-up 0.4s ease-in-out;
+}
+
+::view-transition-new(main-content) {
+  animation: slide-in-up 0.4s ease-in-out;
+}
+
+/* Define the slide-out animation */
+@keyframes slide-out-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* Define the slide-in animation */
+@keyframes slide-in-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Smooth transition for the root container */
+::view-transition-group(main-content) {
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Optional: Add a subtle blur effect during transition */
+::view-transition-old(main-content) {
+  filter: blur(2px);
+}
+
+::view-transition-new(main-content) {
+  filter: blur(0px);
+}

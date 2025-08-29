@@ -57,6 +57,14 @@ engine: markdown
         height: 300px;
     }
 }
+header#title-block-header::before {
+    content: "";
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    background-color: black;
+    top: -80px;
+}
 </style>
 <script>
 function setHue() {
