@@ -19,9 +19,9 @@ website:
   twitter-card:
     creator: "@grrrck"
     site: "@posit-dev"
-    image: assets/open-graph-card-2.png
+    image: assets/open-graph-card.png
   open-graph:
-    image: assets/open-graph-card-2.png
+    image: assets/open-graph-card.png
 
   # announcement:
   #   icon: cone-striped
