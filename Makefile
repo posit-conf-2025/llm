@@ -17,11 +17,11 @@ install-quarto:
 
 
 .PHONY: render
-render: ## [docs] Build the documentation
+render: ## [docs] Build the workshop website
 	cd website && ${QUARTO_PATH} render
 
 .PHONY: preview
-preview:  ## [docs] Preview the documentation
+preview:  ## [docs] Preview the workshop website
 	cd website && ${QUARTO_PATH} preview
 
 .PHONY: py-setup
@@ -33,6 +33,13 @@ r-setup:  ## [r] Setup R environment
 	Rscript -e 'if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")'
 	Rscript -e 'renv::restore()'
 
+.PHONY: secret-encrypt
+secret-encrypt: ## Encrypt the secret env file
+	./secret.py encrypt .env > .env.secret
+
+.PHONY: secret-decrypt
+secret-decrypt: ## Decrpyt the secret env file
+	./secret.py decrypt .env.secret > .env
 
 .PHONY: help
 help:  ## Show help messages for make targets
