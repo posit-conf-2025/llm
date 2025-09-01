@@ -23,6 +23,7 @@
 - [ ] 09_pdf: Script to try PDF input
 - [ ] 10_structured: Script to try structured output
 - [ ] 11_batch: Script to try batch/parallel calls
+  - Save the JSON output and use it in an app
 - [ ] 12_plot-image-1: Generate a plot of mpg vs weight, ask for interpretation
 - [ ] 13_plot-image-2: Same as above, but with random noise instead of the plot
 - [ ] 14_quiz-game-1: Quiz game show prompt engineering
