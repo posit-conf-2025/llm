@@ -132,6 +132,12 @@ def main():
     else:
         password = getpass.getpass("Enter password: ")
 
+        if args.action == "encrypt":
+            confirm_password = getpass.getpass("Confirm password: ")
+            if password != confirm_password:
+                print("Passwords do not match!", file=sys.stderr)
+                sys.exit(1)
+
     input_path = Path(args.input_file)
 
     if not input_path.exists():
