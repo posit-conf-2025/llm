@@ -1,59 +1,36 @@
 Type: Project
 Package: level-up-shiny
-Title: Level Up with Shiny for R at posit::conf(2024)
+Title: Programming with LLMs at posit::conf(2025)
 Version: 0.0.0.9000
-Authors@R:
+Authors@R: c(
     person("Garrick", "Aden-Buie", , "garrick@adenbuie.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-7111-0077"))
-Description: Level up with Shiny for R at posit::conf(2024).
+           comment = c(ORCID = "0000-0002-7111-0077")),
+    person("Joe", "Cheng", , "joe@posit.co", role = "ctb")
+  )
+Description: Programming with LLMs at posit::conf(2025).
 License: CC BY-SA 4.0
-URL: https://github.com/posit-conf-2024/level-up-shiny
-BugReports: https://github.com/posit-conf-2024/level-up-shiny/issues
-Imports: 
-    bench,
+URL: https://github.com/posit-conf-2025/llm
+BugReports: https://github.com/posit-conf-2025/llm/issues
+Imports:
+    askpass,
+    base64enc,
+    brio,
     bsicons,
-    bslib (>= 0.8.0),
-    collegeScorecard (>= 0.1.0),
-    colourpicker,
-    config,
-    DBI,
-    dbplyr,
+    bslib (>= 0.9.0.9000),
+    btw (>= 0.0.4.9000),
+    digest,
     dotenv,
-    fontawesome,
-    forcats,
-    future,
-    ggbeeswarm,
-    glue,
+    dplyr,
+    ellmer,
+    fs,
     here,
-    inspectdf,
-    leaflet,
-    lgr,
-    logger,
-    lorem,
-    plogr,
-    plotly,
-    pool,
-    profvis,
+    magick,
     purrr,
-    readr,
-    roxygen2,
-    RPostgres,
-    rsconnect,
-    shiny (>= 1.9.0),
-    shinylive,
-    shinytest2,
-    styler,
-    thematic,
-    tidyr,
-    withr
-Suggests: 
-    duckdb,
-    grkstyle (>= 0.2.1),
-    usethis
-Remotes: 
-    gadenbuie/grkstyle
+    querychat (>= 0.0.1.9000),
+    ragnar,
+    shiny (>= 1.11.1.9000),
+    shinychat (>= 0.2.0.9000)
 Config/Needs/dev: lionel-/codegrip
-Config/Needs/website: grkstyle
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
