@@ -30,6 +30,9 @@ jobs:
           version: 1.5.55
           tinytex: false
 
+      - name: Install system deps
+        run: sudo apt-get install -y libcurl4-openssl-dev
+
       - name: 🆙 Setup R
         uses: r-lib/actions/setup-r@v2
 
