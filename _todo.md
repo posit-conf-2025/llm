@@ -3,9 +3,12 @@
 ### Setup
 
 - [ ] Quarto website
-  - [ ] hero image
-  - [ ] favicons
-- [ ] App for sharing API keys
+  - [x] hero image
+  - [x] favicons
+  - [x] update setup page
+- [x] App for sharing API keys
+- [x] Set up renv and uv lockfiles
+- [ ] Finalize `renv.lock` and `uv.lock`
 
 ### Morning 1
 
@@ -13,7 +16,7 @@
 - [x] 02_word-games: Word guessing game
 - [ ] 03_demo_clearbot
 - [ ] 04_demo_token-possibilities
-- [ ] 05_live: Basic live console/app script
+- [ ] 05_live: Basic live console/app script (don't need a script for this)
 - [x] 06_word-games-2: Reverse word guessing game
 
 ### Morning 2

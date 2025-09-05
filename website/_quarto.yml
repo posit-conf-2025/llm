@@ -14,8 +14,7 @@ website:
   description: "A beginner's guide to programming with large language models in R and Python"
   site-url: https://posit-conf-2025.github.io/llm
 
-  # TODO: Update these images
-  favicon: assets/posit-conf-favicon.png
+  favicon: assets/posit-conf-favicon.svg
   twitter-card:
     creator: "@grrrck"
     site: "@posit-dev"

@@ -7,18 +7,30 @@ title: Getting Setup
 **Bring your [personal laptop]{.text-danger} and a power cord.**
 This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.
 
-We’ll be using [Posit Cloud](https://posit.cloud) ([details below](#using-posit-cloud)), so you don’t need to set up anything on your computer.
+::: {.callout-caution title="Bring your own laptop"}
+
+You'll need a computer with internet access and the ability to install R or Python packages.
+
+::: {.float-md-end .ms-3 .my-2 style="max-width:300px; text-align: right"}
+![Don't try to use your work laptop!](assets/frustrated-man.png){alt="Frustrated man holding his head in his hands and looking confused at his laptop."}
+:::
+
+We **strongly recommend** using a _personal laptop_ rather than a work laptop.
+Many work laptops have restrictions that may prevent you from installing necessary software or accessing certain websites.
+
+You'll also want to bring a power cord to keep your laptop charged throughout the workshop.
+And a bottle of water (for you, not your laptop) to stay hydrated!
+:::
+
+
+<!--
+As a back-up, you can use an entirely pre-configured [Posit Cloud](https://posit.cloud) instance ([details below](#using-posit-cloud)), so you don’t need to set up anything on your computer.
+-->
 
 ## Create Accounts
 
 In this workshop, we'll be using a few different online services.
 If you don't already have accounts with these services, you'll need to create them before we get started.
-
-* [Posit Cloud](#using-posit-cloud)
-
-* [GitHub](https://github.com/join)
-  * Used to login to the Posit Connect instance set up for this workshop.
-  * Did you know? You can use your GitHub account to log in to Posit Cloud, too!
 
 * [Discord](https://discord.com/register)
   * Used to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.
@@ -26,11 +38,18 @@ If you don't already have accounts with these services, you'll need to create th
   * Closer to the conference start, you'll be able to join the `{{< meta workshop.conference.name >}}` Discord server via the event portal at <https:://posi.it/conf-event-portal>.
   * Our workshop channel is [`{{< meta workshop.discord_channel >}}`]({{< meta workshop.links.discord >}}).
 
+* [GitHub](https://github.com/join)
+  * The workshop materials are hosted on GitHub and we may use GitHub in an activity during the workshop.
 
+<!--
+* [Posit Cloud](#using-posit-cloud)
+-->
+
+<!--
 ## Using Posit Cloud
 
-::: {.callout-note title="Recommended Workflow"}
-The easiest way to get started is to use the Posit Cloud workspace I've prepared for you.
+::: {.callout-note title="Back-up Plan"}
+We're providing a Posit Cloud workspace with all of the packages and files ready-to-go for the workshop.
 
 ::: lead
 Join the Posit Cloud workspace at [{{< meta workshop.links.cloud_short.text >}}]({{< meta workshop.links.cloud_short.href >}}).
@@ -58,52 +77,132 @@ You can create an account with your email or login with Google, GitHub or Clever
 Once you're part of the [{{< meta workshop.links.cloud_short.text >}} space]({{< meta workshop.links.cloud_short.href >}}), select the `{{< meta workshop.links.cloud_short.text >}}` assignment to create and launch a new project just for you.
 
 ::: {.shadow-lg .p-2 .border .border-1 .rounded-2 .text-center}
-<!-- TODO: Update posit cloud workspace screenshot -->
+TODO: Update posit cloud workspace screenshot
 ![](assets/posit-cloud-project.png){.img-fluid alt=""}
 :::
+-->
 
+## Choose your IDE
 
-## Using Your Own Computer
+You can use any IDE you like to follow along with the workshop.
+We'll be using [Positron](https://positron.posit.co), the free, next-generation data science IDE from Posit.
 
-<!-- TODO: Update as as recommended workflow -->
+::: {.text-center}
+[![](https://positron.posit.co/images/astropy.png){style="max-width:600px" alt="Positron IDE screenshot"}](https://positron.posit.co)
 
-::: {.callout-caution title="Advanced Workflow"}
-**This is not the recommended workflow.** I recommend [using the Posit Cloud workspace](#using-posit-cloud) to avoid having to set everything up yourself.
-
-That said, if you prefer to use your own computer, it's entirely possible.
+[<i class="bi bi-display-fill"></i> Download Positron](https://positron.posit.co/download.html){.btn .btn-primary}
 :::
 
-If you prefer to use your own computer, you can [clone the repository]({{< meta workshop.links.repo >}}) and install the necessary packages.
-I used [R 4.4](https://r-project.org) but any recent version of R (>= 4.1) should work.
+Of course, you're welcome to use [RStudio](https://posit.co/download/rstudio-desktop/), [VS Code](https://code.visualstudio.com/) or any other IDE you prefer.
+
+## Prepping for the workshop
+
+To prepare for the workshop, you need to [clone the repository]({{< meta workshop.links.repo >}}) and install the necessary packages.
+
+### Clone the repository
+
+::: {.panel-tabset}
+
+#### ![](assets/icons/positron.svg){width="32px"} Positron
+
+In Positron, use **File** > **New Folder from Git...**.
+Enter the repository link---`{{< meta workshop.links.repo >}}.git`---and choose a location on your computer to save the project.
+
+::: text-center
+![](assets/positron-new-folder-from-git.png)
+:::
+
+#### ![](assets/icons/rstudio.svg){width="32px"} RStudio
+
+In RStudio, use the project dropdown menu (top right) or **File** > **New Project...**.
+Choose **Version Control** and then pick **Git**.
+
+::: text-center
+![Step 1: Choose "Version Control" and "Git".](assets/rstudio-new-project-wizard.png){style="max-width:400px"}
+:::
+
+Enter the repository link---`{{< meta workshop.links.repo >}}.git`---and choose a location on your computer to save the project.
+
+::: text-center
+![Step 2: Enter the repo URL and choose a location for the project.](assets/rstudio-new-project-clone.png){style="max-width:400px"}
+:::
+
+#### ![](assets/icons/vscode.png){width="32px"} VS Code
+
+In VS Code,
+
+1. open the command palette with `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac).
+2. Type `Git: Clone` and select it.
+3. Enter the repository link: `{{< meta workshop.links.repo >}}.git`
+4. Choose a location on your computer to save the project.
+
+::: text-center
+![](assets/vscode-git-clone.png){style="max-width:400px"}
+:::
+
+#### ![](assets/icons/r-color.svg){width="36px"} usethis
 
 You can use the [usethis](https://usethis.r-lib.org) package to quickly clone the repository:
 
 ```r
 usethis::create_from_github(
-  "posit-conf-2024/level-up-shiny",
+  "posit-conf-2025/llm",
   # Decide where to put the project here:
-  destdir = "~/Desktop/level-up-shiny"
+  destdir = "~/Desktop/llm"
 )
 ```
 
 This will download the repository and open the project in RStudio.
 
-### With renv
+#### ![](assets/icons/github.svg){width="32px"} GitHub
 
-Inside the project, use the `renv` package to install the necessary packages:
+```bash
+cd ~/Desktop # or somewhere you can find easily
+
+gh repo clone posit-conf-2025/llm
+cd llm
+```
+
+#### ![](assets/icons/git-icon.svg){width="32px"} git
+
+```bash
+cd ~/Desktop # or somewhere you can find easily
+
+git clone https://github.com/posit-conf-2025/llm.git
+cd llm
+```
+:::
+
+
+### Set up your environment
+
+::: {.panel-tabset group="lang"}
+
+#### ![](assets/icons/r-color.svg){height="36px" alt="R"}
+
+First, make sure you're using [a recent version of R](https://r-project.org).
+I used [R 4.5](https://r-project.org) but any recent version of R (>= 4.1) should work.
+
+
+::: panel-tabset
+##### With renv (recommended)
+
+Inside the project, use the `renv` package to install the necessary packages.
+`renv` will automatically install when you open the project in Positron or RStudio.
+Run the following command in the R console to get started:
 
 ```r
 renv::restore()
 ```
 
-For very speedy installation, I recommend telling renv to use [pak](https://pak.r-lib.org/) to install packages:
+For very speedy installation, I recommend telling `renv` to use [pak](https://pak.r-lib.org/) to install packages:
 
 ```r
 Sys.setenv(RENV_CONFIG_PAK_ENABLED = "true")
 renv::restore()
 ```
 
-### Without renv
+##### Without renv
 
 Sometimes `renv` can be a little tricky to get set up.
 Fortunately, there's an alternative installation method that should work just as well.
@@ -127,3 +226,38 @@ Or with [remotes](https://remotes.r-lib.org):
 # install.packages("remotes")
 remotes::install_deps(dependencies = TRUE)
 ```
+:::
+
+#### ![](assets/icons/python-icon-color.svg){height="36px" alt="Python"}
+
+We're using [uv](https://docs.astral.sh/uv/) by Astral to manage our Python environment and dependencies.
+If you don't have `uv` installed, you can install it by following the instructions at <https://docs.astral.sh/uv/getting-started/installation/>.
+
+Once you're set up with `uv`, open the project in your IDE and run the following command in the terminal to create the Python environment and install the necessary packages:
+
+```bash
+uv sync
+```
+
+That command will create a virtual environment in the project directory and install all the required packages listed in the `pyproject.toml` file.
+:::
+
+
+## The night before the workshop
+
+If you've followed the instructions above, you should be all set for the workshop!
+But we'll likely be making some last-minute changes to the workshop materials as we get closer to the event.
+
+To be completely ready-to-go on the day of the workshop, make sure that you get the latest version of the materials the night before the workshop.
+
+* **Update your local copy of the repository:**
+
+  Use `git pull` in the terminal, or the **Git: Pull** command in your IDE.
+
+* **Update your R packages:**
+
+  If you're using R, run `renv::restore()` again to make sure you have the latest package versions.
+
+* **Update your Python packages:**
+
+  If you're using Python, run `uv sync` again to make sure you have the latest package versions.
