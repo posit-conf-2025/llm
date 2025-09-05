@@ -17,7 +17,6 @@ Imports:
     brio,
     bsicons,
     bslib (>= 0.9.0.9000),
-    btw (>= 0.0.4.9000),
     digest,
     dotenv,
     dplyr,
@@ -25,12 +24,13 @@ Imports:
     fs,
     here,
     magick,
+    mcptools,
     purrr,
     querychat (>= 0.0.1.9000),
     ragnar,
     shiny (>= 1.11.1.9000),
     shinychat (>= 0.2.0.9000)
-Remotes: 
+Remotes:
     posit-dev/btw
 Config/Needs/dev: lionel-/codegrip
 Encoding: UTF-8
