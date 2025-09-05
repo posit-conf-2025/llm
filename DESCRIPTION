@@ -30,6 +30,8 @@ Imports:
     ragnar,
     shiny (>= 1.11.1.9000),
     shinychat (>= 0.2.0.9000)
+Remotes: 
+    posit-dev/btw
 Config/Needs/dev: lionel-/codegrip
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
