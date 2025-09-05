@@ -35,10 +35,8 @@ jobs:
 
       - name: 📦 Install dependencies with renv
         uses: r-lib/actions/setup-renv@v2
-        env:
-          RENV_CONFIG_PAK_ENABLED: true
         with:
-          cache-version: 4
+          cache-version: 1
 
       - name: 📦 Install website dependencies
         shell: Rscript {0}
