@@ -26,7 +26,7 @@ preview:  ## [docs] Preview the workshop website
 
 .PHONY: py-setup
 py-setup:  ## [py] Setup python environment
-	uv sync --all-extras
+	uv sync --all-extras --upgrade
 
 .PHONY: r-setup
 r-setup:  ## [r] Setup R environment
