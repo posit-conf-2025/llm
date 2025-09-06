@@ -182,6 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#clone-the-repository" id="toc-clone-the-repository" class="nav-link" data-scroll-target="#clone-the-repository">Clone the repository</a></li>
   <li><a href="#set-up-your-environment" id="toc-set-up-your-environment" class="nav-link" data-scroll-target="#set-up-your-environment">Set up your environment</a></li>
   </ul></li>
+  <li><a href="#local-models" id="toc-local-models" class="nav-link" data-scroll-target="#local-models">Local models with ollama</a></li>
   <li><a href="#the-night-before-the-workshop" id="toc-the-night-before-the-workshop" class="nav-link" data-scroll-target="#the-night-before-the-workshop">The night before the workshop</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/posit-conf-2025/llm/edit/main/website/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/posit-conf-2025/llm/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -242,6 +243,20 @@ Bring your own laptop
 </div>
 <p>We <strong>strongly recommend</strong> using a <em>personal laptop</em> rather than a work laptop. Many work laptops have restrictions that may prevent you from installing necessary software or accessing certain websites.</p>
 <p>You’ll also want to bring a power cord to keep your laptop charged throughout the workshop. And a bottle of water (for you, not your laptop) to stay hydrated!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="We'll give you an API key">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+We’ll give you an API key
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We’ll be using APIs from <a href="https://platform.openai.com/docs/overview">OpenAI</a> and <a href="https://www.anthropic.com/api">Anthropic</a>, but don’t worry, you don’t need to bring an API key. We’ll provide an API key for you to use during the workshop and we’ll walk you through set up in-person.</p>
+<p>If you’d like to also use or try local models during the workshop, you should <a href="#local-models">install ollama and download a model</a>.</p>
 </div>
 </div>
 <!--
@@ -424,6 +439,99 @@ TODO: Update posit cloud workspace screenshot
 </div>
 </section>
 </section>
+<section id="local-models" class="level2">
+<h2 class="anchored" data-anchor-id="local-models">Local models with ollama</h2>
+<p><a href="https://ollama.com">ollama is an open-source tool</a> for running LLMs locally on your computer. Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.</p>
+<p>To use ollama, first <a href="https://ollama.com/download">download and install it on your computer</a>.</p>
+<p>Then, you can browse <a href="https://ollama.com/search">the list of models on the ollama website</a> to find a model that you want to use. Here are a few that we like for local testing. For the workshop, I’d recommend installing <code>granite3.2-vision</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">ID</th>
+<th style="text-align: right;">Size</th>
+<th style="text-align: left;">Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><a href="https://ollama.com/library/granite3.2-vision">granite3.2-vision</a></td>
+<td style="text-align: right;">2.4GB</td>
+<td style="text-align: left;"><span class="badge text-bg-primary">tools</span> <span class="badge text-bg-danger">vision</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><a href="https://ollama.com/library/qwen3:8b">qwen3:8b</a></td>
+<td style="text-align: right;">5.2GB</td>
+<td style="text-align: left;"><span class="badge text-bg-primary">tools</span> <span class="badge text-bg-info">thinking</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><a href="https://ollama.com/library/gpt-oss:20b">gpt-oss:20b</a></td>
+<td style="text-align: right;">14GB</td>
+<td style="text-align: left;"><span class="badge text-bg-primary">tools</span> <span class="badge text-bg-info">thinking</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><a href="https://ollama.com/library/gemma3:4b">gemma3:4b</a></td>
+<td style="text-align: right;">3.3GB</td>
+<td style="text-align: left;"><span class="badge text-bg-danger">vision</span></td>
+</tr>
+</tbody>
+</table>
+<p>To use a model, you first need to download it. For example, to download <a href="https://ollama.com/library/granite3.2-vision">granite3.2-vision</a>, run the following command in your terminal:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull granite3.2-vision</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>That command downloads the model to your computer. Once the model is downloaded, you can use it on your own computer without needing to be connected to the internet.</p>
+<p>You can use <code>ollama</code> to chat with the model directly in your terminal</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run granite3.2-vision</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or you can use ellmer or chatlas to interact with the model from R or Python.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="lang">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"><img src="assets/icons/r-color.svg" alt="R" height="36"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false"><img src="assets/icons/python-icon-color.svg" alt="Python" height="36"></a></li></ul>
+<div class="tab-content" data-group="lang">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_ollama</span>(<span class="at">model =</span> <span class="st">"granite3.2-vision"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"What is the capital of France?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>The capital of France is <strong>Paris</strong>.</p>
+<p>It’s a global center for art, fashion, gastronomy, and culture. 🌍🇫🇷</p>
+</blockquote>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> chatlas <span class="im">import</span> ChatOllama</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>chat <span class="op">=</span> ChatOllama(model<span class="op">=</span><span class="st">"granite3.2-vision"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>chat.chat(<span class="st">"What is the capital of France?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>The capital of France is Paris.</p>
+<p>It’s a global center for art, fashion, gastronomy, and culture. 😊</p>
+<p>Do you want to know anything more about Paris?</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Why use a local model?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why use a local model?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Local models are just like the famous ChatGPT or Claude models, but they run entirely on your own computer. You can use them for all of the same tasks: conversational AI, code generation, text processing, vision and more. There are a wide range of models available at many different sizes and capabilities, so you can choose one that fits your hardware and performance needs.</p>
+<p><strong>Local models are no where near as capable as the flagship models from OpenAI or Anthropic.</strong> Still, there are a few reasons you might want to use a local model:</p>
+<ol type="1">
+<li>Your conversation never leaves your computer, ensuring complete data privacy.</li>
+<li>No API costs, making local models very low-cost (other than the cost of your laptop or the hardware to run the model).</li>
+<li>They work offline, so you can use them without an internet connection.</li>
+</ol>
+<p>Local models are a great option for prototyping, experimentation, and personal use. They’re also useful to companies that want to use LLMs but have strict data privacy requirements and need to ensure that their data never leaves their network.</p>
+<p>On the other hand, because you’re running the model on your own hardware, local models are slower and less powerful than cloud-based models, especially if you’re using a laptop or desktop computer. Personally, I use local models for experiments and testing to avoid API charges and switch to cloud-based models when I’m putting an LLM-powered application into production.</p>
+</div>
+</div>
+</div>
+</section>
 <section id="the-night-before-the-workshop" class="level2">
 <h2 class="anchored" data-anchor-id="the-night-before-the-workshop">The night before the workshop</h2>
 <p>If you’ve followed the instructions above, you should be all set for the workshop! But we’ll likely be making some last-minute changes to the workshop materials as we get closer to the event.</p>
@@ -440,7 +548,13 @@ TODO: Update posit cloud workspace screenshot
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>If you want another, slightly bigger, model to try out, add <a href="https://ollama.com/library/gpt-oss:20b">gpt-oss:20b</a> or a <code>qwen3</code> variant, either <a href="https://ollama.com/library/qwen3:8b">qwen3:8b</a> or <a href="https://ollama.com/library/qwen3:14b">qwen3:14b</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -875,7 +989,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
