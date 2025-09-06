@@ -1,0 +1,184 @@
+/*-- scss:rules --*/
+.table-highlight-even>table>tbody>tr:nth-child(2n) {
+  font-weight: bold;
+}
+
+.table-highlight-even>table>tbody>tr:nth-child(2n - 1) {
+  opacity: 0.5
+}
+
+.table-what-matters > table > tbody {
+  & > tr:nth-child(2n - 1) {
+    & > td:first-child {
+      opacity: 0.15;
+    }
+    & > td:last-child {
+      font-weight: bold;
+    }
+  }
+  & > tr:nth-child(2n) {
+    & > td:first-child {
+      font-weight: bold;
+    }
+    & > td:last-child {
+      opacity: 0.15;
+    }
+  }
+}
+
+.table-no-border {
+
+  >table th,
+  >table td {
+    border-bottom: none;
+    padding-block: var(--row-padding);
+  }
+}
+
+:root {
+  --title-slide-background-color: #419599;
+}
+
+.reveal .progress {
+  color: var(--title-slide-background-color);
+}
+
+.reveal .slide-your-turn {
+  background-color: #17212b;
+  --slide-color: #F2F5F8;
+  --quarto-hl-fu-color: #E7B10A;
+  --r-link-color: #ff5fa1;
+  --r-link-color-hover: #E56399;
+
+  strong {
+    color: var(--quarto-hl-fu-color);
+  }
+
+  code {
+    color: var(--quarto-hl-fu-color);
+  }
+}
+
+:root {
+  --countdown-font-size: var(--step-3);
+  --sl-fullscreen-scale: 1.5;
+}
+
+.reveal pre.sourceCode code {
+  max-height: 800px;
+}
+
+.reveal pre code {
+  max-height: none;
+  white-space: pre;
+}
+
+.reveal .sourceCode.cell-code:has(+ .cell-output) {
+  margin-bottom: 0 !important;
+}
+
+.cell-output {
+  margin-bottom: 1rem;
+}
+
+.highlight-line {
+  --_highlight-line-color: var(--highlight-line-color, oklab(0.95 -0.04 0.16 / 0.7));
+  background: var(--_highlight-line-color);
+  display: inline-block;
+  width: 100vw;
+  outline: 0.125lh solid var(--_highlight-line-color);
+  font-weight: 500;
+}
+
+.reveal .sourceCode:has(> .shinylive-wrapper) {
+  border: none;
+  background-color: inherit;
+  color: inherit;
+}
+
+div.shinylive-wrapper {
+  box-shadow: none;
+  border: none;
+}
+
+.easy-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: var(--space-s);
+}
+
+.easy-columns > div > :first-child {
+  margin-top: 0;
+}
+
+.easy-columns > div > :last-child {
+  margin-bottom: 0;
+}
+
+.gradient-shinytest2 {
+  background-image:
+    linear-gradient(
+      to bottom in oklch,
+      #3775A9 0%, #A61E22 100%
+    )
+  ;
+}
+
+.pulsing {
+  animation: pulse 2s infinite;
+  transform-origin: 10% 40%;
+}
+
+@keyframes pulse {
+  0% {
+      stroke-width: 1;
+      transform: scale(1);
+  }
+  50% {
+      stroke-width: 3; /* Adjust the stroke width for different effect */
+      transform: scale(1.2); /* Adjust the scaling factor as needed */
+  }
+  100% {
+      stroke-width: 1;
+      transform: scale(1);
+  }
+}
+
+@keyframes pulse-wobble {
+  0% {
+      stroke-width: 1;
+      transform: scale(1) rotateZ(-30deg);
+  }
+  50% {
+      stroke-width: 3; /* Adjust the stroke width for different effect */
+      transform: scale(1.2) rotateZ(0deg); /* Adjust the scaling factor as needed */
+  }
+  100% {
+      stroke-width: 1;
+      transform: scale(1) rotateZ(-30deg);
+  }
+}
+
+.slide-container > svg,
+.col > svg {
+  width: 100%;
+  height: auto;
+}
+
+.highlight-li-last li {
+  &.visible {
+    opacity: 0.5 !important;
+  }
+  &.visible.current-fragment {
+    opacity: 1 !important;
+  }
+}
+
+mark.squiggle {
+  background: none; /* Remove default highlighting */
+  text-decoration: underline wavy #FF0000aa 3px; /* Add red squiggle underline */
+}
+
+.text-center {
+  text-align: center;
+}

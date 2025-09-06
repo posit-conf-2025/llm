@@ -1,0 +1,21 @@
+[
+  {
+    "listing": "/about/index.html",
+    "items": []
+  },
+  {
+    "listing": "/workshop.html",
+    "items": [
+      "/workshop-01.html",
+      "/workshop-02.html",
+      "/workshop-03-break.html",
+      "/workshop-04.html",
+      "/workshop-05.html",
+      "/workshop-06-break.html",
+      "/workshop-07.html",
+      "/workshop-08.html",
+      "/workshop-09-break.html",
+      "/workshop-10.html"
+    ]
+  }
+]
