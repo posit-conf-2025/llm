@@ -2,6 +2,8 @@
 title: Getting Setup
 ---
 
+{{< include partials/links.qmd >}}
+
 ### What to bring
 
 **Bring your [personal laptop]{.text-danger} and a power cord.**
@@ -20,6 +22,13 @@ Many work laptops have restrictions that may prevent you from installing necessa
 
 You'll also want to bring a power cord to keep your laptop charged throughout the workshop.
 And a bottle of water (for you, not your laptop) to stay hydrated!
+:::
+
+::: {.callout-tip title="We'll give you an API key"}
+We'll be using APIs from [OpenAI][openai-api] and [Anthropic][anthropic-api], but don't worry, you don't need to bring an API key.
+We'll provide an API key for you to use during the workshop and we'll walk you through set up in-person.
+
+If you'd like to also use or try local models during the workshop, you should [install ollama and download a model](#local-models).
 :::
 
 
@@ -242,6 +251,94 @@ uv sync
 That command will create a virtual environment in the project directory and install all the required packages listed in the `pyproject.toml` file.
 :::
 
+## Local models with ollama {#local-models}
+
+[ollama is an open-source tool](https://ollama.com) for running LLMs locally on your computer.
+Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.
+
+To use ollama, first [download and install it on your computer](https://ollama.com/download).
+
+Then, you can browse [the list of models on the ollama website](https://ollama.com/search) to find a model that you want to use.
+Here are a few that we like for local testing.
+For the workshop, I'd recommend installing `granite3.2-vision`[^plus-more].
+
+[^plus-more]: If you want another, slightly bigger, model to try out, add [gpt-oss:20b][ollama-gpt-oss] or a `qwen3` variant, either [qwen3:8b][ollama-qwen3-8b] or [qwen3:14b][ollama-qwen3-14b].
+
+| ID | Size | Capabilities |
+|--:|--:|:--|
+| [granite3.2-vision][ollama-granite-vision] | 2.4GB | [tools]{.badge .text-bg-primary} [vision]{.badge .text-bg-danger} |
+| [qwen3:8b][ollama-qwen3-8b] | 5.2GB | [tools]{.badge .text-bg-primary} [thinking]{.badge .text-bg-info} |
+| [gpt-oss:20b][ollama-gpt-oss] | 14GB | [tools]{.badge .text-bg-primary} [thinking]{.badge .text-bg-info} |
+| [gemma3:4b](https://ollama.com/library/gemma3:4b) | 3.3GB | [vision]{.badge .text-bg-danger} |
+
+To use a model, you first need to download it.
+For example, to download [granite3.2-vision][ollama-granite-vision], run the following command in your terminal:
+
+``` bash
+ollama pull granite3.2-vision
+```
+
+That command downloads the model to your computer.
+Once the model is downloaded, you can use it on your own computer without needing to be connected to the internet.
+
+You can use `ollama` to chat with the model directly in your terminal
+
+``` bash
+ollama run granite3.2-vision
+```
+
+or you can use ellmer or chatlas to interact with the model from R or Python.
+
+::: {.panel-tabset group="lang"}
+#### ![](assets/icons/r-color.svg){height="36px" alt="R"}
+
+``` r
+library(ellmer)
+
+chat <- chat_ollama(model = "granite3.2-vision")
+chat$chat("What is the capital of France?")
+```
+
+> The capital of France is **Paris**.
+>
+> It's a global center for art, fashion, gastronomy, and culture.
+> 🌍🇫🇷
+
+#### ![](assets/icons/python-icon-color.svg){height="36px" alt="Python"}
+
+``` python
+from chatlas import ChatOllama
+
+chat = ChatOllama(model="granite3.2-vision")
+chat.chat("What is the capital of France?")
+```
+
+> The capital of France is Paris.
+>
+> It’s a global center for art, fashion, gastronomy, and culture.
+> 😊
+>
+> Do you want to know anything more about Paris?
+:::
+
+::: {.callout-note title="Why use a local model?" collapse="true"}
+Local models are just like the famous ChatGPT or Claude models, but they run entirely on your own computer.
+You can use them for all of the same tasks: conversational AI, code generation, text processing, vision and more.
+There are a wide range of models available at many different sizes and capabilities, so you can choose one that fits your hardware and performance needs.
+
+**Local models are no where near as capable as the flagship models from OpenAI or Anthropic.**
+Still, there are a few reasons you might want to use a local model:
+
+1.  Your conversation never leaves your computer, ensuring complete data privacy.
+2.  No API costs, making local models very low-cost (other than the cost of your laptop or the hardware to run the model).
+3.  They work offline, so you can use them without an internet connection.
+
+Local models are a great option for prototyping, experimentation, and personal use.
+They're also useful to companies that want to use LLMs but have strict data privacy requirements and need to ensure that their data never leaves their network.
+
+On the other hand, because you're running the model on your own hardware, local models are slower and less powerful than cloud-based models, especially if you're using a laptop or desktop computer.
+Personally, I use local models for experiments and testing to avoid API charges and switch to cloud-based models when I'm putting an LLM-powered application into production.
+:::
 
 ## The night before the workshop
 

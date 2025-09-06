@@ -1,0 +1,12 @@
+[openai-api]: https://platform.openai.com/docs/overview
+[anthropic-api]: https://www.anthropic.com/api
+[chatgpt]: https://chat.openai.com
+[claude]: https://claude.ai
+[ollama]: https://ollama.com
+[ollama-models]: https://ollama.com/models
+[ollama-gpt-oss]: https://ollama.com/library/gpt-oss:20b
+[ollama-qwen3-8b]: https://ollama.com/library/qwen3:8b
+[ollama-qwen3-14b]: https://ollama.com/library/qwen3:14b
+[ollama-granite-vision]: https://ollama.com/library/granite3.2-vision
+[ellmer]: https://ellmer.tidyverse.org
+[chatlas]: https://posit-dev.github.io/chatlas
