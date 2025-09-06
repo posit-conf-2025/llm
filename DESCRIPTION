@@ -28,8 +28,10 @@ Imports:
     purrr,
     querychat (>= 0.0.1.9000),
     ragnar,
+    scales,
     shiny (>= 1.11.1.9000),
-    shinychat (>= 0.2.0.9000)
+    shinychat (>= 0.2.0.9000),
+    watcher
 Remotes:
     posit-dev/btw
 Config/Needs/dev: lionel-/codegrip
