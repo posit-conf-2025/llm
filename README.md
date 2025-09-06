@@ -10,8 +10,9 @@ by Joe Cheng and Garrick Aden-Buie
 :spiral_calendar: September 16, 2025 \
 :alarm_clock:     09:00 - 17:00 \
 :hotel:           Regency VII \
-<!-- :writing_hand:    [pos.it/llm-conf25](http://pos.it/llm-conf25) -->
 :writing_hand:    <https://posit-conf-2025.github.io/llm/>
+
+<!-- :writing_hand:    [pos.it/llm-conf25](http://pos.it/llm-conf25) -->
 
 -----
 
