@@ -120,6 +120,15 @@ h1, .h1, h2, .h2, h3, .h3 {
   border-bottom: 1px solid rgba(var(--bs-body-color-rgb), .1);
 }
 
+// fixup auto-dark-mode
+header {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+header video {
+  filter: invert(0%);
+}
+
 // Posit features ----
 .eyebrow {
   dl { padding-top: 1rem; }
