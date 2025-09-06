@@ -8,6 +8,7 @@ dependencies = [
     "anthropic>=0.64.0",
     "chatlas>=0.11.2",
     "dotenv>=0.9.9",
+    "duckduckgo-search>=8.1.1",
     "openai>=1.102.0",
     "pillow>=11.3.0",
     "pydantic>=2.11.7",
