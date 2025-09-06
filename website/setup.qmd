@@ -9,20 +9,25 @@ title: Getting Setup
 **Bring your [personal laptop]{.text-danger} and a power cord.**
 This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.
 
-::: {.callout-caution title="Bring your own laptop"}
+:::::: {.callout-caution title="Bring your own laptop"}
 
 You'll need a computer with internet access and the ability to install R or Python packages.
 
-::: {.float-md-end .ms-3 .my-2 style="max-width:300px; text-align: right"}
-![Don't try to use your work laptop!](assets/frustrated-man.png){alt="Frustrated man holding his head in his hands and looking confused at his laptop."}
-:::
-
+::: {.grid .gap-2}
+::: {.g-col-12 .g-col-sm-6 .g-col-lg-8}
 We **strongly recommend** using a _personal laptop_ rather than a work laptop.
 Many work laptops have restrictions that may prevent you from installing necessary software or accessing certain websites.
 
 You'll also want to bring a power cord to keep your laptop charged throughout the workshop.
-And a bottle of water (for you, not your laptop) to stay hydrated!
+And a bottle of water to stay hydrated (for you, not your laptop)!
 :::
+
+::: {.g-col-12 .g-col-sm-6 .g-col-lg-4 .text-end .align-self-center}
+![Fighting with your IT department during our workshop is not fun.](assets/frustrated-man.png){alt="Frustrated man holding his head in his hands and looking confused at his laptop."}
+:::
+:::
+
+::::::
 
 ::: {.callout-tip title="We'll give you an API key"}
 We'll be using APIs from [OpenAI][openai-api] and [Anthropic][anthropic-api], but don't worry, you don't need to bring an API key.
