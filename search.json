@@ -1,5 +1,379 @@
 [
   {
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "Our Team",
+    "section": "",
+    "text": "Joe Cheng\n        CTO, Posit\n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n            \n        \n    \n\n    \n        \n        Garrick Aden-Buie\n        Software Engineer, Shiny\n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        Karan Gathani\n        \n        \n            Assistant\n        \n        \n    \n\n    \n        \n        Julia Silge\n        \n        \n            Assistant\n        \n        \n    \n\n    \n        \n        Sam Clark\n        \n        \n            Assistant\n        \n        \n    \n\n    \n        \n        James Blair\n        \n        \n            Assistant\n        \n        \n    \n\n\nNo matching items"
+  },
+  {
+    "objectID": "workshop.html",
+    "href": "workshop.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Workshop",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "workshop.html#schedule",
+    "href": "workshop.html#schedule",
+    "title": "Overview",
+    "section": "",
+    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Workshop",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "workshop-09-break.html",
+    "href": "workshop-09-break.html",
+    "title": "☕ Break",
+    "section": "",
+    "text": "Image by DALL-E 3",
+    "crumbs": [
+      "Workshop",
+      "☕ Break"
+    ]
+  },
+  {
+    "objectID": "workshop-07.html",
+    "href": "workshop-07.html",
+    "title": "Augmented Generation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Augmented Generation"
+    ]
+  },
+  {
+    "objectID": "workshop-07.html#slides",
+    "href": "workshop-07.html#slides",
+    "title": "Augmented Generation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Augmented Generation"
+    ]
+  },
+  {
+    "objectID": "workshop-07.html#outline",
+    "href": "workshop-07.html#outline",
+    "title": "Augmented Generation",
+    "section": "Outline",
+    "text": "Outline\n\n(10m) Manual RAG\n\nActivity: Data science coding assistant\n\nGiven a data science task using polars or dplyr, ask an LLM to generate or explain code, first without any context.\nThen, give it the relevant section of the polars or dplyr documentation and see how much better the response is.\n\n\n(30m) RAG\n\nHigh-level overview of how RAG works\nActivity: Build a dynamic RAG system\n\nWe’ll have the complete, raw dplyr or polars documentation.\nPreprocess and compute embeddings for each chunk using ragnar or llama-index\n\nhttps://posit-dev.github.io/chatlas/misc/RAG.html#dynamic-retrieval\nhttps://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag\n\nAdd a tool that searches the embeddings and returns the top few chunks\n\nchatlas: this means writing a function\nellmer: Use ragnar",
+    "crumbs": [
+      "Workshop",
+      "Augmented Generation"
+    ]
+  },
+  {
+    "objectID": "workshop-05.html",
+    "href": "workshop-05.html",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Prompt Engineering"
+    ]
+  },
+  {
+    "objectID": "workshop-05.html#slides",
+    "href": "workshop-05.html#slides",
+    "title": "Prompt Engineering",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Prompt Engineering"
+    ]
+  },
+  {
+    "objectID": "workshop-05.html#outline",
+    "href": "workshop-05.html#outline",
+    "title": "Prompt Engineering",
+    "section": "Outline",
+    "text": "Outline\n\n(35m) Prompting engineering and hallucinations\n\nActivity: images of mpg vs weight and ask for interpretation\nActivity (part 1): same question, but we’ve replaced the image with random noise\nActivity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image\nPrompt engineering best practices, in particular the system prompt\nActivity: create the prompt for the quiz game show",
+    "crumbs": [
+      "Workshop",
+      "Prompt Engineering"
+    ]
+  },
+  {
+    "objectID": "workshop-03-break.html",
+    "href": "workshop-03-break.html",
+    "title": "☕ Break",
+    "section": "",
+    "text": "Image by DALL-E 3",
+    "crumbs": [
+      "Workshop",
+      "☕ Break"
+    ]
+  },
+  {
+    "objectID": "workshop-01.html",
+    "href": "workshop-01.html",
+    "title": "Welcome and getting started",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Welcome and getting started"
+    ]
+  },
+  {
+    "objectID": "workshop-01.html#slides",
+    "href": "workshop-01.html#slides",
+    "title": "Welcome and getting started",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Welcome and getting started"
+    ]
+  },
+  {
+    "objectID": "workshop-01.html#outline",
+    "href": "workshop-01.html#outline",
+    "title": "Welcome and getting started",
+    "section": "Outline",
+    "text": "Outline\n\n(10m) Welcome, introductions, workshop expectations\n\nActivity: introduce yourself to your neighbors\n\n(10m) Set-up and verify API access\n\nActivity: simple script to verify API access (write an “I’m at posit::conf(2025) social media post”)\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nThis section gives us some extra time to troubleshoot any setup issues",
+    "crumbs": [
+      "Workshop",
+      "Welcome and getting started"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "Workshop at posit::conf(2025)September 16, 202509:00 - 17:00Regency VII"
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Programming with LLMs",
+    "section": "Introduction",
+    "text": "Introduction\nLarge Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.\nParticipants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:\n\nCoding with LLMs unlocks possibilities beyond standard tools\nNo advanced AI background is required\nImplementing AI can be both accessible and exciting\n\nDesigned for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and touches on advanced topics like fine-tuning and Retrieval-Augmented Generation (RAG). Attendees will gain hands-on experience through guided or personal projects, providing the confidence to start their LLM journey."
+  },
+  {
+    "objectID": "index.html#links",
+    "href": "index.html#links",
+    "title": "Programming with LLMs",
+    "section": "Links",
+    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n🧑‍💻 Join Posit Cloud Space\n👾 Discord (signup instructions)\n📦 Repository\n🎡 posit::conf(2025)"
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Getting Setup",
+    "section": "",
+    "text": "Bring your personal laptop and a power cord. This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.\n\n\n\n\n\n\nCautionBring your own laptop\n\n\n\nYou’ll need a computer with internet access and the ability to install R or Python packages.\n\n\nWe strongly recommend using a personal laptop rather than a work laptop. Many work laptops have restrictions that may prevent you from installing necessary software or accessing certain websites.\nYou’ll also want to bring a power cord to keep your laptop charged throughout the workshop. And a bottle of water to stay hydrated (for you, not your laptop)!\n\n\n\n\n\nFighting with your IT department during our workshop is not fun.\n\n\n\n\n\n\n\n\n\n\n\n\nTipWe’ll give you an API key\n\n\n\nWe’ll be using APIs from OpenAI and Anthropic, but don’t worry, you don’t need to bring an API key. We’ll provide an API key for you to use during the workshop and we’ll walk you through set up in-person.\nIf you’d like to also use or try local models during the workshop, you should install ollama and download a model."
+  },
+  {
+    "objectID": "setup.html#create-accounts",
+    "href": "setup.html#create-accounts",
+    "title": "Getting Setup",
+    "section": "Create Accounts",
+    "text": "Create Accounts\nIn this workshop, we’ll be using a few different online services. If you don’t already have accounts with these services, you’ll need to create them before we get started.\n\nDiscord\n\nUsed to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.\nMake sure your display name is the one you used to register for the conference.\nCloser to the conference start, you’ll be able to join the posit::conf(2025) Discord server via the event portal at https:://posi.it/conf-event-portal.\nOur workshop channel is #workshop-llm.\n\nGitHub\n\nThe workshop materials are hosted on GitHub and we may use GitHub in an activity during the workshop."
+  },
+  {
+    "objectID": "setup.html#choose-your-ide",
+    "href": "setup.html#choose-your-ide",
+    "title": "Getting Setup",
+    "section": "Choose your IDE",
+    "text": "Choose your IDE\nYou can use any IDE you like to follow along with the workshop. We’ll be using Positron, the free, next-generation data science IDE from Posit.\n\n\n Download Positron\n\nOf course, you’re welcome to use RStudio, VS Code or any other IDE you prefer."
+  },
+  {
+    "objectID": "setup.html#prepping-for-the-workshop",
+    "href": "setup.html#prepping-for-the-workshop",
+    "title": "Getting Setup",
+    "section": "Prepping for the workshop",
+    "text": "Prepping for the workshop\nTo prepare for the workshop, you need to clone the repository and install the necessary packages.\n\nClone the repository\n\n Positron RStudio VS Code usethis GitHub git\n\n\nIn Positron, use File &gt; New Folder from Git…. Enter the repository link—https://github.com/posit-conf-2025/llm.git—and choose a location on your computer to save the project.\n\n\n\n\n\nIn RStudio, use the project dropdown menu (top right) or File &gt; New Project…. Choose Version Control and then pick Git.\n\n\n\n\nStep 1: Choose “Version Control” and “Git”.\n\n\n\nEnter the repository link—https://github.com/posit-conf-2025/llm.git—and choose a location on your computer to save the project.\n\n\n\n\nStep 2: Enter the repo URL and choose a location for the project.\n\n\n\n\n\nIn VS Code,\n\nopen the command palette with Ctrl+Shift+P (Windows/Linux) or Cmd+Shift+P (Mac).\nType Git: Clone and select it.\nEnter the repository link: https://github.com/posit-conf-2025/llm.git\nChoose a location on your computer to save the project.\n\n\n\n\n\n\nYou can use the usethis package to quickly clone the repository:\nusethis::create_from_github(\n  \"posit-conf-2025/llm\",\n  # Decide where to put the project here:\n  destdir = \"~/Desktop/llm\"\n)\nThis will download the repository and open the project in RStudio.\n\n\ncd ~/Desktop # or somewhere you can find easily\n\ngh repo clone posit-conf-2025/llm\ncd llm\n\n\ncd ~/Desktop # or somewhere you can find easily\n\ngit clone https://github.com/posit-conf-2025/llm.git\ncd llm\n\n\n\n\n\nSet up your environment\n\n\n\n\nFirst, make sure you’re using a recent version of R. I used R 4.5 but any recent version of R (&gt;= 4.1) should work.\n\nWith renv (recommended)Without renv\n\n\nInside the project, use the renv package to install the necessary packages. renv will automatically install when you open the project in Positron or RStudio. Run the following command in the R console to get started:\nrenv::restore()\nFor very speedy installation, I recommend telling renv to use pak to install packages:\nSys.setenv(RENV_CONFIG_PAK_ENABLED = \"true\")\nrenv::restore()\n\n\nSometimes renv can be a little tricky to get set up. Fortunately, there’s an alternative installation method that should work just as well.\nFirst, disable renv:\nrenv::deactivate()\nThen install use pak to install the necessary packages:\n# install.packages(\"pak\")\npak::local_install_deps(dependencies = TRUE)\nOr with remotes:\n# install.packages(\"remotes\")\nremotes::install_deps(dependencies = TRUE)\n\n\n\n\n\nWe’re using uv by Astral to manage our Python environment and dependencies. If you don’t have uv installed, you can install it by following the instructions at https://docs.astral.sh/uv/getting-started/installation/.\nOnce you’re set up with uv, open the project in your IDE and run the following command in the terminal to create the Python environment and install the necessary packages:\nuv sync\nThat command will create a virtual environment in the project directory and install all the required packages listed in the pyproject.toml file."
+  },
+  {
+    "objectID": "setup.html#local-models",
+    "href": "setup.html#local-models",
+    "title": "Getting Setup",
+    "section": "Local models with ollama",
+    "text": "Local models with ollama\nollama is an open-source tool for running LLMs locally on your computer. Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.\nTo use ollama, first download and install it on your computer.\nThen, you can browse the list of models on the ollama website to find a model that you want to use. Here are a few that we like for local testing. For the workshop, I’d recommend installing granite3.2-vision1.\n\n\n\nID\nSize\nCapabilities\n\n\n\n\ngranite3.2-vision\n2.4GB\ntools vision\n\n\nqwen3:8b\n5.2GB\ntools thinking\n\n\ngpt-oss:20b\n14GB\ntools thinking\n\n\ngemma3:4b\n3.3GB\nvision\n\n\n\nTo use a model, you first need to download it. For example, to download granite3.2-vision, run the following command in your terminal:\nollama pull granite3.2-vision\nThat command downloads the model to your computer. Once the model is downloaded, you can use it on your own computer without needing to be connected to the internet.\nYou can use ollama to chat with the model directly in your terminal\nollama run granite3.2-vision\nor you can use ellmer or chatlas to interact with the model from R or Python.\n\n\n\n\nlibrary(ellmer)\n\nchat &lt;- chat_ollama(model = \"granite3.2-vision\")\nchat$chat(\"What is the capital of France?\")\n\nThe capital of France is Paris.\nIt’s a global center for art, fashion, gastronomy, and culture. 🌍🇫🇷\n\n\n\nfrom chatlas import ChatOllama\n\nchat = ChatOllama(model=\"granite3.2-vision\")\nchat.chat(\"What is the capital of France?\")\n\nThe capital of France is Paris.\nIt’s a global center for art, fashion, gastronomy, and culture. 😊\nDo you want to know anything more about Paris?\n\n\n\n\n\n\n\n\n\n\nNoteWhy use a local model?\n\n\n\n\n\nLocal models are just like the famous ChatGPT or Claude models, but they run entirely on your own computer. You can use them for all of the same tasks: conversational AI, code generation, text processing, vision and more. There are a wide range of models available at many different sizes and capabilities, so you can choose one that fits your hardware and performance needs.\nLocal models are no where near as capable as the flagship models from OpenAI or Anthropic. Still, there are a few reasons you might want to use a local model:\n\nYour conversation never leaves your computer, ensuring complete data privacy.\nNo API costs, making local models very low-cost (other than the cost of your laptop or the hardware to run the model).\nThey work offline, so you can use them without an internet connection.\n\nLocal models are a great option for prototyping, experimentation, and personal use. They’re also useful to companies that want to use LLMs but have strict data privacy requirements and need to ensure that their data never leaves their network.\nOn the other hand, because you’re running the model on your own hardware, local models are slower and less powerful than cloud-based models, especially if you’re using a laptop or desktop computer. Personally, I use local models for experiments and testing to avoid API charges and switch to cloud-based models when I’m putting an LLM-powered application into production."
+  },
+  {
+    "objectID": "setup.html#the-night-before-the-workshop",
+    "href": "setup.html#the-night-before-the-workshop",
+    "title": "Getting Setup",
+    "section": "The night before the workshop",
+    "text": "The night before the workshop\nIf you’ve followed the instructions above, you should be all set for the workshop! But we’ll likely be making some last-minute changes to the workshop materials as we get closer to the event.\nTo be completely ready-to-go on the day of the workshop, make sure that you get the latest version of the materials the night before the workshop.\n\nUpdate your local copy of the repository:\nUse git pull in the terminal, or the Git: Pull command in your IDE.\nUpdate your R packages:\nIf you’re using R, run renv::restore() again to make sure you have the latest package versions.\nUpdate your Python packages:\nIf you’re using Python, run uv sync again to make sure you have the latest package versions."
+  },
+  {
+    "objectID": "setup.html#footnotes",
+    "href": "setup.html#footnotes",
+    "title": "Getting Setup",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nIf you want another, slightly bigger, model to try out, add gpt-oss:20b or a qwen3 variant, either qwen3:8b or qwen3:14b.↩︎"
+  },
+  {
+    "objectID": "workshop-02.html",
+    "href": "workshop-02.html",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Anatomy of a conversation"
+    ]
+  },
+  {
+    "objectID": "workshop-02.html#slides",
+    "href": "workshop-02.html#slides",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Anatomy of a conversation"
+    ]
+  },
+  {
+    "objectID": "workshop-02.html#outline",
+    "href": "workshop-02.html#outline",
+    "title": "Anatomy of a conversation",
+    "section": "Outline",
+    "text": "Outline\n\n(20m) Anatomy of a conversation\n\nTo get a get a response, you send a message via HTTP\nMessage roles: system, user, assistant\nActivity: Word guessing game\n\nSystem prompt: You are playing a word guessing game. At each turn, guess the word and tell us what it is.\nWe give a few questions to ask\nAlso include a modifier in the first message, e.g. “In ____, …” picking from “British English”, “pirate”, “Spanish”, etc.\nThe modifier in the first message steers subsequent answers\n\nThe conversation is stateless\n\nUse clearbot to walk through an example, showing the requests and responses\nFirst: Using British spellings, guess the word for the person living next door.\nSecond: What helps a car move smoothly down the road?\nClear the chat and try second question again.\n\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides from Intro to AI course\nTokens as the fundamental unit\nExample: https://connect.posit.it/ai-intro-token-possibilities\n\n(20m) Shinychat basics\n\nActivity: live_console() and live_browser() (or chat.console() and chat.app())\nMaking your own shinychat app with chat.ui() and chat.append(). R users can use the chat module with chat_mod_server().\nActivity: Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.",
+    "crumbs": [
+      "Workshop",
+      "Anatomy of a conversation"
+    ]
+  },
+  {
+    "objectID": "workshop-04.html",
+    "href": "workshop-04.html",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Programming with LLMs"
+    ]
+  },
+  {
+    "objectID": "workshop-04.html#slides",
+    "href": "workshop-04.html#slides",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Programming with LLMs"
+    ]
+  },
+  {
+    "objectID": "workshop-04.html#resources",
+    "href": "workshop-04.html#resources",
+    "title": "Programming with LLMs",
+    "section": "Resources",
+    "text": "Resources\n\n(10m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(15m) Parallel/batch calls\n\nSupport will hopefully land in chatlas before conf\nActivity: Extract recipe data in parallel or batch",
+    "crumbs": [
+      "Workshop",
+      "Programming with LLMs"
+    ]
+  },
+  {
+    "objectID": "workshop-06-break.html",
+    "href": "workshop-06-break.html",
+    "title": "🍱 Lunch",
+    "section": "",
+    "text": "Image by DALL-E 3",
+    "crumbs": [
+      "Workshop",
+      "🍱 Lunch"
+    ]
+  },
+  {
+    "objectID": "workshop-08.html",
+    "href": "workshop-08.html",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Tool Calling"
+    ]
+  },
+  {
+    "objectID": "workshop-08.html#slides",
+    "href": "workshop-08.html#slides",
+    "title": "Tool Calling",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Tool Calling"
+    ]
+  },
+  {
+    "objectID": "workshop-08.html#outline",
+    "href": "workshop-08.html#outline",
+    "title": "Tool Calling",
+    "section": "Outline",
+    "text": "Outline\n\n(20m) Tool calling\n\nExplain how tool calling pattern, mostly following https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny\nActivity: quiz show\n\nWe provide an R/Python function that plays a sound\n\nR: beepr, Python: playsound\n\nThey document the function and register it as a tool in the Quiz Show app\n\n\n(30m) Tool calling UI\n\nPrimarily a series of activities that progressively enhance the quiz show app\nActivity: Add tool annotations to give the tool an icon and title\nActivity: Use ContentToolResult to return custom title and icon\nActivity: Track answers and score in the app (add/update value boxes)\nActivity: Add tool to check score and finalize a round with a display of the final score and questions asked.",
+    "crumbs": [
+      "Workshop",
+      "Tool Calling"
+    ]
+  },
+  {
+    "objectID": "workshop-10.html",
+    "href": "workshop-10.html",
+    "title": "Beyond Tools",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Beyond Tools"
+    ]
+  },
+  {
+    "objectID": "workshop-10.html#slides",
+    "href": "workshop-10.html#slides",
+    "title": "Beyond Tools",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Beyond Tools"
+    ]
+  },
+  {
+    "objectID": "workshop-10.html#outline",
+    "href": "workshop-10.html#outline",
+    "title": "Beyond Tools",
+    "section": "Outline",
+    "text": "Outline\n\n(10m) querychat\n\nActivity: Add querychat into an existing shiny app\n\n(10m) MCP\n\nOverview of MCP and how it works\nActivity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)\n\nArXiV: https://github.com/andybrandt/mcp-simple-arxiv\nwebpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp\nstocky: https://github.com/joelio/stocky\nfetcher: https://github.com/jae-jae/fetcher-mcp\ngit-ingest: https://github.com/adhikasp/mcp-git-ingest\ngithub: https://arc.net/l/quote/bvfqahnx\ncontext7: https://github.com/upstash/context7\n\n\n(30m) Agents\n\nHadley/Willison definition: Agents are LLMs with a read tool and a write tool\nThe “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention\nDemobot demo\n\n(30m) The Future of AI\n\nWhere do we go from here? Let’s talk fears and hopes.\n\n(5m) Wrap-up\n\nFeedback survey",
+    "crumbs": [
+      "Workshop",
+      "Beyond Tools"
+    ]
+  },
+  {
+    "objectID": "workshop-10.html#workshop-survey",
+    "href": "workshop-10.html#workshop-survey",
+    "title": "Beyond Tools",
+    "section": "Workshop Survey",
+    "text": "Workshop Survey\nPlease take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!\npos.it/conf-workshop-survey",
+    "crumbs": [
+      "Workshop",
+      "Beyond Tools"
+    ]
+  },
+  {
     "objectID": "slides/slides-01-intro.html#welcome-to-level-up-with-shiny-for-r",
     "href": "slides/slides-01-intro.html#welcome-to-level-up-with-shiny-for-r",
     "title": "Welcome!",
@@ -39,7 +413,7 @@
     "href": "slides/slides-01-intro.html#positconf2024-things-to-know",
     "title": "Welcome!",
     "section": "posit::conf(2024) Things to Know",
-    "text": "posit::conf(2024) Things to Know\n\n\nThere will be a gender-neutral bathroom on levels 3:7\nMeditation/prayer room: 503\n\nMon & Tues 7am - 7pm\nWed 7am - 5pm\n\nMothers room: 509"
+    "text": "posit::conf(2024) Things to Know\n\nThere will be a gender-neutral bathroom on levels 3:7\nMeditation/prayer room: 503\n\nMon & Tues 7am - 7pm\nWed 7am - 5pm\n\nMothers room: 509"
   },
   {
     "objectID": "slides/slides-01-intro.html#positconf2024-social-media",
@@ -117,379 +491,5 @@
     "title": "Welcome!",
     "section": "Exercise Solutions",
     "text": "Exercise Solutions\n\n👨‍💻 👩‍💻 _exercises/01_app.R\n   🫣    _exercises/01_solution_app.R"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Programming with LLMs",
-    "section": "",
-    "text": "Workshop at posit::conf(2025)September 16, 202509:00 - 17:00Regency VII"
-  },
-  {
-    "objectID": "index.html#introduction",
-    "href": "index.html#introduction",
-    "title": "Programming with LLMs",
-    "section": "Introduction",
-    "text": "Introduction\nLarge Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.\nParticipants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:\n\nCoding with LLMs unlocks possibilities beyond standard tools\nNo advanced AI background is required\nImplementing AI can be both accessible and exciting\n\nDesigned for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and touches on advanced topics like fine-tuning and Retrieval-Augmented Generation (RAG). Attendees will gain hands-on experience through guided or personal projects, providing the confidence to start their LLM journey."
-  },
-  {
-    "objectID": "index.html#links",
-    "href": "index.html#links",
-    "title": "Programming with LLMs",
-    "section": "Links",
-    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n🧑‍💻 Join Posit Cloud Space\n👾 Discord (signup instructions)\n📦 Repository\n🎡 posit::conf(2025)"
-  },
-  {
-    "objectID": "workshop-08.html",
-    "href": "workshop-08.html",
-    "title": "Tool Calling",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Tool Calling"
-    ]
-  },
-  {
-    "objectID": "workshop-08.html#slides",
-    "href": "workshop-08.html#slides",
-    "title": "Tool Calling",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Tool Calling"
-    ]
-  },
-  {
-    "objectID": "workshop-08.html#outline",
-    "href": "workshop-08.html#outline",
-    "title": "Tool Calling",
-    "section": "Outline",
-    "text": "Outline\n\n(20m) Tool calling\n\nExplain how tool calling pattern, mostly following https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny\nActivity: quiz show\n\nWe provide an R/Python function that plays a sound\n\nR: beepr, Python: playsound\n\nThey document the function and register it as a tool in the Quiz Show app\n\n\n(30m) Tool calling UI\n\nPrimarily a series of activities that progressively enhance the quiz show app\nActivity: Add tool annotations to give the tool an icon and title\nActivity: Use ContentToolResult to return custom title and icon\nActivity: Track answers and score in the app (add/update value boxes)\nActivity: Add tool to check score and finalize a round with a display of the final score and questions asked.",
-    "crumbs": [
-      "Workshop",
-      "Tool Calling"
-    ]
-  },
-  {
-    "objectID": "workshop-05.html",
-    "href": "workshop-05.html",
-    "title": "Prompt Engineering",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Prompt Engineering"
-    ]
-  },
-  {
-    "objectID": "workshop-05.html#slides",
-    "href": "workshop-05.html#slides",
-    "title": "Prompt Engineering",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Prompt Engineering"
-    ]
-  },
-  {
-    "objectID": "workshop-05.html#outline",
-    "href": "workshop-05.html#outline",
-    "title": "Prompt Engineering",
-    "section": "Outline",
-    "text": "Outline\n\n(35m) Prompting engineering and hallucinations\n\nActivity: images of mpg vs weight and ask for interpretation\nActivity (part 1): same question, but we’ve replaced the image with random noise\nActivity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image\nPrompt engineering best practices, in particular the system prompt\nActivity: create the prompt for the quiz game show",
-    "crumbs": [
-      "Workshop",
-      "Prompt Engineering"
-    ]
-  },
-  {
-    "objectID": "workshop-02.html",
-    "href": "workshop-02.html",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
-    "objectID": "workshop-02.html#slides",
-    "href": "workshop-02.html#slides",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
-    "objectID": "workshop-02.html#outline",
-    "href": "workshop-02.html#outline",
-    "title": "Anatomy of a conversation",
-    "section": "Outline",
-    "text": "Outline\n\n(20m) Anatomy of a conversation\n\nTo get a get a response, you send a message via HTTP\nMessage roles: system, user, assistant\nActivity: Word guessing game\n\nSystem prompt: You are playing a word guessing game. At each turn, guess the word and tell us what it is.\nWe give a few questions to ask\nAlso include a modifier in the first message, e.g. “In ____, …” picking from “British English”, “pirate”, “Spanish”, etc.\nThe modifier in the first message steers subsequent answers\n\nThe conversation is stateless\n\nUse clearbot to walk through an example, showing the requests and responses\nFirst: Using British spellings, guess the word for the person living next door.\nSecond: What helps a car move smoothly down the road?\nClear the chat and try second question again.\n\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides from Intro to AI course\nTokens as the fundamental unit\nExample: https://connect.posit.it/ai-intro-token-possibilities\n\n(20m) Shinychat basics\n\nActivity: live_console() and live_browser() (or chat.console() and chat.app())\nMaking your own shinychat app with chat.ui() and chat.append(). R users can use the chat module with chat_mod_server().\nActivity: Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.",
-    "crumbs": [
-      "Workshop",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "Our Team",
-    "section": "",
-    "text": "Joe Cheng\n        CTO, Posit\n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n            \n        \n    \n\n    \n        \n        Garrick Aden-Buie\n        Software Engineer, Shiny\n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        Karan Gathani\n        \n        \n            Assistant\n        \n        \n    \n\n    \n        \n        Julia Silge\n        \n        \n            Assistant\n        \n        \n    \n\n    \n        \n        Sam Clark\n        \n        \n            Assistant\n        \n        \n    \n\n    \n        \n        James Blair\n        \n        \n            Assistant\n        \n        \n    \n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "workshop-09-break.html",
-    "href": "workshop-09-break.html",
-    "title": "☕ Break",
-    "section": "",
-    "text": "Image by DALL-E 3",
-    "crumbs": [
-      "Workshop",
-      "☕ Break"
-    ]
-  },
-  {
-    "objectID": "workshop-03-break.html",
-    "href": "workshop-03-break.html",
-    "title": "☕ Break",
-    "section": "",
-    "text": "Image by DALL-E 3",
-    "crumbs": [
-      "Workshop",
-      "☕ Break"
-    ]
-  },
-  {
-    "objectID": "workshop-06-break.html",
-    "href": "workshop-06-break.html",
-    "title": "🍱 Lunch",
-    "section": "",
-    "text": "Image by DALL-E 3",
-    "crumbs": [
-      "Workshop",
-      "🍱 Lunch"
-    ]
-  },
-  {
-    "objectID": "workshop.html",
-    "href": "workshop.html",
-    "title": "Overview",
-    "section": "",
-    "text": "Title\n\n\ntime\n\n\nDescription\n\n\n\n\n\n\nWelcome and getting started\n\n\n540\n\n\nHello and welcome to the workshop!\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Workshop",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "workshop.html#schedule",
-    "href": "workshop.html#schedule",
-    "title": "Overview",
-    "section": "",
-    "text": "Title\n\n\ntime\n\n\nDescription\n\n\n\n\n\n\nWelcome and getting started\n\n\n540\n\n\nHello and welcome to the workshop!\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Workshop",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "workshop-01.html",
-    "href": "workshop-01.html",
-    "title": "Welcome and getting started",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Welcome and getting started"
-    ]
-  },
-  {
-    "objectID": "workshop-01.html#slides",
-    "href": "workshop-01.html#slides",
-    "title": "Welcome and getting started",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Welcome and getting started"
-    ]
-  },
-  {
-    "objectID": "workshop-01.html#outline",
-    "href": "workshop-01.html#outline",
-    "title": "Welcome and getting started",
-    "section": "Outline",
-    "text": "Outline\n\n(10m) Welcome, introductions, workshop expectations\n\nActivity: introduce yourself to your neighbors\n\n(10m) Set-up and verify API access\n\nActivity: simple script to verify API access (write an “I’m at posit::conf(2025) social media post”)\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nThis section gives us some extra time to troubleshoot any setup issues",
-    "crumbs": [
-      "Workshop",
-      "Welcome and getting started"
-    ]
-  },
-  {
-    "objectID": "workshop-04.html",
-    "href": "workshop-04.html",
-    "title": "Programming with LLMs",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Programming with LLMs"
-    ]
-  },
-  {
-    "objectID": "workshop-04.html#slides",
-    "href": "workshop-04.html#slides",
-    "title": "Programming with LLMs",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Programming with LLMs"
-    ]
-  },
-  {
-    "objectID": "workshop-04.html#resources",
-    "href": "workshop-04.html#resources",
-    "title": "Programming with LLMs",
-    "section": "Resources",
-    "text": "Resources\n\n(10m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(15m) Parallel/batch calls\n\nSupport will hopefully land in chatlas before conf\nActivity: Extract recipe data in parallel or batch",
-    "crumbs": [
-      "Workshop",
-      "Programming with LLMs"
-    ]
-  },
-  {
-    "objectID": "workshop-07.html",
-    "href": "workshop-07.html",
-    "title": "Augmented Generation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Augmented Generation"
-    ]
-  },
-  {
-    "objectID": "workshop-07.html#slides",
-    "href": "workshop-07.html#slides",
-    "title": "Augmented Generation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Augmented Generation"
-    ]
-  },
-  {
-    "objectID": "workshop-07.html#outline",
-    "href": "workshop-07.html#outline",
-    "title": "Augmented Generation",
-    "section": "Outline",
-    "text": "Outline\n\n(10m) Manual RAG\n\nActivity: Data science coding assistant\n\nGiven a data science task using polars or dplyr, ask an LLM to generate or explain code, first without any context.\nThen, give it the relevant section of the polars or dplyr documentation and see how much better the response is.\n\n\n(30m) RAG\n\nHigh-level overview of how RAG works\nActivity: Build a dynamic RAG system\n\nWe’ll have the complete, raw dplyr or polars documentation.\nPreprocess and compute embeddings for each chunk using ragnar or llama-index\n\nhttps://posit-dev.github.io/chatlas/misc/RAG.html#dynamic-retrieval\nhttps://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag\n\nAdd a tool that searches the embeddings and returns the top few chunks\n\nchatlas: this means writing a function\nellmer: Use ragnar",
-    "crumbs": [
-      "Workshop",
-      "Augmented Generation"
-    ]
-  },
-  {
-    "objectID": "workshop-10.html",
-    "href": "workshop-10.html",
-    "title": "Beyond Tools",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Beyond Tools"
-    ]
-  },
-  {
-    "objectID": "workshop-10.html#slides",
-    "href": "workshop-10.html#slides",
-    "title": "Beyond Tools",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Beyond Tools"
-    ]
-  },
-  {
-    "objectID": "workshop-10.html#outline",
-    "href": "workshop-10.html#outline",
-    "title": "Beyond Tools",
-    "section": "Outline",
-    "text": "Outline\n\n(10m) querychat\n\nActivity: Add querychat into an existing shiny app\n\n(10m) MCP\n\nOverview of MCP and how it works\nActivity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)\n\nArXiV: https://github.com/andybrandt/mcp-simple-arxiv\nwebpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp\nstocky: https://github.com/joelio/stocky\nfetcher: https://github.com/jae-jae/fetcher-mcp\ngit-ingest: https://github.com/adhikasp/mcp-git-ingest\ngithub: https://arc.net/l/quote/bvfqahnx\ncontext7: https://github.com/upstash/context7\n\n\n(30m) Agents\n\nHadley/Willison definition: Agents are LLMs with a read tool and a write tool\nThe “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention\nDemobot demo\n\n(30m) The Future of AI\n\nWhere do we go from here? Let’s talk fears and hopes.\n\n(5m) Wrap-up\n\nFeedback survey",
-    "crumbs": [
-      "Workshop",
-      "Beyond Tools"
-    ]
-  },
-  {
-    "objectID": "workshop-10.html#workshop-survey",
-    "href": "workshop-10.html#workshop-survey",
-    "title": "Beyond Tools",
-    "section": "Workshop Survey",
-    "text": "Workshop Survey\nPlease take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!\npos.it/conf-workshop-survey",
-    "crumbs": [
-      "Workshop",
-      "Beyond Tools"
-    ]
-  },
-  {
-    "objectID": "setup.html",
-    "href": "setup.html",
-    "title": "Getting Setup",
-    "section": "",
-    "text": "Bring your personal laptop and a power cord. This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.\n\n\n\n\n\n\nBring your own laptop\n\n\n\nYou’ll need a computer with internet access and the ability to install R or Python packages.\n\n\nWe strongly recommend using a personal laptop rather than a work laptop. Many work laptops have restrictions that may prevent you from installing necessary software or accessing certain websites.\nYou’ll also want to bring a power cord to keep your laptop charged throughout the workshop. And a bottle of water to stay hydrated (for you, not your laptop)!\n\n\n\n\n\nFighting with your IT department during our workshop is not fun.\n\n\n\n\n\n\n\n\n\n\n\n\nWe’ll give you an API key\n\n\n\nWe’ll be using APIs from OpenAI and Anthropic, but don’t worry, you don’t need to bring an API key. We’ll provide an API key for you to use during the workshop and we’ll walk you through set up in-person.\nIf you’d like to also use or try local models during the workshop, you should install ollama and download a model."
-  },
-  {
-    "objectID": "setup.html#create-accounts",
-    "href": "setup.html#create-accounts",
-    "title": "Getting Setup",
-    "section": "Create Accounts",
-    "text": "Create Accounts\nIn this workshop, we’ll be using a few different online services. If you don’t already have accounts with these services, you’ll need to create them before we get started.\n\nDiscord\n\nUsed to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.\nMake sure your display name is the one you used to register for the conference.\nCloser to the conference start, you’ll be able to join the posit::conf(2025) Discord server via the event portal at https:://posi.it/conf-event-portal.\nOur workshop channel is #workshop-llm.\n\nGitHub\n\nThe workshop materials are hosted on GitHub and we may use GitHub in an activity during the workshop."
-  },
-  {
-    "objectID": "setup.html#choose-your-ide",
-    "href": "setup.html#choose-your-ide",
-    "title": "Getting Setup",
-    "section": "Choose your IDE",
-    "text": "Choose your IDE\nYou can use any IDE you like to follow along with the workshop. We’ll be using Positron, the free, next-generation data science IDE from Posit.\n\n\n Download Positron\n\nOf course, you’re welcome to use RStudio, VS Code or any other IDE you prefer."
-  },
-  {
-    "objectID": "setup.html#prepping-for-the-workshop",
-    "href": "setup.html#prepping-for-the-workshop",
-    "title": "Getting Setup",
-    "section": "Prepping for the workshop",
-    "text": "Prepping for the workshop\nTo prepare for the workshop, you need to clone the repository and install the necessary packages.\n\nClone the repository\n\n Positron RStudio VS Code usethis GitHub git\n\n\nIn Positron, use File &gt; New Folder from Git…. Enter the repository link—https://github.com/posit-conf-2025/llm.git—and choose a location on your computer to save the project.\n\n\n\n\n\nIn RStudio, use the project dropdown menu (top right) or File &gt; New Project…. Choose Version Control and then pick Git.\n\n\n\n\nStep 1: Choose “Version Control” and “Git”.\n\n\n\nEnter the repository link—https://github.com/posit-conf-2025/llm.git—and choose a location on your computer to save the project.\n\n\n\n\nStep 2: Enter the repo URL and choose a location for the project.\n\n\n\n\n\nIn VS Code,\n\nopen the command palette with Ctrl+Shift+P (Windows/Linux) or Cmd+Shift+P (Mac).\nType Git: Clone and select it.\nEnter the repository link: https://github.com/posit-conf-2025/llm.git\nChoose a location on your computer to save the project.\n\n\n\n\n\n\nYou can use the usethis package to quickly clone the repository:\nusethis::create_from_github(\n  \"posit-conf-2025/llm\",\n  # Decide where to put the project here:\n  destdir = \"~/Desktop/llm\"\n)\nThis will download the repository and open the project in RStudio.\n\n\ncd ~/Desktop # or somewhere you can find easily\n\ngh repo clone posit-conf-2025/llm\ncd llm\n\n\ncd ~/Desktop # or somewhere you can find easily\n\ngit clone https://github.com/posit-conf-2025/llm.git\ncd llm\n\n\n\n\n\nSet up your environment\n\n\n\n\nFirst, make sure you’re using a recent version of R. I used R 4.5 but any recent version of R (&gt;= 4.1) should work.\n\nWith renv (recommended)Without renv\n\n\nInside the project, use the renv package to install the necessary packages. renv will automatically install when you open the project in Positron or RStudio. Run the following command in the R console to get started:\nrenv::restore()\nFor very speedy installation, I recommend telling renv to use pak to install packages:\nSys.setenv(RENV_CONFIG_PAK_ENABLED = \"true\")\nrenv::restore()\n\n\nSometimes renv can be a little tricky to get set up. Fortunately, there’s an alternative installation method that should work just as well.\nFirst, disable renv:\nrenv::deactivate()\nThen install use pak to install the necessary packages:\n# install.packages(\"pak\")\npak::local_install_deps(dependencies = TRUE)\nOr with remotes:\n# install.packages(\"remotes\")\nremotes::install_deps(dependencies = TRUE)\n\n\n\n\n\nWe’re using uv by Astral to manage our Python environment and dependencies. If you don’t have uv installed, you can install it by following the instructions at https://docs.astral.sh/uv/getting-started/installation/.\nOnce you’re set up with uv, open the project in your IDE and run the following command in the terminal to create the Python environment and install the necessary packages:\nuv sync\nThat command will create a virtual environment in the project directory and install all the required packages listed in the pyproject.toml file."
-  },
-  {
-    "objectID": "setup.html#local-models",
-    "href": "setup.html#local-models",
-    "title": "Getting Setup",
-    "section": "Local models with ollama",
-    "text": "Local models with ollama\nollama is an open-source tool for running LLMs locally on your computer. Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.\nTo use ollama, first download and install it on your computer.\nThen, you can browse the list of models on the ollama website to find a model that you want to use. Here are a few that we like for local testing. For the workshop, I’d recommend installing granite3.2-vision1.\n\n\n\nID\nSize\nCapabilities\n\n\n\n\ngranite3.2-vision\n2.4GB\ntools vision\n\n\nqwen3:8b\n5.2GB\ntools thinking\n\n\ngpt-oss:20b\n14GB\ntools thinking\n\n\ngemma3:4b\n3.3GB\nvision\n\n\n\nTo use a model, you first need to download it. For example, to download granite3.2-vision, run the following command in your terminal:\nollama pull granite3.2-vision\nThat command downloads the model to your computer. Once the model is downloaded, you can use it on your own computer without needing to be connected to the internet.\nYou can use ollama to chat with the model directly in your terminal\nollama run granite3.2-vision\nor you can use ellmer or chatlas to interact with the model from R or Python.\n\n\n\n\nlibrary(ellmer)\n\nchat &lt;- chat_ollama(model = \"granite3.2-vision\")\nchat$chat(\"What is the capital of France?\")\n\nThe capital of France is Paris.\nIt’s a global center for art, fashion, gastronomy, and culture. 🌍🇫🇷\n\n\n\nfrom chatlas import ChatOllama\n\nchat = ChatOllama(model=\"granite3.2-vision\")\nchat.chat(\"What is the capital of France?\")\n\nThe capital of France is Paris.\nIt’s a global center for art, fashion, gastronomy, and culture. 😊\nDo you want to know anything more about Paris?\n\n\n\n\n\n\n\n\n\n\nWhy use a local model?\n\n\n\n\n\nLocal models are just like the famous ChatGPT or Claude models, but they run entirely on your own computer. You can use them for all of the same tasks: conversational AI, code generation, text processing, vision and more. There are a wide range of models available at many different sizes and capabilities, so you can choose one that fits your hardware and performance needs.\nLocal models are no where near as capable as the flagship models from OpenAI or Anthropic. Still, there are a few reasons you might want to use a local model:\n\nYour conversation never leaves your computer, ensuring complete data privacy.\nNo API costs, making local models very low-cost (other than the cost of your laptop or the hardware to run the model).\nThey work offline, so you can use them without an internet connection.\n\nLocal models are a great option for prototyping, experimentation, and personal use. They’re also useful to companies that want to use LLMs but have strict data privacy requirements and need to ensure that their data never leaves their network.\nOn the other hand, because you’re running the model on your own hardware, local models are slower and less powerful than cloud-based models, especially if you’re using a laptop or desktop computer. Personally, I use local models for experiments and testing to avoid API charges and switch to cloud-based models when I’m putting an LLM-powered application into production."
-  },
-  {
-    "objectID": "setup.html#the-night-before-the-workshop",
-    "href": "setup.html#the-night-before-the-workshop",
-    "title": "Getting Setup",
-    "section": "The night before the workshop",
-    "text": "The night before the workshop\nIf you’ve followed the instructions above, you should be all set for the workshop! But we’ll likely be making some last-minute changes to the workshop materials as we get closer to the event.\nTo be completely ready-to-go on the day of the workshop, make sure that you get the latest version of the materials the night before the workshop.\n\nUpdate your local copy of the repository:\nUse git pull in the terminal, or the Git: Pull command in your IDE.\nUpdate your R packages:\nIf you’re using R, run renv::restore() again to make sure you have the latest package versions.\nUpdate your Python packages:\nIf you’re using Python, run uv sync again to make sure you have the latest package versions."
-  },
-  {
-    "objectID": "setup.html#footnotes",
-    "href": "setup.html#footnotes",
-    "title": "Getting Setup",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nIf you want another, slightly bigger, model to try out, add gpt-oss:20b or a qwen3 variant, either qwen3:8b or qwen3:14b.↩︎"
   }
 ]
