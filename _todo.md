@@ -14,8 +14,8 @@
 
 - [x] 01_hello: Script to verify API access
 - [x] 02_word-games: Word guessing game
-- [ ] 03_demo_clearbot
-- [ ] 04_demo_token-possibilities
+- [x] 03_demo_clearbot
+- [x] 04_demo_token-possibilities
 - [ ] 05_live: Basic live console/app script (don't need a script for this)
 - [x] 06_word-games-2: Reverse word guessing game
 
