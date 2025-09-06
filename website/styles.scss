@@ -121,12 +121,14 @@ h1, .h1, h2, .h2, h3, .h3 {
 }
 
 // fixup auto-dark-mode
-header {
-  filter: invert(100%) hue-rotate(180deg);
-}
+@media (prefers-color-scheme: dark) {
+  header {
+    filter: invert(100%) hue-rotate(180deg);
+  }
 
-header video {
-  filter: invert(0%);
+  header video {
+    filter: invert(0%);
+  }
 }
 
 // Posit features ----
