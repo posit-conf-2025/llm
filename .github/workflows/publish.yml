@@ -4,6 +4,7 @@ on:
       - main
     paths:
       - "website/**"
+      - "renv.lock"
       - ".github/workflows/publish.yml"
 
 name: Render and Publish
