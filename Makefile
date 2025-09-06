@@ -1,5 +1,5 @@
 # Use qvm to manage quarto
-QUARTO_VERSION ?= 1.7.31
+QUARTO_VERSION ?= 1.8.24
 QUARTO_PATH = ~/.local/share/qvm/versions/v${QUARTO_VERSION}/bin/quarto
 
 .PHONY: install-quarto
@@ -12,8 +12,8 @@ install-quarto:
 	qvm install v${QUARTO_VERSION}
 	@echo "🔹 Updating .vscode/settings.json"
 	@awk -v path="${QUARTO_PATH}" '/"quarto.path":/ {gsub(/"quarto.path": ".*"/, "\"quarto.path\": \"" path "\"")} 1' .vscode/settings.json > .vscode/settings.json.tmp && mv .vscode/settings.json.tmp .vscode/settings.json
-	@echo "🔹 Updating .github/workflows/quartodoc.yaml"
-	@awk -v ver="${QUARTO_VERSION}" '/QUARTO_VERSION:/ {gsub(/QUARTO_VERSION: .*/, "QUARTO_VERSION: " ver)} 1' .github/workflows/quartodoc.yaml > .github/workflows/quartodoc.yaml.tmp && mv .github/workflows/quartodoc.yaml.tmp .github/workflows/quartodoc.yaml
+	@echo "🔹 Updating .github/workflows/publish.yml"
+	@awk -v ver="${QUARTO_VERSION}" '/QUARTO_VERSION:/ {gsub(/QUARTO_VERSION: .*/, "QUARTO_VERSION: " ver)} 1' .github/workflows/publish.yml > .github/workflows/publish.yml.tmp && mv .github/workflows/publish.yml.tmp .github/workflows/publish.yml
 
 
 .PHONY: render
