@@ -1,7 +1,6 @@
 import functools
 import json
 import os
-import requests
 import traceback
 from typing import Callable, ParamSpec, TypeVar, Union
 
@@ -51,6 +50,7 @@ def read_text_file(path: str, encoding: str = "UTF-8") -> str:
     with open(path, encoding=encoding) as f:
         return f.read()
 
+
 @safe_errors
 def get_weather_forecast(lat: float, lon: float):
     """Get weather forecast using NWS API directly and return as markdown"""
@@ -60,7 +60,7 @@ def get_weather_forecast(lat: float, lon: float):
     response.raise_for_status()
 
     points_data = response.json()
-    forecast_url = points_data['properties']['forecast']
+    forecast_url = points_data["properties"]["forecast"]
 
     # Step 2: Get the actual forecast
     forecast_response = requests.get(forecast_url)
@@ -69,19 +69,22 @@ def get_weather_forecast(lat: float, lon: float):
     forecast_data = forecast_response.json()
 
     # Return only the first two periods (e.g. today and tonight)
-    periods = forecast_data['properties']['periods'][:2]
+    periods = forecast_data["properties"]["periods"][:2]
 
     markdown_output = ""
     for period in periods:
         if markdown_output:
             markdown_output += "\n\n"
         markdown_output += f"## {period['name']}\n\n"
-        markdown_output += f"Temperature: {period['temperature']}°{period['temperatureUnit']}\n"
+        markdown_output += (
+            f"Temperature: {period['temperature']}°{period['temperatureUnit']}\n"
+        )
         markdown_output += f"Wind: {period['windSpeed']} {period['windDirection']}\n"
         markdown_output += f"Short Forecast: {period['shortForecast']}\n"
         markdown_output += f"Detailed Forecast: {period['detailedForecast']}"
 
     return markdown_output
+
 
 @safe_errors
 def google_search(query: str, start: int = 1):
@@ -156,6 +159,7 @@ def http_get(url: str) -> str:
     else:
         # Return plaintext
         return response.text
+
 
 search_tools = [http_get]
 if os.environ.get("GOOGLE_API_KEY") and os.environ.get("GOOGLE_SEARCH_ENGINE_ID"):

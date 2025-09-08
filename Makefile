@@ -41,6 +41,15 @@ secret-encrypt: ## Encrypt the secret env file
 secret-decrypt: ## Decrpyt the secret env file
 	./secret.py decrypt .env.secret > .env
 
+.PHONY: r-format
+r-format:
+	air format .
+
+.PHONY: py-format
+py-format:
+	uv run ruff check --fix --select I
+	uv run ruff format
+
 .PHONY: help
 help:  ## Show help messages for make targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; { \

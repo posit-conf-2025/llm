@@ -1,4 +1,6 @@
 # %%
+import random
+
 import chatlas
 import dotenv
 from pyhere import here

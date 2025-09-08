@@ -2,9 +2,8 @@
 
 from typing import Literal
 
-from shiny import ui
-
 import icons
+from shiny import ui
 
 
 def offcanvas_ui(

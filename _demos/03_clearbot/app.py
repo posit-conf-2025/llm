@@ -6,11 +6,10 @@ from typing import Iterable, TypeAlias
 import chatlas
 import openai
 from dotenv import load_dotenv
+from offcanvas import offcanvas_ui
 from pydantic import BaseModel
 from shiny import App, Inputs, Outputs, Session, bookmark, reactive, render, req, ui
 from starlette.requests import Request
-
-from offcanvas import offcanvas_ui
 from tools import all_tools
 
 MyTurn: TypeAlias = chatlas.Turn[openai.types.chat.ChatCompletion]
