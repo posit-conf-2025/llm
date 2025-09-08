@@ -5,13 +5,11 @@ import dotenv
 dotenv.load_dotenv()
 
 # %%
+# Read in the recipes from the text files (same as in 10_structured-output)
 from pyhere import here
 
 recipe_files = list(here("data/recipes/text").glob("*"))
 recipes = [f.read_text() for f in recipe_files]
-
-# %%
-print(recipes[0])
 
 # %% [markdown]
 # Here's an example of the structured output we want to achieve for a single
@@ -44,6 +42,8 @@ print(recipes[0])
 #   ]
 # }
 # ```
+#
+# We'll use the same Pydantic models we defined in the last exercise.
 
 # %%
 from typing import List, Optional
@@ -75,5 +75,19 @@ class Recipe(BaseModel):
 
 
 # %%
-chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")
-chat.extract_data(recipes[0], data_model=Recipe)
+from tqdm import tqdm
+
+def extract_recipe(recipe_text: str) -> dict:
+    chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")
+    return chat.extract_data(recipe_text, data_model=Recipe)
+
+recipes_data = [extract_recipe(recipe) for recipe in tqdm(recipes)]
+
+# %%
+recipes_data
+
+# %%
+# Can that be a polars DataFrame?
+import polars as pl
+
+recipes_df = pl.DataFrame(recipes_data, strict=False)

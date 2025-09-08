@@ -18,6 +18,7 @@ dependencies = [
     "querychat",
     "shiny>=1.4.0",
     "shinychat",
+    "tqdm>=4.67.1",
 ]
 
 [tool.uv.sources]

@@ -1229,6 +1229,7 @@ dependencies = [
     { name = "querychat" },
     { name = "shiny" },
     { name = "shinychat" },
+    { name = "tqdm" },
 ]
 
 [package.dev-dependencies]
@@ -1252,6 +1253,7 @@ requires-dist = [
     { name = "querychat", git = "https://github.com/posit-dev/querychat" },
     { name = "shiny", git = "https://github.com/posit-dev/py-shiny" },
     { name = "shinychat", git = "https://github.com/posit-dev/shinychat" },
+    { name = "tqdm", specifier = ">=4.67.1" },
 ]
 
 [package.metadata.requires-dev]
