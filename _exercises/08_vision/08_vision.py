@@ -1,9 +1,9 @@
 #%%
 import chatlas
-from dotenv import load_dotenv
+import dotenv
 from pyhere import here
 
-load_dotenv()
+dotenv.load_dotenv()
 
 #%%
 recipe_image = here("data/recipes/images/ClassicBakedZiti.jpg")

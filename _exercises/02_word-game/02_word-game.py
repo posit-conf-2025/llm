@@ -1,7 +1,7 @@
 import chatlas
-from dotenv import load_dotenv
+import dotenv
 
-load_dotenv()
+dotenv.load_dotenv()
 
 chat = chatlas.ChatOpenAI(
     system_prompt="We are playing a word guessing game. "

@@ -1,10 +1,9 @@
 # %%
 import chatlas
-import random
+import dotenv
 from pyhere import here
-from dotenv import load_dotenv
 
-load_dotenv()
+dotenv.load_dotenv()
 
 words_file = here() / "_exercises" / "06-word-games" / "words.txt"
 words = words_file.read_text().strip().split("\n")
