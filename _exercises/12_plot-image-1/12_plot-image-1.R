@@ -1,18 +1,18 @@
 library(readr)
 library(ellmer)
+library(ggplot2)
 
-mtcars_df <- read_csv(here::here("data/mtcars.csv"))
+mtcars <- read_csv(here::here("data/mtcars.csv"))
 
-plot(
-  x = mtcars_df$wt,
-  y = mtcars_df$mpg,
-  pch = 19, # filled circles
-  col = "steelblue",
-  cex = 1.1,
-  xlab = "Weight (1000 lb)",
-  ylab = "Miles per Gallon (mpg)",
-  main = "MPG vs Weight"
-)
+ggplot(mtcars) +
+  aes(x = wt, y = mpg) +
+  geom_point(color = "steelblue", size = 3) +
+  labs(
+    title = "MPG vs Weight",
+    x = "Weight (1000 lb)",
+    y = "Miles per Gallon (mpg)"
+  ) +
+  theme_bw()
 
 chat <- chat("openai/gpt-5", echo = "output")
 chat$chat(

@@ -2,7 +2,7 @@
 import chatlas
 import dotenv
 import polars as pl
-import matplotlib.pyplot as plt
+from plotnine import ggplot, aes, geom_point, labs, theme_bw
 from pyhere import here
 
 dotenv.load_dotenv()
@@ -12,16 +12,18 @@ mtcars = pl.read_csv(here("data/mtcars.csv"))
 mtcars
 
 # %%
-x = mtcars["wt"].to_numpy()
-y = mtcars["mpg"].to_numpy()
+p = (
+    ggplot(mtcars, aes(x="wt", y="mpg"))
+    + geom_point(color="steelblue", size=2)
+    + labs(
+        title="MPG vs Weight",
+        x="Weight (1000 lb)",
+        y="Miles per Gallon (mpg)"
+    )
+    + theme_bw()
+)
 
-plt.figure(figsize=(7, 5))
-plt.scatter(x, y, color="steelblue", s=30, edgecolor="white", linewidth=0.5)
-plt.title("MPG vs Weight")
-plt.xlabel("Weight (1000 lb)")
-plt.ylabel("Miles per Gallon (mpg)")
-plt.tight_layout()
-plt.show()
+p.show()
 
 # %%
 chat = chatlas.ChatAuto("openai/gpt-5")

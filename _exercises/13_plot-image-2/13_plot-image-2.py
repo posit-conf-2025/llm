@@ -3,7 +3,7 @@ from math import floor, sqrt
 
 import chatlas
 import dotenv
-import matplotlib.pyplot as plt
+from plotnine import ggplot, aes, geom_point, labs, theme_bw
 import numpy as np
 
 dotenv.load_dotenv()
@@ -24,13 +24,18 @@ grid_jitter = np.clip(grid + jitter, 0.0, 1.0)
 x = grid_jitter[:, 0]
 y = grid_jitter[:, 1]
 
-plt.figure(figsize=(7, 5))
-plt.scatter(x, y, color="steelblue", s=30, edgecolor="white", linewidth=0.5)
-plt.title("MPG vs Weight")
-plt.xlabel("Weight (1000 lb)")
-plt.ylabel("Miles per Gallon (mpg)")
-plt.tight_layout()
-plt.show()
+p = (
+    ggplot(aes(x=x, y=y))
+    + geom_point(color="steelblue", size=2)
+    + labs(
+        title="MPG vs Weight",
+        x="Weight (1000 lb)",
+        y="Miles per Gallon (mpg)"
+    )
+    + theme_bw()
+)
+
+p.show()
 
 # %%
 chat = chatlas.ChatAuto("openai/gpt-5")
