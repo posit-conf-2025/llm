@@ -1,5 +1,4 @@
 library(ellmer)
-dotenv::load_dot_env()
 
 recipe_image <- here::here("data/recipes/images/EasyBasicPancakes.jpg")
 
