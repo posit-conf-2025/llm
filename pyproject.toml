@@ -6,11 +6,10 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "anthropic>=0.64.0",
-    "chatlas[google-genai]>=0.11.2",
+    "chatlas>=0.11.2",
     "dotenv>=0.9.9",
     "duckduckgo-search>=8.1.1",
     "google-genai>=1.33.0",
-    "jupytext>=1.17.3",
     "openai>=1.102.0",
     "pillow>=11.3.0",
     "polars>=1.33.0",
@@ -26,3 +25,9 @@ chatlas = { git = "https://github.com/posit-dev/chatlas" }
 querychat = { git = "https://github.com/posit-dev/querychat" }
 shinychat = { git = "https://github.com/posit-dev/shinychat" }
 shiny = { git = "https://github.com/posit-dev/py-shiny" }
+
+[dependency-groups]
+dev = [
+    "jupytext>=1.17.3",
+    "nbconvert>=7.16.6",
+]

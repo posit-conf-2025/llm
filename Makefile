@@ -56,7 +56,8 @@ py-format:
 
 .PHONY: py-ipynb
 py-ipynb:  ## Convert all Python scripts to Jupyter notebooks
-	find _exercises -name "*.py" -print0 | xargs -0 -I{} uv run jupytext --to ipynb "{}"
+	find _exercises -name "*.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
+	find _exercises -name "*.ipynb" -print0 | xargs -0 -I{} uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "{}"
 
 .PHONY: help
 help:  ## Show help messages for make targets
