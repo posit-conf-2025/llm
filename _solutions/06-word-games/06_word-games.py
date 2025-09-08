@@ -7,7 +7,7 @@ from pyhere import here
 
 dotenv.load_dotenv()
 
-words_file = here() / "_exercises" / "06-word-games" / "words.txt"
+words_file = here() / "_solutions" / "06-word-games" / "words.txt"
 words = words_file.read_text().strip().split("\n")
 
 # %%

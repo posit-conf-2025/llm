@@ -3,7 +3,7 @@ library(ellmer)
 chat <- chat(
   "anthropic/claude-3-7-sonnet-20250219",
   system_prompt = interpolate_file(
-    here::here("_exercises/14_quiz-game-1/prompt.md")
+    here::here("_solutions/14_quiz-game-1/prompt.md")
   )
 )
 

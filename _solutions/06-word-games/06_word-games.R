@@ -1,7 +1,7 @@
 library(ellmer)
 
 words <- readLines(
-  here::here("_exercises/06-word-games/words.txt")
+  here::here("_solutions/06-word-games/words.txt")
 )
 
 chat <- chat_openai(
