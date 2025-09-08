@@ -77,9 +77,11 @@ class Recipe(BaseModel):
 # %%
 from tqdm import tqdm
 
+
 def extract_recipe(recipe_text: str) -> dict:
     chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")
     return chat.extract_data(recipe_text, data_model=Recipe)
+
 
 recipes_data = [extract_recipe(recipe) for recipe in tqdm(recipes)]
 

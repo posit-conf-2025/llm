@@ -6,7 +6,7 @@ from pyhere import here
 dotenv.load_dotenv()
 
 # %%
-recipe_images= here("data/recipes/pdf/")
+recipe_images = here("data/recipes/pdf/")
 pdf_cheesesteak = recipe_images / "PhillyCheesesteak.pdf"
 
 # %%
