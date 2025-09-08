@@ -6,18 +6,20 @@ from pyhere import here
 dotenv.load_dotenv()
 
 # %%
-recipe_image = here("data/recipes/images/ClassicBakedZiti.jpg")
+recipe_images= here("data/recipes/images/")
+img_ziti = recipe_images / "ClassicBakedZiti.jpg"
+img_mac_cheese = recipe_images / "CreamyCrockpotMacAndCheese.jpg"
 
 # %%
-chat = chatlas.ChatOllama(model="gemma3:4b")
+chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")
 chat.chat(
-    "Give the food in this image a creative recipe title.",
-    chatlas.content_image_file(recipe_image),
+    "Give the food in this image a creative recipe title and description.",
+    chatlas.content_image_file(img_ziti),
 )
 
 # %%
-chat = chatlas.ChatOllama(model="gemma3:4b")
+chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")
 chat.chat(
-    "Write a recipe for the meal in this image.",
-    chatlas.content_image_file(recipe_image),
+    "Write a recipe to make the food in this image.",
+    chatlas.content_image_file(img_mac_cheese),
 )
