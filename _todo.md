@@ -37,8 +37,9 @@
 - [ ] 16_rag: Create dynamic RAG system with dplyr or polars documentation
 - [ ] 18_demo_manual-tools: Human-in-the-loop weather tool
 - [ ] 19_demo_tools: Automated weather tool
-- [ ] 20_quiz-game-2: Quiz game show with tools for sounds
-- [ ] 21_quiz-game-3: Quiz game show, add icon and title to tool def
+- [x] 20_quiz-game-2: Quiz game show with tools for sounds
+- [x] 21_quiz-game-3: Quiz game show, add icon and title to tool def
+  - TODO: Use `bsicons` or font awesome icon?
 - [ ] 22_quiz-game-4: Quiz game show, set title and icon in tool result
 - [ ] 23_quiz-game-5: Quiz game show, reactive updates via tool
 - [ ] 24_quiz-game-6: Quiz game show, add new tool to finish each round

@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "anthropic>=0.64.0",
+    "bsicons>=25.1",
     "chatlas>=0.11.2",
     "dotenv>=0.9.9",
     "duckduckgo-search>=8.1.1",

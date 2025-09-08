@@ -115,6 +115,18 @@ css = [
 ]
 
 [[package]]
+name = "bsicons"
+version = "25.1"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/db/52/3d15e4699aea64ea3bb0c1cebc4aeb4e3a1ba8ae6a2a3bc6d60e1405b4f0/bsicons-25.1-cp312-cp312-manylinux2014_x86_64.whl", hash = "sha256:baea02d58d4d24366ae936550abbfddf08bd406d869ba07a6a9215aa88ead222", size = 1050599, upload-time = "2025-01-07T06:19:54.284Z" },
+    { url = "https://files.pythonhosted.org/packages/23/8c/0980c41530dcf55d4f68e3ade222635f9c92405f0590dbaf177ba9dbbbf4/bsicons-25.1-cp312-cp312-win_amd64.whl", hash = "sha256:a675d6a83ca2598f01347c8d7b3163b972821da972ab50206aacedf6f0efda0f", size = 1043998, upload-time = "2025-01-07T06:19:58.672Z" },
+    { url = "https://files.pythonhosted.org/packages/60/53/1c211cf077a629f214647fa6b70bfdf4c3e93187a63f0a79c62e3e56ff50/bsicons-25.1-cp313-cp313-manylinux2014_x86_64.whl", hash = "sha256:eb0f26c605a6fe7975cd9cd7063ee02f899fd34d5a520867ac873ca47b9870aa", size = 1045113, upload-time = "2025-01-07T06:20:02.575Z" },
+    { url = "https://files.pythonhosted.org/packages/94/c3/3f315aaf0760130df371842bc29ac4dd4c720b3cf739a211a2204be190ae/bsicons-25.1-cp313-cp313-win_amd64.whl", hash = "sha256:7ffc044037a99cf4ca21795cbf27fe382234145ea243108dde54dd82c2b5839d", size = 1043108, upload-time = "2025-01-07T06:20:05.897Z" },
+    { url = "https://files.pythonhosted.org/packages/41/92/339cd1c75d7388177c1468c708f8a9c1b800288776dcf942934aec31e2cf/bsicons-25.1-py3-none-any.whl", hash = "sha256:ebecf4050459a6057a2f234309617e58f4bcd2b6ab439903217bbae7d3a829d5", size = 1026632, upload-time = "2025-01-07T06:20:07.99Z" },
+]
+
+[[package]]
 name = "cachetools"
 version = "5.5.2"
 source = { registry = "https://pypi.org/simple" }
@@ -1515,6 +1527,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "anthropic" },
+    { name = "bsicons" },
     { name = "chatlas" },
     { name = "dotenv" },
     { name = "duckduckgo-search" },
@@ -1543,6 +1556,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "anthropic", specifier = ">=0.64.0" },
+    { name = "bsicons", specifier = ">=25.1" },
     { name = "chatlas", git = "https://github.com/posit-dev/chatlas" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "duckduckgo-search", specifier = ">=8.1.1" },
