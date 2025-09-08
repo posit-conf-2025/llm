@@ -55,7 +55,7 @@ py-format:
 	uv run ruff format
 
 .PHONY: py-ipynb
-py-ipynb:  ## Convert all Python scripts to Jupyter notebooks
+py-ipynb:  py-format ## Convert all Python scripts to Jupyter notebooks
 	find _solutions -name "*.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
 	find _solutions -name "*.ipynb" -print0 | xargs -0 -I{} uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "{}"
 
