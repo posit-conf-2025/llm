@@ -29,7 +29,7 @@
   - [ ] Save the JSON output and use it in an app
 - [x] 12_plot-image-1: Generate a plot of mpg vs weight, ask for interpretation
 - [x] 13_plot-image-2: Same as above, but with random noise instead of the plot
-- [ ] 14_quiz-game-1: Quiz game show prompt engineering
+- [x] 14_quiz-game-1: Quiz game show prompt engineering
 
 ### Afternoon 1
 
