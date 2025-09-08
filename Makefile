@@ -16,16 +16,12 @@ install-quarto:
 	@awk -v ver="${QUARTO_VERSION}" '/QUARTO_VERSION:/ {gsub(/QUARTO_VERSION: .*/, "QUARTO_VERSION: " ver)} 1' .github/workflows/publish.yml > .github/workflows/publish.yml.tmp && mv .github/workflows/publish.yml.tmp .github/workflows/publish.yml
 
 
-.PHONY: render
-render: ## [docs] Build the workshop website
-	cd website && ${QUARTO_PATH} render
-
-.PHONY: preview
-preview:  ## [docs] Preview the workshop website
-	cd website && ${QUARTO_PATH} preview
+.PHONY: secret-decrypt
+secret-decrypt: ## [setup] Decrypt the secret env file
+	./secret.py decrypt .env.secret > .env
 
 .PHONY: py-setup
-py-setup:  ## [py] Setup python environment
+py-setup:  ## [py] Setup Python environment
 	uv sync --all-extras --upgrade
 
 .PHONY: r-setup
@@ -34,12 +30,20 @@ r-setup:  ## [r] Setup R environment
 	Rscript -e 'renv::restore()'
 
 .PHONY: secret-encrypt
-secret-encrypt: ## Encrypt the secret env file
+secret-encrypt:
 	./secret.py encrypt .env > .env.secret
 
-.PHONY: secret-decrypt
-secret-decrypt: ## Decrpyt the secret env file
-	./secret.py decrypt .env.secret > .env
+.PHONY: render
+render: ## [docs] Build the workshop website
+	cd website && ${QUARTO_PATH} render
+
+.PHONY: preview
+preview:  ## [docs] Preview the workshop website
+	cd website && ${QUARTO_PATH} preview
+
+.PHONY: format
+format: r-format py-format  ## Format code in all languages
+	@echo "📏 📐 Code formatted!"
 
 .PHONY: r-format
 r-format:
@@ -54,16 +58,18 @@ py-format:
 help:  ## Show help messages for make targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; { \
 		printf "\033[32m%-18s\033[0m", $$1; \
-		if ($$2 ~ /^\[docs\]/) { \
-			printf "\033[37m[docs]\033[0m%s\n", substr($$2, 7); \
+		if ($$2 ~ /^\[setup\]/) { \
+			printf "\033[1m\033[37m[setup]%s\033[0m\n", substr($$2, 8); \
+		} else if ($$2 ~ /^\[docs\]/) { \
+			printf " \033[37m[docs]%s\n", substr($$2, 7); \
 		} else if ($$2 ~ /^\[py\]/) { \
-			printf "  \033[31m[py]\033[0m%s\n", substr($$2, 5); \
+			printf "   \033[31m[py]%s\033[0m\n", substr($$2, 5); \
 		} else if ($$2 ~ /^\[r\]/) { \
-			printf "   \033[34m[r]\033[0m%s\n", substr($$2, 4); \
+			printf "    \033[34m[r]%s\033[0m\n", substr($$2, 4); \
 		} else if ($$2 ~ /^\[js\]/) { \
-			printf "  \033[33m[js]\033[0m%s\n", substr($$2, 5); \
+			printf "   \033[33m[js]\033[0m%s\n", substr($$2, 5); \
 		} else { \
-			printf "       %s\n", $$2; \
+			printf "        %s\n", $$2; \
 		} \
 	}'
 
