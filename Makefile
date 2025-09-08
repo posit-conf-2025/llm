@@ -54,6 +54,10 @@ py-format:
 	uv run ruff check --fix --select I
 	uv run ruff format
 
+.PHONY: py-ipynb
+py-ipynb:  ## Convert all Python scripts to Jupyter notebooks
+	find _exercises -name "*.py" -print0 | xargs -0 -I{} uv run jupytext --to ipynb "{}"
+
 .PHONY: help
 help:  ## Show help messages for make targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; { \
