@@ -452,7 +452,7 @@ TODO: Update posit cloud workspace screenshot
 <h2 class="anchored" data-anchor-id="local-models">Local models with ollama</h2>
 <p><a href="https://ollama.com">ollama is an open-source tool</a> for running LLMs locally on your computer. Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.</p>
 <p>To use ollama, first <a href="https://ollama.com/download">download and install it on your computer</a>.</p>
-<p>Then, you can browse <a href="https://ollama.com/search">the list of models on the ollama website</a> to find a model that you want to use. Here are a few that we like for local testing. For the workshop, I’d recommend installing <code>granite3.2-vision</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Then, you can browse <a href="https://ollama.com/search">the list of models on the ollama website</a> to find a model that you want to use. Here are a few that we like for local testing. For the workshop, I’d recommend installing <code>gemma3:4b</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -463,9 +463,9 @@ TODO: Update posit cloud workspace screenshot
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;"><a href="https://ollama.com/library/granite3.2-vision">granite3.2-vision</a></td>
-<td style="text-align: right;">2.4GB</td>
-<td style="text-align: left;"><span class="badge text-bg-primary">tools</span> <span class="badge text-bg-danger">vision</span></td>
+<td style="text-align: right;"><a href="https://ollama.com/library/gemma3:4b">gemma3:4b</a></td>
+<td style="text-align: right;">3.3GB</td>
+<td style="text-align: left;"><span class="badge text-bg-danger">vision</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;"><a href="https://ollama.com/library/qwen3:8b">qwen3:8b</a></td>
@@ -477,18 +477,13 @@ TODO: Update posit cloud workspace screenshot
 <td style="text-align: right;">14GB</td>
 <td style="text-align: left;"><span class="badge text-bg-primary">tools</span> <span class="badge text-bg-info">thinking</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: right;"><a href="https://ollama.com/library/gemma3:4b">gemma3:4b</a></td>
-<td style="text-align: right;">3.3GB</td>
-<td style="text-align: left;"><span class="badge text-bg-danger">vision</span></td>
-</tr>
 </tbody>
 </table>
-<p>To use a model, you first need to download it. For example, to download <a href="https://ollama.com/library/granite3.2-vision">granite3.2-vision</a>, run the following command in your terminal:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull granite3.2-vision</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To use a model, you first need to download it. For example, to download <a href="https://ollama.com/library/gemma3:4b">gemma3:4b</a>, run the following command in your terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull gemma3:4b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>That command downloads the model to your computer. Once the model is downloaded, you can use it on your own computer without needing to be connected to the internet.</p>
 <p>You can use <code>ollama</code> to chat with the model directly in your terminal</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run granite3.2-vision</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> run gemma3:4b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>or you can use ellmer or chatlas to interact with the model from R or Python.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset" data-group="lang">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href=""><img src="assets/icons/r-color.svg" alt="R" height="36"></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href=""><img src="assets/icons/python-icon-color.svg" alt="Python" height="36"></a></li></ul>
@@ -496,7 +491,7 @@ TODO: Update posit cloud workspace screenshot
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_ollama</span>(<span class="at">model =</span> <span class="st">"granite3.2-vision"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_ollama</span>(<span class="at">model =</span> <span class="st">"gemma3:4b"</span>)</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"What is the capital of France?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
 <p>The capital of France is <strong>Paris</strong>.</p>
@@ -506,7 +501,7 @@ TODO: Update posit cloud workspace screenshot
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> chatlas <span class="im">import</span> ChatOllama</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>chat <span class="op">=</span> ChatOllama(model<span class="op">=</span><span class="st">"granite3.2-vision"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>chat <span class="op">=</span> ChatOllama(model<span class="op">=</span><span class="st">"gemma3:4b"</span>)</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>chat.chat(<span class="st">"What is the capital of France?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
 <p>The capital of France is Paris.</p>
@@ -561,7 +556,7 @@ TODO: Update posit cloud workspace screenshot
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>If you want another, slightly bigger, model to try out, add <a href="https://ollama.com/library/gpt-oss:20b">gpt-oss:20b</a> or a <code>qwen3</code> variant, either <a href="https://ollama.com/library/qwen3:8b">qwen3:8b</a> or <a href="https://ollama.com/library/qwen3:14b">qwen3:14b</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>The best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is <a href="https://ollama.com/library/gpt-oss:20b">gpt-oss:20b</a>. For something a little bit smaller, try <a href="https://ollama.com/library/qwen3:8b">qwen3:8b</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
