@@ -21,9 +21,9 @@
 
 ### Morning 2
 
-- [ ] 07_models: Script to try different models
-- [ ] 08_images: Script to try image input
-- [ ] 09_pdf: Script to try PDF input
+- [x] 07_models: Script to try different models
+- [x] 08_images: Script to try image input
+- [x] 09_pdf: Script to try PDF input
 - [ ] 10_structured: Script to try structured output
 - [ ] 11_batch: Script to try batch/parallel calls
   - Save the JSON output and use it in an app
