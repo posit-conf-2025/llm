@@ -14,6 +14,7 @@ BugReports: https://github.com/posit-conf-2025/llm/issues
 Imports:
     askpass,
     base64enc,
+    beepr,
     brio,
     bsicons,
     bslib (>= 0.9.0.9000),

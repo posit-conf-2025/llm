@@ -1467,6 +1467,18 @@ wheels = [
 ]
 
 [[package]]
+name = "playsound3"
+version = "3.2.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pywin32", marker = "sys_platform == 'win32'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/28/4d/3880fd3e97d4655955d0ada4f2745453eb87d9615062ec41953717579b13/playsound3-3.2.6.tar.gz", hash = "sha256:a036b586c1e2592cef42eb6e06b28516f6a97f2e71034164186da7e9c2b84553", size = 608111, upload-time = "2025-08-21T15:18:59.329Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7b/ea/44040163f32d2602774737bf37d3bcb577e645b567f3e2da51a78f23425a/playsound3-3.2.6-py3-none-any.whl", hash = "sha256:638c059cb7d2581ca6caf5ea561d801bbdb44b5346e1c888fb702fd15a88aa49", size = 9464, upload-time = "2025-08-21T15:18:57.529Z" },
+]
+
+[[package]]
 name = "plotnine"
 version = "0.15.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1510,6 +1522,7 @@ dependencies = [
     { name = "matplotlib" },
     { name = "openai" },
     { name = "pillow" },
+    { name = "playsound3" },
     { name = "plotnine" },
     { name = "polars" },
     { name = "pyarrow" },
@@ -1537,6 +1550,7 @@ requires-dist = [
     { name = "matplotlib", specifier = ">=3.10.6" },
     { name = "openai", specifier = ">=1.102.0" },
     { name = "pillow", specifier = ">=11.3.0" },
+    { name = "playsound3", specifier = ">=3.2.6" },
     { name = "plotnine", specifier = ">=0.15.0" },
     { name = "polars", specifier = ">=1.33.0" },
     { name = "pyarrow", specifier = ">=21.0.0" },
