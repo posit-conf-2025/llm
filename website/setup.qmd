@@ -265,22 +265,21 @@ To use ollama, first [download and install it on your computer](https://ollama.c
 
 Then, you can browse [the list of models on the ollama website](https://ollama.com/search) to find a model that you want to use.
 Here are a few that we like for local testing.
-For the workshop, I'd recommend installing `granite3.2-vision`[^plus-more].
+For the workshop, I'd recommend installing `gemma3:4b`[^plus-more].
 
-[^plus-more]: If you want another, slightly bigger, model to try out, add [gpt-oss:20b][ollama-gpt-oss] or a `qwen3` variant, either [qwen3:8b][ollama-qwen3-8b] or [qwen3:14b][ollama-qwen3-14b].
+[^plus-more]: The best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is [gpt-oss:20b][ollama-gpt-oss]. For something a little bit smaller, try [qwen3:8b][ollama-qwen3-8b].
 
 | ID | Size | Capabilities |
 |--:|--:|:--|
-| [granite3.2-vision][ollama-granite-vision] | 2.4GB | [tools]{.badge .text-bg-primary} [vision]{.badge .text-bg-danger} |
+| [gemma3:4b][ollama-gemma3-4b] | 3.3GB | [vision]{.badge .text-bg-danger} |
 | [qwen3:8b][ollama-qwen3-8b] | 5.2GB | [tools]{.badge .text-bg-primary} [thinking]{.badge .text-bg-info} |
 | [gpt-oss:20b][ollama-gpt-oss] | 14GB | [tools]{.badge .text-bg-primary} [thinking]{.badge .text-bg-info} |
-| [gemma3:4b](https://ollama.com/library/gemma3:4b) | 3.3GB | [vision]{.badge .text-bg-danger} |
 
 To use a model, you first need to download it.
-For example, to download [granite3.2-vision][ollama-granite-vision], run the following command in your terminal:
+For example, to download [gemma3:4b][ollama-gemma3-4b], run the following command in your terminal:
 
 ``` bash
-ollama pull granite3.2-vision
+ollama pull gemma3:4b
 ```
 
 That command downloads the model to your computer.
@@ -289,7 +288,7 @@ Once the model is downloaded, you can use it on your own computer without needin
 You can use `ollama` to chat with the model directly in your terminal
 
 ``` bash
-ollama run granite3.2-vision
+ollama run gemma3:4b
 ```
 
 or you can use ellmer or chatlas to interact with the model from R or Python.
@@ -300,7 +299,7 @@ or you can use ellmer or chatlas to interact with the model from R or Python.
 ``` r
 library(ellmer)
 
-chat <- chat_ollama(model = "granite3.2-vision")
+chat <- chat_ollama(model = "gemma3:4b")
 chat$chat("What is the capital of France?")
 ```
 
@@ -314,7 +313,7 @@ chat$chat("What is the capital of France?")
 ``` python
 from chatlas import ChatOllama
 
-chat = ChatOllama(model="granite3.2-vision")
+chat = ChatOllama(model="gemma3:4b")
 chat.chat("What is the capital of France?")
 ```
 

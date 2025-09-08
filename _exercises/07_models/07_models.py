@@ -12,7 +12,7 @@ chatlas.ChatAnthropic().list_models()
 chatlas.ChatOllama("gemma3").list_models()
 
 #%%
-chat = chatlas.ChatOllama("phi4-mini")
+chat = chatlas.ChatOllama("gemma3:4b")
 chat.chat(
   "Write a recipe for an easy weeknight dinner my kids would like"
 )
