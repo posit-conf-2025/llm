@@ -12,3 +12,8 @@ chat("anthropic/claude-3-7-sonnet-20250219")$chat(prompt)
 
 # If you have local models installed, you can use them too.
 chat("ollama/gemma3:4b")$chat(prompt)
+
+# Instead of `chat()`, you can also use direct provider functions:
+chat_openai(model = "gpt-5")
+chat_anthropic(model = "claude-3-7-sonnet-20250219")
+chat_ollama(model = "gemma3:4b")
