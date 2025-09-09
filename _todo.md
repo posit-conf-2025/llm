@@ -40,7 +40,7 @@
 - [x] 20_quiz-game-2: Quiz game show with tools for sounds
 - [x] 21_quiz-game-3: Quiz game show, add icon and title to tool def
 - [x] 22_quiz-game-4: Quiz game show, set title and icon in tool result
-- [ ] 23_quiz-game-5: Quiz game show, reactive updates via tool
+- [x] 23_quiz-game-5: Quiz game show, reactive updates via tool
 - [ ] 24_quiz-game-6: Quiz game show, add new tool to finish each round
 
 ### Afternoon 2
