@@ -1,5 +1,10 @@
+library(shiny)
+library(bslib)
 library(beepr)
 library(ellmer)
+library(shinychat)
+
+# Tools ------------------------------------------------------------------------
 
 #' Plays a sound effect.
 #'
@@ -75,16 +80,35 @@ tool_play_sound <- tool(
   annotations = tool_annotations(title = "Play Sound Effect")
 )
 
-chat <- chat(
-  "anthropic/claude-3-7-sonnet-20250219",
-  system_prompt = interpolate_file(
-    # Replace `_solutions` with `_exercises` to get your own prompt from before
-    here::here("_solutions/14_quiz-game-1/prompt.md")
-  )
+
+# UI ---------------------------------------------------------------------------
+
+ui <- page_fillable(
+  chat_mod_ui("chat")
 )
 
-chat$register_tool(tool_play_sound)
+# Server -----------------------------------------------------------------------
 
-. <- chat$chat("Begin", echo = FALSE) # get LLM to give us the greeting
-chat$set_turns(chat$get_turns()[-1]) # remove first "Begin" message
-live_browser(chat, quiet = TRUE)
+server <- function(input, output, session) {
+  client <- chat(
+    "anthropic/claude-3-7-sonnet-20250219",
+    system_prompt = interpolate_file(
+      # Replace `_solutions` with `_exercises` to get your own prompt from before
+      here::here("_solutions/14_quiz-game-1/prompt.md")
+    )
+  )
+
+  client$register_tool(tool_play_sound)
+
+  chat <- chat_mod_server("chat", client)
+
+  observe({
+    # Start the game when the app launches
+    chat$update_user_input(
+      value = "Let's play the quiz game!",
+      submit = TRUE
+    )
+  })
+}
+
+shinyApp(ui, server)

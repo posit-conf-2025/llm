@@ -60,7 +60,7 @@ py-format:
 
 .PHONY: py-ipynb
 py-ipynb:  py-format ## Convert all Python scripts to Jupyter notebooks
-	find _solutions -name "*.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
+	find _solutions -name "*.py" -not -name "*app.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
 	find _solutions -name "*.ipynb" -print0 | xargs -0 -I{} uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "{}"
 
 .PHONY: help
