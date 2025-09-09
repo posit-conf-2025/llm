@@ -1,85 +1,7 @@
 library(shiny)
 library(bslib)
-library(beepr)
 library(ellmer)
 library(shinychat)
-
-# Tools ------------------------------------------------------------------------
-
-#' Plays a sound effect.
-#'
-#' @param sound Which sound effect to play: `"correct"`, `"incorrect"`,
-#'   `"new-round"`, or `"you-win"`.
-#' @returns A confirmation that the sound was played.
-play_sound <- function(
-  sound = c("correct", "incorrect", "new-round", "you-win")
-) {
-  sound <- match.arg(sound)
-
-  switch(
-    sound,
-    correct = beepr::beep("coin"),
-    incorrect = beepr::beep("wilhelm"),
-    "new-round" = beepr::beep("fanfare"),
-    "you-win" = beepr::beep("mario")
-  )
-
-  icon <- switch(
-    sound,
-    correct = fontawesome::fa_i(
-      "circle-check",
-      class = "text-success",
-      prefer_type = "solid"
-    ),
-    incorrect = fontawesome::fa_i(
-      "circle-xmark",
-      class = "text-danger",
-      prefer_type = "solid"
-    ),
-    "new-round" = fontawesome::fa_i(
-      "circle-play",
-      class = "text-primary",
-      prefer_type = "solid"
-    ),
-    "you-win" = fontawesome::fa_i("medal", class = "text-warning")
-  )
-
-  title <- switch(
-    sound,
-    correct = "That's right!",
-    incorrect = "Oops, not quite.",
-    "new-round" = "Let's goooooo!",
-    "you-win" = "You Win!"
-  )
-
-  ContentToolResult(
-    glue::glue("The '{sound}' sound was played."),
-    extra = list(
-      display = list(
-        title = title,
-        icon = icon
-      )
-    )
-  )
-}
-
-tool_play_sound <- tool(
-  play_sound,
-  description = "Play a sound effect",
-  arguments = list(
-    sound = type_enum(
-      c("correct", "incorrect", "new-round", "you-win"),
-      description = paste(
-        "Which sound effect to play.",
-        "Play 'new-round' after the user picks a theme for the round.",
-        "Play 'correct' or 'incorrect' after the user answers a question.",
-        "Play 'you-win' at the end of a round of questions."
-      )
-    )
-  ),
-  annotations = tool_annotations(title = "Play Sound Effect")
-)
-
 
 # UI ---------------------------------------------------------------------------
 
@@ -91,20 +13,20 @@ ui <- page_sidebar(
     width = 400,
     value_box(
       "Correct Answers",
-      textOutput("correct"),
+      textOutput("txt_correct"),
       showcase = fontawesome::fa_i("circle-check"),
       theme = "success"
     ),
     value_box(
       "Incorrect Answers",
-      textOutput("incorrect"),
+      textOutput("txt_incorrect"),
       showcase = fontawesome::fa_i("circle-xmark"),
       theme = "danger"
     )
   ),
   navset_card_tab(
     nav_panel("Quiz Game", chat_mod_ui("chat")),
-    nav_panel("Your Answers", tableOutput("scores"))
+    nav_panel("Your Answers", tableOutput("tbl_scores"))
   )
 )
 
@@ -119,8 +41,6 @@ server <- function(input, output, session) {
     )
   )
 
-  client$register_tool(tool_play_sound)
-
   scores <- reactiveVal(
     data.frame(
       theme = character(),
@@ -131,28 +51,29 @@ server <- function(input, output, session) {
     )
   )
 
-  output$scores <- renderTable(scores())
-  output$correct <- renderText(sum(scores()$is_correct, na.rm = TRUE))
-  output$incorrect <- renderText(sum(!scores()$is_correct, na.rm = TRUE))
+  output$tbl_scores <- renderTable(scores())
+  output$txt_correct <- renderText(sum(scores()$is_correct, na.rm = TRUE))
+  output$txt_incorrect <- renderText(sum(!scores()$is_correct, na.rm = TRUE))
+
+  update_score <- function(theme, question, answer, your_answer, is_correct) {
+    the_scores <- isolate(scores())
+    the_scores <- rbind(
+      the_scores,
+      data.frame(
+        theme = theme,
+        question = question,
+        answer = answer,
+        your_answer = your_answer,
+        is_correct = is_correct
+      )
+    )
+    scores(the_scores)
+    correct <- sum(the_scores$answer == the_scores$your_answer)
+    list(correct = correct, incorrect = nrow(the_scores) - correct)
+  }
 
   client$register_tool(tool(
-    function(theme, question, answer, your_answer, is_correct) {
-      the_scores <- isolate(scores())
-      the_scores <- rbind(
-        the_scores,
-        data.frame(
-          theme = theme,
-          question = question,
-          answer = answer,
-          your_answer = your_answer,
-          is_correct = is_correct
-        )
-      )
-      scores(the_scores)
-      correct <- sum(the_scores$answer == the_scores$your_answer)
-      list(correct = correct, incorrect = nrow(the_scores) - correct)
-    },
-    name = "update_score",
+    update_score,
     description = paste(
       "Add a correct or incorrect answer to the score tally.",
       "Call this tool after the user answers a question."
