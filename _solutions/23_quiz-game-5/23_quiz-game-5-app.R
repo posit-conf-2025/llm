@@ -21,7 +21,7 @@ play_sound <- function(
     correct = beepr::beep("coin"),
     incorrect = beepr::beep("wilhelm"),
     "new-round" = beepr::beep("fanfare"),
-    "you-win" = beepr::beep("complete")
+    "you-win" = beepr::beep("mario")
   )
 
   icon <- switch(
@@ -102,9 +102,9 @@ ui <- page_sidebar(
       theme = "danger"
     )
   ),
-  card(
-    card_header("Quiz Game"),
-    chat_mod_ui("chat")
+  navset_card_tab(
+    nav_panel("Quiz Game", chat_mod_ui("chat")),
+    nav_panel("Your Answers", tableOutput("scores"))
   )
 )
 
@@ -121,20 +121,36 @@ server <- function(input, output, session) {
 
   client$register_tool(tool_play_sound)
 
-  correct <- reactiveVal(0)
-  incorrect <- reactiveVal(0)
-  output$correct <- renderText(correct())
-  output$incorrect <- renderText(incorrect())
+  scores <- reactiveVal(
+    data.frame(
+      theme = character(),
+      question = character(),
+      answer = character(),
+      your_answer = character(),
+      is_correct = logical()
+    )
+  )
+
+  output$scores <- renderTable(scores())
+  output$correct <- renderText(sum(scores()$is_correct, na.rm = TRUE))
+  output$incorrect <- renderText(sum(!scores()$is_correct, na.rm = TRUE))
 
   client$register_tool(tool(
-    function(is_correct) {
-      correct <- isolate(correct()) + ifelse(is_correct, 1, 0)
-      incorrect <- isolate(incorrect()) + ifelse(is_correct, 0, 1)
-      # Update reactive values
-      correct(correct)
-      incorrect(incorrect)
-      # Report score back to the model
-      list(correct = correct, incorrect = incorrect)
+    function(theme, question, answer, your_answer, is_correct) {
+      the_scores <- isolate(scores())
+      the_scores <- rbind(
+        the_scores,
+        data.frame(
+          theme = theme,
+          question = question,
+          answer = answer,
+          your_answer = your_answer,
+          is_correct = is_correct
+        )
+      )
+      scores(the_scores)
+      correct <- sum(the_scores$answer == the_scores$your_answer)
+      list(correct = correct, incorrect = nrow(the_scores) - correct)
     },
     name = "update_score",
     description = paste(
@@ -142,9 +158,11 @@ server <- function(input, output, session) {
       "Call this tool after the user answers a question."
     ),
     arguments = list(
-      is_correct = type_boolean(
-        "TRUE if the user answered correctly, FALSE otherwise"
-      )
+      theme = type_string("The theme of the round."),
+      question = type_string("The quiz question that was asked."),
+      answer = type_string("The correct answer to the question."),
+      your_answer = type_string("The user's answer to the question."),
+      is_correct = type_boolean("Whether the user's answer was correct.")
     ),
     annotations = tool_annotations(
       title = "Update Score",
