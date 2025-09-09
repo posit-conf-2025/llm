@@ -19,7 +19,43 @@ play_sound <- function(
     "you-win" = beepr::beep("complete")
   )
 
-  glue::glue("The '{sound}' sound was played.")
+  icon <- switch(
+    sound,
+    correct = fontawesome::fa_i(
+      "circle-check",
+      class = "text-success",
+      prefer_type = "solid"
+    ),
+    incorrect = fontawesome::fa_i(
+      "circle-xmark",
+      class = "text-danger",
+      prefer_type = "solid"
+    ),
+    "new-round" = fontawesome::fa_i(
+      "circle-play",
+      class = "text-primary",
+      prefer_type = "solid"
+    ),
+    "you-win" = fontawesome::fa_i("medal", class = "text-warning")
+  )
+
+  title <- switch(
+    sound,
+    correct = "That's right!",
+    incorrect = "Oops, not quite.",
+    "new-round" = "Let's goooooo!",
+    "you-win" = "You Win!"
+  )
+
+  ContentToolResult(
+    glue::glue("The '{sound}' sound was played."),
+    extra = list(
+      display = list(
+        title = title,
+        icon = icon
+      )
+    )
+  )
 }
 
 tool_play_sound <- tool(
@@ -36,10 +72,7 @@ tool_play_sound <- tool(
       )
     )
   ),
-  annotations = tool_annotations(
-    title = "Play Sound Effect",
-    icon = fontawesome::fa_i("volume-high")
-  )
+  annotations = tool_annotations(title = "Play Sound Effect")
 )
 
 chat <- chat(

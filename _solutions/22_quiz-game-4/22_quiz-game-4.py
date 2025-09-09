@@ -6,17 +6,33 @@ from pyhere import here
 dotenv.load_dotenv()
 
 # %%
-from typing import Literal
+from pathlib import Path
+from typing import Any, Literal
 
+from faicons import icon_svg
 from playsound3 import playsound
 
 SoundChoice = Literal["correct", "incorrect", "new-round", "you-win"]
 
-sound_map: dict[SoundChoice, "Path"] = {
+sound_map: dict[SoundChoice, Path] = {
     "correct": here("data/sounds/smb_coin.wav"),
     "incorrect": here("data/sounds/wilhelm.wav"),
     "new-round": here("data/sounds/victory_fanfare_mono.wav"),
     "you-win": here("data/sounds/smb_stage_clear.wav"),
+}
+
+icon_map: dict[SoundChoice, Any] = {
+    "correct": icon_svg("circle-check", fill="var(--bs-success)"),
+    "incorrect": icon_svg("circle-xmark", fill="var(--bs-danger)"),
+    "new-round": icon_svg("circle-play", fill="var(--bs-primary)"),
+    "you-win": icon_svg("trophy", fill="var(--bs-warning)"),
+}
+
+title_map: dict[SoundChoice, str] = {
+    "correct": "That's right!",
+    "incorrect": "Oops, not quite.",
+    "new-round": "Let's goooooooo!",
+    "you-win": "You Win",
 }
 
 
@@ -43,7 +59,15 @@ def play_sound(sound: SoundChoice = "correct") -> str:
 
     playsound(sound_map[sound])
 
-    return f"The '{sound}' sound was played."
+    return chatlas.ContentToolResult(
+        value=f"The '{sound}' sound was played.",
+        extra={
+            "display": {
+                "title": title_map[sound],
+                "icon": icon_map[sound],
+            }
+        },
+    )
 
 
 # %%
@@ -53,16 +77,9 @@ chat = chatlas.ChatAnthropic(
 )
 
 # %%
-import faicons
-
 chat.register_tool(
     play_sound,
-    annotations={
-        "title": "Play Sound Effect",
-        "extra": {
-            "icon": faicons.icon_svg("volume-high"),
-        },
-    },
+    annotations={"title": "Play Sound Effect"},
 )
 
 _ = chat.chat("Begin the quiz game.", echo="none")
