@@ -61,8 +61,8 @@ chat.register_tool(
         "title": "Play Sound Effect",
         "extra": {
             "icon": HTML(icon.read_text()),
-        }
-    }
+        },
+    },
 )
 
 _ = chat.chat("Begin the quiz game.", echo="none")
