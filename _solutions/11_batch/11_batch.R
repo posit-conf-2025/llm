@@ -64,5 +64,5 @@ res <- batch_chat_structured(
   chat("openai/gpt-4.1-nano"),
   prompts = as.list(recipes),
   type = recipe_type,
-  path = here::here("data/recipes/text/batch_results.json")
+  path = here::here("data/recipes/batch_results.json")
 )
