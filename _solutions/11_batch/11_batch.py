@@ -78,18 +78,21 @@ class Recipe(BaseModel):
 from tqdm import tqdm
 
 
-def extract_recipe(recipe_text: str) -> dict:
+def extract_recipe(recipe_text: str) -> Recipe:
     chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")
-    return chat.extract_data(recipe_text, data_model=Recipe)
+    return chat.chat_structured(recipe_text, data_model=Recipe)
 
 
-recipes_data = [extract_recipe(recipe) for recipe in tqdm(recipes)]
+recipes_data: List[Recipe] = []
+for recipe in tqdm(recipes):
+    recipes_data.append(extract_recipe(recipe))
 
 # %%
-recipes_data
+[r.title for r in recipes_data]
 
 # %%
 # Can that be a polars DataFrame?
 import polars as pl
 
-recipes_df = pl.DataFrame(recipes_data, strict=False)
+recipes_df = pl.DataFrame([r.model_dump() for r in recipes_data], strict=False)
+recipes_df

@@ -76,4 +76,18 @@ class Recipe(BaseModel):
 
 # %%
 chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")
-chat.extract_data(recipes[0], data_model=Recipe)
+recipe = chat.chat_structured(recipes[0], data_model=Recipe)
+
+# %% [markdown]
+# `.chat_structured()` returns an instance of the provided Pydantic model, so
+# you can access fields directly:
+
+# %%
+recipe.title
+
+# %% [markdown]
+# Or you can convert it to JSON with pydantic's built-in `.model_dump_json()`
+# method:
+
+# %%
+print(recipe.model_dump_json(indent=2))
