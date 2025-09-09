@@ -154,7 +154,7 @@
     "href": "index.html",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "Workshop at posit::conf(2025)September 16, 202509:00 - 17:00Regency VII"
+    "text": "Workshop at posit::conf(2025) in Atlanta, GASeptember 16, 2025 :: 09:00 - 17:00Room: Regency VII"
   },
   {
     "objectID": "index.html#introduction",
@@ -168,7 +168,7 @@
     "href": "index.html#links",
     "title": "Programming with LLMs",
     "section": "Links",
-    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n🧑‍💻 Join Posit Cloud Space\n👾 Discord (signup instructions)\n📦 Repository\n🎡 posit::conf(2025)"
+    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n\n👾 Discord (signup instructions)\n📦 Repository\n🍑 posit::conf(2025)"
   },
   {
     "objectID": "setup.html",
