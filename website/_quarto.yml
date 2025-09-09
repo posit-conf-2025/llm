@@ -22,12 +22,12 @@ website:
   open-graph:
     image: assets/open-graph-card.png
 
-  # announcement:
-  #   icon: cone-striped
-  #   dismissible: true
-  #   content: |
-  #     Welcome to [posit::conf]{.font-monospace}! Please join the [[level-up-shiny]{.font-monospace} Posit Cloud space](setup.qmd#using-posit-cloud).
-  #   type: info
+  announcement:
+    icon: ""
+    dismissable: false
+    content: |
+      🍑 We can't wait to see you in Atlanta! We're still finalizing the workshop materials, but you can get ready by following the <a class="alert-link" href="setup.qmd">setup instructions</a>.
+    type: warning
 
   page-footer: |
     <a href="https:://posi.it/conf-event-portal">posit::conf(2025)</a>
