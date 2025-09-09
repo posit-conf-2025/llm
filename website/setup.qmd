@@ -245,7 +245,7 @@ remotes::install_deps(dependencies = TRUE)
 #### ![](assets/icons/python-icon-color.svg){height="36px" alt="Python"}
 
 We're using [uv](https://docs.astral.sh/uv/) by Astral to manage our Python environment and dependencies.
-If you don't have `uv` installed, you can install it by following the instructions at <https://docs.astral.sh/uv/getting-started/installation/>.
+If you don't have `uv` installed, you can install it by following [uv's installation instructions](https://docs.astral.sh/uv/getting-started/installation/).
 
 Once you're set up with `uv`, open the project in your IDE and run the following command in the terminal to create the Python environment and install the necessary packages:
 
@@ -261,8 +261,10 @@ That command will create a virtual environment in the project directory and inst
 [ollama is an open-source tool](https://ollama.com) for running LLMs locally on your computer.
 Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.
 
-To use ollama, first [download and install it on your computer](https://ollama.com/download).
+**You do not need to install ollama or use local models to participate in the workshop.**
+That said, they're a fun way to experiment with LLMs without incurring API costs.
 
+To use ollama, first [download and install it on your computer](https://ollama.com/download).
 Then, you can browse [the list of models on the ollama website](https://ollama.com/search) to find a model that you want to use.
 Here are a few that we like for local testing.
 For the workshop, I'd recommend installing `gemma3:4b`[^plus-more].
