@@ -99,7 +99,7 @@
   - Activity: Add tool annotations to give the tool an icon and title
   - Activity: Use `ContentToolResult` to return custom title and icon
   - Activity: Track answers and score in the app (add/update value boxes)
-  - Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.
+  - (Considering) Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.
 
 ## Afternoon 2: Beyond Tools (90m)
 
