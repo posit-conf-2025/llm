@@ -15,6 +15,7 @@ title-block-style: default
 
 sidebar: false
 page-navigation: false
+toc: false
 
 editor: { render-on-save: true }
 engine: markdown
