@@ -442,7 +442,7 @@ TODO: Update posit cloud workspace screenshot
 </div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>We’re using <a href="https://docs.astral.sh/uv/">uv</a> by Astral to manage our Python environment and dependencies. If you don’t have <code>uv</code> installed, you can install it by following the instructions at <a href="https://docs.astral.sh/uv/getting-started/installation/" class="uri">https://docs.astral.sh/uv/getting-started/installation/</a>.</p>
+<p>We’re using <a href="https://docs.astral.sh/uv/">uv</a> by Astral to manage our Python environment and dependencies. If you don’t have <code>uv</code> installed, you can install it by following <a href="https://docs.astral.sh/uv/getting-started/installation/">uv’s installation instructions</a>.</p>
 <p>Once you’re set up with <code>uv</code>, open the project in your IDE and run the following command in the terminal to create the Python environment and install the necessary packages:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> sync</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>That command will create a virtual environment in the project directory and install all the required packages listed in the <code>pyproject.toml</code> file.</p>
@@ -454,8 +454,8 @@ TODO: Update posit cloud workspace screenshot
 <section id="local-models" class="level2">
 <h2 class="anchored" data-anchor-id="local-models">Local models with ollama</h2>
 <p><a href="https://ollama.com">ollama is an open-source tool</a> for running LLMs locally on your computer. Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.</p>
-<p>To use ollama, first <a href="https://ollama.com/download">download and install it on your computer</a>.</p>
-<p>Then, you can browse <a href="https://ollama.com/search">the list of models on the ollama website</a> to find a model that you want to use. Here are a few that we like for local testing. For the workshop, I’d recommend installing <code>gemma3:4b</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p><strong>You do not need to install ollama or use local models to participate in the workshop.</strong> That said, they’re a fun way to experiment with LLMs without incurring API costs.</p>
+<p>To use ollama, first <a href="https://ollama.com/download">download and install it on your computer</a>. Then, you can browse <a href="https://ollama.com/search">the list of models on the ollama website</a> to find a model that you want to use. Here are a few that we like for local testing. For the workshop, I’d recommend installing <code>gemma3:4b</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
