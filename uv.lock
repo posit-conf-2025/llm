@@ -115,18 +115,6 @@ css = [
 ]
 
 [[package]]
-name = "bsicons"
-version = "25.1"
-source = { registry = "https://pypi.org/simple" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/db/52/3d15e4699aea64ea3bb0c1cebc4aeb4e3a1ba8ae6a2a3bc6d60e1405b4f0/bsicons-25.1-cp312-cp312-manylinux2014_x86_64.whl", hash = "sha256:baea02d58d4d24366ae936550abbfddf08bd406d869ba07a6a9215aa88ead222", size = 1050599 },
-    { url = "https://files.pythonhosted.org/packages/23/8c/0980c41530dcf55d4f68e3ade222635f9c92405f0590dbaf177ba9dbbbf4/bsicons-25.1-cp312-cp312-win_amd64.whl", hash = "sha256:a675d6a83ca2598f01347c8d7b3163b972821da972ab50206aacedf6f0efda0f", size = 1043998 },
-    { url = "https://files.pythonhosted.org/packages/60/53/1c211cf077a629f214647fa6b70bfdf4c3e93187a63f0a79c62e3e56ff50/bsicons-25.1-cp313-cp313-manylinux2014_x86_64.whl", hash = "sha256:eb0f26c605a6fe7975cd9cd7063ee02f899fd34d5a520867ac873ca47b9870aa", size = 1045113 },
-    { url = "https://files.pythonhosted.org/packages/94/c3/3f315aaf0760130df371842bc29ac4dd4c720b3cf739a211a2204be190ae/bsicons-25.1-cp313-cp313-win_amd64.whl", hash = "sha256:7ffc044037a99cf4ca21795cbf27fe382234145ea243108dde54dd82c2b5839d", size = 1043108 },
-    { url = "https://files.pythonhosted.org/packages/41/92/339cd1c75d7388177c1468c708f8a9c1b800288776dcf942934aec31e2cf/bsicons-25.1-py3-none-any.whl", hash = "sha256:ebecf4050459a6057a2f234309617e58f4bcd2b6ab439903217bbae7d3a829d5", size = 1026632 },
-]
-
-[[package]]
 name = "cachetools"
 version = "5.5.2"
 source = { registry = "https://pypi.org/simple" }
@@ -451,6 +439,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/cc/28/c14e053b6762b1044f34a13aab6859bbf40456d37d23aa286ac24cfd9a5d/executing-2.2.1.tar.gz", hash = "sha256:3632cc370565f6648cc328b32435bd120a1e4ebb20c77e3fdde9a13cd1e533c4", size = 1129488 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c1/ea/53f2148663b321f21b5a606bd5f191517cf40b7072c0497d3c92c4a13b1e/executing-2.2.1-py2.py3-none-any.whl", hash = "sha256:760643d3452b4d777d295bb167ccc74c64a81df23fb5e08eff250c425a4b2017", size = 28317 },
+]
+
+[[package]]
+name = "faicons"
+version = "0.2.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "htmltools" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/06/e8/c12ef85c4444616ab1c1e96d5ecbadc8046d40b34797308846a2cfc06c80/faicons-0.2.2.tar.gz", hash = "sha256:6b7d7b19180179b6b83783f91bf6c9311c0f00ae0f97d41be1d24d9942361659", size = 604434 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/65/3c/1db1b0f878319bb227f35a0fca7cad64e1f528b518bcab1a708da305c86d/faicons-0.2.2-py3-none-any.whl", hash = "sha256:d45d7c2635b53582a3375c67d7e975a28a91d2c16ef5f6b5033b5cdd507224b6", size = 607225 },
 ]
 
 [[package]]
@@ -1551,10 +1551,10 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "anthropic" },
-    { name = "bsicons" },
     { name = "chatlas" },
     { name = "dotenv" },
     { name = "duckduckgo-search" },
+    { name = "faicons" },
     { name = "google-genai" },
     { name = "matplotlib" },
     { name = "openai" },
@@ -1580,10 +1580,10 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "anthropic", specifier = ">=0.64.0" },
-    { name = "bsicons", specifier = ">=25.1" },
     { name = "chatlas", git = "https://github.com/posit-dev/chatlas" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "duckduckgo-search", specifier = ">=8.1.1" },
+    { name = "faicons", specifier = ">=0.2.2" },
     { name = "google-genai", specifier = ">=1.33.0" },
     { name = "matplotlib", specifier = ">=3.10.6" },
     { name = "openai", specifier = ">=1.102.0" },
@@ -2195,8 +2195,8 @@ dependencies = [
 
 [[package]]
 name = "shinychat"
-version = "0.1.1.dev25+g09f22a255"
-source = { git = "https://github.com/posit-dev/shinychat#09f22a255f1a1c10ae9e74bd58e6e5269d3b949b" }
+version = "0.1.1.dev27+ge3c9d51df"
+source = { git = "https://github.com/posit-dev/shinychat#e3c9d51dff4010f29b8b8bc9f6040e28c44c7d27" }
 dependencies = [
     { name = "htmltools" },
     { name = "shiny" },

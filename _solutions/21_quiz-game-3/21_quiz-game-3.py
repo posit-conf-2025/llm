@@ -10,7 +10,14 @@ from typing import Literal
 
 from playsound3 import playsound
 
-SoundChoice = Literal["correct", "incorrect", "you-win"]
+SoundChoice = Literal["correct", "incorrect", "new-round", "you-win"]
+
+sound_map: dict[SoundChoice, "Path"] = {
+    "correct": here("data/sounds/smb_coin.wav"),
+    "incorrect": here("data/sounds/wilhelm.wav"),
+    "new-round": here("data/sounds/victory_fanfare_mono.wav"),
+    "you-win": here("data/sounds/smb_stage_clear.wav"),
+}
 
 
 def play_sound(sound: SoundChoice = "correct") -> str:
@@ -19,22 +26,20 @@ def play_sound(sound: SoundChoice = "correct") -> str:
 
     Parameters
     ----------
-    sound: Which sound effect to play: "correct", "incorrect", or "you-win".
+    sound: Which sound effect to play: "correct", "incorrect", "new-round" or
+           "you-win". Play the "new-round" sound after the user picks a theme
+           for the round. Play the "correct" and "incorrect" sounds when the
+           user answers a question correctly or incorrectly, respectively. And
+           play the "you-win" sound at the end of a round of questions.
 
     Returns
     -------
     A confirmation that the sound was played.
     """
-    allowed = {"correct", "incorrect", "you-win"}
-    if sound not in allowed:
-        raise ValueError(f"sound must be one of {sorted(allowed)}; got {sound!r}")
-
-    # Map choices to audio file paths. Update these to valid files on your machine.
-    sound_map = {
-        "correct": here("data/sounds/smb_coin.wav"),
-        "incorrect": here("data/sounds/wilhelm.wav"),
-        "you-win": here("data/sounds/smb_stage_clear.wav"),
-    }
+    if sound not in sound_map.keys():
+        raise ValueError(
+            f"sound must be one of {sorted(sound_map.keys())}; got {sound!r}"
+        )
 
     playsound(sound_map[sound])
 
@@ -50,17 +55,15 @@ chat = chatlas.ChatAnthropic(
 # %%
 from pathlib import Path
 
-import bsicons
+import faicons
 from htmltools import HTML
-
-icon = Path(bsicons.get_icon_path("volume-up-fill"))
 
 chat.register_tool(
     play_sound,
     annotations={
         "title": "Play Sound Effect",
         "extra": {
-            "icon": HTML(icon.read_text()),
+            "icon": faicons.icon_svg("volume-high"),
         },
     },
 )

@@ -3,18 +3,20 @@ library(ellmer)
 
 #' Plays a sound effect.
 #'
-#' @param sound Which sound effect to play: `"correct"`, `"incorrect", or
-#'   `"you-win"`.
+#' @param sound Which sound effect to play: `"correct"`, `"incorrect"`,
+#'   `"new-round"`, or `"you-win"`.
 #' @returns A confirmation that the sound was played.
-play_sound <- function(sound = c("correct", "incorrect", "you-win")) {
-  sound <- match.arg(sound)
-  if (sound == "correct") {
-    beepr::beep("coin")
-  } else if (sound == "incorrect") {
-    beepr::beep("wilhelm")
-  } else if (sound == "you-win") {
-    beepr::beep("fanfare")
-  }
+play_sound <- function(
+  sound = c("correct", "incorrect", "new-round", "you-win")
+) {
+  switch(
+    match.arg(sound),
+    correct = beepr::beep("coin"),
+    incorrect = beepr::beep("wilhelm"),
+    "new-round" = beepr::beep("fanfare"),
+    "you-win" = beepr::beep("complete")
+  )
+
   glue::glue("The '{sound}' sound was played.")
 }
 
@@ -22,14 +24,19 @@ tool_play_sound <- tool(
   play_sound,
   description = "Play a sound effect",
   arguments = list(
-    sound = type_string(
-      "The sound to play. Must be one of 'correct', 'incorrect', or 'you-win'.",
-      required = FALSE
+    sound = type_enum(
+      c("correct", "incorrect", "new-round", "you-win"),
+      description = paste(
+        "Which sound effect to play.",
+        "Play 'new-round' after the user picks a theme for the round.",
+        "Play 'correct' or 'incorrect' after the user answers a question.",
+        "Play 'you-win' at the end of a round of questions."
+      )
     )
   ),
   annotations = tool_annotations(
     title = "Play Sound Effect",
-    icon = bsicons::bs_icon("volume-up-fill")
+    icon = fontawesome::fa_i("volume-high")
   )
 )
 
