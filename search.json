@@ -182,7 +182,7 @@
     "href": "setup.html#create-accounts",
     "title": "Getting Setup",
     "section": "Create Accounts",
-    "text": "Create Accounts\nIn this workshop, we’ll be using a few different online services. If you don’t already have accounts with these services, you’ll need to create them before we get started.\n\nDiscord\n\nUsed to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.\nMake sure your display name is the one you used to register for the conference.\nCloser to the conference start, you’ll be able to join the posit::conf(2025) Discord server via the event portal at https:://posi.it/conf-event-portal.\nOur workshop channel is #workshop-llm.\n\nGitHub\n\nThe workshop materials are hosted on GitHub and we may use GitHub in an activity during the workshop."
+    "text": "Create Accounts\nIn this workshop, we’ll be using a few different online services. If you don’t already have accounts with these services, you’ll need to create them before we get started.\n\nDiscord\n\nUsed to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.\nMake sure your display name is the one you used to register for the conference.\nJoin the posit::conf(2025) Discord server via the posit::conf event portal.\nOur workshop channel is #workshop-llm.\n\nGitHub\n\nThe workshop materials are hosted on GitHub and we may use GitHub in an activity during the workshop."
   },
   {
     "objectID": "setup.html#choose-your-ide",
