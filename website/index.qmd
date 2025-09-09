@@ -206,7 +206,7 @@ Participants will explore system prompt design, token management, and tool calli
 - No advanced AI background is required
 - Implementing AI can be both accessible and exciting
 
-Designed for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and touches on advanced topics like fine-tuning and Retrieval-Augmented Generation (RAG). Attendees will gain hands-on experience through guided or personal projects, providing the confidence to start their LLM journey.
+Designed for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and touches on advanced topics like Retrieval-Augmented Generation (RAG) and tool calling. Attendees will gain hands-on experience through guided exercises, providing the confidence to start their LLM journey.
 
 ## Links
 

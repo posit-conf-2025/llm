@@ -30,7 +30,7 @@ You’ll discover that:
 - It’s easier than you think—no advanced AI background required.
 - It’s incredibly fun and rewarding to bring your own ideas to life.
 
-This workshop is perfect for those curious about AI but unsure where to start, as well as for seasoned developers looking to learn about Posit’s new tools. We’ll also touch on more advanced topics like fine-tuning and Retrieval-Augmented Generation (RAG). You’ll get hands-on experience with guided projects or with the flexibility to explore using your own projects.
+This workshop is perfect for those curious about AI but unsure where to start, as well as for seasoned developers looking to learn about Posit’s new tools. We’ll also touch on more advanced topics like Retrieval-Augmented Generation (RAG) and tool calling. You’ll get hands-on experience with guided projects or with the flexibility to explore using your own projects.
 
 If you’ve been sitting on the fence, wondering whether LLMs are worth diving into, this workshop will give you the hands-on experience and confidence you need to get started.
 
