@@ -22,6 +22,10 @@ secret-decrypt: ## [setup] Decrypt the secret env file
 
 .PHONY: py-setup
 py-setup:  ## [py] Setup Python environment
+	uv sync --all-extras
+
+.PHONY: py-upgrade
+py-upgrade:
 	uv sync --all-extras --upgrade
 
 .PHONY: r-setup
