@@ -21,7 +21,7 @@ play_sound <- function(
     correct = beepr::beep("coin"),
     incorrect = beepr::beep("wilhelm"),
     "new-round" = beepr::beep("fanfare"),
-    "you-win" = beepr::beep("complete")
+    "you-win" = beepr::beep("mario")
   )
 
   glue::glue("The '{sound}' sound was played.")
