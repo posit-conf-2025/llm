@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ```
 
 ::: {.lead .mb-4}
-**Workshop at [{{< meta workshop.conference.name >}}]({{< meta workshop.conference.link >}})**<br>{{< meta workshop.date >}}<br>{{< meta workshop.time >}}<br>{{< meta workshop.location >}}
+**Workshop at [{{< meta workshop.conference.name >}}]({{< meta workshop.conference.link >}})**  in {{< meta workshop.conference.location >}}<br>{{< meta workshop.date >}} :: {{< meta workshop.time >}}<br>{{< meta workshop.location >}}
 :::
 
 ## Introduction
@@ -215,11 +215,11 @@ Designed for AI newcomers and experienced developers, the session covers LLM int
 
 🔧 [Getting Setup](setup.qmd)
 
-🧑‍💻 [Join Posit Cloud Space](setup.qmd#using-posit-cloud)
+<!-- 🧑‍💻 [Join Posit Cloud Space](setup.qmd#using-posit-cloud) -->
 
 👾 [Discord]({{< meta workshop.links.discord >}}) ([signup instructions](setup.qmd#create-accounts))
 
 📦 [Repository]({{< meta workshop.links.repo >}})
 
-🎡 [{{< meta workshop.links.conf.name >}}]({{< meta workshop.links.conf.href >}})
+🍑 [{{< meta workshop.links.conf.name >}}]({{< meta workshop.links.conf.href >}})
 :::

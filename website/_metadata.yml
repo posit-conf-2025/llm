@@ -3,9 +3,10 @@ workshop:
   conference:
     name: "posit::conf(2025)"
     link: "https://posit.co/conference"
+    location: Atlanta, GA
   date: September 16, 2025
   time: 09:00 - 17:00
-  location: Regency VII
+  location: "**Room:** Regency VII"
   discord_channel: "#workshop-llm"
   links:
     repo: https://github.com/posit-conf-2025/llm
