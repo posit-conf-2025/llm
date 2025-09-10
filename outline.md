@@ -1,5 +1,12 @@
 # Programming with LLMs
 
+## Setup thoughts
+
+- Positron Assistant: https://positron.posit.co/assistant
+  - Requires turning on settings
+
+- Databot (recommended extension), requires setting up PA
+
 ## Morning 1: Anatomy of a conversation (90m)
 
 > An introduction to basic LLM concepts and how to use `ellmer` and `chatlas` to interact with LLMs from R and Python. No prior experience with LLMs is assumed, but some programming experience is helpful.
@@ -110,6 +117,9 @@
 
 - (10m) MCP
   - Overview of MCP and how it works
+  - MCP in Positron: https://github.com/posit-dev/positron/issues/8377
+    - MCP in VS Code: https://code.visualstudio.com/docs/copilot/customization/mcp-servers
+
   - Activity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)
     - ArXiV: https://github.com/andybrandt/mcp-simple-arxiv
     - webpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp

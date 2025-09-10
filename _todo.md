@@ -46,4 +46,4 @@
 ### Afternoon 2
 
 - [ ] 25_querychat
-- [ ] 26_mcp
+- [x] 26_mcp
