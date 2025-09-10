@@ -56,3 +56,7 @@ island_summary = (
 
 island_summary
 ```
+
+---
+
+This example is based on [Tidy Data Manipulation: dplyr vs polars – Tidy Intelligence](https://blog.tidy-intelligence.com/posts/dplyr-vs-polars/).

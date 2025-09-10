@@ -56,3 +56,8 @@ island_summary
 ```
 
 Hint: You might also need to mention that `pyhere` is a drop-in substitute for `here` in R.
+
+
+---
+
+This example is based on [Tidy Data Manipulation: dplyr vs polars – Tidy Intelligence](https://blog.tidy-intelligence.com/posts/dplyr-vs-polars/).
