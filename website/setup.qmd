@@ -110,11 +110,13 @@ We'll be using [Positron](https://positron.posit.co), the free, next-generation 
 
 Of course, you're welcome to use [RStudio](https://posit.co/download/rstudio-desktop/), [VS Code](https://code.visualstudio.com/) or any other IDE you prefer.
 
+::: {.callout-tip title="Why use Positron?"}
 Using Positron offers you the opportunity to try out two new AI-powered features in Positron:
 
 * [Positron Assistant](https://positron.posit.co/assistant), a general purpose AI assistant integrated directly into your development environment.
 
 * [Databot](https://positron.posit.co/databot.html), an AI assistant specifically designed to accelerate exploratory data analysis.
+:::
 
 ## Prepping for the workshop
 
