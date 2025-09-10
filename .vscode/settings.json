@@ -9,5 +9,11 @@
     "tabset",
     "usethis"
   ],
-  "quarto.path": "~/.local/share/qvm/versions/v1.8.24/bin/quarto"
+  "quarto.path": "~/.local/share/qvm/versions/v1.8.24/bin/quarto",
+  "positron.assistant.enable": true,
+  "positron.assistant.followups.enable": true,
+  "positron.assistant.gitIntegration.enable": true,
+  "positron.assistant.streamingEdits.enable": true,
+  "positron.assistant.toolDetails.enable": true,
+  "positron.assistant.consoleActions.enable": true
 }
