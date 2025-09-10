@@ -10,6 +10,7 @@
     "usethis"
   ],
   "quarto.path": "~/.local/share/qvm/versions/v1.8.24/bin/quarto",
+  "chat.detectParticipant.enabled": false,
   "positron.assistant.enable": true,
   "positron.assistant.followups.enable": true,
   "positron.assistant.gitIntegration.enable": true,
