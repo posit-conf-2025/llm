@@ -35,7 +35,7 @@
 ### Afternoon 1
 
 - [x] 15_manual-rag: Data science coding task with and without context added manually
-- [ ] 16_rag: Create dynamic RAG system with dplyr or polars documentation
+- [x] 16_rag: Create dynamic RAG system with dplyr or polars documentation
 - [ ] 18_demo_manual-tools: Human-in-the-loop weather tool
 - [ ] 19_demo_tools: Automated weather tool
 - [x] 20_quiz-game-2: Quiz game show with tools for sounds
