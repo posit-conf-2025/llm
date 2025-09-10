@@ -249,8 +249,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="g-col-12 g-col-sm-6 g-col-lg-4 text-end align-self-center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="assets/frustrated-man.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Fighting with your IT department during our workshop is not fun."><img src="assets/frustrated-man.png" class="img-fluid figure-img" alt="Frustrated man holding his head in his hands and looking confused at his laptop."></a></p>
-<figcaption>Fighting with your IT department during our workshop is not fun.</figcaption>
+<p><a href="assets/frustrated-man.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Frustrated man holding his head in his hands and looking confused at his laptop."><img src="assets/frustrated-man.png" class="img-fluid figure-img" alt="Frustrated man holding his head in his hands and looking confused at his laptop."></a></p>
+<figcaption>Frustrated man holding his head in his hands and looking confused at his laptop.</figcaption>
 </figure>
 </div>
 </div>
@@ -267,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We’ll be using APIs from <a href="https://platform.openai.com/docs/overview">OpenAI</a> and <a href="https://www.anthropic.com/api">Anthropic</a>, but don’t worry, you don’t need to bring an API key. We’ll provide an API key for you to use during the workshop and we’ll walk you through set up in-person.</p>
+<p>We’ll be using APIs from [OpenAI][openai-api] and [Anthropic][anthropic-api], but don’t worry, you don’t need to bring an API key. We’ll provide an API key for you to use during the workshop and we’ll walk you through set up in-person.</p>
 <p>If you’d like to also use or try local models during the workshop, you should <a href="#local-models">install ollama and download a model</a>.</p>
 </div>
 </div>
@@ -339,6 +339,11 @@ TODO: Update posit cloud workspace screenshot
 <p><a href="https://positron.posit.co/download.html" class="btn btn-primary"><i class="bi bi-display-fill"></i> Download Positron</a></p>
 </div>
 <p>Of course, you’re welcome to use <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, <a href="https://code.visualstudio.com/">VS Code</a> or any other IDE you prefer.</p>
+<p>Using Positron offers you the opportunity to try out two new AI-powered features in Positron:</p>
+<ul>
+<li><p><a href="https://positron.posit.co/assistant">Positron Assistant</a>, a general purpose AI assistant integrated directly into your development environment.</p></li>
+<li><p><a href="https://positron.posit.co/databot.html">Databot</a>, an AI assistant specifically designed to accelerate exploratory data analysis.</p></li>
+</ul>
 </section>
 <section id="prepping-for-the-workshop" class="level2">
 <h2 class="anchored" data-anchor-id="prepping-for-the-workshop">Prepping for the workshop</h2>
@@ -457,6 +462,11 @@ TODO: Update posit cloud workspace screenshot
 <p><strong>You do not need to install ollama or use local models to participate in the workshop.</strong> That said, they’re a fun way to experiment with LLMs without incurring API costs.</p>
 <p>To use ollama, first <a href="https://ollama.com/download">download and install it on your computer</a>. Then, you can browse <a href="https://ollama.com/search">the list of models on the ollama website</a> to find a model that you want to use. Here are a few that we like for local testing. For the workshop, I’d recommend installing <code>gemma3:4b</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: right;">ID</th>
@@ -466,23 +476,23 @@ TODO: Update posit cloud workspace screenshot
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;"><a href="https://ollama.com/library/gemma3:4b">gemma3:4b</a></td>
+<td style="text-align: right;">[gemma3:4b][ollama-gemma3-4b]</td>
 <td style="text-align: right;">3.3GB</td>
 <td style="text-align: left;"><span class="badge text-bg-danger">vision</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: right;"><a href="https://ollama.com/library/qwen3:8b">qwen3:8b</a></td>
+<td style="text-align: right;">[qwen3:8b][ollama-qwen3-8b]</td>
 <td style="text-align: right;">5.2GB</td>
 <td style="text-align: left;"><span class="badge text-bg-primary">tools</span> <span class="badge text-bg-info">thinking</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;"><a href="https://ollama.com/library/gpt-oss:20b">gpt-oss:20b</a></td>
+<td style="text-align: right;">[gpt-oss:20b][ollama-gpt-oss]</td>
 <td style="text-align: right;">14GB</td>
 <td style="text-align: left;"><span class="badge text-bg-primary">tools</span> <span class="badge text-bg-info">thinking</span></td>
 </tr>
 </tbody>
 </table>
-<p>To use a model, you first need to download it. For example, to download <a href="https://ollama.com/library/gemma3:4b">gemma3:4b</a>, run the following command in your terminal:</p>
+<p>To use a model, you first need to download it. For example, to download [gemma3:4b][ollama-gemma3-4b], run the following command in your terminal:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull gemma3:4b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>That command downloads the model to your computer. Once the model is downloaded, you can use it on your own computer without needing to be connected to the internet.</p>
 <p>You can use <code>ollama</code> to chat with the model directly in your terminal</p>
@@ -559,7 +569,7 @@ TODO: Update posit cloud workspace screenshot
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>The best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is <a href="https://ollama.com/library/gpt-oss:20b">gpt-oss:20b</a>. For something a little bit smaller, try <a href="https://ollama.com/library/qwen3:8b">qwen3:8b</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>The best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is [gpt-oss:20b][ollama-gpt-oss]. For something a little bit smaller, try [qwen3:8b][ollama-qwen3-8b].<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
