@@ -48,7 +48,10 @@ recipe_type <- type_object(
   instructions = type_array(type_string())
 )
 
-# Extract structured data from all recipes in parallel (fast, may be pricey)
+# Parallel structured extraction (fast, may be pricey) -------------------------
+# First, we'll use a simple loop to process each recipe one at a time. This is
+# straightforward for our 8 recipes, but would be slow (and expensive) for a
+# larger dataset.
 recipes_data <- parallel_chat_structured(
   chat("openai/gpt-4.1-nano"),
   prompts = as.list(recipes),
@@ -59,10 +62,30 @@ recipes_data <- parallel_chat_structured(
 recipes_tbl <- dplyr::as_tibble(recipes_data)
 recipes_tbl
 
-# Or use the Batch API to process all recipes (can be slow, but cheap)
+# Batch API (slower, but cheaper) ----------------------------------------------
+# That was pretty easy! But what if we had 10,000 recipes to process? That would
+# take a long time, and be pretty expensive. We can save money by using the
+# Batch API, which allows us to send multiple requests in a single API call.
+#
+# With the Batch API, results are processed asynchronously and are completed at
+# some point, usually within a few minutes but at most within the next 24 hours.
+# Because batching lets providers schedule requests more efficiently, it also
+# costs less per token than the standard API.
+
 res <- batch_chat_structured(
-  chat("openai/gpt-4.1-nano"),
+  chat("anthropic/claude-3-haiku-20240307"),
   prompts = as.list(recipes),
   type = recipe_type,
-  path = here::here("data/recipes/batch_results.json")
+  path = here::here("data/recipes/batch_results_r_claude.json")
+)
+
+# Save the results -------------------------------------------------------------
+# Now, save the results to a JSON file in `data/recipes/recipes.json`. Once
+# you've done that, you can open up `11_recipe-app.py` and run the app to see
+# your new recipe collection!
+jsonlite::write_json(
+  res,
+  here::here("data/recipes/recipes.json"),
+  auto_unbox = TRUE,
+  pretty = TRUE
 )
