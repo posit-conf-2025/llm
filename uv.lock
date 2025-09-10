@@ -233,8 +233,8 @@ wheels = [
 
 [[package]]
 name = "chatlas"
-version = "0.12.1.dev1+g8ad10e6dd"
-source = { git = "https://github.com/posit-dev/chatlas#8ad10e6dd5b48ebc2f4428b701092c0e9cdcfdbd" }
+version = "0.12.1.dev2+g51f9d301b"
+source = { git = "https://github.com/posit-dev/chatlas#51f9d301b876c231b76af7db51e748378f84815c" }
 dependencies = [
     { name = "jinja2" },
     { name = "openai" },
@@ -519,7 +519,7 @@ wheels = [
 
 [[package]]
 name = "google-genai"
-version = "1.34.0"
+version = "1.35.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -531,9 +531,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "websockets" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d7/80/54a58abd46b5cb1385d993fd668f8c82c74a8896dceae691da1315a90dc9/google_genai-1.34.0.tar.gz", hash = "sha256:9f963745faaa177a921202aa849c0811f7852089101fa143b7568a32020c9de9", size = 243492 }
+sdist = { url = "https://files.pythonhosted.org/packages/ba/e4/9a493c16c8b7ecc9faa73e5dba026e34c7c4acdfa4ae10008503ad4e1def/google_genai-1.35.0.tar.gz", hash = "sha256:08b7f663dd7ff38e2c5b9574cba9016cad1503e7f2ddaa9c234deaf0e8d5b609", size = 243703 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/53/2f/cd0009936b9fb0bd700a990ea7c8ec8e0f3e7a267279f062222f16823668/google_genai-1.34.0-py3-none-any.whl", hash = "sha256:d944d05c55162f3d408d22ea67bdb8dcc07ff3a9c82074f732acc27653175bdd", size = 244108 },
+    { url = "https://files.pythonhosted.org/packages/bd/f2/19999caa9bcdb808ee510434da7c5591bfc805e6436113deff0e350fe7fe/google_genai-1.35.0-py3-none-any.whl", hash = "sha256:c2671a20655ee700704c98dcc6d2742eb8ee71a04ea112dc47e338444de8da8a", size = 244299 },
 ]
 
 [[package]]
@@ -2168,8 +2168,8 @@ wheels = [
 
 [[package]]
 name = "shiny"
-version = "1.4.1.dev55"
-source = { git = "https://github.com/posit-dev/py-shiny#23a66cb006ce7356dbe35d3ac31f5ce0888cf19b" }
+version = "1.4.1.dev56"
+source = { git = "https://github.com/posit-dev/py-shiny#031d1ae3554ae9c11cf002e835bf48713b273b92" }
 dependencies = [
     { name = "asgiref" },
     { name = "click", marker = "sys_platform != 'emscripten'" },
