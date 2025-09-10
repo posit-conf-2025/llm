@@ -189,7 +189,7 @@
     "href": "setup.html#choose-your-ide",
     "title": "Getting Setup",
     "section": "Choose your IDE",
-    "text": "Choose your IDE\nYou can use any IDE you like to follow along with the workshop. We’ll be using Positron, the free, next-generation data science IDE from Posit.\n\n\n Download Positron\n\nOf course, you’re welcome to use RStudio, VS Code or any other IDE you prefer.\nUsing Positron offers you the opportunity to try out two new AI-powered features in Positron:\n\nPositron Assistant, a general purpose AI assistant integrated directly into your development environment.\nDatabot, an AI assistant specifically designed to accelerate exploratory data analysis."
+    "text": "Choose your IDE\nYou can use any IDE you like to follow along with the workshop. We’ll be using Positron, the free, next-generation data science IDE from Posit.\n\n\n Download Positron\n\nOf course, you’re welcome to use RStudio, VS Code or any other IDE you prefer.\n\n\n\n\n\n\nTipWhy use Positron?\n\n\n\nUsing Positron offers you the opportunity to try out two new AI-powered features in Positron:\n\nPositron Assistant, a general purpose AI assistant integrated directly into your development environment.\nDatabot, an AI assistant specifically designed to accelerate exploratory data analysis."
   },
   {
     "objectID": "setup.html#prepping-for-the-workshop",
