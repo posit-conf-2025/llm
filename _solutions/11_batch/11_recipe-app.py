@@ -53,7 +53,7 @@ def ui_recipe(recipe):
     ingredients_content = ui.tags.div(
         tags.blockquote(recipe["description"]),
         ui_ingredients(recipe["ingredients"]),
-        class_="overflow-auto"
+        class_="overflow-auto",
     )
     ingredients_content = ui.fill.as_fill_item(ingredients_content)
 
