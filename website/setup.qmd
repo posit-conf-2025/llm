@@ -6,16 +6,14 @@ title: Getting Setup
 
 ### What to bring
 
-**Bring your [personal laptop]{.text-danger} and a power cord.**
-This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.
+**Bring your [personal laptop]{.text-danger} and a power cord.** This is going to be a hands-on workshop, meaning that you’ll be writing code and collaborating with new friends you’ll make at the workshop.
 
 :::::: {.callout-caution title="Bring your own laptop"}
-
 You'll need a computer with internet access and the ability to install R or Python packages.
 
-::: {.grid .gap-2}
+::::: {.grid .gap-2}
 ::: {.g-col-12 .g-col-sm-6 .g-col-lg-8}
-We **strongly recommend** using a _personal laptop_ rather than a work laptop.
+We **strongly recommend** using a *personal laptop* rather than a work laptop.
 Many work laptops have restrictions that may prevent you from installing necessary software or accessing certain websites.
 
 You'll also want to bring a power cord to keep your laptop charged throughout the workshop.
@@ -23,42 +21,44 @@ And a bottle of water to stay hydrated (for you, not your laptop)!
 :::
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-lg-4 .text-end .align-self-center}
-![Fighting with your IT department during our workshop is not fun.](assets/frustrated-man.png){alt="Frustrated man holding his head in his hands and looking confused at his laptop."}
+![Frustrated man holding his head in his hands and looking confused at his laptop.](assets/frustrated-man.png)
 :::
-:::
-
+:::::
 ::::::
 
 ::: {.callout-tip title="We'll give you an API key"}
-We'll be using APIs from [OpenAI][openai-api] and [Anthropic][anthropic-api], but don't worry, you don't need to bring an API key.
+We'll be using APIs from \[OpenAI\]\[openai-api\] and \[Anthropic\]\[anthropic-api\], but don't worry, you don't need to bring an API key.
 We'll provide an API key for you to use during the workshop and we'll walk you through set up in-person.
 
 If you'd like to also use or try local models during the workshop, you should [install ollama and download a model](#local-models).
 :::
 
-
+```{=html}
 <!--
 As a back-up, you can use an entirely pre-configured [Posit Cloud](https://posit.cloud) instance ([details below](#using-posit-cloud)), so you don’t need to set up anything on your computer.
 -->
+```
 
 ## Create Accounts
 
 In this workshop, we'll be using a few different online services.
 If you don't already have accounts with these services, you'll need to create them before we get started.
 
-* [Discord](https://discord.com/register)
-  * Used to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.
-  * Make sure your [display name](https://support.discord.com/hc/en-us/articles/12620128861463-New-Usernames-Display-Names#h_01GXPQABMYGEHGPRJJXJMPHF5C) is the one you used to register for the conference.
-  * Join the `{{< meta workshop.conference.name >}}` Discord server via [the posit::conf event portal]({{< meta workshop.links.conf.href >}}).
-  * Our workshop channel is [`{{< meta workshop.discord_channel >}}`]({{< meta workshop.links.discord >}}).
+-   [Discord](https://discord.com/register)
+    -   Used to communicate during the workshop and ask questions via text. Also used for general online participation during the conference.
+    -   Make sure your [display name](https://support.discord.com/hc/en-us/articles/12620128861463-New-Usernames-Display-Names#h_01GXPQABMYGEHGPRJJXJMPHF5C) is the one you used to register for the conference.
+    -   Join the `{{< meta workshop.conference.name >}}` Discord server via [the posit::conf event portal]({{< meta workshop.links.conf.href >}}).
+    -   Our workshop channel is [`{{< meta workshop.discord_channel >}}`]({{< meta workshop.links.discord >}}).
+-   [GitHub](https://github.com/join)
+    -   The workshop materials are hosted on GitHub and we may use GitHub in an activity during the workshop.
 
-* [GitHub](https://github.com/join)
-  * The workshop materials are hosted on GitHub and we may use GitHub in an activity during the workshop.
-
+```{=html}
 <!--
 * [Posit Cloud](#using-posit-cloud)
 -->
+```
 
+```{=html}
 <!--
 ## Using Posit Cloud
 
@@ -95,13 +95,14 @@ TODO: Update posit cloud workspace screenshot
 ![](assets/posit-cloud-project.png){.img-fluid alt=""}
 :::
 -->
+```
 
 ## Choose your IDE
 
 You can use any IDE you like to follow along with the workshop.
 We'll be using [Positron](https://positron.posit.co), the free, next-generation data science IDE from Posit.
 
-::: {.text-center}
+::: text-center
 [![](https://positron.posit.co/images/astropy.png){style="max-width:600px" alt="Positron IDE screenshot"}](https://positron.posit.co)
 
 [<i class="bi bi-display-fill"></i> Download Positron](https://positron.posit.co/download.html){.btn .btn-primary}
@@ -109,17 +110,22 @@ We'll be using [Positron](https://positron.posit.co), the free, next-generation 
 
 Of course, you're welcome to use [RStudio](https://posit.co/download/rstudio-desktop/), [VS Code](https://code.visualstudio.com/) or any other IDE you prefer.
 
+Using Positron offers you the opportunity to try out two new AI-powered features in Positron:
+
+* [Positron Assistant](https://positron.posit.co/assistant), a general purpose AI assistant integrated directly into your development environment.
+
+* [Databot](https://positron.posit.co/databot.html), an AI assistant specifically designed to accelerate exploratory data analysis.
+
 ## Prepping for the workshop
 
 To prepare for the workshop, you need to [clone the repository]({{< meta workshop.links.repo >}}) and install the necessary packages.
 
 ### Clone the repository
 
-::: {.panel-tabset}
-
+::::::: panel-tabset
 #### ![](assets/icons/positron.svg){width="32px"} Positron
 
-In Positron, use **File** > **New Folder from Git...**.
+In Positron, use **File** \> **New Folder from Git...**.
 Enter the repository link---`{{< meta workshop.links.repo >}}.git`---and choose a location on your computer to save the project.
 
 ::: text-center
@@ -128,7 +134,7 @@ Enter the repository link---`{{< meta workshop.links.repo >}}.git`---and choose 
 
 #### ![](assets/icons/rstudio.svg){width="32px"} RStudio
 
-In RStudio, use the project dropdown menu (top right) or **File** > **New Project...**.
+In RStudio, use the project dropdown menu (top right) or **File** \> **New Project...**.
 Choose **Version Control** and then pick **Git**.
 
 ::: text-center
@@ -145,10 +151,10 @@ Enter the repository link---`{{< meta workshop.links.repo >}}.git`---and choose 
 
 In VS Code,
 
-1. open the command palette with `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac).
-2. Type `Git: Clone` and select it.
-3. Enter the repository link: `{{< meta workshop.links.repo >}}.git`
-4. Choose a location on your computer to save the project.
+1.  open the command palette with `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac).
+2.  Type `Git: Clone` and select it.
+3.  Enter the repository link: `{{< meta workshop.links.repo >}}.git`
+4.  Choose a location on your computer to save the project.
 
 ::: text-center
 ![](assets/vscode-git-clone.png){style="max-width:400px"}
@@ -158,7 +164,7 @@ In VS Code,
 
 You can use the [usethis](https://usethis.r-lib.org) package to quickly clone the repository:
 
-```r
+``` r
 usethis::create_from_github(
   "posit-conf-2025/llm",
   # Decide where to put the project here:
@@ -170,7 +176,7 @@ This will download the repository and open the project in RStudio.
 
 #### ![](assets/icons/github.svg){width="32px"} GitHub
 
-```bash
+``` bash
 cd ~/Desktop # or somewhere you can find easily
 
 gh repo clone posit-conf-2025/llm
@@ -179,24 +185,21 @@ cd llm
 
 #### ![](assets/icons/git-icon.svg){width="32px"} git
 
-```bash
+``` bash
 cd ~/Desktop # or somewhere you can find easily
 
 git clone https://github.com/posit-conf-2025/llm.git
 cd llm
 ```
-:::
-
+:::::::
 
 ### Set up your environment
 
-::: {.panel-tabset group="lang"}
-
+:::: {.panel-tabset group="lang"}
 #### ![](assets/icons/r-color.svg){height="36px" alt="R"}
 
 First, make sure you're using [a recent version of R](https://r-project.org).
-I used [R 4.5](https://r-project.org) but any recent version of R (>= 4.1) should work.
-
+I used [R 4.5](https://r-project.org) but any recent version of R (\>= 4.1) should work.
 
 ::: panel-tabset
 ##### With renv (recommended)
@@ -205,13 +208,13 @@ Inside the project, use the `renv` package to install the necessary packages.
 `renv` will automatically install when you open the project in Positron or RStudio.
 Run the following command in the R console to get started:
 
-```r
+``` r
 renv::restore()
 ```
 
 For very speedy installation, I recommend telling `renv` to use [pak](https://pak.r-lib.org/) to install packages:
 
-```r
+``` r
 Sys.setenv(RENV_CONFIG_PAK_ENABLED = "true")
 renv::restore()
 ```
@@ -223,20 +226,20 @@ Fortunately, there's an alternative installation method that should work just as
 
 First, disable `renv`:
 
-```r
+``` r
 renv::deactivate()
 ```
 
 Then install use [pak](https://pak.r-lib.org) to install the necessary packages:
 
-```r
+``` r
 # install.packages("pak")
 pak::local_install_deps(dependencies = TRUE)
 ```
 
 Or with [remotes](https://remotes.r-lib.org):
 
-```r
+``` r
 # install.packages("remotes")
 remotes::install_deps(dependencies = TRUE)
 ```
@@ -249,36 +252,36 @@ If you don't have `uv` installed, you can install it by following [uv's installa
 
 Once you're set up with `uv`, open the project in your IDE and run the following command in the terminal to create the Python environment and install the necessary packages:
 
-```bash
+``` bash
 uv sync
 ```
 
 That command will create a virtual environment in the project directory and install all the required packages listed in the `pyproject.toml` file.
-:::
+::::
 
 ## Local models with ollama {#local-models}
 
 [ollama is an open-source tool](https://ollama.com) for running LLMs locally on your computer.
 Local models do not provide the same quality of responses as flagship models from AI providers like OpenAI or Anthropic, but you can run models on your own computer without having to pay for API access or sending your data to a third party.
 
-**You do not need to install ollama or use local models to participate in the workshop.**
-That said, they're a fun way to experiment with LLMs without incurring API costs.
+**You do not need to install ollama or use local models to participate in the workshop.** That said, they're a fun way to experiment with LLMs without incurring API costs.
 
 To use ollama, first [download and install it on your computer](https://ollama.com/download).
 Then, you can browse [the list of models on the ollama website](https://ollama.com/search) to find a model that you want to use.
 Here are a few that we like for local testing.
-For the workshop, I'd recommend installing `gemma3:4b`[^plus-more].
+For the workshop, I'd recommend installing `gemma3:4b`[^1].
 
-[^plus-more]: The best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is [gpt-oss:20b][ollama-gpt-oss]. For something a little bit smaller, try [qwen3:8b][ollama-qwen3-8b].
+[^1]: The best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is \[gpt-oss:20b\]\[ollama-gpt-oss\].
+    For something a little bit smaller, try \[qwen3:8b\]\[ollama-qwen3-8b\].
 
 | ID | Size | Capabilities |
-|--:|--:|:--|
-| [gemma3:4b][ollama-gemma3-4b] | 3.3GB | [vision]{.badge .text-bg-danger} |
-| [qwen3:8b][ollama-qwen3-8b] | 5.2GB | [tools]{.badge .text-bg-primary} [thinking]{.badge .text-bg-info} |
-| [gpt-oss:20b][ollama-gpt-oss] | 14GB | [tools]{.badge .text-bg-primary} [thinking]{.badge .text-bg-info} |
+|-----------------------:|-----------------------:|:-----------------------|
+| \[gemma3:4b\]\[ollama-gemma3-4b\] | 3.3GB | [vision]{.badge .text-bg-danger} |
+| \[qwen3:8b\]\[ollama-qwen3-8b\] | 5.2GB | [tools]{.badge .text-bg-primary} [thinking]{.badge .text-bg-info} |
+| \[gpt-oss:20b\]\[ollama-gpt-oss\] | 14GB | [tools]{.badge .text-bg-primary} [thinking]{.badge .text-bg-info} |
 
 To use a model, you first need to download it.
-For example, to download [gemma3:4b][ollama-gemma3-4b], run the following command in your terminal:
+For example, to download \[gemma3:4b\]\[ollama-gemma3-4b\], run the following command in your terminal:
 
 ``` bash
 ollama pull gemma3:4b
@@ -332,8 +335,7 @@ Local models are just like the famous ChatGPT or Claude models, but they run ent
 You can use them for all of the same tasks: conversational AI, code generation, text processing, vision and more.
 There are a wide range of models available at many different sizes and capabilities, so you can choose one that fits your hardware and performance needs.
 
-**Local models are no where near as capable as the flagship models from OpenAI or Anthropic.**
-Still, there are a few reasons you might want to use a local model:
+**Local models are no where near as capable as the flagship models from OpenAI or Anthropic.** Still, there are a few reasons you might want to use a local model:
 
 1.  Your conversation never leaves your computer, ensuring complete data privacy.
 2.  No API costs, making local models very low-cost (other than the cost of your laptop or the hardware to run the model).
@@ -353,14 +355,14 @@ But we'll likely be making some last-minute changes to the workshop materials as
 
 To be completely ready-to-go on the day of the workshop, make sure that you get the latest version of the materials the night before the workshop.
 
-* **Update your local copy of the repository:**
+-   **Update your local copy of the repository:**
 
-  Use `git pull` in the terminal, or the **Git: Pull** command in your IDE.
+    Use `git pull` in the terminal, or the **Git: Pull** command in your IDE.
 
-* **Update your R packages:**
+-   **Update your R packages:**
 
-  If you're using R, run `renv::restore()` again to make sure you have the latest package versions.
+    If you're using R, run `renv::restore()` again to make sure you have the latest package versions.
 
-* **Update your Python packages:**
+-   **Update your Python packages:**
 
-  If you're using Python, run `uv sync` again to make sure you have the latest package versions.
+    If you're using Python, run `uv sync` again to make sure you have the latest package versions.
