@@ -34,7 +34,7 @@
 
 ### Afternoon 1
 
-- [ ] 15_manual-rag: Data science coding task with and without context added manually
+- [x] 15_manual-rag: Data science coding task with and without context added manually
 - [ ] 16_rag: Create dynamic RAG system with dplyr or polars documentation
 - [ ] 18_demo_manual-tools: Human-in-the-loop weather tool
 - [ ] 19_demo_tools: Automated weather tool

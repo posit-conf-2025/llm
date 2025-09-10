@@ -1275,6 +1275,18 @@ wheels = [
 ]
 
 [[package]]
+name = "nws"
+version = "1.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/70/83/f137972f821b8a7a155306c0d4eee4ad583668b05f9581f4a2d9a7940bf8/NWS-1.3.tar.gz", hash = "sha256:746cc9ea054c138baf309988818439edce4325d881b8f61238b6827af1cb386e", size = 2735 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7f/cd/a7dde7abc1ab4cf33c94a91131816ac4f5e82719cc2eaa1bc8157dc8895a/NWS-1.3-py3-none-any.whl", hash = "sha256:35f5932abe16e0fb4d9b4ba5a459e146949a2a48440b5da54edd822fa1e9e133", size = 2958 },
+]
+
+[[package]]
 name = "openai"
 version = "1.107.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1557,6 +1569,7 @@ dependencies = [
     { name = "faicons" },
     { name = "google-genai" },
     { name = "matplotlib" },
+    { name = "nws" },
     { name = "openai" },
     { name = "pillow" },
     { name = "playsound3" },
@@ -1586,6 +1599,7 @@ requires-dist = [
     { name = "faicons", specifier = ">=0.2.2" },
     { name = "google-genai", specifier = ">=1.33.0" },
     { name = "matplotlib", specifier = ">=3.10.6" },
+    { name = "nws", specifier = ">=1.3" },
     { name = "openai", specifier = ">=1.102.0" },
     { name = "pillow", specifier = ">=11.3.0" },
     { name = "playsound3", specifier = ">=3.2.6" },
