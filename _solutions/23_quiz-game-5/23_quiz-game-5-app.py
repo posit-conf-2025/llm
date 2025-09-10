@@ -58,14 +58,21 @@ def server(input, output, session):
     # Set up the chat instance
     client = chatlas.ChatAnthropic(
         model="claude-3-7-sonnet-20250219",
-        system_prompt=here("_solutions/14_quiz-game-1/prompt.md").read_text(),
+        system_prompt=f"""
+{here("_solutions/14_quiz-game-1/prompt.md").read_text()}
+
+After every question, use the "Update Score" tool to keep track of the user's
+score. Be sure to call the tool after you have graded the user's final answer to
+the question.
+""",
     )
 
     scores = reactive.value[list[QuestionAnswer]]([])
 
     @render.data_frame
     def tbl_score():
-        return pl.DataFrame(scores())
+        df = pl.DataFrame(scores())
+        return df
 
     @render.text
     def txt_correct() -> int:
@@ -83,8 +90,8 @@ def server(input, output, session):
         is_correct: bool,
     ):
         """
-        Add a correct or incorrect answer to the score. Call this tool after the
-        user answers a question.
+        Add a correct or incorrect answer to the score. Call this tool after
+        you've graded the user's answer to a question.
 
         Parameters
         ----------
@@ -98,16 +105,17 @@ def server(input, output, session):
             with reactive.isolate():
                 val_scores = scores.get()
 
-        val_scores.append(
-            QuestionAnswer(
-                theme=theme,
-                question=question,
-                answer=answer,
-                your_answer=your_answer,
-                is_correct=is_correct,
-            )
+        answer = QuestionAnswer(
+            theme=theme,
+            question=question,
+            answer=answer,
+            your_answer=your_answer,
+            is_correct=is_correct,
         )
+
+        val_scores = [*val_scores, answer]
         scores.set(val_scores)
+
         correct = len([d for d in val_scores if d["is_correct"]])
         incorrect = len(val_scores) - correct
         return {"correct": correct, "incorrect": incorrect}

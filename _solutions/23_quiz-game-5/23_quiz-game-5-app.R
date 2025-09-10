@@ -38,7 +38,11 @@ server <- function(input, output, session) {
     system_prompt = interpolate_file(
       # Replace `_solutions` with `_exercises` to get your own prompt from before
       here::here("_solutions/14_quiz-game-1/prompt.md")
-    )
+    ) |>
+      paste(
+        "\n\nAfter every question, use the 'Update Score' tool to keep track of the user's score.",
+        "Be sure to call the tool after you have graded the user's final answer to the question."
+      )
   )
 
   scores <- reactiveVal(
@@ -76,7 +80,7 @@ server <- function(input, output, session) {
     update_score,
     description = paste(
       "Add a correct or incorrect answer to the score tally.",
-      "Call this tool after the user answers a question."
+      "Call this tool after you've graded the user's answer to a question."
     ),
     arguments = list(
       theme = type_string("The theme of the round."),
