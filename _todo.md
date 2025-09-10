@@ -48,3 +48,4 @@
 
 - [ ] 25_querychat
 - [x] 26_mcp
+- [x] 27_demo_databot
