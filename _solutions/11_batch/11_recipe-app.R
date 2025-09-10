@@ -77,6 +77,7 @@ ui_recipe <- function(r) {
     ),
     card(
       height = 400,
+      style = css(max_height = "max-content"), # don't expand beyond content height
       card_header("Instructions"),
       ui_instructions(r$instructions)
     )
@@ -93,7 +94,7 @@ ui <- page_sidebar(
       choices = map_chr(recipes, "title")
     )
   ),
-  uiOutput("ui_recipe_card")
+  uiOutput("ui_recipe_card", fill = TRUE)
 )
 
 server <- function(input, output, session) {

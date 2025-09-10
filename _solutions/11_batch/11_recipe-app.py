@@ -83,6 +83,7 @@ def ui_recipe(recipe):
             ui.card_header("Instructions"),
             ui_instructions(recipe["instructions"]),
             height=400,
+            max_height="max-content",
         ),
         fillable=True,
         fill=True,
@@ -101,7 +102,7 @@ app_ui = ui.page_sidebar(
         ),
         width=300,
     ),
-    ui.output_ui("ui_recipe_card"),
+    ui.output_ui("ui_recipe_card", fillable=True),
     title="My Recipe Collection",
     fillable=True,
 )
