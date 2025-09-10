@@ -23,6 +23,7 @@ Imports:
     dplyr,
     ellmer,
     fs,
+    ggplot2,
     here,
     magick,
     mcptools,
