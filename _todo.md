@@ -9,6 +9,7 @@
 - [x] App for sharing API keys
 - [x] Set up renv and uv lockfiles
 - [ ] Finalize `renv.lock` and `uv.lock`
+- [ ] Remove `quarto.path` from `.vscode/settings.json`
 
 ### Morning 1
 
