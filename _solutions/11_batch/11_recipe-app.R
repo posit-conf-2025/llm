@@ -55,8 +55,10 @@ ui_recipe <- function(r) {
     card(
       height = 400,
       card_header("Ingredients"),
-      layout_columns(
+      layout_column_wrap(
         div(
+          as_fill_item(),
+          class = "overflow-auto",
           tags$blockquote(r$description),
           ui_ingredients(r$ingredients)
         ),
@@ -65,6 +67,7 @@ ui_recipe <- function(r) {
             style = css(
               background_image = paste0("url('", r$image_url, "')"),
               background_size = "cover",
+              background_position = "center",
               height = "100%",
               width = "100%"
             )
@@ -86,7 +89,7 @@ ui <- page_sidebar(
     width = 300,
     radioButtons(
       "recipes",
-      tags$strong("Choose a recipe"),
+      tags$strong("What's for lunch today?"),
       choices = map_chr(recipes, "title")
     )
   ),

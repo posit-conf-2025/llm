@@ -2,7 +2,8 @@ import json
 
 from htmltools import css, tags
 from pyhere import here
-from shiny import App, reactive, render, ui
+from shiny import App, render, ui
+from shiny._utils import rand_hex
 
 # Load recipes data
 recipes_path = here("data/recipes/recipes.json")
@@ -24,7 +25,7 @@ def ui_ingredients(ingredients):
         if ingredient.get("notes") and ingredient["notes"] != "":
             content.append(f" ({ingredient['notes']})")
 
-        id = "ingredient-" + ingredient["name"].replace(" ", "-").lower()
+        id = rand_hex(8)
         content = tags.input(
             tags.label(
                 *content,
@@ -49,19 +50,22 @@ def ui_instructions(instructions):
 def ui_recipe(recipe):
     """Generate HTML for complete recipe card"""
     # Build ingredients section
-    ingredients_content = [
+    ingredients_content = ui.tags.div(
         tags.blockquote(recipe["description"]),
         ui_ingredients(recipe["ingredients"]),
-    ]
+        class_="overflow-auto"
+    )
+    ingredients_content = ui.fill.as_fill_item(ingredients_content)
 
     # Add image if available
-    layout_content = [tags.div(*ingredients_content)]
+    layout_content = [ingredients_content]
 
     if recipe.get("image_url") and recipe["image_url"] != "":
         image_div = tags.div(
             style=css(
                 background_image=f"url('{recipe['image_url']}')",
                 background_size="cover",
+                background_position="center",
                 height="100%",
                 width="100%",
             )
@@ -92,7 +96,7 @@ app_ui = ui.page_sidebar(
     ui.sidebar(
         ui.input_radio_buttons(
             "recipes",
-            ui.tags.strong("Choose a recipe"),
+            ui.tags.strong("What's for lunch today?"),
             choices=recipe_choices,
         ),
         width=300,
