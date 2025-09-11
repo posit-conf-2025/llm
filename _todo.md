@@ -48,7 +48,6 @@
 ### Afternoon 2
 
 - [x] 25_querychat
-  - [ ] Update to use new columns in `airbnb-asheville.csv`
   - [ ] ?? Rewrite Python examples to use pandas instead of polars
 - [x] 26_mcp
 - [x] 27_demo_databot

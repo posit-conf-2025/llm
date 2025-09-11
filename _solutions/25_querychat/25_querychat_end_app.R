@@ -3,9 +3,9 @@ library(bslib)
 library(dplyr)
 library(ggplot2)
 library(leaflet)
-library(DT)
 library(ellmer)
 library(querychat)
+library(reactable)
 
 theme_set(theme_minimal(14))
 ggplot2::update_geom_defaults("bar", list(fill = "#007BC2"))
@@ -48,7 +48,7 @@ ui <- page_sidebar(
           nav_panel(
             "Table",
             icon = fontawesome::fa_i("table"),
-            DTOutput("table")
+            reactableOutput("table")
           )
         )
       )
@@ -168,7 +168,7 @@ server <- function(input, output, session) {
           "Room Type: ", room_type, "<br>",
           "Neighborhood: ", neighborhood, "<br>",
           "Owner: ", host_name, "<br>",
-          "Reviews: ", scales::comma(number_of_reviews), "<br>",
+          "Reviews: ", scales::comma(n_reviews), "<br>",
           "Availability: ", availability_365, " days/year"
         )
       )
@@ -184,8 +184,41 @@ server <- function(input, output, session) {
       HTML(paste0("<pre><code>", sql, "</code></pre>"))
     })
 
-    output$table <- renderDT({
-      airbnb_qc$df()
+    output$table <- renderReactable({
+      reactable(
+        airbnb_qc$df(),
+        columns = list(
+          name = colDef(minWidth = 200),
+          price = colDef(
+            align = "right",
+            format = colFormat(prefix = "$", separators = TRUE, digits = 0)
+          ),
+          room_type = colDef(),
+          neighborhood = colDef(),
+          occupancy_pct = colDef(
+            format = colFormat(percent = TRUE, digits = 1)
+          ),
+          description = colDef(show = FALSE),
+          amenities = colDef(show = FALSE),
+          url_picture = colDef(show = FALSE),
+          url_listing = colDef(show = FALSE)
+        ),
+        defaultPageSize = 20,
+        highlight = TRUE,
+        bordered = TRUE,
+        striped = TRUE,
+        showPageSizeOptions = TRUE,
+        details = function(index) {
+          row <- airbnb_qc$df()[index, ]
+          htmltools::div(
+            style = "padding: 16px;",
+            htmltools::tags$strong("Description:"),
+            htmltools::tags$p(row$description),
+            htmltools::tags$strong("Amenities:"),
+            htmltools::tags$p(row$amenities)
+          )
+        }
+      )
     })
   }
 }

@@ -9,20 +9,9 @@ from faicons import icon_svg
 from pyhere import here
 from shiny import App, reactive, render, ui
 
-# Load and prepare data (Polars)
+# Load and prepare data
 airbnb_data = (
-    pl.read_csv(
-        Path(here("data/airbnb-asheville.csv")),
-        null_values=["", "NA"],
-        schema_overrides={
-            # Treat IDs as strings to avoid precision issues
-            "id": pl.Utf8,
-            "host_id": pl.Utf8,
-            "price": pl.Float64,
-        },
-        # If there are stray bad rows, you could add:
-        # ignore_errors=True,
-    )
+    pl.read_csv(here("data/airbnb-asheville.csv"))
     .filter(pl.col("price").is_not_null())
     .with_columns(
         occupancy_pct=((pl.lit(365) - pl.col("availability_365")) / pl.lit(365))
@@ -241,7 +230,7 @@ def server(input, output, session):
                 "room_type",
                 "neighborhood",
                 "host_name",
-                "number_of_reviews",
+                "n_reviews",
                 "availability_365",
             ]
         ).to_pandas()
@@ -270,7 +259,7 @@ def server(input, output, session):
                     "room_type",
                     "neighborhood",
                     "host_name",
-                    "number_of_reviews",
+                    "n_reviews",
                     "availability_365",
                 ]
             ].to_numpy(),
