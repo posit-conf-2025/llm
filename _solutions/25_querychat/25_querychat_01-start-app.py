@@ -1,8 +1,6 @@
 # Setup ------------------------------------------------------------------------
-from pathlib import Path
-
+import pandas as pd
 import plotly.express as px
-import polars as pl
 import querychat
 import shinywidgets as sw
 from faicons import icon_svg
@@ -11,20 +9,13 @@ from shiny import App, reactive, render, ui
 
 # Load and prepare data
 airbnb_data = (
-    pl.read_csv(here("data/airbnb-asheville.csv"))
-    .filter(pl.col("price").is_not_null())
-    .with_columns(
-        occupancy_pct=((pl.lit(365) - pl.col("availability_365")) / pl.lit(365))
-    )
+    pd.read_csv(here("data/airbnb-asheville.csv"))
+    .loc[lambda df: df["price"].notnull()]
+    .assign(occupancy_pct=lambda df: (365 - df["availability_365"]) / 365)
 )
 
-# Precompute choices using Polars -> Python lists
-room_type_choices = (
-    airbnb_data.select(pl.col("room_type").unique().sort()).to_series().to_list()
-)
-neighborhood_choices = (
-    airbnb_data.select(pl.col("neighborhood").unique()).to_series().to_list()
-)
+room_type_choices = sorted(airbnb_data["room_type"].dropna().unique().tolist())
+neighborhood_choices = airbnb_data["neighborhood"].dropna().unique().tolist()
 
 # Step 1: Set up querychat ----------
 # Configure querychat. This is where you specify the dataset and can also
@@ -134,61 +125,60 @@ def server(input, output, session):
 
     # Step 4: Use the querychat-filtered data ----
     # Replace all of the logic inside of `filtered_data()` with
-    # `pl.DataFrame(airbnb_qc.df())`.
+    # `airbnb_qc.df()`
     @reactive.calc
     def filtered_data():
-        df = airbnb_data
+        df = airbnb_data.copy()
 
         # Room type filter
         room_type = input.room_type()
         if room_type:
-            df = df.filter(pl.col("room_type").is_in(room_type))
+            df = df[df["room_type"].isin(room_type)]
 
         # Neighborhood filter
         neighborhoods = input.neighborhood()
         if neighborhoods:
-            df = df.filter(pl.col("neighborhood").is_in(neighborhoods))
+            df = df[df["neighborhood"].isin(neighborhoods)]
 
         # Price range filter
         pmin, pmax = input.price()
-        df = df.filter((pl.col("price") >= pmin) & (pl.col("price") <= pmax))
+        df = df[(df["price"] >= pmin) & (df["price"] <= pmax)]
 
         return df
 
     @render.text
     def num_listings():
-        return f"{filtered_data().height:,}"
+        return f"{len(filtered_data()):,}"
 
     @render.text
     def avg_price():
         df = filtered_data()
-        if df.is_empty():
+        if df.empty:
             return "N/A"
-        mean_price = df.select(pl.col("price").mean()).item()
+        mean_price = df["price"].mean()
         return f"${mean_price:.2f}"
 
     @render.text
     def avg_occupancy():
         df = filtered_data()
-        if df.is_empty():
+        if df.empty:
             return "N/A"
-        mean_occ = df.select(pl.col("occupancy_pct").mean()).item()
+        mean_occ = df["occupancy_pct"].mean()
         return f"{mean_occ:.1%}"
 
     @sw.render_widget
     def room_type_plot():
         df = filtered_data()
-        if df.is_empty():
+        if df.empty:
             return None
 
-        df = df.filter(pl.col("price").is_not_null())
+        df = df[df["price"].notnull()]
 
         fig = px.histogram(
-            df.to_pandas(),
+            df,
             x="price",
             color="room_type",
-            barmode="group",  # use "stack" if you prefer stacked counts
-            # opacity=0.55,
+            barmode="group",
             nbins=10,
             labels={"price": "Price", "room_type": "Room Type"},
             template="simple_white",
@@ -196,16 +186,15 @@ def server(input, output, session):
         fig.update_layout(showlegend=True, font_size=14)
         fig.update_yaxes(title_text="Count")
         fig.update_xaxes()
-        # fig.update_layout(config={"displayModeBar": False})
         fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
         return fig
 
     @sw.render_widget
     def availability_plot():
         df = filtered_data()
-        if df.is_empty():
+        if df.empty:
             return None
-        pdf = df.select(["availability_365", "room_type"]).to_pandas()
+        pdf = df[["availability_365", "room_type"]]
         fig = px.box(
             pdf,
             x="availability_365",
@@ -219,9 +208,9 @@ def server(input, output, session):
     @sw.render_widget
     def listings_map():
         df = filtered_data()
-        if df.is_empty():
+        if df.empty:
             return None
-        pdf = df.select(
+        pdf = df[
             [
                 "latitude",
                 "longitude",
@@ -233,7 +222,7 @@ def server(input, output, session):
                 "n_reviews",
                 "availability_365",
             ]
-        ).to_pandas()
+        ]
 
         fig = px.scatter_mapbox(
             pdf,
@@ -243,7 +232,7 @@ def server(input, output, session):
         )
         fig.update_traces(
             hovertemplate=(
-                "<b>%{customdata[0]}</b><br>"  # name
+                "<b>%{customdata[0]}</b><br>"
                 "Price: $%{customdata[1]:.2f}<br>"
                 "Room type: %{customdata[2]}<br>"
                 "Neighborhood: %{customdata[3]}<br>"

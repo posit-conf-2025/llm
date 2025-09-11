@@ -48,6 +48,6 @@
 ### Afternoon 2
 
 - [x] 25_querychat
-  - [ ] ?? Rewrite Python examples to use pandas instead of polars
+  - [x] Rewrite Python examples to use pandas instead of polars
 - [x] 26_mcp
 - [x] 27_demo_databot
