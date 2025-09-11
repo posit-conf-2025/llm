@@ -41,9 +41,10 @@ hot_room_types <-
   summarize(
     total_listings = n(),
     avg_price = round(mean(price, na.rm = TRUE), 2),
+    avg_score = round(mean(score_rating, na.rm = TRUE), 2),
     total_occupied_days = sum(365 - availability_365, na.rm = TRUE),
     avg_occupied_days = (365 - mean(availability_365, na.rm = TRUE)),
-    total_reviews = sum(number_of_reviews, na.rm = TRUE),
+    total_reviews = sum(n_reviews, na.rm = TRUE),
     .groups = "drop_last"
   ) |>
   slice_max(total_reviews / total_listings, n = 1) |>
@@ -53,8 +54,3 @@ hot_room_types
 ```
 
 Hint: You might also need to mention that `pyhere` is a drop-in substitute for `here` in R.
-
-
----
-
-This example is based on [Tidy Data Manipulation: dplyr vs polars – Tidy Intelligence](https://blog.tidy-intelligence.com/posts/dplyr-vs-polars/).

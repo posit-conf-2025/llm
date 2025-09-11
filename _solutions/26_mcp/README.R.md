@@ -36,25 +36,25 @@ from pyhere import here
 listings = pl.read_csv(here("data/airbnb-asheville.csv"))
 
 hot_room_types = (
-    listings
-    .group_by(["neighborhood", "room_type"])
+    listings.group_by(["neighborhood", "room_type"])
     .agg(
         [
             pl.len().alias("total_listings"),
             pl.col("price").mean().round(2).alias("avg_price"),
+            pl.col("score_rating").mean().round(2).alias("avg_rating"),
             # occupied days = 365 - availability_365
             (365 - pl.col("availability_365")).sum().alias("total_occupied_days"),
             (365 - pl.col("availability_365").mean()).alias("avg_occupied_days"),
-            pl.col("number_of_reviews").sum().alias("total_reviews"),
+            pl.col("n_reviews").sum().alias("total_reviews"),
         ]
     )
     .with_columns(
-        (pl.col("total_reviews") / pl.col("total_listings")).alias("reviews_per_listing")
+        (pl.col("total_reviews") / pl.col("total_listings")).alias(
+            "reviews_per_listing"
+        )
     )
     .group_by("neighborhood")
-    .map_groups(
-        lambda df: df.sort("reviews_per_listing", descending=True).head(1)
-    )
+    .map_groups(lambda df: df.sort("reviews_per_listing", descending=True).head(1))
     .sort("avg_occupied_days", descending=True)
     .select(
         "neighborhood",
@@ -68,9 +68,5 @@ hot_room_types = (
     )
 )
 
-hot_room_types
+print(hot_room_types)
 ```
-
----
-
-This example is based on [Tidy Data Manipulation: dplyr vs polars – Tidy Intelligence](https://blog.tidy-intelligence.com/posts/dplyr-vs-polars/).

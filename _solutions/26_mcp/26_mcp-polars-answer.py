@@ -9,10 +9,11 @@ hot_room_types = (
         [
             pl.len().alias("total_listings"),
             pl.col("price").mean().round(2).alias("avg_price"),
+            pl.col("score_rating").mean().round(2).alias("avg_rating"),
             # occupied days = 365 - availability_365
             (365 - pl.col("availability_365")).sum().alias("total_occupied_days"),
             (365 - pl.col("availability_365").mean()).alias("avg_occupied_days"),
-            pl.col("number_of_reviews").sum().alias("total_reviews"),
+            pl.col("n_reviews").sum().alias("total_reviews"),
         ]
     )
     .with_columns(
@@ -35,4 +36,4 @@ hot_room_types = (
     )
 )
 
-hot_room_types
+print(hot_room_types)
