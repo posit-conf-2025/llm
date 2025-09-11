@@ -61,7 +61,7 @@ app_ui = ui.page_sidebar(
                     "Table",
                     ui.output_data_frame("table"),
                     icon=icon_svg("table"),
-                )
+                ),
             ),
             padding=0,
         ),
@@ -247,6 +247,7 @@ def server(input, output, session):
         return fig
 
     if "airbnb_qc_config" in globals():
+
         @render.ui
         def ui_sql():
             sql = airbnb_qc.sql() if airbnb_qc.sql() else "SELECT * FROM airbnb_data"
@@ -256,5 +257,6 @@ def server(input, output, session):
         @render.data_frame
         def table():
             return airbnb_qc.df()
+
 
 app = App(app_ui, server)
