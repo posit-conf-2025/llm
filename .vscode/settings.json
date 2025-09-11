@@ -16,5 +16,6 @@
   "positron.assistant.gitIntegration.enable": true,
   "positron.assistant.streamingEdits.enable": true,
   "positron.assistant.toolDetails.enable": true,
-  "positron.assistant.consoleActions.enable": true
+  "positron.assistant.consoleActions.enable": true,
+  "databot.preferredModel": "Claude 3.5 Sonnet v2"
 }

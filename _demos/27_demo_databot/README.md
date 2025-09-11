@@ -1,35 +1,27 @@
 ## Databot Demo
 
-```
-Let's look at `data/all_recipes.csv`, do some basic work to familiarize ourselves with the data, and then find recipes that are reasonably fast to cook, don't require too many ingredients or steps, and get the best ratings.
-```
+### Step 1
 
-If the app tries to use `tidyverse`, it will fail because it's not installed. Instead, it should use `data.table` or `dplyr` (both are installed).
+⚠️ Decide: Python or R?
 
-```
-Just use dplyr, readr, ggplot2, tidyr, etc. directly
-```
-
-Databot probably finds recipes that are super fast to cook but not very nutritional.
+### Step 2: Start conversation
 
 ```
-but I want something nutritional, not just that it minimizes cooking time and ingredients
+Let's look at `data/airbnb-asheville.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC.
 ```
 
-Ask follow up questions about how it calculates nutrition, e.g. what is `macro_balance_score`?
-And make sure that it doesn't drop cooking time completely.
+Follow Databot's lead...
 
-```
-Have we lost cooking time?
-```
+### Some extra ideas:
 
-And then make some plots to visualize the tradeoffs.
+* What amenities are most associated with higher review scores or higher prices?
 
-```
-Let's make a few plots that summarize the stats and tradeoffs between nutrition, cooking time, and number of ingredients
-```
+* Analyze the relationship between minimum nights requirement and booking patterns.
+  * How do minimum night requirements impact occupancy?
 
-Finally, ask Databot to write a summary of what we found.
+* Investigate if there are any correlations between the number of listings in a neighborhood and property success metrics.
+
+### Finally, ask Databot to write a summary of what we found.
 
 ```
 Write a report summarizing our calculations and findings.
