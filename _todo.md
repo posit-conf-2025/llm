@@ -38,7 +38,6 @@
 - [x] 16_rag: Create dynamic RAG system with dplyr or polars documentation
 - [x] 18_demo_manual-tools: Human-in-the-loop weather tool
 - [x] 19_demo_tools: Automated weather tool
-  - [ ] Python variant
 - [x] 20_quiz-game-2: Quiz game show with tools for sounds
 - [x] 21_quiz-game-3: Quiz game show, add icon and title to tool def
 - [x] 22_quiz-game-4: Quiz game show, set title and icon in tool result
