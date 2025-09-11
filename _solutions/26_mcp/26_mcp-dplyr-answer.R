@@ -1,23 +1,20 @@
 library(readr)
 library(dplyr)
 
-penguins <- read_csv(here::here("data/penguins.csv"))
+listings <- read_csv(here::here("data/airbnb-asheville.csv"))
 
-island_summary <- penguins |>
-  group_by(island) |>
+hot_room_types <-
+  listings |>
+  group_by(neighborhood, room_type) |>
   summarize(
-    sample_size = n(),
-    prop_female = sum(sex == "female", na.rm = TRUE) / sum(!is.na(sex)),
-
-    mean_bill_depth_mm = mean(bill_depth_mm, na.rm = TRUE),
-    std_bill_depth_mm = sd(bill_depth_mm, na.rm = TRUE),
-
-    mean_flipper_length_mm = mean(flipper_length_mm, na.rm = TRUE),
-    std_flipper_length_mm = sd(flipper_length_mm, na.rm = TRUE),
-
-    mean_body_mass_g = mean(body_mass_g, na.rm = TRUE),
-    std_body_mass_g = sd(body_mass_g, na.rm = TRUE)
+    total_listings = n(),
+    avg_price = round(mean(price, na.rm = TRUE), 2),
+    total_occupied_days = sum(365 - availability_365, na.rm = TRUE),
+    avg_occupied_days = (365 - mean(availability_365, na.rm = TRUE)),
+    total_reviews = sum(number_of_reviews, na.rm = TRUE),
+    .groups = "drop_last"
   ) |>
-  arrange(island)
+  slice_max(total_reviews / total_listings, n = 1) |>
+  arrange(desc(avg_occupied_days))
 
-island_summary
+hot_room_types
