@@ -1,0 +1,242 @@
+# Setup ------------------------------------------------------------------------
+from pathlib import Path
+
+import faicons
+import plotly.express as px
+import polars as pl
+import shinywidgets as sw
+from pyhere import here
+from shiny import App, reactive, render, ui
+
+# Load and prepare data (Polars)
+airbnb_data = (
+    pl.read_csv(
+        Path(here("data/airbnb-asheville.csv")),
+        null_values=["", "NA"],
+        schema_overrides={
+            # Treat IDs as strings to avoid precision issues
+            "id": pl.Utf8,
+            "host_id": pl.Utf8,
+            "price": pl.Float64,
+        },
+        # If there are stray bad rows, you could add:
+        # ignore_errors=True,
+    )
+    .filter(pl.col("price").is_not_null())
+    .with_columns(
+        occupancy_pct=((pl.lit(365) - pl.col("availability_365")) / pl.lit(365))
+    )
+)
+
+# Precompute choices using Polars -> Python lists
+room_type_choices = (
+    airbnb_data.select(pl.col("room_type").unique().sort()).to_series().to_list()
+)
+neighborhood_choices = (
+    airbnb_data.select(pl.col("neighborhood").unique()).to_series().to_list()
+)
+
+# UI ===------------------------------------------------------------------------
+app_ui = ui.page_sidebar(
+    ui.sidebar(
+        ui.input_checkbox_group(
+            "room_type",
+            "Room Type",
+            choices=room_type_choices,
+            selected=room_type_choices,
+        ),
+        ui.input_selectize(
+            "neighborhood", "Neighborhood", choices=neighborhood_choices, multiple=True
+        ),
+        ui.input_slider(
+            "price",
+            "Price Range",
+            min=0,
+            max=7000,
+            value=[0, 7000],
+            step=50,
+            pre="$",
+        ),
+    ),
+    ui.layout_columns(
+        ui.value_box(
+            "Number of Listings",
+            ui.output_text("num_listings"),
+            showcase=faicons.icon_svg("house"),
+        ),
+        ui.value_box(
+            "Average Price per Night",
+            ui.output_text("avg_price"),
+            showcase=faicons.icon_svg("dollar-sign"),
+        ),
+        ui.value_box(
+            "Average Occupancy",
+            ui.output_text("avg_occupancy"),
+            showcase=faicons.icon_svg("calendar-check"),
+        ),
+        fill=False,
+    ),
+    ui.layout_columns(
+        ui.card(
+            ui.card_body(sw.output_widget("listings_map", fill=True), padding=0),
+            full_screen=True,
+        ),
+        ui.layout_columns(
+            ui.card(
+                ui.card_header("Room Types"),
+                sw.output_widget("room_type_plot"),
+                full_screen=True,
+            ),
+            ui.card(
+                ui.card_header("Availability by Room Type"),
+                sw.output_widget("availability_plot"),
+                full_screen=True,
+            ),
+            col_widths=12,
+        ),
+    ),
+    title="Asheville Airbnb Dashboard",
+    class_="bslib-page-dashboard",
+    fillable=True,
+)
+
+
+# Server -----------------------------------------------------------------------
+def server(input, output, session):
+    @reactive.calc
+    def filtered_data():
+        df = airbnb_data
+
+        # Room type filter
+        room_type = input.room_type()
+        if room_type:
+            df = df.filter(pl.col("room_type").is_in(room_type))
+
+        # Neighborhood filter
+        neighborhoods = input.neighborhood()
+        if neighborhoods:
+            df = df.filter(pl.col("neighborhood").is_in(neighborhoods))
+
+        # Price range filter
+        pmin, pmax = input.price()
+        df = df.filter((pl.col("price") >= pmin) & (pl.col("price") <= pmax))
+
+        return df
+
+    @render.text
+    def num_listings():
+        return f"{filtered_data().height:,}"
+
+    @render.text
+    def avg_price():
+        df = filtered_data()
+        if df.is_empty():
+            return "N/A"
+        mean_price = df.select(pl.col("price").mean()).item()
+        return f"${mean_price:.2f}"
+
+    @render.text
+    def avg_occupancy():
+        df = filtered_data()
+        if df.is_empty():
+            return "N/A"
+        mean_occ = df.select(pl.col("occupancy_pct").mean()).item()
+        return f"{mean_occ:.1%}"
+
+    @sw.render_widget
+    def room_type_plot():
+        df = filtered_data()
+        if df.is_empty():
+            return None
+
+        df = df.filter(pl.col("price").is_not_null())
+
+        fig = px.histogram(
+            df.to_pandas(),
+            x="price",
+            color="room_type",
+            barmode="group",  # use "stack" if you prefer stacked counts
+            # opacity=0.55,
+            nbins=10,
+            labels={"price": "Price", "room_type": "Room Type"},
+            template="simple_white",
+        )
+        fig.update_layout(showlegend=True, font_size=14)
+        fig.update_yaxes(title_text="Count")
+        fig.update_xaxes()
+        # fig.update_layout(config={"displayModeBar": False})
+        fig.update_layout(margin=dict(l=0, r=0, t=0, b=0))
+        return fig
+
+    @sw.render_widget
+    def availability_plot():
+        df = filtered_data()
+        if df.is_empty():
+            return None
+        pdf = df.select(["availability_365", "room_type"]).to_pandas()
+        fig = px.box(
+            pdf,
+            x="availability_365",
+            y="room_type",
+            labels={"availability_365": "Availability (days/year)", "room_type": ""},
+            template="simple_white",
+        )
+        fig.update_layout(showlegend=False, font_size=14)
+        return fig
+
+    @sw.render_widget
+    def listings_map():
+        df = filtered_data()
+        if df.is_empty():
+            return None
+        pdf = df.select(
+            [
+                "latitude",
+                "longitude",
+                "name",
+                "price",
+                "room_type",
+                "neighborhood",
+                "host_name",
+                "number_of_reviews",
+                "availability_365",
+            ]
+        ).to_pandas()
+
+        fig = px.scatter_mapbox(
+            pdf,
+            lat="latitude",
+            lon="longitude",
+            zoom=11,
+        )
+        fig.update_traces(
+            hovertemplate=(
+                "<b>%{customdata[0]}</b><br>"  # name
+                "Price: $%{customdata[1]:.2f}<br>"
+                "Room type: %{customdata[2]}<br>"
+                "Neighborhood: %{customdata[3]}<br>"
+                "Host: %{customdata[4]}<br>"
+                "Reviews: %{customdata[5]:,}<br>"
+                "Availability: %{customdata[6]} days/yr"
+                "<extra></extra>"
+            ),
+            customdata=pdf[
+                [
+                    "name",
+                    "price",
+                    "room_type",
+                    "neighborhood",
+                    "host_name",
+                    "number_of_reviews",
+                    "availability_365",
+                ]
+            ].to_numpy(),
+        )
+
+        fig.update_layout(
+            mapbox_style="open-street-map", margin=dict(l=0, r=0, t=0, b=0)
+        )
+        return fig
+
+
+app = App(app_ui, server)

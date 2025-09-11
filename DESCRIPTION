@@ -25,6 +25,7 @@ Imports:
     fs,
     ggplot2,
     here,
+    leaflet,
     magick,
     mcptools,
     purrr,

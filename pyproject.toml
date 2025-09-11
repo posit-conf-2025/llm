@@ -17,6 +17,7 @@ dependencies = [
     "openai>=1.102.0",
     "pillow>=11.3.0",
     "playsound3>=3.2.6",
+    "plotly>=6.3.0",
     "plotnine>=0.15.0",
     "polars>=1.33.0",
     "pyarrow>=21.0.0",

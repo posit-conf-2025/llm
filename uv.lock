@@ -2090,6 +2090,19 @@ wheels = [
 ]
 
 [[package]]
+name = "plotly"
+version = "6.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "narwhals" },
+    { name = "packaging" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a0/64/850de5076f4436410e1ce4f6a69f4313ef6215dfea155f3f6559335cad29/plotly-6.3.0.tar.gz", hash = "sha256:8840a184d18ccae0f9189c2b9a2943923fd5cae7717b723f36eef78f444e5a73", size = 6923926 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/95/a9/12e2dc726ba1ba775a2c6922d5d5b4488ad60bdab0888c337c194c8e6de8/plotly-6.3.0-py3-none-any.whl", hash = "sha256:7ad806edce9d3cdd882eaebaf97c0c9e252043ed1ed3d382c3e3520ec07806d4", size = 9791257 },
+]
+
+[[package]]
 name = "plotnine"
 version = "0.15.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2137,6 +2150,7 @@ dependencies = [
     { name = "openai" },
     { name = "pillow" },
     { name = "playsound3" },
+    { name = "plotly" },
     { name = "plotnine" },
     { name = "polars" },
     { name = "pyarrow" },
@@ -2168,6 +2182,7 @@ requires-dist = [
     { name = "openai", specifier = ">=1.102.0" },
     { name = "pillow", specifier = ">=11.3.0" },
     { name = "playsound3", specifier = ">=3.2.6" },
+    { name = "plotly", specifier = ">=6.3.0" },
     { name = "plotnine", specifier = ">=0.15.0" },
     { name = "polars", specifier = ">=1.33.0" },
     { name = "pyarrow", specifier = ">=21.0.0" },
