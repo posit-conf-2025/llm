@@ -34,7 +34,7 @@
 
 ### Afternoon 1
 
-- [x] 15_manual-rag: Data science coding task with and without context added manually
+- [x] 15_manual-rag: Getting the weather with a niche R/Python package
 - [x] 16_rag: Create dynamic RAG system with dplyr or polars documentation
 - [ ] 18_demo_manual-tools: Human-in-the-loop weather tool
 - [ ] 19_demo_tools: Automated weather tool
@@ -46,6 +46,6 @@
 
 ### Afternoon 2
 
-- [ ] 25_querychat
+- [x] 25_querychat
 - [x] 26_mcp
-- [x] 27_demo_databot
+- [ ] 27_demo_databot

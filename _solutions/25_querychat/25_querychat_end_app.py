@@ -40,32 +40,13 @@ neighborhood_choices = (
 # Step 1: Set up querychat ----------
 # Configure querychat. This is where you specify the dataset and can also
 # override options like the greeting message, system prompt, model, etc.
-# airbnb_qc_config = ____
+airbnb_qc_config = querychat.init(airbnb_data, "airbnb_data")
 
 # UI ===------------------------------------------------------------------------
 app_ui = ui.page_sidebar(
     # Step 2: Replace sidebar ----
     # Replace the entire sidebar with querychat.sidebar("airbnb")
-    ui.sidebar(
-        ui.input_checkbox_group(
-            "room_type",
-            "Room Type",
-            choices=room_type_choices,
-            selected=room_type_choices,
-        ),
-        ui.input_selectize(
-            "neighborhood", "Neighborhood", choices=neighborhood_choices, multiple=True
-        ),
-        ui.input_slider(
-            "price",
-            "Price Range",
-            min=0,
-            max=7000,
-            value=[0, 7000],
-            step=50,
-            pre="$",
-        ),
-    ),
+    querychat.sidebar("airbnb"),
     # Extra UI added when you add in querychat
     ui.card(
         ui.card_body(
@@ -80,7 +61,7 @@ app_ui = ui.page_sidebar(
                     "Table",
                     ui.output_data_frame("table"),
                     icon=icon_svg("table"),
-                ),
+                )
             ),
             padding=0,
         ),
@@ -141,30 +122,14 @@ def server(input, output, session):
     # Step 3: Set up querychat server ----
     # Create an `airbnb_qc` querychat object by calling `querychat.server()`
     # with the same ID and config from steps 2 and 1.
-    # airbnb_qc = ____
+    airbnb_qc = querychat.server("airbnb", airbnb_qc_config)
 
     # Step 4: Use the querychat-filtered data ----
     # Replace all of the logic inside of `filtered_data()` with
     # `pl.DataFrame(airbnb_qc.df())`.
     @reactive.calc
     def filtered_data():
-        df = airbnb_data
-
-        # Room type filter
-        room_type = input.room_type()
-        if room_type:
-            df = df.filter(pl.col("room_type").is_in(room_type))
-
-        # Neighborhood filter
-        neighborhoods = input.neighborhood()
-        if neighborhoods:
-            df = df.filter(pl.col("neighborhood").is_in(neighborhoods))
-
-        # Price range filter
-        pmin, pmax = input.price()
-        df = df.filter((pl.col("price") >= pmin) & (pl.col("price") <= pmax))
-
-        return df
+        return pl.DataFrame(airbnb_qc.df())
 
     @render.text
     def num_listings():
@@ -282,7 +247,6 @@ def server(input, output, session):
         return fig
 
     if "airbnb_qc_config" in globals():
-
         @render.ui
         def ui_sql():
             sql = airbnb_qc.sql() if airbnb_qc.sql() else "SELECT * FROM airbnb_data"
@@ -292,6 +256,5 @@ def server(input, output, session):
         @render.data_frame
         def table():
             return airbnb_qc.df()
-
 
 app = App(app_ui, server)
