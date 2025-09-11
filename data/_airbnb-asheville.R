@@ -51,7 +51,7 @@ listings <-
     id = paste0("l_", id),
     host_id = paste0("h_", host_id),
     price = as.numeric(gsub("[$,]", "", price)),
-    amenities = purrr::map(amenities, function(x) {
+    amenities = purrr::map_chr(amenities, function(x) {
       paste(unlist(jsonlite::fromJSON(x)), collapse = ";")
     })
   )
