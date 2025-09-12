@@ -1,0 +1,11 @@
+filters:
+  - tachyons
+
+format:
+  revealjs:
+    html-math-method: plain
+    slide-level: 2
+    width: 1280
+    height: 720
+    theme:
+      - slides.scss

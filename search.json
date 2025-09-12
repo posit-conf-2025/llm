@@ -4,7 +4,7 @@
     "href": "about/index.html",
     "title": "Our Team",
     "section": "",
-    "text": "Joe Cheng\n        CTO, Posit\n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n            \n        \n    \n\n    \n        \n        Garrick Aden-Buie\n        Software Engineer, Shiny\n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        Karan Gathani\n        \n        \n            Assistant\n        \n        \n    \n\n    \n        \n        Julia Silge\n        \n        \n            Assistant\n        \n        \n    \n\n    \n        \n        Sam Clark\n        \n        \n            Assistant\n        \n        \n    \n\n    \n        \n        James Blair\n        \n        \n            Assistant\n        \n        \n    \n\n\nNo matching items"
+    "text": "Joe Cheng\n        CTO, Posit\n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n            \n        \n    \n\n    \n        \n        Garrick Aden-Buie\n        Software Engineer, Shiny\n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        Karan Gathani\n        Software QA Engineer, Shiny\n        \n            Assistant\n        \n        \n    \n\n    \n        \n        Julia Silge\n        Engineering Manager, Positron\n        \n            Assistant\n        \n        \n    \n\n    \n        \n        Sam Clark\n        Software Engineer, Positron\n        \n            Assistant\n        \n        \n    \n\n    \n        \n        James Blair\n        Senior Product Manager, Posit Cloud\n        \n            Assistant\n        \n        \n    \n\n\nNo matching items"
   },
   {
     "objectID": "workshop.html",
@@ -374,53 +374,53 @@
     ]
   },
   {
-    "objectID": "slides/slides-01-intro.html#welcome-to-level-up-with-shiny-for-r",
-    "href": "slides/slides-01-intro.html#welcome-to-level-up-with-shiny-for-r",
+    "objectID": "slides/slides-01-intro.html#welcome-to-programming-with-llm-apis",
+    "href": "slides/slides-01-intro.html#welcome-to-programming-with-llm-apis",
     "title": "Welcome!",
-    "section": "Welcome to Level Up with Shiny for R",
-    "text": "Welcome to Level Up with Shiny for R\n\nFind a seat where you can see the screen!\nJoin the Posit Cloud workspace: pos.it/level-up-shiny-24-cloud\nJoin the Discord from https://pos.it/conf\nWiFI: Posit Conf 2024 | conf2024"
+    "section": "Welcome to Programming with LLM APIs !",
+    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nUpdate your local copy of the workshop:\nposit-conf-2025.github.io/llm/setup.html\nJoin the Discord: https://pos.it/conf\nwifi(  network=“Posit Conf 2025”,  password=“conf2025”)"
   },
   {
     "objectID": "slides/slides-01-intro.html#meet-us",
     "href": "slides/slides-01-intro.html#meet-us",
     "title": "Welcome!",
     "section": "Meet us",
-    "text": "Meet us\n\nGarrick\nCarson\nBarret\nKalau\nAndrew"
+    "text": "Meet us\n\nOur team: Joe Cheng, Garrick Aden-Buie, Karan Gathani, Julia Silge, Sam Clark, James Blair"
   },
   {
     "objectID": "slides/slides-01-intro.html#code-of-conduct",
     "href": "slides/slides-01-intro.html#code-of-conduct",
     "title": "Welcome!",
     "section": "Code of Conduct",
-    "text": "Code of Conduct\nPlease Review: posit.co/code-of-conduct\n💙 Treat everyone with respect\n🧡 Everyone should feel welcome and safe\nReporting:\n🗣️ any posit::conf staff member (t-shirt) or Info desk\n📧 conf@posit.co"
+    "text": "Code of Conduct\nPlease Review: posit.co/code-of-conduct\n💙 Treat everyone with respect\n🧡 Everyone should feel welcome and safe\nReporting:\n🗣️ any posit::conf staff member (t-shirt) or Info desk\n📧 codeofconduct@posit.co"
   },
   {
     "objectID": "slides/slides-01-intro.html#meet-each-other",
     "href": "slides/slides-01-intro.html#meet-each-other",
     "title": "Welcome!",
     "section": "Meet each other",
-    "text": "Meet each other\n\n\n👋 Hi, my name is …\n💼 My first job was …\n💡 What did you learn from that job?"
+    "text": "Meet each other\n\n👋 Hi, my name is …\n🤖 I’d call myself an AI… [skeptic, pragmatist, enthusiast]\n⚡ Share a moment when AI surprised you"
   },
   {
     "objectID": "slides/slides-01-intro.html#wifi",
     "href": "slides/slides-01-intro.html#wifi",
     "title": "Welcome!",
     "section": "WiFi",
-    "text": "WiFi\n\n\n\n\nWiFi\nPosit Conf 2024\n\n\n\n\nPass\nconf2024"
+    "text": "WiFi\nwifi(“Posit Conf 2025”, password=“conf2025”)"
   },
   {
-    "objectID": "slides/slides-01-intro.html#positconf2024-things-to-know",
-    "href": "slides/slides-01-intro.html#positconf2024-things-to-know",
+    "objectID": "slides/slides-01-intro.html#positconf2025-things-to-know",
+    "href": "slides/slides-01-intro.html#positconf2025-things-to-know",
     "title": "Welcome!",
-    "section": "posit::conf(2024) Things to Know",
-    "text": "posit::conf(2024) Things to Know\n\nThere will be a gender-neutral bathroom on levels 3:7\nMeditation/prayer room: 503\n\nMon & Tues 7am - 7pm\nWed 7am - 5pm\n\nMothers room: 509"
+    "section": "posit::conf(2025) Things to Know",
+    "text": "posit::conf(2025) Things to Know\n\n🚻 Gender-neutral bathroom: LL2 next to Chicago A\n🧘 Meditation/prayer room: LL2 Chicago A\n🤱 Lactation room: LL2 Chicago B\n🎉 Welcome reception: Tonight 5-7 pm, LL2 Grand Hall West\n🐠 Aquarium Night: Tomorrow 7-10 pm, Georgia Aquarium"
   },
   {
-    "objectID": "slides/slides-01-intro.html#positconf2024-social-media",
-    "href": "slides/slides-01-intro.html#positconf2024-social-media",
+    "objectID": "slides/slides-01-intro.html#positconf2025-social-media",
+    "href": "slides/slides-01-intro.html#positconf2025-social-media",
     "title": "Welcome!",
-    "section": "posit::conf(2024) Social Media",
-    "text": "posit::conf(2024) Social Media\n\nRed lanyards available to those who don’t wish to be photographed\n#PositConf2024 for all things conf\n#LevelUpShiny for this workshop"
+    "section": "posit::conf(2025) Social Media",
+    "text": "posit::conf(2025) Social Media\n\nRed lanyards available to those who don’t wish to be photographed\n#PositConf2025 for all things conf"
   },
   {
     "objectID": "slides/slides-01-intro.html#questions",
@@ -430,6 +430,34 @@
     "text": "Questions\n\n🙋 🙋‍♀️ 🙋‍♂️\nPlease ask questions!"
   },
   {
+    "objectID": "slides/slides-01-intro.html#posit-conf-2025.github.iollm",
+    "href": "slides/slides-01-intro.html#posit-conf-2025.github.iollm",
+    "title": "Welcome!",
+    "section": "🏡 posit-conf-2025.github.io/llm",
+    "text": "🏡 posit-conf-2025.github.io/llm\nEverything you need, in one place."
+  },
+  {
+    "objectID": "slides/slides-01-intro.html#discord",
+    "href": "slides/slides-01-intro.html#discord",
+    "title": "Welcome!",
+    "section": "Discord",
+    "text": "Discord\n\n\n\nGo posit.co/conference\nClick Login\nFind and click the discord banner\nJoin us in #workshop-llm"
+  },
+  {
+    "objectID": "slides/slides-01-intro.html#schedule",
+    "href": "slides/slides-01-intro.html#schedule",
+    "title": "Welcome!",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\nTime\n\nActivity\n\n\n\n\n09:00 - 10:30\n💬\nTalking with LLMs via Code\n\n\n10:30 - 11:00\n☕\nCoffee break\n\n\n11:00 - 12:30\n💻\nProgramming with LLMs\n\n\n12:30 - 13:30\n🍽️\nLunch break\n\n\n13:30 - 15:00\n🔍\nAugmented Generation\n\n\n15:00 - 15:30\n☕\nCoffee break\n\n\n15:30 - 17:00\n🚀\nBeyond Tools"
+  },
+  {
+    "objectID": "slides/slides-01-intro.html#schedule-the-important-bits",
+    "href": "slides/slides-01-intro.html#schedule-the-important-bits",
+    "title": "Welcome!",
+    "section": "Schedule (the important bits)",
+    "text": "Schedule (the important bits)\n\n\n\n\nTime\n\nActivity\n\n\n\n\n09:00 - 10:30\n💬\nTalking with LLMs via Code\n\n\n10:30 - 11:00\n☕\nCoffee break\n\n\n11:00 - 12:30\n💻\nProgramming with LLMs\n\n\n12:30 - 13:30\n🍽️\nLunch break\n\n\n13:30 - 15:00\n🔍\nAugmented Generation\n\n\n15:00 - 15:30\n☕\nCoffee break\n\n\n15:30 - 17:00\n🚀\nBeyond Tools"
+  },
+  {
     "objectID": "slides/slides-01-intro.html#stickies",
     "href": "slides/slides-01-intro.html#stickies",
     "title": "Welcome!",
@@ -437,59 +465,31 @@
     "text": "Stickies\n\n\n🟩\nAll good\nI’m done\n\n\n🟥\nNot great\nNeed time or help"
   },
   {
-    "objectID": "slides/slides-01-intro.html#schedule",
-    "href": "slides/slides-01-intro.html#schedule",
+    "objectID": "slides/slides-01-intro.html#setup",
+    "href": "slides/slides-01-intro.html#setup",
     "title": "Welcome!",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 10:30\n💬 Talking with LLMs via Code\n\n\n10:30 - 11:00\n☕ Coffee break\n\n\n11:00 - 12:30\n💻 Programming with LLMs\n\n\n12:30 - 13:30\n🍽️ Lunch break\n\n\n13:30 - 15:00\n🔍 Augmented Generation\n\n\n15:00 - 15:30\n☕ Coffee break\n\n\n15:30 - 17:00\n🚀 Beyond Tools"
+    "section": "Setup",
+    "text": "Setup\n\nHead to posit-conf-2025.github.io/llm/setup.html\nClone our workshop repo posit-conf-2025/llm\nOpen the project in Positron\nInstall all the packages:\n\nR: renv::restore()\nPython: uv sync"
   },
   {
-    "objectID": "slides/slides-01-intro.html#schedule-1",
-    "href": "slides/slides-01-intro.html#schedule-1",
+    "objectID": "slides/slides-01-intro.html#were-using-positron",
+    "href": "slides/slides-01-intro.html#were-using-positron",
     "title": "Welcome!",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 10:30\n💬 Talking with LLMs via Code\n\n\n10:30 - 11:00\n☕ Coffee break\n\n\n11:00 - 12:30\n💻 Programming with LLMs\n\n\n12:30 - 13:30\n🍽️ Lunch break\n\n\n13:30 - 15:00\n🔍 Augmented Generation\n\n\n15:00 - 15:30\n☕ Coffee break\n\n\n15:30 - 17:00\n🚀 Beyond Tools"
-  },
-  {
-    "objectID": "slides/slides-01-intro.html#schedule-2",
-    "href": "slides/slides-01-intro.html#schedule-2",
-    "title": "Welcome!",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\n\nTime\nActivity\n\n\n\n\n09:00 - 10:30\n💬 Talking with LLMs via Code\n\n\n10:30 - 11:00\n☕ Coffee break\n\n\n11:00 - 12:30\n💻 Programming with LLMs\n\n\n12:30 - 13:30\n🍽️ Lunch break\n\n\n13:30 - 15:00\n🔍 Augmented Generation\n\n\n15:00 - 15:30\n☕ Coffee break\n\n\n15:30 - 17:00\n🚀 Beyond Tools"
-  },
-  {
-    "objectID": "slides/slides-01-intro.html#discord",
-    "href": "slides/slides-01-intro.html#discord",
-    "title": "Welcome!",
-    "section": "Discord",
-    "text": "Discord\n\n\n\nGo posit.co/conference\nClick Login\nFind and click the discord banner\n\n\n\n\n\n\n\nOur workshop channel\n#workshop-level-up-shiny"
-  },
-  {
-    "objectID": "slides/slides-01-intro.html#posit-cloud",
-    "href": "slides/slides-01-intro.html#posit-cloud",
-    "title": "Welcome!",
-    "section": "Posit Cloud",
-    "text": "Posit Cloud\n\nStep 1. Join the Level Up for Shiny Posit Cloud workspace\n\nStep 2. Start level-up-shiny assignment"
-  },
-  {
-    "objectID": "slides/slides-01-intro.html#cloud-session",
-    "href": "slides/slides-01-intro.html#cloud-session",
-    "title": "Welcome!",
-    "section": "Cloud session",
-    "text": "Cloud session"
+    "section": "We’re using Positron",
+    "text": "We’re using Positron\n\n\n\n\nRStudio and VS Code are great, too!"
   },
   {
     "objectID": "slides/slides-01-intro.html#file-organization",
     "href": "slides/slides-01-intro.html#file-organization",
     "title": "Welcome!",
     "section": "File organization",
-    "text": "File organization\n\n\n\n\n_exercises/\nFiles for Your Turn exercises\n\n\n_examples/\nFiles for my demo examples\n\n\nwebsite/\nThe website and slides\n\n\n./*\nLots of project related files you can ignore"
+    "text": "File organization\n\n\n\n\n_exercises/\nFiles for Your Turn exercises\n\n\n_solutions/\nSolutions to those exercises\n\n\n_demos/\nFiles for stuff we demo\n\n\nwebsite/\nThe website and slides\n\n\n./*\nLots of project related files you can ignore"
   },
   {
     "objectID": "slides/slides-01-intro.html#exercise-solutions",
     "href": "slides/slides-01-intro.html#exercise-solutions",
     "title": "Welcome!",
     "section": "Exercise Solutions",
-    "text": "Exercise Solutions\n\n👨‍💻 👩‍💻 _exercises/01_app.R\n   🫣    _exercises/01_solution_app.R"
+    "text": "Exercise Solutions\n\n👨‍💻 👩‍💻 _exercises/01_hello-llm/01_hello-llm.R\n   🫣    _solutions/01_hello-llm/01_hello-llm.R\n\n\nAlso in Python:\n👨‍💻 👩‍💻 _exercises/01_hello-llm/01_hello-llm.py\n   🫣    _solutions/01_hello-llm/01_hello-llm.py"
   }
 ]

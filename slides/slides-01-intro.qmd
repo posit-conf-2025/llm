@@ -1,47 +1,41 @@
 ---
 title: Welcome!
-subtitle: Programming with LLMs
+subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
 author: <code>posit::conf(2025)</code>
 date: 2025-09-16
 
-format:
-  revealjs:
-    html-math-method: plain
-    slide-level: 2
-    theme:
-      - slides.scss
+footer: posit-conf-2025.github.io/llm
 
 editor:
   render-on-save: true
 ---
 
-## Welcome to Level&nbsp;Up&nbsp;with Shiny&nbsp;for&nbsp;R {.middle .text-center .fs-step-2}
+## Welcome to [Programming&nbsp;with&nbsp;LLM&nbsp;APIs&nbsp;]{.dark-blue}! {.fs-step-2 background-image="assets/retro-mac.jpg" background-size="cover" background-position="bottom left"}
 
 * Find a seat where you can see the screen!
 
-* Join the Posit Cloud workspace: [pos.it/level-up-shiny-24-cloud]{.code .purple}
+* Update your local copy of the workshop: \
+  [posit-conf-2025.github.io/llm/setup.html]{.code .b .orange}
 
-* Join the Discord from [https://pos.it/conf]{.code .purple}
+* Join the Discord: [https://pos.it/conf]{.code .orange .b}
 
-* **WiFI**: Posit Conf 2024 | `conf2024`
+* [wifi(<br>&nbsp;&nbsp;network="Posit Conf 2025",<br>&nbsp;&nbsp;password="conf2025"<br>)]{.code}
 
 ```{=html}
 <style>
 .reveal .footer {
-  font-size: 1em !important;
+  font-size: 0.5em !important;
 }
 </style>
 ```
 
 # 🤝 Introductions 🤝 {.middle}
 
-## Meet us
+## [Meet us]{.hidden} {background-image="assets/team.png" background-size="contain" footer=false}
 
-- Garrick
-- Carson
-- Barret
-- Kalau
-- Andrew
+::: visually-hidden
+Our team: Joe Cheng, Garrick Aden-Buie, Karan Gathani, Julia Silge, Sam Clark, James Blair
+:::
 
 ## Code of Conduct
 
@@ -53,66 +47,93 @@ editor:
 **Reporting:**
 
 🗣️ any posit::conf staff member (t-shirt) or Info desk \
-📧 `conf@posit.co`
+📧 `codeofconduct@posit.co`
 
-## Meet each other {.middle}
+## Meet each other
 
-::: {.fs-step-3 .incremental}
 * 👋 Hi, my name is ...
 
-* 💼 My first job was ...
+* 🤖 I'd call myself an AI... [\[skeptic, pragmatist, enthusiast\]]{.gray}
 
-* 💡 What did you learn from that job?
-:::
+* ⚡ Share a moment when AI surprised you
 
-# About this workshop {.middle}
+# About posit::conf(2025)
 
-## WiFi {.text-center .middle}
+## [WiFi]{.hidden} {.text-center .center}
 
-::: {.fs-step-3 style="min-width: 500px"}
-| WiFi | Posit Conf 2024 |
-|------|-----------------|
-| Pass | `conf2024`      |
-:::
+[wifi("Posit Conf 2025", password="conf2025")]{.code .f1}
 
-
-## posit::conf(2024) Things to Know
+## posit::conf(2025) Things to Know
 
 ::: incremental
-* There will be a gender-neutral bathroom on levels `3:7`
-* Meditation/prayer room: 503
-    * Mon & Tues 7am - 7pm
-    * Wed 7am - 5pm
-* Mothers room: 509
+*  🚻 **Gender-neutral bathroom**: LL2 next to Chicago A
+
+*  🧘 **Meditation/prayer room**: LL2 Chicago A
+
+*  🤱 **Lactation room**: LL2 Chicago B
+
+*  🎉 **Welcome reception**: Tonight 5-7 pm, LL2 Grand Hall West
+
+*  🐠 **Aquarium Night**: Tomorrow 7-10 pm, Georgia Aquarium
 :::
 
-## posit::conf(2024) Social Media
+## posit::conf(2025) Social Media
 
 * [Red lanyards]{.red .b} available to those who don't wish to be photographed
 
-* `#PositConf2024` for all things conf
+* `#PositConf2025` for all things conf
 
-* `#LevelUpShiny` for this workshop
+## [Questions]{.hidden} {.center}
 
-## Questions
-
-::: {.flex .flex-column .fs-step-4 .justify-center-ns .text-center style="min-height: 60vh"}
+::: {.text-center style="font-size: 3em"}
 🙋 🙋‍♀️ 🙋‍♂️ \
 Please ask questions!
 :::
 
+# About this workshop
 
-## Stickies
+## 🏡 [posit-conf-2025.github.io/llm]{.code} {.center .text-center}
 
-::: {.easy-columns style="margin-top: var(--space-xl); font-size: var(--step-3);"}
+Everything you need, in one place.
+
+
+## Discord
+
+::: {.easy-columns .items-center}
+::: col
+1. Go [posit.co/conference](https://posit.co/conference)
+1. Click **Login**
+1. Find and click the discord banner
+1. Join us in [#workshop-llm]{.code .purple}
+:::
+::: text-center
+![](assets/discord-banner.png){style="max-height: 80vh"}
+:::
+:::
+
+
+## Schedule
+
+{{< partial ../partials/schedule.qmd >}}
+
+## Schedule (the important bits)
+
+::: {.table-highlight-even}
+{{< partial ../partials/schedule.qmd >}}
+:::
+
+
+## Stickies {.center .text-center}
+
+::: {.easy-columns style="font-size: 1.5em;"}
 ::: {.flex .flex-column .items-center .justify-center .text-center}
-🟩
+[🟩]{style="font-size: 2em"}
 
 All good \
 I'm done
 :::
 ::: {.flex .flex-column .items-center .justify-center .text-center}
-🟥
+[🟥]{style="font-size: 2em"}
 
 Not great \
 Need time or help
@@ -120,81 +141,57 @@ Need time or help
 :::
 
 
-## Schedule
-
-{{< partial ../partials/schedule.qmd >}}
-
-## Schedule
-
-::: {.table-highlight-even}
-{{< partial ../partials/schedule.qmd >}}
-:::
-
-## Schedule
-
-::: {.table-what-matters}
-{{< partial ../partials/schedule.qmd >}}
-:::
-
-
-## Discord
-
-::: {.easy-columns}
-::: col
-1. Go [posit.co/conference](https://posit.co/conference)
-1. Click **Login**
-1. Find and click the discord banner
-:::
-::: col
-![](assets/discord-banner.png)
-:::
-:::
-
-
-::: {.text-center .fs-step-2}
-Our workshop channel \
-[#workshop-level-up-shiny]{.code .purple}
-:::
-
-
 # Computering {.middle .text-center}
 
-## Posit Cloud
+## Setup
 
-::: {.fs-step-3}
-**Step 1.** Join the [Level Up for Shiny Posit Cloud workspace](../setup.qmd#using-posit-cloud)
+1. Head to [posit-conf-2025.github.io/llm/setup.html](https://posit-conf-2025.github.io/llm/setup.html)
 
-::: fragment
-**Step 2.** Start `level-up-shiny` assignment
+2. Clone our workshop repo `posit-conf-2025/llm`
+
+3. Open the project in **Positron**
+
+4. Install all the packages:
+
+    * R: `renv::restore()`
+    * Python: `uv sync`
+
+## We're using Positron
 
 ::: text-center
-![](../assets/posit-cloud-project.png){width="80%"}
-:::
-:::
+![](../assets/positron-astropy.png){style="max-height: 90vh"}
 :::
 
+::: footer
+RStudio and VS Code are great, too!
+:::
 
-## Cloud session {.text-center}
 
-![](../assets/posit-cloud-project-session.png){style="max-height: 700px"}
-
+<!-- TODO: Cloud project instructions here -->
 
 ## File organization
 
-::: {.table-no-border style="--row-padding: var(--space-xs);"}
+::: {.table-no-border style="--row-padding: 0.5em;"}
 |  |  |
 |:---|:------------|
 | `_exercises/` | Files for **Your Turn** exercises |
-| `_examples/` | Files for my demo examples |
+| `_solutions/` | Solutions to those exercises |
+| `_demos/` | Files for stuff we demo |
 | `website/` | The website and slides |
 | `./*` | Lots of project related files you can ignore |
 :::
 
 ## Exercise Solutions
 
-::: {.flex .flex-column .fs-step-2 .justify-center-ns .items-center-ns style="min-height: 60vh"}
-👨‍💻 👩‍💻 `_exercises/01_app.R` \
-[&nbsp;&nbsp;&nbsp;🫣&nbsp;&nbsp;&nbsp; `_exercises/01_solution_app.R`]{.fragment}
+::: {.flex .flex-column .justify-center-ns .items-center-ns style="min-height: 40vh"}
+👨‍💻 👩‍💻 `_exercises/01_hello-llm/01_hello-llm.R` \
+[&nbsp;&nbsp;&nbsp;🫣&nbsp;&nbsp;&nbsp; `_solutions/01_hello-llm/01_hello-llm.R`]{.fragment}
+:::
+
+::: {.fragment .flex .flex-column .justify-center-ns .items-center-ns}
+**Also in Python:** \
+👨‍💻 👩‍💻 `_exercises/01_hello-llm/01_hello-llm.py` \
+&nbsp;&nbsp;&nbsp;🫣&nbsp;&nbsp;&nbsp; `_solutions/01_hello-llm/01_hello-llm.py`
 :::
 
 # Let's Dive In! {.middle}

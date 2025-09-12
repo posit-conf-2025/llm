@@ -1,0 +1,25 @@
+/* Fixes for tachyons and pandoc code styles interactions */
+code span { /* BaseN */ }
+code span.bn {
+  border-style: inherit;
+  border-width: inherit;
+}
+code span.cf:before, code span.cf:after {
+  content: unset;
+  display: inline;
+}
+code span.cf:after {
+  clear: unset;
+}
+code span.cf {
+  zoom: inherit;
+}
+code span.cn {
+  clear: unset;
+}
+code span.dt {
+  display: inline;
+}
+code span.fl {
+  float: unset;
+}

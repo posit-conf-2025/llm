@@ -8,7 +8,9 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/tachyons-4.12.0/tachyons.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="posit::conf(2025)">
@@ -126,11 +128,11 @@
     }
   </style>
 <meta property="og:title" content="Welcome! – Programming with LLMs">
-<meta property="og:description" content="Programming with LLMs">
+<meta property="og:description" content="Programming with LLM APIsA Beginner’s Guide in R and Python">
 <meta property="og:image" content="https://posit-conf-2025.github.io/llm/slides/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs">
 <meta name="twitter:title" content="Welcome! – Programming with LLMs">
-<meta name="twitter:description" content="Programming with LLMs">
+<meta name="twitter:description" content="Programming with LLM APIsA Beginner’s Guide in R and Python">
 <meta name="twitter:image" content="https://posit-conf-2025.github.io/llm/slides/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
 <meta name="twitter:site" content="@posit-dev">
@@ -142,7 +144,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Welcome!</h1>
-  <p class="subtitle">Programming with LLMs</p>
+  <p class="subtitle">Programming with LLM APIs<br>A Beginner’s Guide in R and Python</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -154,17 +156,18 @@
 
   <p class="date">2025-09-16</p>
 </section>
-<section id="welcome-to-level-up-with-shiny-for-r" class="slide level2 middle text-center fs-step-2">
-<h2>Welcome to Level&nbsp;Up&nbsp;with Shiny&nbsp;for&nbsp;R</h2>
+<section id="welcome-to-programming-with-llm-apis" class="slide level2 fs-step-2" data-background-image="assets/retro-mac.jpg" data-background-size="cover" data-background-position="bottom left">
+<h2>Welcome to <span class="dark-blue">Programming&nbsp;with&nbsp;LLM&nbsp;APIs&nbsp;</span>!</h2>
 <ul>
 <li><p>Find a seat where you can see the screen!</p></li>
-<li><p>Join the Posit Cloud workspace: <span class="code purple">pos.it/level-up-shiny-24-cloud</span></p></li>
-<li><p>Join the Discord from <span class="code purple">https://pos.it/conf</span></p></li>
-<li><p><strong>WiFI</strong>: Posit Conf 2024 | <code>conf2024</code></p></li>
+<li><p>Update your local copy of the workshop:<br>
+<span class="code b orange">posit-conf-2025.github.io/llm/setup.html</span></p></li>
+<li><p>Join the Discord: <span class="code orange b">https://pos.it/conf</span></p></li>
+<li><p><span class="code">wifi(<br>&nbsp;&nbsp;network=“Posit Conf 2025”,<br>&nbsp;&nbsp;password=“conf2025”<br>)</span></p></li>
 </ul>
 <style>
 .reveal .footer {
-  font-size: 1em !important;
+  font-size: 0.5em !important;
 }
 </style>
 </section>
@@ -173,15 +176,11 @@
 <h1>🤝 Introductions 🤝</h1>
 
 </section>
-<section id="meet-us" class="slide level2">
-<h2>Meet us</h2>
-<ul>
-<li>Garrick</li>
-<li>Carson</li>
-<li>Barret</li>
-<li>Kalau</li>
-<li>Andrew</li>
-</ul>
+<section id="meet-us" class="slide level2" data-background-image="assets/team.png" data-background-size="contain" data-footer="false">
+<h2><span class="hidden">Meet us</span></h2>
+<div class="visually-hidden">
+<p>Our team: Joe Cheng, Garrick Aden-Buie, Karan Gathani, Julia Silge, Sam Clark, James Blair</p>
+</div>
 </section>
 <section id="code-of-conduct" class="slide level2">
 <h2>Code of Conduct</h2>
@@ -190,81 +189,71 @@
 🧡 Everyone should feel welcome and safe</p>
 <p><strong>Reporting:</strong></p>
 <p>🗣️ any posit::conf staff member (t-shirt) or Info desk<br>
-📧 <code>conf@posit.co</code></p>
+📧 <code>codeofconduct@posit.co</code></p>
 </section>
-<section id="meet-each-other" class="slide level2 middle">
+<section id="meet-each-other" class="slide level2">
 <h2>Meet each other</h2>
-<div class="fs-step-3">
 <ul>
-<li class="fragment"><p>👋 Hi, my name is …</p></li>
-<li class="fragment"><p>💼 My first job was …</p></li>
-<li class="fragment"><p>💡 What did you learn from that job?</p></li>
+<li><p>👋 Hi, my name is …</p></li>
+<li><p>🤖 I’d call myself an AI… <span class="gray">[skeptic, pragmatist, enthusiast]</span></p></li>
+<li><p>⚡ Share a moment when AI surprised you</p></li>
 </ul>
-</div>
 </section></section>
 <section>
-<section id="about-this-workshop" class="title-slide slide level1 middle center">
-<h1>About this workshop</h1>
+<section id="about-positconf2025" class="title-slide slide level1 center">
+<h1>About posit::conf(2025)</h1>
 
 </section>
-<section id="wifi" class="slide level2 text-center middle">
-<h2>WiFi</h2>
-<div class="fs-step-3" style="min-width: 500px">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>WiFi</th>
-<th>Posit Conf 2024</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Pass</td>
-<td><code>conf2024</code></td>
-</tr>
-</tbody>
-</table>
-</div>
+<section id="wifi" class="slide level2 text-center center">
+<h2><span class="hidden">WiFi</span></h2>
+<p><span class="code f1">wifi(“Posit Conf 2025”, password=“conf2025”)</span></p>
 </section>
-<section id="positconf2024-things-to-know" class="slide level2">
-<h2>posit::conf(2024) Things to Know</h2>
+<section id="positconf2025-things-to-know" class="slide level2">
+<h2>posit::conf(2025) Things to Know</h2>
 <ul>
-<li class="fragment">There will be a gender-neutral bathroom on levels <code>3:7</code></li>
-<li class="fragment">Meditation/prayer room: 503
-<ul>
-<li class="fragment">Mon &amp; Tues 7am - 7pm</li>
-<li class="fragment">Wed 7am - 5pm</li>
-</ul></li>
-<li class="fragment">Mothers room: 509</li>
+<li class="fragment"><p>🚻 <strong>Gender-neutral bathroom</strong>: LL2 next to Chicago A</p></li>
+<li class="fragment"><p>🧘 <strong>Meditation/prayer room</strong>: LL2 Chicago A</p></li>
+<li class="fragment"><p>🤱 <strong>Lactation room</strong>: LL2 Chicago B</p></li>
+<li class="fragment"><p>🎉 <strong>Welcome reception</strong>: Tonight 5-7 pm, LL2 Grand Hall West</p></li>
+<li class="fragment"><p>🐠 <strong>Aquarium Night</strong>: Tomorrow 7-10 pm, Georgia Aquarium</p></li>
 </ul>
 </section>
-<section id="positconf2024-social-media" class="slide level2">
-<h2>posit::conf(2024) Social Media</h2>
+<section id="positconf2025-social-media" class="slide level2">
+<h2>posit::conf(2025) Social Media</h2>
 <ul>
 <li><p><span class="red b">Red lanyards</span> available to those who don’t wish to be photographed</p></li>
-<li><p><code>#PositConf2024</code> for all things conf</p></li>
-<li><p><code>#LevelUpShiny</code> for this workshop</p></li>
+<li><p><code>#PositConf2025</code> for all things conf</p></li>
 </ul>
 </section>
-<section id="questions" class="slide level2">
-<h2>Questions</h2>
-<div class="flex flex-column fs-step-4 justify-center-ns text-center" style="min-height: 60vh">
+<section id="questions" class="slide level2 center">
+<h2><span class="hidden">Questions</span></h2>
+<div class="text-center" style="font-size: 3em">
 <p>🙋 🙋‍♀️ 🙋‍♂️<br>
 Please ask questions!</p>
 </div>
+</section></section>
+<section>
+<section id="about-this-workshop" class="title-slide slide level1 center">
+<h1>About this workshop</h1>
+
 </section>
-<section id="stickies" class="slide level2">
-<h2>Stickies</h2>
-<div class="easy-columns" style="margin-top: var(--space-xl); font-size: var(--step-3);">
-<div class="flex flex-column items-center justify-center text-center">
-<p>🟩</p>
-<p>All good<br>
-I’m done</p>
+<section id="posit-conf-2025.github.iollm" class="slide level2 center text-center">
+<h2>🏡 <span class="code">posit-conf-2025.github.io/llm</span></h2>
+<p>Everything you need, in one place.</p>
+</section>
+<section id="discord" class="slide level2">
+<h2>Discord</h2>
+<div class="easy-columns items-center">
+<div class="col">
+<ol type="1">
+<li>Go <a href="https://posit.co/conference">posit.co/conference</a></li>
+<li>Click <strong>Login</strong></li>
+<li>Find and click the discord banner</li>
+<li>Join us in <span class="code purple">#workshop-llm</span></li>
+</ol>
 </div>
-<div class="flex flex-column items-center justify-center text-center">
-<p>🟥</p>
-<p>Not great<br>
-Need time or help</p>
+<div class="text-center">
+<p><img data-src="assets/discord-banner.png" style="max-height: 80vh"></p>
 </div>
 </div>
 </section>
@@ -274,144 +263,113 @@ Need time or help</p>
 <thead>
 <tr class="header">
 <th>Time</th>
+<th></th>
 <th>Activity</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>09:00 - 10:30</td>
-<td>💬 Talking with LLMs via Code</td>
+<td>💬</td>
+<td>Talking with LLMs via Code</td>
 </tr>
 <tr class="even">
 <td>10:30 - 11:00</td>
-<td>☕ <em>Coffee break</em></td>
+<td>☕</td>
+<td><em>Coffee break</em></td>
 </tr>
 <tr class="odd">
 <td>11:00 - 12:30</td>
-<td>💻 Programming with LLMs</td>
+<td>💻</td>
+<td>Programming with LLMs</td>
 </tr>
 <tr class="even">
 <td>12:30 - 13:30</td>
-<td>🍽️ <em>Lunch break</em></td>
+<td>🍽️</td>
+<td><em>Lunch break</em></td>
 </tr>
 <tr class="odd">
 <td>13:30 - 15:00</td>
-<td>🔍 Augmented Generation</td>
+<td>🔍</td>
+<td>Augmented Generation</td>
 </tr>
 <tr class="even">
 <td>15:00 - 15:30</td>
-<td>☕ <em>Coffee break</em></td>
+<td>☕</td>
+<td><em>Coffee break</em></td>
 </tr>
 <tr class="odd">
 <td>15:30 - 17:00</td>
-<td>🚀 Beyond Tools</td>
+<td>🚀</td>
+<td>Beyond Tools</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="schedule-1" class="slide level2">
-<h2>Schedule</h2>
+<section id="schedule-the-important-bits" class="slide level2">
+<h2>Schedule (the important bits)</h2>
 <div class="table-highlight-even">
 <table class="caption-top">
 <thead>
 <tr class="header">
 <th>Time</th>
+<th></th>
 <th>Activity</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>09:00 - 10:30</td>
-<td>💬 Talking with LLMs via Code</td>
+<td>💬</td>
+<td>Talking with LLMs via Code</td>
 </tr>
 <tr class="even">
 <td>10:30 - 11:00</td>
-<td>☕ <em>Coffee break</em></td>
+<td>☕</td>
+<td><em>Coffee break</em></td>
 </tr>
 <tr class="odd">
 <td>11:00 - 12:30</td>
-<td>💻 Programming with LLMs</td>
+<td>💻</td>
+<td>Programming with LLMs</td>
 </tr>
 <tr class="even">
 <td>12:30 - 13:30</td>
-<td>🍽️ <em>Lunch break</em></td>
+<td>🍽️</td>
+<td><em>Lunch break</em></td>
 </tr>
 <tr class="odd">
 <td>13:30 - 15:00</td>
-<td>🔍 Augmented Generation</td>
+<td>🔍</td>
+<td>Augmented Generation</td>
 </tr>
 <tr class="even">
 <td>15:00 - 15:30</td>
-<td>☕ <em>Coffee break</em></td>
+<td>☕</td>
+<td><em>Coffee break</em></td>
 </tr>
 <tr class="odd">
 <td>15:30 - 17:00</td>
-<td>🚀 Beyond Tools</td>
+<td>🚀</td>
+<td>Beyond Tools</td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="schedule-2" class="slide level2">
-<h2>Schedule</h2>
-<div class="table-what-matters">
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Time</th>
-<th>Activity</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>09:00 - 10:30</td>
-<td>💬 Talking with LLMs via Code</td>
-</tr>
-<tr class="even">
-<td>10:30 - 11:00</td>
-<td>☕ <em>Coffee break</em></td>
-</tr>
-<tr class="odd">
-<td>11:00 - 12:30</td>
-<td>💻 Programming with LLMs</td>
-</tr>
-<tr class="even">
-<td>12:30 - 13:30</td>
-<td>🍽️ <em>Lunch break</em></td>
-</tr>
-<tr class="odd">
-<td>13:30 - 15:00</td>
-<td>🔍 Augmented Generation</td>
-</tr>
-<tr class="even">
-<td>15:00 - 15:30</td>
-<td>☕ <em>Coffee break</em></td>
-</tr>
-<tr class="odd">
-<td>15:30 - 17:00</td>
-<td>🚀 Beyond Tools</td>
-</tr>
-</tbody>
-</table>
+<section id="stickies" class="slide level2 center text-center">
+<h2>Stickies</h2>
+<div class="easy-columns" style="font-size: 1.5em;">
+<div class="flex flex-column items-center justify-center text-center">
+<p><span style="font-size: 2em">🟩</span></p>
+<p>All good<br>
+I’m done</p>
 </div>
-</section>
-<section id="discord" class="slide level2">
-<h2>Discord</h2>
-<div class="easy-columns">
-<div class="col">
-<ol type="1">
-<li>Go <a href="https://posit.co/conference">posit.co/conference</a></li>
-<li>Click <strong>Login</strong></li>
-<li>Find and click the discord banner</li>
-</ol>
+<div class="flex flex-column items-center justify-center text-center">
+<p><span style="font-size: 2em">🟥</span></p>
+<p>Not great<br>
+Need time or help</p>
 </div>
-<div class="col">
-<p><img data-src="assets/discord-banner.png"></p>
-</div>
-</div>
-<div class="text-center fs-step-2">
-<p>Our workshop channel<br>
-<span class="code purple">#workshop-level-up-shiny</span></p>
 </div>
 </section></section>
 <section>
@@ -419,25 +377,32 @@ Need time or help</p>
 <h1>Computering</h1>
 
 </section>
-<section id="posit-cloud" class="slide level2">
-<h2>Posit Cloud</h2>
-<div class="fs-step-3">
-<p><strong>Step 1.</strong> Join the <a href="../setup.html#using-posit-cloud">Level Up for Shiny Posit Cloud workspace</a></p>
-<div class="fragment">
-<p><strong>Step 2.</strong> Start <code>level-up-shiny</code> assignment</p>
-<div class="text-center">
-<p><img data-src="../assets/posit-cloud-project.png" style="width:80.0%"></p>
-</div>
-</div>
-</div>
+<section id="setup" class="slide level2">
+<h2>Setup</h2>
+<ol type="1">
+<li><p>Head to <a href="https://posit-conf-2025.github.io/llm/setup.html">posit-conf-2025.github.io/llm/setup.html</a></p></li>
+<li><p>Clone our workshop repo <code>posit-conf-2025/llm</code></p></li>
+<li><p>Open the project in <strong>Positron</strong></p></li>
+<li><p>Install all the packages:</p>
+<ul>
+<li>R: <code>renv::restore()</code></li>
+<li>Python: <code>uv sync</code></li>
+</ul></li>
+</ol>
 </section>
-<section id="cloud-session" class="slide level2 text-center">
-<h2>Cloud session</h2>
-<p><img data-src="../assets/posit-cloud-project-session.png" style="max-height: 700px"></p>
+<section id="were-using-positron" class="slide level2">
+<h2>We’re using Positron</h2>
+<div class="text-center">
+<p><img data-src="../assets/positron-astropy.png" style="max-height: 90vh"></p>
+</div>
+<div class="footer">
+<p>RStudio and VS Code are great, too!</p>
+</div>
+<!-- TODO: Cloud project instructions here -->
 </section>
 <section id="file-organization" class="slide level2">
 <h2>File organization</h2>
-<div class="table-no-border" style="--row-padding: var(--space-xs);">
+<div class="table-no-border" style="--row-padding: 0.5em;">
 <table class="caption-top">
 <tbody>
 <tr class="odd">
@@ -445,14 +410,18 @@ Need time or help</p>
 <td style="text-align: left;">Files for <strong>Your Turn</strong> exercises</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><code>_examples/</code></td>
-<td style="text-align: left;">Files for my demo examples</td>
+<td style="text-align: left;"><code>_solutions/</code></td>
+<td style="text-align: left;">Solutions to those exercises</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"><code>_demos/</code></td>
+<td style="text-align: left;">Files for stuff we demo</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;"><code>website/</code></td>
 <td style="text-align: left;">The website and slides</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><code>./*</code></td>
 <td style="text-align: left;">Lots of project related files you can ignore</td>
 </tr>
@@ -462,9 +431,14 @@ Need time or help</p>
 </section>
 <section id="exercise-solutions" class="slide level2">
 <h2>Exercise Solutions</h2>
-<div class="flex flex-column fs-step-2 justify-center-ns items-center-ns" style="min-height: 60vh">
-<p>👨‍💻 👩‍💻 <code>_exercises/01_app.R</code><br>
-<span class="fragment">&nbsp;&nbsp;&nbsp;🫣&nbsp;&nbsp;&nbsp; <code>_exercises/01_solution_app.R</code></span></p>
+<div class="flex flex-column justify-center-ns items-center-ns" style="min-height: 40vh">
+<p>👨‍💻 👩‍💻 <code>_exercises/01_hello-llm/01_hello-llm.R</code><br>
+<span class="fragment">&nbsp;&nbsp;&nbsp;🫣&nbsp;&nbsp;&nbsp; <code>_solutions/01_hello-llm/01_hello-llm.R</code></span></p>
+</div>
+<div class="fragment flex flex-column justify-center-ns items-center-ns">
+<p><strong>Also in Python:</strong><br>
+👨‍💻 👩‍💻 <code>_exercises/01_hello-llm/01_hello-llm.py</code><br>
+&nbsp;&nbsp;&nbsp;🫣&nbsp;&nbsp;&nbsp; <code>_solutions/01_hello-llm/01_hello-llm.py</code></p>
 </div>
 </section></section>
 <section id="lets-dive-in" class="title-slide slide level1 middle center">
@@ -475,7 +449,7 @@ Need time or help</p>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-
+<p>posit-conf-2025.github.io/llm</p>
 </div>
 </div></div>
 
@@ -652,9 +626,9 @@ Need time or help</p>
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
