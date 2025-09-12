@@ -194,4 +194,53 @@ RStudio and VS Code are great, too!
 &nbsp;&nbsp;&nbsp;🫣&nbsp;&nbsp;&nbsp; `_solutions/01_hello-llm/01_hello-llm.py`
 :::
 
-# Let's Dive In! {.middle}
+# Let's Dive In!
+
+::: fragment
+..to our first activity!
+:::
+
+## To use an AI API... {.center}
+
+::: {.fragment style="font-size: 2em;"}
+...you need an API key!
+:::
+
+## How to get an API key, the usual way {.center}
+
+[aka. how to give OpenAI your money]{.i .gray}
+
+::: {.incremental .mt4}
+1. 🆙 Sign up for an account with [OpenAI](https://platform.openai.com/) or [Anthropic](https://www.anthropic.com/)
+
+2. 💳 Add a payment method
+
+3. 🔑 Get an API key
+
+4. 💾 Store it in `.Renviron` or `.env` file<br>as `OPENAI_API_KEY` or `ANTHROPIC_API_KEY`
+:::
+
+## But we'll give you API keys to use today! {.center}
+
+::: incremental
+1. Use these keys for all of our activities today
+
+2. Play and explore! But please be considerate :)
+
+3. We'll turn them off at the end of the workshop
+:::
+
+## Your Turn {background-image="assets/your-turn.png" background-size="30%" background-position="bottom right"}
+
+::: {style="--li-margin: 0.66em;"}
+1. 🔓 Decrypt the `.env.secret` &rarr; `.env`:
+    a. **R**: Run [secrets.R]{class="b--light-red red ph2 pv1 ba br2 code"}
+
+    b. **Python:** Run [make secret-decrypt]{class="b--blue blue ph2 pv1 ba br2 code"} in terminal \
+      or run [python secrets.py decrypt .env.secret > .env]{class="b--blue blue ph2 pv1 ba br2 code"}
+
+2. 🤫 The special phrase is: \
+   [positconf2025-llm-workshop]{class="b--purple purple ph2 pv1 ba br2 code" contenteditable="true" style="font-size: 1.25em"}
+
+3. 🤖 Run the code in [_exercises/01_hello-llm]{.b}
+:::

@@ -114,3 +114,13 @@ decrypt_file <- function(
     }
   )
 }
+
+do_decrypt <- !interactive()
+
+if (interactive()) {
+  do_decrypt <- utils::askYesNo("Do you want to decrypt `.env.secret`?")
+}
+
+if (isTRUE(do_decrypt)) {
+  decrypt_file(".env.secret", ".env")
+}
