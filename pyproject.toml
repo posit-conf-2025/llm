@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "anthropic>=0.64.0",
-    "chatlas>=0.12.0",
+    "chatlas>=0.13.0",
     "dotenv>=0.9.9",
     "duckduckgo-search>=8.1.1",
     "faicons>=0.2.2",
@@ -30,10 +30,7 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-chatlas = { git = "https://github.com/posit-dev/chatlas" }
 querychat = { git = "https://github.com/posit-dev/querychat" }
-shinychat = { git = "https://github.com/posit-dev/shinychat" }
-shiny = { git = "https://github.com/posit-dev/py-shiny" }
 
 [dependency-groups]
 dev = [
