@@ -1,29 +1,23 @@
 ---
 title: Welcome!
-subtitle: Programming with LLMs
+subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
 author: <code>posit::conf(2025)</code>
 date: 2025-09-16
-
-format:
-  revealjs:
-    html-math-method: plain
-    slide-level: 2
-    theme:
-      - slides.scss
 
 editor:
   render-on-save: true
 ---
 
-## Welcome to Level&nbsp;Up&nbsp;with Shiny&nbsp;for&nbsp;R {.middle .text-center .fs-step-2}
+## Welcome to [Programming&nbsp;with&nbsp;LLM&nbsp;APIs&nbsp;]{.dark-blue}! {.fs-step-2 background-image="assets/retro-mac.jpg" background-size="cover" background-position="bottom left"}
 
 * Find a seat where you can see the screen!
 
-* Join the Posit Cloud workspace: [pos.it/level-up-shiny-24-cloud]{.code .purple}
+* Update your local copy of the workshop: \
+  [posit-conf-2025.github.io/llm/setup.html]{.code .b .orange}
 
-* Join the Discord from [https://pos.it/conf]{.code .purple}
+* Join the Discord: [https://pos.it/conf]{.code .orange .b}
 
-* **WiFI**: Posit Conf 2024 | `conf2024`
+* [wifi(<br>&nbsp;&nbsp;network="Posit Conf 2025",<br>&nbsp;&nbsp;password="conf2025"<br>)]{.code}
 
 ```{=html}
 <style>
@@ -35,13 +29,11 @@ editor:
 
 # 🤝 Introductions 🤝 {.middle}
 
-## Meet us
+## [Meet us]{.hidden} {background-image="assets/team.png" background-size="contain"}
 
-- Garrick
-- Carson
-- Barret
-- Kalau
-- Andrew
+::: visually-hidden
+Our team: Joe Cheng, Garrick Aden-Buie, Karan Gathani, Julia Silge, Sam Clark, James Blair
+:::
 
 ## Code of Conduct
 

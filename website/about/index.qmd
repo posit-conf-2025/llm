@@ -31,23 +31,17 @@ listing:
         text: LinkedIn
         href: https://www.linkedin.com/in/garrick-aden-buie/
     - name: Karan Gathani
+      role: "Software QA Engineer, Shiny"
+      image: karan.png
     - name: Julia Silge
+      image: julia.png
+      role: "Engineering Manager, Positron"
     - name: Sam Clark
+      role: "Software Engineer, Positron"
+      image: sam.png
     - name: James Blair
-    # - name: Carson Sievert
-    #   role: "Software Engineer, Shiny"
-    #   image: carson.png
-    #   links:
-    #   - icon: github
-    #     text: GitHub
-    #     href: https://github.com/cpsievert
-    #   - icon: mastodon
-    #     text: Mastodon
-    #     href: https://fosstodon.org/@cpsievert
-    #   - icon: linkedin
-    #     text: LinkedIn
-    #     href: https://www.linkedin.com/in/carsonsievert/
-
+      role: "Senior Product Manager, Posit Cloud"
+      image: james.png
 ---
 
 ::: column-body
