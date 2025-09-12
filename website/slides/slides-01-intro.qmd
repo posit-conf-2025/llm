@@ -183,7 +183,7 @@ RStudio and VS Code are great, too!
 
 ## Exercise Solutions
 
-::: {.flex .flex-column .justify-center-ns .items-center-ns style="min-height: 40vh"}
+::: {.flex .flex-column .justify-center-ns .items-center-ns style="min-height: 20vh"}
 👨‍💻 👩‍💻 `_exercises/01_hello-llm/01_hello-llm.R` \
 [&nbsp;&nbsp;&nbsp;🫣&nbsp;&nbsp;&nbsp; `_solutions/01_hello-llm/01_hello-llm.R`]{.fragment}
 :::
