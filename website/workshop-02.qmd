@@ -9,9 +9,14 @@ editor: { render-on-save: true }
 
 ## Slides
 
-{{< revealjs "slides/slides-02-bslib.html" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-02.html" class="ratio ratio-16x9" >}}
 
 ## Outline
+
+- (10m) Think empirically, be pragmatic
+  - Getting into the right mindset for working with LLMs
+  - How to approach this workshop
+  - Extra time to work with participants on setup if needed
 
 - (20m) Anatomy of a conversation
   - To get a get a response, you send a message via HTTP

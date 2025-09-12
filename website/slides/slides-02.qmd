@@ -1,0 +1,72 @@
+---
+title: Anatomy of a conversation
+subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
+author: <code>posit::conf(2025)</code>
+date: 2025-09-16
+
+editor:
+  render-on-save: true
+---
+
+# How to think about LLMs {.dark-blue background-image="assets/retro-mac.jpg" background-size="cover" background-position="bottom left"}
+
+::: notes
+Some motivational words by Joe urging everyone to approach LLMs with curiosity and experimentation rather than preconceived notions about limitations, while building understanding from the ground up through practical experience.
+:::
+
+## Think Empirically, Not Theoretically {.center}
+
+## Think Empirically, Not Theoretically
+
+- It's okay to treat LLMs as **black boxes**. \
+  We're not going to focus on how they work internally
+
+- **Just try it!** When wondering if an LLM can do something,\
+  experiment rather than theorize
+
+- You might think they could not possibly do things\
+  _that they clearly can do today_
+
+::: notes
+- Understanding the technical details can lead to **bad intuition** about capabilities
+- You might think "they could not possibly do things that they clearly can do today"
+- Empirical testing reveals actual capabilities vs. theoretical limitations
+:::
+
+## Embrace the Experimental Process {.center}
+
+## Embrace the Experimental Process
+
+- **Don't worry about ROI** during exploration. \
+  Focus on learning and engaging with the technology
+
+- **Failure is valuable!** \
+  _those are some of the most interesting conversations that we have_
+
+- **It doesn't have to be a success.** \
+  Attempts that don't work still provide insights
+
+::: notes
+- Use the **best models available** for experimentation
+- Don't constrain yourself to "practical" applications initially
+- Think of it as forming your own independent conclusions about usefulness
+:::
+
+## Start Simple, Build Understanding {.center}
+
+## Start Simple, Build Understanding
+
+- We're going to focus on the **core building blocks**.
+
+- All the incredible things you see AI do \
+  **decompose to just a few key ingredients**.
+
+- Our goal is to **have fun and build intuition** \
+  through hands-on experience.
+
+::: notes
+- Think **very generally** about what tools can do - they're as powerful as any software you can write
+- Remember: **"Everything decomposes"** to the basic components once you understand the underlying APIs
+- Build intuition through hands-on experience rather than theoretical study
+- We want to have fun in this course! It's worth saying up front that our examples are not necessarily practical, but they're full of practical lessons.
+:::
