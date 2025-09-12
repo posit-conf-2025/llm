@@ -159,7 +159,7 @@ Need time or help
 ## We're using Positron
 
 ::: text-center
-![](../assets/positron-astropy.png){style="max-height: 90vh"}
+![](../assets/positron-astropy.png){style="max-height: min(650px, 80vh)"}
 :::
 
 ::: footer
