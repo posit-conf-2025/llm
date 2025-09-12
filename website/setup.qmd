@@ -103,7 +103,7 @@ You can use any IDE you like to follow along with the workshop.
 We'll be using [Positron](https://positron.posit.co), the free, next-generation data science IDE from Posit.
 
 ::: text-center
-[![](https://positron.posit.co/images/astropy.png){style="max-width:600px" alt="Positron IDE screenshot"}](https://positron.posit.co)
+[![](assets/positron-astropy.png){style="max-width:600px" alt="Positron IDE screenshot"}](https://positron.posit.co)
 
 [<i class="bi bi-display-fill"></i> Download Positron](https://positron.posit.co/download.html){.btn .btn-primary}
 :::
