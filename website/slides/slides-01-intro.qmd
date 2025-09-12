@@ -191,6 +191,7 @@ RStudio and VS Code are great, too!
 ::: {.fragment .flex .flex-column .justify-center-ns .items-center-ns}
 **Also in Python:** \
 👨‍💻 👩‍💻 `_exercises/01_hello-llm/01_hello-llm.py` \
+&nbsp;&nbsp;&nbsp;📓&nbsp;&nbsp;&nbsp; `_exercises/01_hello-llm/01_hello-llm.pynb` \
 &nbsp;&nbsp;&nbsp;🫣&nbsp;&nbsp;&nbsp; `_solutions/01_hello-llm/01_hello-llm.py`
 :::
 
