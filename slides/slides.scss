@@ -73,6 +73,13 @@
   white-space: pre;
 }
 
+.reveal .slides .slide {
+  ul li, ol li {
+    margin-top: var(--li-margin-top, var(--li-margin, 0.4em));
+    margin-bottom: var(--li-margin-bottom, var(--li-margin, 0.2em));
+  }
+}
+
 .reveal .sourceCode.cell-code:has(+ .cell-output) {
   margin-bottom: 0 !important;
 }

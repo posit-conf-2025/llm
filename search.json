@@ -491,5 +491,33 @@
     "title": "Welcome!",
     "section": "Exercise Solutions",
     "text": "Exercise Solutions\n\n👨‍💻 👩‍💻 _exercises/01_hello-llm/01_hello-llm.R\n   🫣    _solutions/01_hello-llm/01_hello-llm.R\n\n\nAlso in Python:\n👨‍💻 👩‍💻 _exercises/01_hello-llm/01_hello-llm.py\n   🫣    _solutions/01_hello-llm/01_hello-llm.py"
+  },
+  {
+    "objectID": "slides/slides-01-intro.html#to-use-an-ai-api",
+    "href": "slides/slides-01-intro.html#to-use-an-ai-api",
+    "title": "Welcome!",
+    "section": "To use an AI API…",
+    "text": "To use an AI API…\n\n…you need an API key!"
+  },
+  {
+    "objectID": "slides/slides-01-intro.html#how-to-get-an-api-key-the-usual-way",
+    "href": "slides/slides-01-intro.html#how-to-get-an-api-key-the-usual-way",
+    "title": "Welcome!",
+    "section": "How to get an API key, the usual way",
+    "text": "How to get an API key, the usual way\naka. how to give OpenAI your money\n\n\n🆙 Sign up for an account with OpenAI or Anthropic\n💳 Add a payment method\n🔑 Get an API key\n💾 Store it in .Renviron or .env fileas OPENAI_API_KEY or ANTHROPIC_API_KEY"
+  },
+  {
+    "objectID": "slides/slides-01-intro.html#but-well-give-you-api-keys-to-use-today",
+    "href": "slides/slides-01-intro.html#but-well-give-you-api-keys-to-use-today",
+    "title": "Welcome!",
+    "section": "But we’ll give you API keys to use today!",
+    "text": "But we’ll give you API keys to use today!\n\nUse these keys for all of our activities today\nPlay and explore! But please be considerate :)\nWe’ll turn them off at the end of the workshop"
+  },
+  {
+    "objectID": "slides/slides-01-intro.html#your-turn",
+    "href": "slides/slides-01-intro.html#your-turn",
+    "title": "Welcome!",
+    "section": "Your Turn",
+    "text": "Your Turn\n\n\n🔓 Decrypt the .env.secret → .env:\n\nR: Run secrets.R\nPython: Run make secret-decrypt in terminal\nor run python secrets.py decrypt .env.secret &gt; .env\n\n🤫 The special phrase is:\npositconf2025-llm-workshop\n🤖 Run the code in _exercises/01_hello-llm"
   }
 ]
