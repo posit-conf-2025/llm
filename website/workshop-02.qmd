@@ -33,9 +33,9 @@ editor: { render-on-save: true }
     - Clear the chat and try second question again.
 
 - (20m) How do LLMs work?
-  - [_How to Talk to Robots_ slides](https://connect.posit.it/ai-intro-posit/slides/slides-01-intro.html) from Intro to AI course
+  - _How to Talk to Robots_ slides
   - Tokens as the fundamental unit
-  - Example: https://connect.posit.it/ai-intro-token-possibilities
+  - Example: `_demos/04_token-possibilities`
 
 - (20m) Shinychat basics
   - Activity: `live_console()` and `live_browser()` (or `chat.console()` and `chat.app()`)
