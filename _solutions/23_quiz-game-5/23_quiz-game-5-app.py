@@ -82,7 +82,7 @@ the question.
     def txt_incorrect() -> int:
         return len([d for d in scores() if not d["is_correct"]])
 
-    async def update_score(
+    def update_score(
         theme: str,
         question: str,
         answer: str,
@@ -101,9 +101,8 @@ the question.
         your_answer: The user's answer to the question.
         is_correct: Whether the user's answer was correct.
         """
-        async with reactive.lock():
-            with reactive.isolate():
-                val_scores = scores.get()
+        with reactive.isolate():
+            val_scores = scores.get()
 
         answer = QuestionAnswer(
             theme=theme,
