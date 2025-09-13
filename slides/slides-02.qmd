@@ -1,0 +1,468 @@
+---
+title: Anatomy of a conversation
+subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
+author: <code>posit::conf(2025)</code>
+date: 2025-09-16
+
+editor:
+  render-on-save: true
+---
+
+# How to think about LLMs {.dark-blue background-image="assets/retro-mac.jpg" background-size="cover" background-position="bottom left"}
+
+```{r}
+source(here::here("website/slides/_incremental_slides.R"))
+```
+
+::: notes
+Some motivational words by Joe urging everyone to approach LLMs with curiosity and experimentation rather than preconceived notions about limitations, while building understanding from the ground up through practical experience.
+:::
+
+## Think Empirically, Not Theoretically {.center .text-center}
+
+## Think Empirically, Not Theoretically {.center .text-center}
+
+- It's okay to treat LLMs as **black boxes**. \
+  We're not going to focus on how they work internally
+
+- **Just try it!** When wondering if an LLM can do something,\
+  experiment rather than theorize
+
+- You might think they could not possibly do things\
+  _that they clearly can do today_
+
+::: notes
+- Understanding the technical details can lead to **bad intuition** about capabilities
+- You might think "they could not possibly do things that they clearly can do today"
+- Empirical testing reveals actual capabilities vs. theoretical limitations
+:::
+
+## Embrace the Experimental Process {.center .text-center}
+
+## Embrace the Experimental Process {.center .text-center}
+
+- **Don't worry about ROI** during exploration. \
+  Focus on learning and engaging with the technology
+
+- **Failure is valuable!** \
+  _those are some of the most interesting conversations that we have_
+
+- **It doesn't have to be a success.** \
+  Attempts that don't work still provide insights
+
+::: notes
+- Use the **best models available** for experimentation
+- Don't constrain yourself to "practical" applications initially
+- Think of it as forming your own independent conclusions about usefulness
+:::
+
+## Start Simple, Build Understanding {.center .text-center}
+
+## Start Simple, Build Understanding {.center .text-center}
+
+- We're going to focus on the **core building blocks**.
+
+- All the incredible things you see AI do \
+  **decompose to just a few key ingredients**.
+
+- Our goal is to **have fun and build intuition** \
+  through hands-on experience.
+
+::: notes
+- Think **very generally** about what tools can do - they're as powerful as any software you can write
+- Remember: **"Everything decomposes"** to the basic components once you understand the underlying APIs
+- Build intuition through hands-on experience rather than theoretical study
+- We want to have fun in this course! It's worth saying up front that our examples are not necessarily practical, but they're full of practical lessons.
+:::
+
+
+# [Anatomy of a Conversation]{.white} {.no-invert-dark-mode background-image="assets/eduard-delputte-1P6LZ8S8XJc-unsplash.jpg" background-size="cover" background-position="bottom left"}
+
+## {.center}
+
+![](assets/intro-conversation-01.png)
+![](assets/intro-conversation-02.png){.fragment}
+
+::: notes
+Those conversations often look something like this:
+
+You ask a question and ChatGPT responds.
+You can keep talking to ChatGPT and it keeps responding,
+almost like you're having a conversation with a person.
+
+The entire conversation happens via HTTP requests and responses
+:::
+
+## What's an HTTP request?
+
+::: notes
+HTTP requests power the internet.
+When you visit a website, your browser sends an HTTP request to the server hosting that website.
+The server responds to the request by sending back the HTML of the webpage.
+And then your browser makes a bunch more requests to get the images, stylesheets, and scripts that make up the page, etc.
+:::
+
+```{r}
+#| output: asis
+
+incremental_slides(
+  pattern = "intro-conversation-google-.+[.]svg$",
+  template = r"(::: {{.mt6}}
+{{{{< include {path} >}}}}
+:::)",
+  collapse = "\n\n## What's an HTTP request?\n\n"
+)
+```
+
+## Talking with ChatGPT happens via HTTP
+
+::: notes
+Talking to an LLM like ChatGPT also happens via HTTP requests.
+When you send a message to ChatGPT, you're sending an HTTP request to OpenAI's servers, this time a `POST` request.
+
+OpenAI processes the request, runs the model, gets the answer and sends it back to you as the response to that POST request.
+:::
+
+```{r}
+#| output: asis
+
+incremental_slides(
+  pattern = "intro-conversation-chat-.+[.]svg$",
+  template = r"(::: {{.mt6}}
+{{{{< include {path} >}}}}
+:::
+  )",
+  collapse = "\n\n## Talking with ChatGPT happens via HTTP\n\n"
+)
+```
+
+## Messages have roles
+
+```{r}
+#| output: asis
+
+incremental_slides(
+  pattern = "intro-conversation-roles-.+[.]svg$",
+  template = r"(::: {{.tc}}
+{{{{< include {path} >}}}}
+:::)",
+  collapse = "\n\n## Messages have roles\n\n"
+)
+```
+
+## Message roles
+
+| Role        | Description                                                       |
+|:-----------|:---------------------------------------------------------------|
+| `system_prompt` | Instructions from the developer (that's you!)<br>to set the behavior of the assistant |
+| `user`       | Messages from the person interacting<br>with the assistant        |
+| `assistant`  | The AI model's responses to the user                           |
+
+## Hello, ellmer and chatlas!
+
+::: {.easy-columns}
+::: tc
+![](../assets/logos/ellmer.png){style="max-width: 100%; max-height: 500px"}
+
+R
+:::
+
+::: tc
+![](../assets/logos/chatlas.png){style="max-width: 100%; max-height: 500px"}
+
+Python
+:::
+:::
+
+## {.no-invert-dark-mode background-image="assets/ellmer-and-chatlas.webp" background-size="cover" background-position="center"}
+
+## Hello, ellmer and chatlas! {transition="fade"}
+
+::: {.smaller style="--code-font-size: 0.66em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```r
+library(ellmer)
+```
+:::
+
+::: col
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```python
+import chatlas
+```
+:::
+:::
+
+## Hello, ellmer and chatlas! {transition="fade"}
+
+::: {.smaller style="--code-font-size: 0.66em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3"}
+library(ellmer)
+
+chat <- chat_openai()
+```
+:::
+
+::: col
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="3"}
+import chatlas
+
+chat = chatlas.ChatOpenAI()
+```
+:::
+:::
+
+## Hello, ellmer and chatlas! {transition="fade"}
+
+::: {.smaller style="--code-font-size: 0.66em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="5"}
+library(ellmer)
+
+chat <- chat_openai()
+
+chat$chat("Tell me a joke about R.")
+```
+:::
+
+::: col
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="5"}
+import chatlas
+
+chat = chatlas.ChatOpenAI()
+
+chat.chat("Tell me a joke about Python.")
+```
+:::
+:::
+
+## Hello, ellmer and chatlas! {transition="fade"}
+
+::: {.smaller style="--code-font-size: 0.66em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="5-7"}
+library(ellmer)
+
+chat <- chat_openai()
+
+chat$chat("Tell me a joke about R.")
+#> Why did the R programmer go broke?
+#> Because he kept using `sample()` and lost all his data!
+```
+:::
+
+::: col
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="5-7"}
+import chatlas
+
+chat = chatlas.ChatOpenAI()
+
+chat.chat("Tell me a joke about Python.")
+#> Why do Python programmers prefer using snakes as pets?
+#> Because they don't mind the indentation!
+```
+:::
+:::
+
+::: {.fragment .absolute top=100 right=50 class="w-50 ba b--dark-red bg-washed-red dark-red pa3 br2 flex items-start tr"}
+❓ What are the **user** and **assistant** roles in this example?
+:::
+
+## Hello, ellmer and chatlas! {transition="fade"}
+
+::: {.smaller style="--code-font-size: 0.66em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```r
+chat
+```
+```{.markdown code-line-numbers=false}
+<Chat OpenAI/gpt-4.1 turns=2 tokens=14/29 $0.00>
+── user [14] ────────────────────────────────────────
+Tell me a joke about R.
+── assistant [29] ───────────────────────────────────
+Why did the R programmer go broke?
+
+Because he kept using `sample()` and lost all his data!
+```
+:::
+
+::: col
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```python
+print(chat)
+```
+:::
+:::
+
+## Hello, ellmer and chatlas! {transition="fade"}
+
+::: {.smaller style="--code-font-size: 0.66em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```r
+chat
+```
+:::
+
+::: col
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```python
+print(chat)
+```
+```{.markdown code-line-numbers=false}
+## 👤 User turn:
+
+Tell me a joke about Python.
+
+## 🤖 Assistant turn:
+
+Why do Python programmers prefer using snakes as pets?
+
+Because they don't mind the indentation!
+```
+:::
+:::
+
+::: {.fragment .absolute top=100 right=50 class="w-50 ba b--dark-red bg-washed-red dark-red pa3 br2 flex items-start tr"}
+❓ What about the **system prompt?**
+:::
+
+## Hello, ellmer and chatlas! {transition="fade"}
+
+::: {.smaller style="--code-font-size: 0.66em"}
+::: col
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3-5"}
+library(ellmer)
+
+chat <- chat_openai(
+  system_prompt = "You are a dad joke machine."
+)
+
+chat$chat("Tell me a joke about R.")
+```
+:::
+
+::: col
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="3-5"}
+import chatlas
+
+chat = chatlas.ChatOpenAI(
+  system_prompt="You are a dad joke machine."
+)
+
+chat.chat("Tell me a joke about Python.")
+```
+:::
+:::
+
+## Hello, ellmer and chatlas! {transition="fade"}
+
+::: {.smaller style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="7"}
+library(ellmer)
+
+chat <- chat_openai(
+  system_prompt = "You are a dad joke machine."
+)
+
+chat$chat("Tell me a joke about R.")
+```
+
+::: fragment
+```{.markdown code-line-numbers=false}
+Why did the letter R get invited to all the pirate parties?
+
+Because it always knows how to *arr-r-ive* in style!
+```
+:::
+:::
+
+## Hello, ellmer and chatlas! {transition="fade"}
+
+::: {.smaller style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="7"}
+chat
+```
+
+::: fragment
+```{.markdown code-line-numbers=false}
+<Chat OpenAI/gpt-4.1 turns=3 tokens=25/28 $0.00>
+── system [0] ───────────────────────────────────────
+You are a dad joke machine.
+── user [25] ────────────────────────────────────────
+Tell me a joke about R.
+── assistant [28] ───────────────────────────────────
+Why did the letter R get invited to all the pirate parties?
+
+Because it always knows how to *arr-r-ive* in style!
+```
+:::
+:::
+
+
+# Your Turn `02_word-game` {.slide-your-turn}
+
+::: {style="--li-margin: 0.66em;"}
+1. Set up a `chat` with a system prompt:
+
+   > You are playing a word guessing game. At each turn, guess the word and tell us what it is.
+
+2. **Ask:** _In British English, guess the word for the person who lives next door._
+
+3. **Ask:** _What helps a car move smoothly down the road?_
+
+4. Create a new, empty `chat` and ask the second question again.
+
+5. How do the answers to 3 and 4 differ? Why?
+:::
+
+## Demo: `clearbot` {.slide-demo style="--code-font-size: 0.66em"}
+
+👨‍💻 [_demos/03_clearbot/app.py]{.code .b .purple}
+
+**System prompt:**
+
+```{.markdown code-line-numbers=false}
+You are playing a word guessing game. At each turn, guess the word and tell us what it is.
+```
+
+**First question:**
+
+```{.markdown code-line-numbers=false}
+In British English, guess the word for the person who lives next door.
+```
+
+**Second question:**
+
+```{.markdown code-line-numbers=false}
+What helps a car move smoothly down the road?
+```

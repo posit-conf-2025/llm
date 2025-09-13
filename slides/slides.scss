@@ -44,24 +44,40 @@
 }
 
 .reveal .slide-your-turn {
-  background-color: #17212b;
-  --slide-color: #F2F5F8;
-  --quarto-hl-fu-color: #E7B10A;
-  --r-link-color: #ff5fa1;
-  --r-link-color-hover: #E56399;
-
-  strong {
-    color: var(--quarto-hl-fu-color);
+  --li-margin: 0.66em;
+  &.title-slide h1 {
+    font-size: var(--r-heading2-size);
   }
+}
 
-  code {
-    color: var(--quarto-hl-fu-color);
-  }
+.reveal .slide-your-turn .slide-background-content {
+  background-image: url(/slides/assets/your-turn.png);
+  background-size: 30%;
+  background-position: bottom right;
 }
 
 :root {
   --countdown-font-size: var(--step-3);
   --sl-fullscreen-scale: 1.5;
+}
+
+.panel-tabset li a[role="tab"] {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.gap-1 { gap: 0.5em }
+.gap-2 { gap: 1em }
+.gap-3 { gap: 1.5em }
+.gap-4 { gap: 2em }
+.gap-5 { gap: 2.5em }
+.gap-6 { gap: 3em }
+
+.reveal pre {
+  font-size: var(--code-font-size, 1em);
 }
 
 .reveal pre.sourceCode code {
@@ -88,7 +104,7 @@
   margin-bottom: 1rem;
 }
 
-.highlight-line {
+.code-highlight-line .highlight-line {
   --_highlight-line-color: var(--highlight-line-color, oklab(0.95 -0.04 0.16 / 0.7));
   background: var(--_highlight-line-color);
   display: inline-block;
@@ -188,4 +204,15 @@ mark.squiggle {
 
 .text-center {
   text-align: center;
+}
+
+//auto-dark fixup for slides with background images
+@media (prefers-color-scheme: dark) {
+  .no-invert-dark-mode {
+    filter: hue-rotate(180deg) invert(1);
+  }
+}
+
+.code {
+  font-family: var(--r-code-font);
 }
