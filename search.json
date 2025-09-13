@@ -301,7 +301,7 @@
     "href": "workshop-02.html#outline",
     "title": "Anatomy of a conversation",
     "section": "Outline",
-    "text": "Outline\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nHow to approach this workshop\nExtra time to work with participants on setup if needed\n\n(20m) Anatomy of a conversation\n\nTo get a get a response, you send a message via HTTP\nMessage roles: system, user, assistant\nActivity: Word guessing game\n\nSystem prompt: You are playing a word guessing game. At each turn, guess the word and tell us what it is.\nWe give a few questions to ask\nAlso include a modifier in the first message, e.g. “In ____, …” picking from “British English”, “pirate”, “Spanish”, etc.\nThe modifier in the first message steers subsequent answers\n\nThe conversation is stateless\n\nUse clearbot to walk through an example, showing the requests and responses\nFirst: Using British spellings, guess the word for the person living next door.\nSecond: What helps a car move smoothly down the road?\nClear the chat and try second question again.\n\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides from Intro to AI course\nTokens as the fundamental unit\nExample: https://connect.posit.it/ai-intro-token-possibilities\n\n(20m) Shinychat basics\n\nActivity: live_console() and live_browser() (or chat.console() and chat.app())\nMaking your own shinychat app with chat.ui() and chat.append(). R users can use the chat module with chat_mod_server().\nActivity: Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.",
+    "text": "Outline\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nHow to approach this workshop\nExtra time to work with participants on setup if needed\n\n(20m) Anatomy of a conversation\n\nTo get a get a response, you send a message via HTTP\nMessage roles: system, user, assistant\nActivity (02_word-game): Word guessing game\nHow does the LLM remember the conversation? demos/03_clearbot\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides\nTokens as the fundamental unit\nExample: _demos/04_token-possibilities\n\n(20m) Shinychat basics\n\nActivity (05_live): live_console() and live_browser() (or chat.console() and chat.app())\nMaking your own shinychat app with chat.ui() and chat.append(). R users can use the chat module with chat_mod_server().\nActivity (06_word-games): Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.",
     "crumbs": [
       "Workshop",
       "Anatomy of a conversation"
@@ -812,48 +812,62 @@
     "href": "slides/slides-02.html#shinychat-in-python",
     "title": "Anatomy of a conversation",
     "section": "shinychat in Python",
-    "text": "shinychat in Python\nStart with the shinyapp snippet\nfrom shiny import App, reactive, render, req, ui\n\napp_ui = ui.page_fluid(\n  ui.input_slider(\"n\", \"N\", 0, 100, 20),\n  ui.output_text_verbatim(\"txt\"),\n)\n\n\ndef server(input, output, session):\n  @render.text\n  def txt():\n    return f\"n*2 is {input.n() * 2}\"\n\n\napp = App(app_ui, server)"
+    "text": "shinychat in Python\nStart with the shinyapp snippet\nfrom shiny import App, reactive, render, req, ui\n\napp_ui = ui.page_fillable(\n  ui.input_slider(\"n\", \"N\", 0, 100, 20),\n  ui.output_text_verbatim(\"txt\"),\n)\n\n\ndef server(input, output, session):\n  @render.text\n  def txt():\n    return f\"n*2 is {input.n() * 2}\"\n\n\napp = App(app_ui, server)"
   },
   {
     "objectID": "slides/slides-02.html#shinychat-in-python-1",
     "href": "slides/slides-02.html#shinychat-in-python-1",
     "title": "Anatomy of a conversation",
     "section": "shinychat in Python",
-    "text": "shinychat in Python\nRemove the parts we don’t need\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n\n)\n\ndef server(input, output, session):\n    pass\n\napp = App(app_ui, server)"
+    "text": "shinychat in Python\nRemove the parts we don’t need\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n\n)\n\ndef server(input, output, session):\n    pass\n\napp = App(app_ui, server)"
   },
   {
     "objectID": "slides/slides-02.html#shinychat-in-python-2",
     "href": "slides/slides-02.html#shinychat-in-python-2",
     "title": "Anatomy of a conversation",
     "section": "shinychat in Python",
-    "text": "shinychat in Python\nCreate a chatlas chat client\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n\napp = App(app_ui, server)"
+    "text": "shinychat in Python\nCreate a chatlas chat client\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n\napp = App(app_ui, server)"
   },
   {
     "objectID": "slides/slides-02.html#shinychat-in-python-3",
     "href": "slides/slides-02.html#shinychat-in-python-3",
     "title": "Anatomy of a conversation",
     "section": "shinychat in Python",
-    "text": "shinychat in Python\nAdd the Chat UI and server logic\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\napp = App(app_ui, server)"
+    "text": "shinychat in Python\nAdd the Chat UI and server logic (client and chat aren’t connected yet!)\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\")\n\napp = App(app_ui, server)\no ## shinychat in Python {style=“–code-font-size: var(–shinychat-code-font-size)” auto-animate=true}\nWhen the user submits a message…\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        # Send input to LLM\n        # Send response back to UI\n\napp = App(app_ui, server)"
   },
   {
     "objectID": "slides/slides-02.html#shinychat-in-python-4",
     "href": "slides/slides-02.html#shinychat-in-python-4",
     "title": "Anatomy of a conversation",
     "section": "shinychat in Python",
-    "text": "shinychat in Python\nWhen the user submits a message…\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        # Send input to LLM\n        # Send response back to UI\n\napp = App(app_ui, server)"
+    "text": "shinychat in Python\nwe’ll send the input to the LLM…\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        response = await client.stream_async(user_input)\n        # Send response back to UI\n\napp = App(app_ui, server)"
   },
   {
     "objectID": "slides/slides-02.html#shinychat-in-python-5",
     "href": "slides/slides-02.html#shinychat-in-python-5",
     "title": "Anatomy of a conversation",
     "section": "shinychat in Python",
-    "text": "shinychat in Python\nwe’ll send the input to the LLM…\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        response = await chat_client.stream_async(user_input)\n        # Send response back to UI\n\napp = App(app_ui, server)"
+    "text": "shinychat in Python\n…and then stream the response back to the UI.\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        response = await client.stream_async(user_input)\n        await chat.append_message_stream(response)\n\napp = App(app_ui, server)"
   },
   {
-    "objectID": "slides/slides-02.html#shinychat-in-python-6",
-    "href": "slides/slides-02.html#shinychat-in-python-6",
+    "objectID": "slides/slides-02.html#interpolation-in-r",
+    "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
-    "section": "shinychat in Python",
-    "text": "shinychat in Python\n…and then stream the response back to the UI.\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        response = await chat_client.stream_async(user_input)\n        await chat.append_message_stream(response)\n\napp = App(app_ui, server)"
+    "section": "Interpolation in R",
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is elephant."
+  },
+  {
+    "objectID": "slides/slides-02.html#interpolation-in-r-1",
+    "href": "slides/slides-02.html#interpolation-in-r-1",
+    "title": "Anatomy of a conversation",
+    "section": "Interpolation in R",
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ words }}.\"\n)\n\n[1] │ The secret word is elephant.\n[2] │ The secret word is bicycle.\n[3] │ The secret word is sandwich."
+  },
+  {
+    "objectID": "slides/slides-02.html#interpolation-in-python",
+    "href": "slides/slides-02.html#interpolation-in-python",
+    "title": "Anatomy of a conversation",
+    "section": "Interpolation in Python",
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is bicycle.'"
   }
 ]

@@ -317,32 +317,20 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>To get a get a response, you send a message via HTTP</li>
 <li>Message roles: system, user, assistant</li>
-<li>Activity: Word guessing game
-<ul>
-<li>System prompt: <em>You are playing a word guessing game. At each turn, guess the word and tell us what it is.</em></li>
-<li>We give a few questions to ask</li>
-<li>Also include a modifier in the first message, e.g.&nbsp;“In ____, …” picking from “British English”, “pirate”, “Spanish”, etc.</li>
-<li>The modifier in the first message steers subsequent answers</li>
-</ul></li>
-<li>The conversation is <strong>stateless</strong>
-<ul>
-<li>Use <strong>clearbot</strong> to walk through an example, showing the requests and responses</li>
-<li>First: <em>Using British spellings, guess the word for the person living next door.</em></li>
-<li>Second: <em>What helps a car move smoothly down the road?</em></li>
-<li>Clear the chat and try second question again.</li>
-</ul></li>
+<li>Activity (<code>02_word-game</code>): Word guessing game</li>
+<li>How does the LLM remember the conversation? <code>demos/03_clearbot</code></li>
 </ul></li>
 <li>(20m) How do LLMs work?
 <ul>
-<li><a href="https://connect.posit.it/ai-intro-posit/slides/slides-01-intro.html"><em>How to Talk to Robots</em> slides</a> from Intro to AI course</li>
+<li><em>How to Talk to Robots</em> slides</li>
 <li>Tokens as the fundamental unit</li>
-<li>Example: https://connect.posit.it/ai-intro-token-possibilities</li>
+<li>Example: <code>_demos/04_token-possibilities</code></li>
 </ul></li>
 <li>(20m) Shinychat basics
 <ul>
-<li>Activity: <code>live_console()</code> and <code>live_browser()</code> (or <code>chat.console()</code> and <code>chat.app()</code>)</li>
+<li>Activity (<code>05_live</code>): <code>live_console()</code> and <code>live_browser()</code> (or <code>chat.console()</code> and <code>chat.app()</code>)</li>
 <li>Making your own shinychat app with <code>chat.ui()</code> and <code>chat.append()</code>. R users can use the chat module with <code>chat_mod_server()</code>.</li>
-<li>Activity: Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.</li>
+<li>Activity (<code>06_word-games</code>): Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.</li>
 </ul></li>
 </ul>
 
