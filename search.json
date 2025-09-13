@@ -717,10 +717,52 @@
     "text": "Hello, ellmer and chatlas!\n\n ellmer\nchat\n\n&lt;Chat OpenAI/gpt-4.1 turns=3 tokens=25/28 $0.00&gt;\n── system [0] ───────────────────────────────────────\nYou are a dad joke machine.\n── user [25] ────────────────────────────────────────\nTell me a joke about R.\n── assistant [28] ───────────────────────────────────\nWhy did the letter R get invited to all the pirate parties?\n\nBecause it always knows how to *arr-r-ive* in style!"
   },
   {
-    "objectID": "slides/slides-02.html#demo-clearbot",
-    "href": "slides/slides-02.html#demo-clearbot",
+    "objectID": "slides/slides-02.html#section-2",
+    "href": "slides/slides-02.html#section-2",
     "title": "Anatomy of a conversation",
-    "section": "Demo: clearbot",
-    "text": "Demo: clearbot\n👨‍💻 _demos/03_clearbot/app.py\nSystem prompt:\nYou are playing a word guessing game. At each turn, guess the word and tell us what it is.\nFirst question:\nIn British English, guess the word for the person who lives next door.\nSecond question:\nWhat helps a car move smoothly down the road?"
+    "section": "",
+    "text": "Those conversations often look something like this:\nYou ask a question and ChatGPT responds. You can keep talking to ChatGPT and it keeps responding, almost like you’re having a conversation with a person."
+  },
+  {
+    "objectID": "slides/slides-02.html#section-3",
+    "href": "slides/slides-02.html#section-3",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "But this is not a conversation.\nIt certainly feels like a conversation, but something else is happening behind the scenes."
+  },
+  {
+    "objectID": "slides/slides-02.html#when-you-talk-to-chatgpt",
+    "href": "slides/slides-02.html#when-you-talk-to-chatgpt",
+    "title": "Anatomy of a conversation",
+    "section": "When you talk to ChatGPT",
+    "text": "When you talk to ChatGPT\n\nYou write some words\nThe ChatGPT continues writing words\nYou think you’re having a conversation"
+  },
+  {
+    "objectID": "slides/slides-02.html#chatgpt",
+    "href": "slides/slides-02.html#chatgpt",
+    "title": "Anatomy of a conversation",
+    "section": "ChatGPT",
+    "text": "ChatGPT\n\nChatting with a Generative Pre-trained Transformer\n\n\nLLM → Large Language Model\n\n\nGPT is a type of LLM, but not all LLMs are GPTs.\nLLM: Deep learning on huge amounts of text data to understand and generate human language. GPT: Specific architectural design of LLMs.\nFrom now on, we’ll use LLM to refer to any large language model."
+  },
+  {
+    "objectID": "slides/slides-02.html#how-to-make-an-llm",
+    "href": "slides/slides-02.html#how-to-make-an-llm",
+    "title": "Anatomy of a conversation",
+    "section": "How to make an LLM",
+    "text": "How to make an LLM\n\n\nIf you read everythingever written…\n\nBooks and stories\nWebsites and articles\nPoems and jokes\nQuestions and answers\n\n\n…then you could…\n\nAnswer questions\nWrite stories\nTell jokes\nExplain things\nTranslate into any language"
+  },
+  {
+    "objectID": "slides/slides-02.html#the-cat-sat-in-the-____",
+    "href": "slides/slides-02.html#the-cat-sat-in-the-____",
+    "title": "Anatomy of a conversation",
+    "section": "The cat sat in the ____",
+    "text": "The cat sat in the ____\n\n\n\n🎩\n🛌\n📦\n\n\n\n🪟\n🛒\n👠\n\n\n\nThe breakthrough insight is the attention mechanism in the Transformer architecture. Instead of processing text sequentially (word by word), GPT models can look at all words in a sequence simultaneously and understand how they relate to each other.\nThe attention mechanism allows the model to:\n\nWeigh the importance of every word in relation to every other word\nCapture long-range dependencies that traditional models missed\nProcess sequences in parallel rather than sequentially"
+  },
+  {
+    "objectID": "slides/slides-02.html#actually-tokens-not-words",
+    "href": "slides/slides-02.html#actually-tokens-not-words",
+    "title": "Anatomy of a conversation",
+    "section": "Actually: tokens, not words",
+    "text": "Actually: tokens, not words\n\nFundamental units of information for LLMs\nWords, parts of words, or individual characters\n\n“hello” → 1 token\n“unconventional” → 3 tokens: un|con|ventional\n\nImportant for:\n\nModel input/output limits\nAPI pricing is usually by token\n\nNot just words, but images can be tokenized too"
   }
 ]

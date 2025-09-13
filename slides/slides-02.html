@@ -739,7 +739,6 @@ through hands-on experience.</p></li>
 </div>
 </div>
 </section></section>
-<section>
 <section id="your-turn-02_word-game" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>02_word-game</code></h1>
 <div style="--li-margin: 0.66em;">
@@ -755,8 +754,9 @@ through hands-on experience.</p></li>
 </ol>
 </div>
 </section>
-<section id="demo-clearbot" class="slide level2 slide-demo" style="--code-font-size: 0.66em">
-<h2>Demo: <code>clearbot</code></h2>
+
+<section id="demo-clearbot" class="title-slide slide level1 slide-demo center" style="--code-font-size: 0.66em">
+<h1>Demo: <code>clearbot</code></h1>
 <p>👨‍💻 <span class="code b purple">_demos/03_clearbot/app.py</span></p>
 <p><strong>System prompt:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a aria-hidden="true" tabindex="-1"></a>You are playing a word guessing game. At each turn, guess the word and tell us what it is.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -764,9 +764,162 @@ through hands-on experience.</p></li>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a aria-hidden="true" tabindex="-1"></a>In British English, guess the word for the person who lives next door.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Second question:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a aria-hidden="true" tabindex="-1"></a>What helps a car move smoothly down the road?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+
+<section>
+<section id="how-to-talk-to-robots" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/andy-kelly-0E_vhMVqL9g-unsplash.jpg" data-background-size="cover" data-background-position="top center">
+<h1><span class="dib bg-black ph4 white" style="position: relative; top: -3em;">How to talk to robots</span></h1>
+
+</section>
+<section id="section-2" class="slide level2 center">
+<h2></h2>
+<p><img data-src="assets/intro-conversation-01.png"> <img data-src="assets/intro-conversation-02.png" class="fragment"></p>
+<aside class="notes">
+<p>Those conversations often look something like this:</p>
+<p>You ask a question and ChatGPT responds. You can keep talking to ChatGPT and it keeps responding, almost like you’re having a conversation with a person.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-3" class="slide level2 center" data-background-image="assets/not-a-conversation2.png" data-background-size="contain" data-background-color="#E3CCA4">
+<h2></h2>
+<aside class="notes">
+<p>But this is not a conversation.</p>
+<p>It certainly <em>feels</em> like a conversation, but something else is happening behind the scenes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="when-you-talk-to-chatgpt" class="slide level2 center">
+<h2>When you talk to ChatGPT</h2>
+<ol type="1">
+<li class="fragment"><p>You write some words</p></li>
+<li class="fragment"><p>The ChatGPT continues writing words</p></li>
+<li class="fragment"><p>You think you’re having a conversation</p></li>
+</ol>
+</section>
+<section id="chatgpt" class="slide level2 center">
+<h2>ChatGPT</h2>
+<div class="r-fit-text">
+<p><strong>Chat</strong>ting with a <strong>G</strong>enerative <strong>P</strong>re-trained <strong>T</strong>ransformer</p>
+</div>
+<div class="fragment r-fit-text">
+<p><strong>LLM</strong> → <strong>L</strong>arge <strong>L</strong>anguage <strong>M</strong>odel</p>
+</div>
+<aside class="notes">
+<p>GPT is a type of LLM, but not all LLMs are GPTs.</p>
+<p>LLM: Deep learning on huge amounts of text data to understand and generate human language. GPT: Specific architectural design of LLMs.</p>
+<p>From now on, we’ll use <strong>LLM</strong> to refer to any large language model.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="how-to-make-an-llm" class="slide level2 center">
+<h2>How to make an LLM</h2>
+<div class="columns">
+<div class="column">
+<p><strong>If you read everything<br>ever written…</strong></p>
+<ul>
+<li><p>Books and stories</p></li>
+<li><p>Websites and articles</p></li>
+<li><p>Poems and jokes</p></li>
+<li><p>Questions and answers</p></li>
+</ul>
+</div><div class="column fragment">
+<p><br><strong>…then you could…</strong></p>
+<ul>
+<li>Answer questions</li>
+<li>Write stories</li>
+<li>Tell jokes</li>
+<li>Explain things</li>
+<li>Translate into any language</li>
+</ul>
+</div></div>
+</section>
+<section id="the-cat-sat-in-the-____" class="slide level2 center">
+<h2>The cat sat in the ____</h2>
+<div class="columns" style="font-size: 6rem;">
+<div class="column">
+<ul>
+<li class="fragment">🎩</li>
+<li class="fragment">🛌</li>
+<li class="fragment">📦</li>
+</ul>
+</div><div class="column">
+<ul>
+<li class="fragment">🪟</li>
+<li class="fragment">🛒</li>
+<li class="fragment">👠</li>
+</ul>
+</div></div>
+<aside class="notes">
+<p>The breakthrough insight is the attention mechanism in the Transformer architecture. Instead of processing text sequentially (word by word), GPT models can look at all words in a sequence simultaneously and understand how they relate to each other.</p>
+<p>The attention mechanism allows the model to:</p>
+<ul>
+<li>Weigh the importance of every word in relation to every other word</li>
+<li>Capture long-range dependencies that traditional models missed</li>
+<li>Process sequences in parallel rather than sequentially</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="actually-tokens-not-words" class="slide level2 center">
+<h2>Actually: tokens, not words</h2>
+<ul>
+<li class="fragment">Fundamental units of information for LLMs</li>
+<li class="fragment">Words, parts of words, or individual characters
+<ul>
+<li class="fragment">“hello” → 1 token</li>
+<li class="fragment">“unconventional” → 3 tokens: <code>un|con|ventional</code></li>
+</ul></li>
+<li class="fragment">Important for:
+<ul>
+<li class="fragment">Model input/output limits</li>
+<li class="fragment"><a href="https://llmpricecheck.com/calculator/">API pricing</a> is usually by token</li>
+</ul></li>
+<li class="fragment">Not just words, but images can be tokenized too</li>
+</ul>
+</section>
+</section>
+<section id="demo-token-possibilities" class="title-slide slide level1 slide-demo center" style="--code-font-size: 0.66em">
+<h1>Demo: <br> <code>token-possibilities</code></h1>
+<p>👨‍💻 <span class="code b purple">_demos/04_token-possibilities/app.R</span></p>
 
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
