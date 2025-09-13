@@ -6,6 +6,7 @@ on:
       - "website/**"
       - "renv.lock"
       - ".github/workflows/publish.yml"
+  workflow_dispatch:
 
 name: Render and Publish
 
