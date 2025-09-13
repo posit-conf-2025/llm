@@ -445,7 +445,7 @@ Because it always knows how to *arr-r-ive* in style!
 5. How do the answers to 3 and 4 differ? Why?
 :::
 
-## Demo: `clearbot` {.slide-demo style="--code-font-size: 0.66em"}
+# Demo: `clearbot` {.slide-demo style="--code-font-size: 0.66em"}
 
 👨‍💻 [_demos/03_clearbot/app.py]{.code .b .purple}
 
@@ -466,3 +466,153 @@ In British English, guess the word for the person who lives next door.
 ```{.markdown code-line-numbers=false}
 What helps a car move smoothly down the road?
 ```
+
+# [How to talk to robots]{.dib .bg-black .ph4 .white style="position: relative; top: -3em;"} {.no-invert-dark-mode background-image="assets/andy-kelly-0E_vhMVqL9g-unsplash.jpg" background-size="cover" background-position="top center"}
+
+## {.center}
+
+![](assets/intro-conversation-01.png)
+![](assets/intro-conversation-02.png){.fragment}
+
+::: notes
+Those conversations often look something like this:
+
+You ask a question and ChatGPT responds.
+You can keep talking to ChatGPT and it keeps responding,
+almost like you're having a conversation with a person.
+:::
+
+## {.center background-image="assets/not-a-conversation2.png" background-size="contain" background-color="#E3CCA4"}
+
+::: notes
+But this is not a conversation.
+
+It certainly _feels_ like a conversation,
+but something else is happening behind the scenes.
+:::
+
+
+## When you talk to ChatGPT {.center}
+
+::: incremental
+1. You write some words
+
+2. The ChatGPT continues writing words
+
+3. You think you're having a conversation
+:::
+
+
+## ChatGPT {.center}
+
+::: r-fit-text
+**Chat**ting with a **G**enerative **P**re-trained **T**ransformer
+:::
+
+::: {.fragment .r-fit-text}
+**LLM** &rarr; **L**arge **L**anguage **M**odel
+:::
+
+::: notes
+GPT is a type of LLM, but not all LLMs are GPTs.
+
+LLM: Deep learning on huge amounts of text data to understand and generate human language.
+GPT: Specific architectural design of LLMs.
+
+From now on, we'll use **LLM** to refer to any large language model.
+:::
+
+## How to make an LLM {.center}
+
+::: {.columns}
+::: {.column}
+**If you read everything<br>ever written...**
+
+* Books and stories
+
+* Websites and articles
+
+* Poems and jokes
+
+* Questions and answers
+:::
+::: {.column .fragment}
+<br>**...then you could...**
+
+- Answer questions
+- Write stories
+- Tell jokes
+- Explain things
+- Translate into any language
+:::
+:::
+
+
+## The cat sat in the ____ {.center}
+
+::: incremental
+::: {.columns style="font-size: 6rem;"}
+::: {.column}
+* 🎩
+* 🛌
+* 📦
+:::
+::: {.column}
+* 🪟
+* 🛒
+* 👠
+:::
+:::
+:::
+
+::: notes
+The breakthrough insight is the attention mechanism in the Transformer architecture.
+Instead of processing text sequentially (word by word),
+GPT models can look at all words in a sequence simultaneously
+and understand how they relate to each other.
+
+The attention mechanism allows the model to:
+
+* Weigh the importance of every word in relation to every other word
+* Capture long-range dependencies that traditional models missed
+* Process sequences in parallel rather than sequentially
+:::
+
+## Actually: tokens, not words {.center}
+
+::: {.incremental}
+- Fundamental units of information for LLMs
+- Words, parts of words, or individual characters
+  - "hello" → 1 token
+  - "unconventional" → 3 tokens: `un|con|ventional`
+- Important for:
+  - Model input/output limits
+  - [API pricing](https://llmpricecheck.com/calculator/) is usually by token
+- Not just words, but images can be tokenized too
+:::
+
+## {background-image="assets/token-approximations.png" background-size="contain" visibility="hidden"}
+
+::: footer
+<https://llm-stats.com/>
+:::
+
+::: notes
+The newest and biggest models from OpenAI and Google
+can handle 1 million input tokens at once.
+
+Which is kind of like saying that you could paste
+
+* 30 hours of podcasts
+* 1,000 pages of a book
+* 60,000 lines of code
+
+into the chat window and the model could "pay attention" to it all.
+
+1M is the upper limit currently, most models accept up to around 200k tokens.
+:::
+
+
+# Demo: <br> `token-possibilities` {.slide-demo style="--code-font-size: 0.66em"}
+
+👨‍💻 [_demos/04_token-possibilities/app.R]{.code .b .purple}
