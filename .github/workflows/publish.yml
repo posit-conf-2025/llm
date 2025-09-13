@@ -43,7 +43,7 @@ jobs:
       - name: 📦 Install R packages
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          packages: ""
+          packages: "any::glue"
           needs: website
 
       - name: 📰 Render and Publish to GitHub Pages
