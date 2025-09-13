@@ -10,7 +10,9 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/tachyons-4.12.0/tachyons.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
+<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="posit::conf(2025)">
@@ -101,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-89c9feb1519e4456d7830de9167c6de8.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-3d44d73b295c4c5c5d276601a325e203.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -741,7 +743,6 @@ through hands-on experience.</p></li>
 </section></section>
 <section id="your-turn-02_word-game" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>02_word-game</code></h1>
-<div style="--li-margin: 0.66em;">
 <ol type="1">
 <li><p>Set up a <code>chat</code> with a system prompt:</p>
 <blockquote>
@@ -752,7 +753,6 @@ through hands-on experience.</p></li>
 <li><p>Create a new, empty <code>chat</code> and ask the second question again.</p></li>
 <li><p>How do the answers to 3 and 4 differ? Why?</p></li>
 </ol>
-</div>
 </section>
 
 <section id="demo-clearbot" class="title-slide slide level1 slide-demo center" style="--code-font-size: 0.66em">
@@ -917,6 +917,355 @@ through hands-on experience.</p></li>
 <section id="demo-token-possibilities" class="title-slide slide level1 slide-demo center" style="--code-font-size: 0.66em">
 <h1>Demo: <br> <code>token-possibilities</code></h1>
 <p>👨‍💻 <span class="code b purple">_demos/04_token-possibilities/app.R</span></p>
+</section>
+
+<section id="programming-is-fun-but-i-kind-of-like-chatgpt" class="title-slide slide level1 center" data-background-image="assets/ask-anything.png" data-background-size="contain" data-background-position="center">
+<h1><span class="bg-white f1 normal relative" style="top: -14px; left: 4px">Programming is fun, but I kind of like ChatGPT…</span></h1>
+
+</section>
+
+<section>
+<section id="ellmer-and-chatlas-can-do-that-too" class="title-slide slide level1 center" data-background-image="assets/all-the-context.png" data-background-size="contain" data-background-position="center">
+<h1><span class="bg-white f1 normal relative" style="top: -14px; left: 4px">ellmer and chatlas can do that, too!</span></h1>
+
+</section>
+<section id="section-5" class="slide level2 center">
+<h2></h2>
+<div class="table-no-border">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Console</th>
+<th style="text-align: center;">Browser</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><img data-src="../assets/logos/ellmer.png" style="height:4em" alt="ellmer"></td>
+<td style="text-align: center;"><code>live_console(chat)</code></td>
+<td style="text-align: center;"><code>live_browser(chat)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><img data-src="../assets/logos/chatlas.png" style="height:4em" alt="chatlas"></td>
+<td style="text-align: center;"><code>chat.console()</code></td>
+<td style="text-align: center;"><code>chat.app()</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<aside class="notes">
+<p>As we’ll see, everything we’re going to do today can be done in either R or Python and ellmer and chatlas are designed to be similar.</p>
+<p>But they’re in different languages and those languages have different conventions and idioms, so they’re not completely identical. If they were, one or the other would start to feel unnatural to use.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="your-turn-05_live" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>05_live</code></h1>
+<div style="--li-margin: 0.66em;">
+<ol type="1">
+<li><p>Your job: write a groan-worthy roast of Hadley Wickham</p></li>
+<li><p>Bonus points for puns, rhymes, and one-liners</p></li>
+<li><p>Don’t be mean</p></li>
+<li><p>Share your best on Discord 😉</p></li>
+</ol>
+</div>
+<div id="timer_a8b863669fb5bc05a9c1f9df8ef3ae6dee388d73" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+
+<section>
+<section id="shinychat" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/shinychat-robot2.webp" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">shinychat</span></h1>
+
+</section>
+<section id="section-6" class="slide level2 center">
+<h2></h2>
+<div class="easy-columns tc">
+<p><img data-src="../assets/logos/shinychat.png" style="max-width: 100%; max-height: 500px" alt="shinychat"></p>
+<p><img data-src="../assets/logos/ellmer.png" style="max-width: 100%; max-height: 500px" alt="ellmer"></p>
+</div>
+</section>
+<section id="shinychat-in-r" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in R</h2>
+<style>
+:root {
+  --shinychat-code-font-size: 0.66em;
+}
+</style>
+<p>Start with the <code>shinyapp</code> snippet</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb24-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(shiny)</span>
+<span id="cb24-2" class="hljs-ln-code"><a></a><span class="fu">library</span>(bslib)</span>
+<span id="cb24-3" class="hljs-ln-code"><a></a></span>
+<span id="cb24-4" class="hljs-ln-code"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_fillable</span>(</span>
+<span id="cb24-5" class="hljs-ln-code"><a></a></span>
+<span id="cb24-6" class="hljs-ln-code"><a></a>)</span>
+<span id="cb24-7" class="hljs-ln-code"><a></a></span>
+<span id="cb24-8" class="hljs-ln-code"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb24-9" class="hljs-ln-code"><a></a></span>
+<span id="cb24-10" class="hljs-ln-code"><a></a>}</span>
+<span id="cb24-11" class="hljs-ln-code"><a></a></span>
+<span id="cb24-12" class="hljs-ln-code"><a></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="footer">
+<p><a href="https://www.garrickadenbuie.com/blog/shiny-new-bslib-snippet/" class="uri">https://www.garrickadenbuie.com/blog/shiny-new-bslib-snippet/</a></p>
+</div>
+</section>
+<section id="shinychat-in-r-1" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in R</h2>
+<p>Load <code>{shinychat}</code> and <code>{ellmer}</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25" data-code-line-numbers="3-4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb25-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(shiny)</span>
+<span id="cb25-2" class="hljs-ln-code"><a></a><span class="fu">library</span>(bslib)</span>
+<span id="cb25-3" class="hljs-ln-code"><a></a><span class="fu">library</span>(shinychat)</span>
+<span id="cb25-4" class="hljs-ln-code"><a></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb25-5" class="hljs-ln-code"><a></a></span>
+<span id="cb25-6" class="hljs-ln-code"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_fillable</span>(</span>
+<span id="cb25-7" class="hljs-ln-code"><a></a></span>
+<span id="cb25-8" class="hljs-ln-code"><a></a>)</span>
+<span id="cb25-9" class="hljs-ln-code"><a></a></span>
+<span id="cb25-10" class="hljs-ln-code"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb25-11" class="hljs-ln-code"><a></a></span>
+<span id="cb25-12" class="hljs-ln-code"><a></a>}</span>
+<span id="cb25-13" class="hljs-ln-code"><a></a></span>
+<span id="cb25-14" class="hljs-ln-code"><a></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shinychat-in-r-2" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in R</h2>
+<p>Use the shinychat chat module</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26" data-code-line-numbers="7,11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb26-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(shiny)</span>
+<span id="cb26-2" class="hljs-ln-code"><a></a><span class="fu">library</span>(bslib)</span>
+<span id="cb26-3" class="hljs-ln-code"><a></a><span class="fu">library</span>(shinychat)</span>
+<span id="cb26-4" class="hljs-ln-code"><a></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb26-5" class="hljs-ln-code"><a></a></span>
+<span id="cb26-6" class="hljs-ln-code"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_fillable</span>(</span>
+<span id="cb26-7" class="hljs-ln-code"><a></a>  <span class="fu">chat_mod_ui</span>(<span class="st">"chat"</span>)</span>
+<span id="cb26-8" class="hljs-ln-code"><a></a>)</span>
+<span id="cb26-9" class="hljs-ln-code"><a></a></span>
+<span id="cb26-10" class="hljs-ln-code"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb26-11" class="hljs-ln-code"><a></a>  <span class="fu">chat_mod_server</span>(<span class="st">"chat"</span>)</span>
+<span id="cb26-12" class="hljs-ln-code"><a></a>}</span>
+<span id="cb26-13" class="hljs-ln-code"><a></a></span>
+<span id="cb26-14" class="hljs-ln-code"><a></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shinychat-in-r-3" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in R</h2>
+<p>Create and hook up a chat client to use in the app</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27" data-code-line-numbers="12-13"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb27-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(shiny)</span>
+<span id="cb27-2" class="hljs-ln-code"><a></a><span class="fu">library</span>(bslib)</span>
+<span id="cb27-3" class="hljs-ln-code"><a></a><span class="fu">library</span>(shinychat)</span>
+<span id="cb27-4" class="hljs-ln-code"><a></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb27-5" class="hljs-ln-code"><a></a></span>
+<span id="cb27-6" class="hljs-ln-code"><a></a></span>
+<span id="cb27-7" class="hljs-ln-code"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_fillable</span>(</span>
+<span id="cb27-8" class="hljs-ln-code"><a></a>  <span class="fu">chat_mod_ui</span>(<span class="st">"chat"</span>)</span>
+<span id="cb27-9" class="hljs-ln-code"><a></a>)</span>
+<span id="cb27-10" class="hljs-ln-code"><a></a></span>
+<span id="cb27-11" class="hljs-ln-code"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb27-12" class="hljs-ln-code"><a></a>  client <span class="ot">&lt;-</span> <span class="fu">chat_openai</span>()</span>
+<span id="cb27-13" class="hljs-ln-code"><a></a>  <span class="fu">chat_mod_server</span>(<span class="st">"chat"</span>, client)</span>
+<span id="cb27-14" class="hljs-ln-code"><a></a>}</span>
+<span id="cb27-15" class="hljs-ln-code"><a></a></span>
+<span id="cb27-16" class="hljs-ln-code"><a></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shinychat-in-r-4" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in R</h2>
+<p>Why is this not a great idea?</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28" data-code-line-numbers="6-14"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb28-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(shiny)</span>
+<span id="cb28-2" class="hljs-ln-code"><a></a><span class="fu">library</span>(bslib)</span>
+<span id="cb28-3" class="hljs-ln-code"><a></a><span class="fu">library</span>(shinychat)</span>
+<span id="cb28-4" class="hljs-ln-code"><a></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb28-5" class="hljs-ln-code"><a></a></span>
+<span id="cb28-6" class="hljs-ln-code"><a></a>client <span class="ot">&lt;-</span> <span class="fu">chat_openai</span>()</span>
+<span id="cb28-7" class="hljs-ln-code"><a></a></span>
+<span id="cb28-8" class="hljs-ln-code"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_fillable</span>(</span>
+<span id="cb28-9" class="hljs-ln-code"><a></a>  <span class="fu">chat_mod_ui</span>(<span class="st">"chat"</span>)</span>
+<span id="cb28-10" class="hljs-ln-code"><a></a>)</span>
+<span id="cb28-11" class="hljs-ln-code"><a></a></span>
+<span id="cb28-12" class="hljs-ln-code"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb28-13" class="hljs-ln-code"><a></a>  <span class="fu">chat_mod_server</span>(<span class="st">"chat"</span>, client)</span>
+<span id="cb28-14" class="hljs-ln-code"><a></a>}</span>
+<span id="cb28-15" class="hljs-ln-code"><a></a></span>
+<span id="cb28-16" class="hljs-ln-code"><a></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<p>Copy and paste the app code into an R session and run it!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-7" class="slide level2 center">
+<h2></h2>
+<div class="easy-columns tc">
+<p><img data-src="../assets/logos/shinychat.png" style="max-width: 100%; max-height: 500px" alt="shinychat"></p>
+<p><img data-src="../assets/logos/chatlas.png" style="max-width: 100%; max-height: 500px" alt="chatlas"></p>
+</div>
+</section>
+<section id="shinychat-in-python" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in Python</h2>
+<p>Start with the <code>shinyapp</code> snippet</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb29-1" class="hljs-ln-code"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, reactive, render, req, ui</span>
+<span id="cb29-2" class="hljs-ln-code"><a></a></span>
+<span id="cb29-3" class="hljs-ln-code"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb29-4" class="hljs-ln-code"><a></a>  ui.input_slider(<span class="st">"n"</span>, <span class="st">"N"</span>, <span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
+<span id="cb29-5" class="hljs-ln-code"><a></a>  ui.output_text_verbatim(<span class="st">"txt"</span>),</span>
+<span id="cb29-6" class="hljs-ln-code"><a></a>)</span>
+<span id="cb29-7" class="hljs-ln-code"><a></a></span>
+<span id="cb29-8" class="hljs-ln-code"><a></a></span>
+<span id="cb29-9" class="hljs-ln-code"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb29-10" class="hljs-ln-code"><a></a>  <span class="at">@render.text</span></span>
+<span id="cb29-11" class="hljs-ln-code"><a></a>  <span class="kw">def</span> txt():</span>
+<span id="cb29-12" class="hljs-ln-code"><a></a>    <span class="cf">return</span> <span class="ss">f"n*2 is </span><span class="sc">{</span><span class="bu">input</span><span class="sc">.</span>n() <span class="op">*</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb29-13" class="hljs-ln-code"><a></a></span>
+<span id="cb29-14" class="hljs-ln-code"><a></a></span>
+<span id="cb29-15" class="hljs-ln-code"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shinychat-in-python-1" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in Python</h2>
+<p>Remove the parts we don’t need</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb30-1" class="hljs-ln-code"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
+<span id="cb30-2" class="hljs-ln-code"><a></a></span>
+<span id="cb30-3" class="hljs-ln-code"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb30-4" class="hljs-ln-code"><a></a></span>
+<span id="cb30-5" class="hljs-ln-code"><a></a>)</span>
+<span id="cb30-6" class="hljs-ln-code"><a></a></span>
+<span id="cb30-7" class="hljs-ln-code"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb30-8" class="hljs-ln-code"><a></a>    <span class="cf">pass</span></span>
+<span id="cb30-9" class="hljs-ln-code"><a></a></span>
+<span id="cb30-10" class="hljs-ln-code"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shinychat-in-python-2" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in Python</h2>
+<p>Create a chatlas chat client</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31" data-code-line-numbers="1,9"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb31-1" class="hljs-ln-code"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb31-2" class="hljs-ln-code"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
+<span id="cb31-3" class="hljs-ln-code"><a></a></span>
+<span id="cb31-4" class="hljs-ln-code"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb31-5" class="hljs-ln-code"><a></a></span>
+<span id="cb31-6" class="hljs-ln-code"><a></a>)</span>
+<span id="cb31-7" class="hljs-ln-code"><a></a></span>
+<span id="cb31-8" class="hljs-ln-code"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb31-9" class="hljs-ln-code"><a></a>    client <span class="op">=</span> chatlas.ChatOpenAI()</span>
+<span id="cb31-10" class="hljs-ln-code"><a></a></span>
+<span id="cb31-11" class="hljs-ln-code"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shinychat-in-python-3" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in Python</h2>
+<p>Add the Chat UI and server logic</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32" data-code-line-numbers="5,10"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb32-1" class="hljs-ln-code"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb32-2" class="hljs-ln-code"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
+<span id="cb32-3" class="hljs-ln-code"><a></a></span>
+<span id="cb32-4" class="hljs-ln-code"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb32-5" class="hljs-ln-code"><a></a>    ui.chat_ui(<span class="st">"chat"</span>)</span>
+<span id="cb32-6" class="hljs-ln-code"><a></a>)</span>
+<span id="cb32-7" class="hljs-ln-code"><a></a></span>
+<span id="cb32-8" class="hljs-ln-code"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb32-9" class="hljs-ln-code"><a></a>    client <span class="op">=</span> chatlas.ChatOpenAI()</span>
+<span id="cb32-10" class="hljs-ln-code"><a></a>    chat <span class="op">=</span> ui.Chat(<span class="st">"chat"</span>, client)</span>
+<span id="cb32-11" class="hljs-ln-code"><a></a></span>
+<span id="cb32-12" class="hljs-ln-code"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shinychat-in-python-4" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in Python</h2>
+<p>When the user submits a message…</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33" data-code-line-numbers="12-15"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb33-1" class="hljs-ln-code"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb33-2" class="hljs-ln-code"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
+<span id="cb33-3" class="hljs-ln-code"><a></a></span>
+<span id="cb33-4" class="hljs-ln-code"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb33-5" class="hljs-ln-code"><a></a>    ui.chat_ui(<span class="st">"chat"</span>)</span>
+<span id="cb33-6" class="hljs-ln-code"><a></a>)</span>
+<span id="cb33-7" class="hljs-ln-code"><a></a></span>
+<span id="cb33-8" class="hljs-ln-code"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb33-9" class="hljs-ln-code"><a></a>    client <span class="op">=</span> chatlas.ChatOpenAI()</span>
+<span id="cb33-10" class="hljs-ln-code"><a></a>    chat <span class="op">=</span> ui.Chat(<span class="st">"chat"</span>, client)</span>
+<span id="cb33-11" class="hljs-ln-code"><a></a></span>
+<span id="cb33-12" class="hljs-ln-code"><a></a>    <span class="at">@chat.on_user_submit</span></span>
+<span id="cb33-13" class="hljs-ln-code"><a></a>    <span class="cf">async</span> <span class="kw">def</span> _(user_input: <span class="bu">str</span>):</span>
+<span id="cb33-14" class="hljs-ln-code"><a></a>        <span class="co"># Send input to LLM</span></span>
+<span id="cb33-15" class="hljs-ln-code"><a></a>        <span class="co"># Send response back to UI</span></span>
+<span id="cb33-16" class="hljs-ln-code"><a></a></span>
+<span id="cb33-17" class="hljs-ln-code"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shinychat-in-python-5" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in Python</h2>
+<p>we’ll send the input to the LLM…</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34" data-code-line-numbers="14"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb34-1" class="hljs-ln-code"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb34-2" class="hljs-ln-code"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
+<span id="cb34-3" class="hljs-ln-code"><a></a></span>
+<span id="cb34-4" class="hljs-ln-code"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb34-5" class="hljs-ln-code"><a></a>    ui.chat_ui(<span class="st">"chat"</span>)</span>
+<span id="cb34-6" class="hljs-ln-code"><a></a>)</span>
+<span id="cb34-7" class="hljs-ln-code"><a></a></span>
+<span id="cb34-8" class="hljs-ln-code"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb34-9" class="hljs-ln-code"><a></a>    client <span class="op">=</span> chatlas.ChatOpenAI()</span>
+<span id="cb34-10" class="hljs-ln-code"><a></a>    chat <span class="op">=</span> ui.Chat(<span class="st">"chat"</span>, client)</span>
+<span id="cb34-11" class="hljs-ln-code"><a></a></span>
+<span id="cb34-12" class="hljs-ln-code"><a></a>    <span class="at">@chat.on_user_submit</span></span>
+<span id="cb34-13" class="hljs-ln-code"><a></a>    <span class="cf">async</span> <span class="kw">def</span> _(user_input: <span class="bu">str</span>):</span>
+<span id="cb34-14" class="hljs-ln-code"><a></a>        response <span class="op">=</span> <span class="cf">await</span> chat_client.stream_async(user_input)</span>
+<span id="cb34-15" class="hljs-ln-code"><a></a>        <span class="co"># Send response back to UI</span></span>
+<span id="cb34-16" class="hljs-ln-code"><a></a></span>
+<span id="cb34-17" class="hljs-ln-code"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shinychat-in-python-6" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in Python</h2>
+<p>…and then stream the response back to the UI.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35" data-code-line-numbers="15"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb35-1" class="hljs-ln-code"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb35-2" class="hljs-ln-code"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
+<span id="cb35-3" class="hljs-ln-code"><a></a></span>
+<span id="cb35-4" class="hljs-ln-code"><a></a>app_ui <span class="op">=</span> ui.page_fluid(</span>
+<span id="cb35-5" class="hljs-ln-code"><a></a>    ui.chat_ui(<span class="st">"chat"</span>)</span>
+<span id="cb35-6" class="hljs-ln-code"><a></a>)</span>
+<span id="cb35-7" class="hljs-ln-code"><a></a></span>
+<span id="cb35-8" class="hljs-ln-code"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb35-9" class="hljs-ln-code"><a></a>    client <span class="op">=</span> chatlas.ChatOpenAI()</span>
+<span id="cb35-10" class="hljs-ln-code"><a></a>    chat <span class="op">=</span> ui.Chat(<span class="st">"chat"</span>, client)</span>
+<span id="cb35-11" class="hljs-ln-code"><a></a></span>
+<span id="cb35-12" class="hljs-ln-code"><a></a>    <span class="at">@chat.on_user_submit</span></span>
+<span id="cb35-13" class="hljs-ln-code"><a></a>    <span class="cf">async</span> <span class="kw">def</span> _(user_input: <span class="bu">str</span>):</span>
+<span id="cb35-14" class="hljs-ln-code"><a></a>        response <span class="op">=</span> <span class="cf">await</span> chat_client.stream_async(user_input)</span>
+<span id="cb35-15" class="hljs-ln-code"><a></a>        <span class="cf">await</span> chat.append_message_stream(response)</span>
+<span id="cb35-16" class="hljs-ln-code"><a></a></span>
+<span id="cb35-17" class="hljs-ln-code"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section></section>
+<section id="your-turn-06_word-games" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>06_word-games</code></h1>
+<ol type="1">
+<li><p>I’ve set up the basic Shiny app snippet and a system prompt.</p></li>
+<li><p>Your job: create a chatbot that plays the word guessing game with you.</p></li>
+<li><p>The twist: this time, you’re guessing the word.</p></li>
+</ol>
+<div id="timer_a8b863669fb5bc05a9c1f9df8ef3ae6dee388d73" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 
 
 </section>

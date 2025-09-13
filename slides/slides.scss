@@ -27,11 +27,11 @@
 }
 
 .table-no-border {
-
   >table th,
   >table td {
     border-bottom: none;
     padding-block: var(--row-padding);
+    vertical-align: middle;
   }
 }
 
@@ -57,7 +57,7 @@
 }
 
 :root {
-  --countdown-font-size: var(--step-3);
+  --countdown-font-size: 3em;
   --sl-fullscreen-scale: 1.5;
 }
 

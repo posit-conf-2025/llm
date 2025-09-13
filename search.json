@@ -764,5 +764,96 @@
     "title": "Anatomy of a conversation",
     "section": "Actually: tokens, not words",
     "text": "Actually: tokens, not words\n\nFundamental units of information for LLMs\nWords, parts of words, or individual characters\n\n“hello” → 1 token\n“unconventional” → 3 tokens: un|con|ventional\n\nImportant for:\n\nModel input/output limits\nAPI pricing is usually by token\n\nNot just words, but images can be tokenized too"
+  },
+  {
+    "objectID": "slides/slides-02.html#section-5",
+    "href": "slides/slides-02.html#section-5",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "Console\nBrowser\n\n\n\n\n\nlive_console(chat)\nlive_browser(chat)\n\n\n\nchat.console()\nchat.app()\n\n\n\n\n\nAs we’ll see, everything we’re going to do today can be done in either R or Python and ellmer and chatlas are designed to be similar.\nBut they’re in different languages and those languages have different conventions and idioms, so they’re not completely identical. If they were, one or the other would start to feel unnatural to use."
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-r",
+    "href": "slides/slides-02.html#shinychat-in-r",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in R",
+    "text": "shinychat in R\n\nStart with the shinyapp snippet\nlibrary(shiny)\nlibrary(bslib)\n\nui &lt;- page_fillable(\n\n)\n\nserver &lt;- function(input, output, session) {\n\n}\n\nshinyApp(ui, server)\n\nhttps://www.garrickadenbuie.com/blog/shiny-new-bslib-snippet/"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-r-1",
+    "href": "slides/slides-02.html#shinychat-in-r-1",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in R",
+    "text": "shinychat in R\nLoad {shinychat} and {ellmer}\nlibrary(shiny)\nlibrary(bslib)\nlibrary(shinychat)\nlibrary(ellmer)\n\nui &lt;- page_fillable(\n\n)\n\nserver &lt;- function(input, output, session) {\n\n}\n\nshinyApp(ui, server)"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-r-2",
+    "href": "slides/slides-02.html#shinychat-in-r-2",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in R",
+    "text": "shinychat in R\nUse the shinychat chat module\nlibrary(shiny)\nlibrary(bslib)\nlibrary(shinychat)\nlibrary(ellmer)\n\nui &lt;- page_fillable(\n  chat_mod_ui(\"chat\")\n)\n\nserver &lt;- function(input, output, session) {\n  chat_mod_server(\"chat\")\n}\n\nshinyApp(ui, server)"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-r-3",
+    "href": "slides/slides-02.html#shinychat-in-r-3",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in R",
+    "text": "shinychat in R\nCreate and hook up a chat client to use in the app\nlibrary(shiny)\nlibrary(bslib)\nlibrary(shinychat)\nlibrary(ellmer)\n\n\nui &lt;- page_fillable(\n  chat_mod_ui(\"chat\")\n)\n\nserver &lt;- function(input, output, session) {\n  client &lt;- chat_openai()\n  chat_mod_server(\"chat\", client)\n}\n\nshinyApp(ui, server)"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-r-4",
+    "href": "slides/slides-02.html#shinychat-in-r-4",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in R",
+    "text": "shinychat in R\nWhy is this not a great idea?\nlibrary(shiny)\nlibrary(bslib)\nlibrary(shinychat)\nlibrary(ellmer)\n\nclient &lt;- chat_openai()\n\nui &lt;- page_fillable(\n  chat_mod_ui(\"chat\")\n)\n\nserver &lt;- function(input, output, session) {\n  chat_mod_server(\"chat\", client)\n}\n\nshinyApp(ui, server)\n\nCopy and paste the app code into an R session and run it!"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-python",
+    "href": "slides/slides-02.html#shinychat-in-python",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in Python",
+    "text": "shinychat in Python\nStart with the shinyapp snippet\nfrom shiny import App, reactive, render, req, ui\n\napp_ui = ui.page_fluid(\n  ui.input_slider(\"n\", \"N\", 0, 100, 20),\n  ui.output_text_verbatim(\"txt\"),\n)\n\n\ndef server(input, output, session):\n  @render.text\n  def txt():\n    return f\"n*2 is {input.n() * 2}\"\n\n\napp = App(app_ui, server)"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-python-1",
+    "href": "slides/slides-02.html#shinychat-in-python-1",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in Python",
+    "text": "shinychat in Python\nRemove the parts we don’t need\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n\n)\n\ndef server(input, output, session):\n    pass\n\napp = App(app_ui, server)"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-python-2",
+    "href": "slides/slides-02.html#shinychat-in-python-2",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in Python",
+    "text": "shinychat in Python\nCreate a chatlas chat client\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n\napp = App(app_ui, server)"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-python-3",
+    "href": "slides/slides-02.html#shinychat-in-python-3",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in Python",
+    "text": "shinychat in Python\nAdd the Chat UI and server logic\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\napp = App(app_ui, server)"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-python-4",
+    "href": "slides/slides-02.html#shinychat-in-python-4",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in Python",
+    "text": "shinychat in Python\nWhen the user submits a message…\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        # Send input to LLM\n        # Send response back to UI\n\napp = App(app_ui, server)"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-python-5",
+    "href": "slides/slides-02.html#shinychat-in-python-5",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in Python",
+    "text": "shinychat in Python\nwe’ll send the input to the LLM…\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        response = await chat_client.stream_async(user_input)\n        # Send response back to UI\n\napp = App(app_ui, server)"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-python-6",
+    "href": "slides/slides-02.html#shinychat-in-python-6",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in Python",
+    "text": "shinychat in Python\n…and then stream the response back to the UI.\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fluid(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        response = await chat_client.stream_async(user_input)\n        await chat.append_message_stream(response)\n\napp = App(app_ui, server)"
   }
 ]
