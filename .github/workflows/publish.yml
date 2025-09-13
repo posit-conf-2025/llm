@@ -51,7 +51,7 @@ jobs:
       - name: 📦 Install R packages
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          packages: glue, fs, rmarkdown, knitr, ellmer
+          packages: "any::glue, any::fs, any::rmarkdown, cran::knitr, cran::ellmer"
 
       - name: 📰 Render and Publish to GitHub Pages
         uses: gadenbuie/quarto-actions/publish@quarto-render-working-dir
