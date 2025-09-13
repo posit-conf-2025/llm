@@ -231,7 +231,7 @@ RStudio and VS Code are great, too!
 3. We'll turn them off at the end of the workshop
 :::
 
-## Your Turn {background-image="assets/your-turn.png" background-size="30%" background-position="bottom right"}
+## Your Turn `01_hello-llm` {background-image="assets/your-turn.png" background-size="30%" background-position="bottom right"}
 
 ::: {style="--li-margin: 0.66em;"}
 1. 🔓 Decrypt the `.env.secret` &rarr; `.env`:
