@@ -854,7 +854,7 @@ app = App(app_ui, server)
 
 ## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
 
-Add the Chat UI and server logic
+Add the Chat UI and server logic (client and chat aren't connected yet!)
 
 ```{.python code-line-numbers="5,10"}
 import chatlas
@@ -870,11 +870,7 @@ def server(input, output, session):
 
 app = App(app_ui, server)
 ```
-
-::: footer
-Note that the client and the UI are not connected!
-:::
-
+o
 ## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
 
 When the user submits a message...
