@@ -431,7 +431,6 @@ Because it always knows how to *arr-r-ive* in style!
 
 # Your Turn `02_word-game` {.slide-your-turn}
 
-::: {style="--li-margin: 0.66em;"}
 1. Set up a `chat` with a system prompt:
 
    > You are playing a word guessing game. At each turn, guess the word and tell us what it is.
@@ -443,7 +442,6 @@ Because it always knows how to *arr-r-ive* in style!
 4. Create a new, empty `chat` and ask the second question again.
 
 5. How do the answers to 3 and 4 differ? Why?
-:::
 
 # Demo: `clearbot` {.slide-demo style="--code-font-size: 0.66em"}
 
@@ -616,3 +614,339 @@ into the chat window and the model could "pay attention" to it all.
 # Demo: <br> `token-possibilities` {.slide-demo style="--code-font-size: 0.66em"}
 
 👨‍💻 [_demos/04_token-possibilities/app.R]{.code .b .purple}
+
+# [Programming is fun, but I kind of like ChatGPT...]{.bg-white .f1 .normal .relative style="top: -14px; left: 4px"} {background-image="assets/ask-anything.png" background-size="contain" background-position="center"}
+
+# [ellmer and chatlas can do that, too!]{.bg-white .f1 .normal .relative style="top: -14px; left: 4px"} {background-image="assets/all-the-context.png" background-size="contain" background-position="center"}
+
+## {.center}
+
+::: {.table-no-border}
+| | Console | Browser |
+|:---:|:---:|:---:|
+| ![](../assets/logos/ellmer.png){height="4em" alt="ellmer"} | `live_console(chat)` | `live_browser(chat)` |
+| ![](../assets/logos/chatlas.png){height="4em" alt="chatlas"} | `chat.console()` | `chat.app()` |
+:::
+
+::: notes
+As we'll see, everything we're going to do today can be done
+in either R or Python and ellmer and chatlas are designed to be similar.
+
+But they're in different languages and those languages have different
+conventions and idioms, so they're not completely identical. If they were,
+one or the other would start to feel unnatural to use.
+:::
+
+# Your Turn `05_live` {.slide-your-turn}
+
+::: {style="--li-margin: 0.66em;"}
+1. Your job: write a groan-worthy roast of Hadley Wickham
+
+2. Bonus points for puns, rhymes, and one-liners
+
+3. Don't be mean
+
+4. Share your best on Discord 😉
+:::
+
+{{< countdown 3:00 top="-1em" >}}
+
+# [shinychat]{.hidden} {.no-invert-dark-mode background-image="assets/shinychat-robot2.webp" background-size="cover" background-position="center"}
+
+## {.center}
+
+::: {.easy-columns .tc}
+![](../assets/logos/shinychat.png){style="max-width: 100%; max-height: 500px" alt="shinychat"}
+
+![](../assets/logos/ellmer.png){style="max-width: 100%; max-height: 500px" alt="ellmer"}
+:::
+
+## shinychat in R {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+```{=html}
+<style>
+:root {
+  --shinychat-code-font-size: 0.66em;
+}
+</style>
+```
+
+Start with the `shinyapp` snippet
+
+```{.r}
+library(shiny)
+library(bslib)
+
+ui <- page_fillable(
+
+)
+
+server <- function(input, output, session) {
+
+}
+
+shinyApp(ui, server)
+```
+
+::: footer
+<https://www.garrickadenbuie.com/blog/shiny-new-bslib-snippet/>
+:::
+
+## shinychat in R {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+Load `{shinychat}` and `{ellmer}`
+
+```{.r code-line-numbers="3-4"}
+library(shiny)
+library(bslib)
+library(shinychat)
+library(ellmer)
+
+ui <- page_fillable(
+
+)
+
+server <- function(input, output, session) {
+
+}
+
+shinyApp(ui, server)
+```
+
+## shinychat in R {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+Use the shinychat chat module
+
+```{.r code-line-numbers="7,11"}
+library(shiny)
+library(bslib)
+library(shinychat)
+library(ellmer)
+
+ui <- page_fillable(
+  chat_mod_ui("chat")
+)
+
+server <- function(input, output, session) {
+  chat_mod_server("chat")
+}
+
+shinyApp(ui, server)
+```
+
+## shinychat in R {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+Create and hook up a chat client to use in the app
+
+```{.r code-line-numbers="12-13"}
+library(shiny)
+library(bslib)
+library(shinychat)
+library(ellmer)
+
+
+ui <- page_fillable(
+  chat_mod_ui("chat")
+)
+
+server <- function(input, output, session) {
+  client <- chat_openai()
+  chat_mod_server("chat", client)
+}
+
+shinyApp(ui, server)
+```
+
+
+## shinychat in R {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+Why is this not a great idea?
+
+```{.r code-line-numbers="6-14"}
+library(shiny)
+library(bslib)
+library(shinychat)
+library(ellmer)
+
+client <- chat_openai()
+
+ui <- page_fillable(
+  chat_mod_ui("chat")
+)
+
+server <- function(input, output, session) {
+  chat_mod_server("chat", client)
+}
+
+shinyApp(ui, server)
+```
+
+::: notes
+Copy and paste the app code into an R session and run it!
+:::
+
+## {.center}
+
+::: {.easy-columns .tc}
+![](../assets/logos/shinychat.png){style="max-width: 100%; max-height: 500px" alt="shinychat"}
+
+![](../assets/logos/chatlas.png){style="max-width: 100%; max-height: 500px" alt="chatlas"}
+:::
+
+## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+Start with the `shinyapp` snippet
+
+```{.python}
+from shiny import App, reactive, render, req, ui
+
+app_ui = ui.page_fluid(
+  ui.input_slider("n", "N", 0, 100, 20),
+  ui.output_text_verbatim("txt"),
+)
+
+
+def server(input, output, session):
+  @render.text
+  def txt():
+    return f"n*2 is {input.n() * 2}"
+
+
+app = App(app_ui, server)
+```
+
+## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+Remove the parts we don't need
+
+```{.python}
+from shiny import App, ui
+
+app_ui = ui.page_fluid(
+
+)
+
+def server(input, output, session):
+    pass
+
+app = App(app_ui, server)
+```
+
+## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+Create a chatlas chat client
+
+```{.python code-line-numbers="1,9"}
+import chatlas
+from shiny import App, ui
+
+app_ui = ui.page_fluid(
+
+)
+
+def server(input, output, session):
+    client = chatlas.ChatOpenAI()
+
+app = App(app_ui, server)
+```
+
+## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+Add the Chat UI and server logic
+
+```{.python code-line-numbers="5,10"}
+import chatlas
+from shiny import App, ui
+
+app_ui = ui.page_fluid(
+    ui.chat_ui("chat")
+)
+
+def server(input, output, session):
+    client = chatlas.ChatOpenAI()
+    chat = ui.Chat("chat", client)
+
+app = App(app_ui, server)
+```
+
+## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+When the user submits a message...
+
+```{.python code-line-numbers="12-15"}
+import chatlas
+from shiny import App, ui
+
+app_ui = ui.page_fluid(
+    ui.chat_ui("chat")
+)
+
+def server(input, output, session):
+    client = chatlas.ChatOpenAI()
+    chat = ui.Chat("chat", client)
+
+    @chat.on_user_submit
+    async def _(user_input: str):
+        # Send input to LLM
+        # Send response back to UI
+
+app = App(app_ui, server)
+```
+
+## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+we'll send the input to the LLM...
+
+```{.python code-line-numbers="14"}
+import chatlas
+from shiny import App, ui
+
+app_ui = ui.page_fluid(
+    ui.chat_ui("chat")
+)
+
+def server(input, output, session):
+    client = chatlas.ChatOpenAI()
+    chat = ui.Chat("chat", client)
+
+    @chat.on_user_submit
+    async def _(user_input: str):
+        response = await chat_client.stream_async(user_input)
+        # Send response back to UI
+
+app = App(app_ui, server)
+```
+
+## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
+
+...and then stream the response back to the UI.
+
+```{.python code-line-numbers="15"}
+import chatlas
+from shiny import App, ui
+
+app_ui = ui.page_fluid(
+    ui.chat_ui("chat")
+)
+
+def server(input, output, session):
+    client = chatlas.ChatOpenAI()
+    chat = ui.Chat("chat", client)
+
+    @chat.on_user_submit
+    async def _(user_input: str):
+        response = await chat_client.stream_async(user_input)
+        await chat.append_message_stream(response)
+
+app = App(app_ui, server)
+```
+
+# Your Turn `06_word-games` {.slide-your-turn}
+
+1. I've set up the basic Shiny app snippet and a system prompt.
+
+2. Your job: create a chatbot that plays the word guessing game with you.
+
+3. The twist: this time, you're guessing the word.
+
+{{< countdown 7:00 top="-1em" >}}
