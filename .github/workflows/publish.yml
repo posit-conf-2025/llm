@@ -29,11 +29,19 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: 🧑‍🚀 Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
       - name: 📘 Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: ${{ env.QUARTO_VERSION }}
           tinytex: false
+
+      - name: 🐍 Set up Python
+        run: uv python install 3.12
 
       - name: 🆙 Setup R
         uses: r-lib/actions/setup-r@v2
