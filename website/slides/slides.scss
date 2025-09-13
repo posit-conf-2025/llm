@@ -27,6 +27,7 @@
 }
 
 .table-no-border {
+
   >table th,
   >table td {
     border-bottom: none;
@@ -45,6 +46,7 @@
 
 .reveal .slide-your-turn {
   --li-margin: 0.66em;
+
   &.title-slide h1 {
     font-size: var(--r-heading2-size);
   }
@@ -90,7 +92,9 @@
 }
 
 .reveal .slides .slide {
-  ul li, ol li {
+
+  ul li,
+  ol li {
     margin-top: var(--li-margin-top, var(--li-margin, 0.4em));
     margin-bottom: var(--li-margin-bottom, var(--li-margin, 0.2em));
   }
@@ -130,21 +134,18 @@ div.shinylive-wrapper {
   gap: var(--space-s);
 }
 
-.easy-columns > div > :first-child {
+.easy-columns>div> :first-child {
   margin-top: 0;
 }
 
-.easy-columns > div > :last-child {
+.easy-columns>div> :last-child {
   margin-bottom: 0;
 }
 
 .gradient-shinytest2 {
   background-image:
-    linear-gradient(
-      to bottom in oklch,
-      #3775A9 0%, #A61E22 100%
-    )
-  ;
+    linear-gradient(to bottom in oklch,
+      #3775A9 0%, #A61E22 100%);
 }
 
 .pulsing {
@@ -154,36 +155,44 @@ div.shinylive-wrapper {
 
 @keyframes pulse {
   0% {
-      stroke-width: 1;
-      transform: scale(1);
+    stroke-width: 1;
+    transform: scale(1);
   }
+
   50% {
-      stroke-width: 3; /* Adjust the stroke width for different effect */
-      transform: scale(1.2); /* Adjust the scaling factor as needed */
+    stroke-width: 3;
+    /* Adjust the stroke width for different effect */
+    transform: scale(1.2);
+    /* Adjust the scaling factor as needed */
   }
+
   100% {
-      stroke-width: 1;
-      transform: scale(1);
+    stroke-width: 1;
+    transform: scale(1);
   }
 }
 
 @keyframes pulse-wobble {
   0% {
-      stroke-width: 1;
-      transform: scale(1) rotateZ(-30deg);
+    stroke-width: 1;
+    transform: scale(1) rotateZ(-30deg);
   }
+
   50% {
-      stroke-width: 3; /* Adjust the stroke width for different effect */
-      transform: scale(1.2) rotateZ(0deg); /* Adjust the scaling factor as needed */
+    stroke-width: 3;
+    /* Adjust the stroke width for different effect */
+    transform: scale(1.2) rotateZ(0deg);
+    /* Adjust the scaling factor as needed */
   }
+
   100% {
-      stroke-width: 1;
-      transform: scale(1) rotateZ(-30deg);
+    stroke-width: 1;
+    transform: scale(1) rotateZ(-30deg);
   }
 }
 
-.slide-container > svg,
-.col > svg {
+.slide-container>svg,
+.col>svg {
   width: 100%;
   height: auto;
 }
@@ -192,14 +201,17 @@ div.shinylive-wrapper {
   &.visible {
     opacity: 0.5 !important;
   }
+
   &.visible.current-fragment {
     opacity: 1 !important;
   }
 }
 
 mark.squiggle {
-  background: none; /* Remove default highlighting */
-  text-decoration: underline wavy #FF0000aa 3px; /* Add red squiggle underline */
+  background: none;
+  /* Remove default highlighting */
+  text-decoration: underline wavy #FF0000aa 3px;
+  /* Add red squiggle underline */
 }
 
 .text-center {
@@ -215,4 +227,50 @@ mark.squiggle {
 
 .code {
   font-family: var(--r-code-font);
+}
+
+.reveal {
+  pre.sourceCode {
+
+    &.r,
+    &.python {
+      position: relative;
+
+      &::after {
+        content: "";
+        opacity: 0.66;
+        position: absolute;
+        bottom: 0.25em;
+        right: 0.25em;
+        width: 2em;
+        height: 2em;
+        max-height: 60%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        transition: opacity 100ms linear;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+
+    // Per-language icons
+    &.python {
+      background-color: hsl(48 100% 98% / 1);
+
+      &::after {
+        background-image: url(/assets/icons/python-icon-color.svg);
+      }
+    }
+
+    &.r {
+      background-color: hsl(212 45% 98% / 1);
+
+      &::after {
+        background-image: url(/assets/icons/r-color.svg);
+      }
+    }
+  }
 }

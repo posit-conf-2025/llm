@@ -465,7 +465,7 @@ In British English, guess the word for the person who lives next door.
 What helps a car move smoothly down the road?
 ```
 
-# [How to talk to robots]{.dib .bg-black .ph4 .white style="position: relative; top: -3em;"} {.no-invert-dark-mode background-image="assets/andy-kelly-0E_vhMVqL9g-unsplash.jpg" background-size="cover" background-position="top center"}
+# [How to talk to robots]{.dib .bg-black .ph4 .white style="position: relative; top: -3em;"} {.no-invert-dark-mode background-image="assets/andy-kelly-0E_vhMVqL9g-unsplash.jpg" background-size="cover" background-position="center"}
 
 ## {.center}
 
@@ -615,9 +615,9 @@ into the chat window and the model could "pay attention" to it all.
 
 👨‍💻 [_demos/04_token-possibilities/app.R]{.code .b .purple}
 
-# [Programming is fun, but I kind of like ChatGPT...]{.bg-white .f1 .normal .relative style="top: -14px; left: 4px"} {background-image="assets/ask-anything.png" background-size="contain" background-position="center"}
+# [Programming is fun, but I kind of like ChatGPT...]{.bg-white .f1 .normal .relative style="top: -14px"} {background-image="assets/shinychat-input-empty.png" background-size="contain" background-position="center"}
 
-# [ellmer and chatlas can do that, too!]{.bg-white .f1 .normal .relative style="top: -14px; left: 4px"} {background-image="assets/all-the-context.png" background-size="contain" background-position="center"}
+# [ellmer and chatlas can do that, too!]{.bg-white .f1 .normal .relative style="top: -14px"} {background-image="assets/shinychat-input-focused.png" background-size="contain" background-position="center"}
 
 ## {.center}
 
@@ -626,6 +626,8 @@ into the chat window and the model could "pay attention" to it all.
 |:---:|:---:|:---:|
 | ![](../assets/logos/ellmer.png){height="4em" alt="ellmer"} | `live_console(chat)` | `live_browser(chat)` |
 | ![](../assets/logos/chatlas.png){height="4em" alt="chatlas"} | `chat.console()` | `chat.app()` |
+
+: {tbl-colwidths="[20,40,40]"}
 :::
 
 ::: notes
@@ -800,7 +802,7 @@ Start with the `shinyapp` snippet
 ```{.python}
 from shiny import App, reactive, render, req, ui
 
-app_ui = ui.page_fluid(
+app_ui = ui.page_fillable(
   ui.input_slider("n", "N", 0, 100, 20),
   ui.output_text_verbatim("txt"),
 )
@@ -822,7 +824,7 @@ Remove the parts we don't need
 ```{.python}
 from shiny import App, ui
 
-app_ui = ui.page_fluid(
+app_ui = ui.page_fillable(
 
 )
 
@@ -840,7 +842,7 @@ Create a chatlas chat client
 import chatlas
 from shiny import App, ui
 
-app_ui = ui.page_fluid(
+app_ui = ui.page_fillable(
 
 )
 
@@ -858,16 +860,20 @@ Add the Chat UI and server logic
 import chatlas
 from shiny import App, ui
 
-app_ui = ui.page_fluid(
+app_ui = ui.page_fillable(
     ui.chat_ui("chat")
 )
 
 def server(input, output, session):
     client = chatlas.ChatOpenAI()
-    chat = ui.Chat("chat", client)
+    chat = ui.Chat("chat")
 
 app = App(app_ui, server)
 ```
+
+::: footer
+Note that the client and the UI are not connected!
+:::
 
 ## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
 
@@ -877,7 +883,7 @@ When the user submits a message...
 import chatlas
 from shiny import App, ui
 
-app_ui = ui.page_fluid(
+app_ui = ui.page_fillable(
     ui.chat_ui("chat")
 )
 
@@ -901,7 +907,7 @@ we'll send the input to the LLM...
 import chatlas
 from shiny import App, ui
 
-app_ui = ui.page_fluid(
+app_ui = ui.page_fillable(
     ui.chat_ui("chat")
 )
 
@@ -911,7 +917,7 @@ def server(input, output, session):
 
     @chat.on_user_submit
     async def _(user_input: str):
-        response = await chat_client.stream_async(user_input)
+        response = await client.stream_async(user_input)
         # Send response back to UI
 
 app = App(app_ui, server)
@@ -925,7 +931,7 @@ app = App(app_ui, server)
 import chatlas
 from shiny import App, ui
 
-app_ui = ui.page_fluid(
+app_ui = ui.page_fillable(
     ui.chat_ui("chat")
 )
 
@@ -935,7 +941,7 @@ def server(input, output, session):
 
     @chat.on_user_submit
     async def _(user_input: str):
-        response = await chat_client.stream_async(user_input)
+        response = await client.stream_async(user_input)
         await chat.append_message_stream(response)
 
 app = App(app_ui, server)
@@ -950,3 +956,49 @@ app = App(app_ui, server)
 3. The twist: this time, you're guessing the word.
 
 {{< countdown 7:00 top="-1em" >}}
+
+
+## Interpolation in R
+
+```{r}
+#| echo: true
+#| output-location: fragment
+#| code-line-numbers: "3|5-7"
+
+library(ellmer)
+
+words <- c("elephant", "bicycle", "sandwich")
+
+interpolate(
+  "The secret word is {{ sample(words, 1) }}."
+)
+```
+
+## Interpolation in R
+
+```{r}
+#| echo: true
+#| code-line-numbers: "5-7"
+
+library(ellmer)
+
+words <- c("elephant", "bicycle", "sandwich")
+
+interpolate(
+  "The secret word is {{ words }}."
+)
+```
+
+## Interpolation in Python
+
+```{python}
+#| echo: true
+#| output-location: fragment
+#| code-line-numbers: "3|5"
+
+import random
+
+words = ["elephant", "bicycle", "sandwich"]
+
+f"The secret word is {random.choice(words)}."
+```
