@@ -9,4 +9,13 @@ countdown:
   box_shadow: none
 ---
 
-![Image by DALL-E 3](assets/gen-ai/data-scientist-coffee-bench.png)
+```{=html}
+<video autoplay muted loop playsinline poster="/assets/gen-ai/76w7rj1sjdrmc0cs94eaq4j9q8.jpg">
+  <source src="/assets/gen-ai/replicate-prediction-1cnbycx1rhrmc0cs94esm0bmk0.mp4" type="video/mp4">
+</video>
+<style>
+  video, img {
+    max-width: 100%;
+  }
+</style>
+```
