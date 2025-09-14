@@ -28,7 +28,7 @@ editor:
 
 3. Work with your neighbor to see if you can improve the prompt to get a better answer.
 
-{{< countdown 6:00 left=0 bottom="-2em" >}}
+{{< countdown 10:00 left=0 bottom="-2em" >}}
 
 # [Prompt engineering]{.white .dib style="text-align: center; width: 100%;"} {.no-invert-dark-mode background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" background-size="cover" background-position="bottom left"}
 

@@ -1206,7 +1206,7 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is sandwich.'"
   },
   {
     "objectID": "slides/slides-05.html#three-questions-to-ask-yourself",
