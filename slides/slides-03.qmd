@@ -422,17 +422,3 @@ chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
 - Note [use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
 
 # Your Turn `11_batch` {.slide-your-turn}
-
-# Prompt engineering
-
-straight into activity
-
-# Your Turn `12_plot-image-1` {.slide-your-turn}
-
-# Your Turn `13_plot-image-2` {.slide-your-turn}
-
-# Prompt engineering
-
-actual discussion of prompt engineering
-
-# Your Turn `14_quiz-game-1` {.slide-your-turn}
