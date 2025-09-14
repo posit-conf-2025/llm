@@ -10,7 +10,9 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/quarto-auto-dark-mode-1.0.0/auto-dark-mode.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/tachyons-4.12.0/tachyons.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../site_libs/quarto-contrib/tachyons-4.12.0/quarto-resets.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
+<link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="posit::conf(2025)">
@@ -156,28 +158,97 @@
 
   <p class="date">2025-09-16</p>
 </section>
-<section id="prompt-engineering" class="title-slide slide level1 center">
-<h1>Prompt engineering</h1>
-<p>straight into activity</p>
+<section id="prompt-engineering" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" data-background-size="cover" data-background-position="bottom left">
+<h1><span class="white dib" style="text-align: center; width: 100%;">Prompt engineering</span></h1>
+
 </section>
 
 <section id="your-turn-12_plot-image-1" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>12_plot-image-1</code></h1>
-
+<ol type="1">
+<li><p>ellmer and chatlas let you show the model your plots!</p></li>
+<li><p>Create a basic <code>mctars</code> scatter plot and ask GPT-5 to interpret it.</p></li>
+<li><p>How does it do?</p></li>
+</ol>
+<div id="timer_0c56807023b36a2bffbec199733f9f0444fc4007" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 </section>
 
 <section id="your-turn-13_plot-image-2" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>13_plot-image-2</code></h1>
-
+<ol type="1">
+<li><p>Replace the scatter plot with random noise.</p></li>
+<li><p>Show this new plot to GPT-5 and ask it to interpret it. How does it do this time?</p></li>
+<li><p>Work with your neighbor to see if you can improve the prompt to get a better answer.</p></li>
+</ol>
+<div id="timer_0c56807023b36a2bffbec199733f9f0444fc4007" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">06</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 </section>
 
-<section id="prompt-engineering-1" class="title-slide slide level1 center">
-<h1>Prompt engineering</h1>
-<p>actual discussion of prompt engineering</p>
-</section>
+<section>
+<section id="prompt-engineering-1" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" data-background-size="cover" data-background-position="bottom left">
+<h1><span class="white dib" style="text-align: center; width: 100%;">Prompt engineering</span></h1>
 
+</section>
+<section id="three-questions-to-ask-yourself" class="slide level2">
+<h2>Three questions to ask yourself</h2>
+<ol type="1">
+<li class="fragment"><p>Did you use the best models?</p></li>
+<li class="fragment"><p>Did you explain what you want the model to do in the system prompt?</p></li>
+<li class="fragment"><p>Did you provide examples of what you want?</p></li>
+</ol>
+<aside class="notes">
+<blockquote>
+<p>There’s going to be 3 questions we’re usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1</p>
+<p>so number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?</p>
+<p>And then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see.</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="system-prompt-vs.-user-prompt" class="slide level2">
+<h2>System prompt vs.&nbsp;user prompt</h2>
+<p>Short answer: put instructions and background knowledge in the system prompt.</p>
+<!-- TODO(jcheng5): More tips and examples here, please -->
+<!-- e.g. Use XML tags to give structure, etc. -->
+</section></section>
 <section id="your-turn-14_quiz-game-1" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>14_quiz-game-1</code></h1>
+<div style="width: 90%;">
+<ol type="1">
+<li><p>Your job: teach the model to play a quiz game with you:</p></li>
+<li><p>The user picks a theme from a short list provided by the model.</p></li>
+<li><p>They then answer multiple choice questions on that theme.</p></li>
+<li><p>After each question, tell the user if they were right or wrong and why. Then go to the next question.</p></li>
+<li><p>After 5 questions, end the round and tell the user they won, regardless of their score. Then, start a new round.</p></li>
+</ol>
+</div>
+<div id="timer_0c56807023b36a2bffbec199733f9f0444fc4007" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 
 
 </section>

@@ -1206,6 +1206,20 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is bicycle.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
+  },
+  {
+    "objectID": "slides/slides-05.html#three-questions-to-ask-yourself",
+    "href": "slides/slides-05.html#three-questions-to-ask-yourself",
+    "title": "Prompt Engineering",
+    "section": "Three questions to ask yourself",
+    "text": "Three questions to ask yourself\n\nDid you use the best models?\nDid you explain what you want the model to do in the system prompt?\nDid you provide examples of what you want?\n\n\n\nThere’s going to be 3 questions we’re usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1\nso number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?\nAnd then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see."
+  },
+  {
+    "objectID": "slides/slides-05.html#system-prompt-vs.-user-prompt",
+    "href": "slides/slides-05.html#system-prompt-vs.-user-prompt",
+    "title": "Prompt Engineering",
+    "section": "System prompt vs. user prompt",
+    "text": "System prompt vs. user prompt\nShort answer: put instructions and background knowledge in the system prompt."
   }
 ]
