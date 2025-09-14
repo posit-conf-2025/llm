@@ -6,8 +6,8 @@ from pyhere import here
 dotenv.load_dotenv()
 
 # %%
-recipe_images = here("data/recipes/pdf/")
-pdf_cheesesteak = recipe_images / "PhillyCheesesteak.pdf"
+recipe_pdfs = here("data/recipes/pdf/")
+pdf_cheesesteak = recipe_pdfs / "PhillyCheesesteak.pdf"
 
 # %%
 chat = chatlas.ChatOpenAI(model="gpt-4.1-nano")

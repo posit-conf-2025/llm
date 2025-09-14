@@ -8,7 +8,7 @@ dotenv.load_dotenv()
 from pyhere import here
 
 recipe_txt = here("data/recipes/text/")
-txt_cheesecake = recipe_txt / "PhillyCheesesteak.md"
+txt_cheesecake = (recipe_txt / "PhillyCheesesteak.md").read_text()
 
 # %%
 print(txt_cheesecake)
@@ -44,6 +44,9 @@ print(txt_cheesecake)
 #   ]
 # }
 # ```
+#
+# Hint: you can use `Optional` from the `typing` module to indicate that a field
+# is not always required.
 
 # %%
 from typing import List, Optional
@@ -52,26 +55,17 @@ from pydantic import BaseModel, Field
 
 
 class Ingredient(BaseModel):
-    name: str = Field(..., description="Name of the ingredient")
-    quantity: float = Field(
-        ...,
-        description="Quantity as provided (kept as string to allow ranges or fractions)",
-    )
-    unit: Optional[str] = Field(
-        None,
-        description="Unit of measure, if applicable",
-    )
-    notes: Optional[str] = Field(
-        None,
-        description="Additional notes or preparation details",
-    )
+    name: ____
+    quantity: ____
+    unit: Optional[____] = Field(None, description="____")
+    notes: Optional[____] = ____
 
 
 class Recipe(BaseModel):
-    title: str
-    description: str
-    ingredients: List[Ingredient]
-    instructions: List[str] = Field(..., description="Step-by-step instructions")
+    title: ____
+    description: ____
+    ingredients: List[_____]
+    instructions: List[____] = Field(..., description="____")
 
 
 # %%

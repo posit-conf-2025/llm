@@ -33,8 +33,8 @@ recipes <- purrr::map_chr(recipe_files, brio::read_file)
 #'   ]
 #' }
 
-# Use the recipe_type we defined in the last exercise
-recipe_type <- type_object(
+# Use the type_recipe we defined in the last exercise
+type_recipe <- type_object(
   title = type_string(),
   description = type_string(),
   ingredients = type_array(
@@ -55,7 +55,7 @@ recipe_type <- type_object(
 recipes_data <- parallel_chat_structured(
   chat("openai/gpt-4.1-nano"),
   prompts = as.list(recipes),
-  type = recipe_type
+  type = type_recipe
 )
 
 # Hey, it's a table of recipes!
@@ -75,7 +75,7 @@ recipes_tbl
 res <- batch_chat_structured(
   chat("anthropic/claude-3-haiku-20240307"),
   prompts = as.list(recipes),
-  type = recipe_type,
+  type = type_recipe,
   path = here::here("data/recipes/batch_results_r_claude.json")
 )
 

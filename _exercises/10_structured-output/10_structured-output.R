@@ -37,18 +37,21 @@ txt_waffles |> substring(1, 500) |> cat()
 #'     "Serve chicken topped with the spicy mango salsa."
 #'   ]
 #' }
+#'
+#' Hint: You can use `required = FALSE` in `type_*()` functions to indicate that
+#' a field is optional.
 
-type_recipe <- type_object(
-  title = type_string(),
-  description = type_string(),
-  ingredients = type_array(
+type_recipe <- type_____(
+  title = ____(),
+  description = ____(),
+  ingredients = ____(
     type_object(
-      name = type_string(),
-      quantity = type_number(),
-      unit = type_string(),
-      notes = type_string()
+      name = ____(),
+      quantity = ____(),
+      unit = ____(),
+      notes = ____()
     ),
-    instructions = type_array(type_string())
+    instructions = type_array(____())
   )
 )
 

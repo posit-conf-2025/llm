@@ -16,7 +16,7 @@ img_mac_cheese = recipe_images / "CreamyCrockpotMacAndCheese.jpg"
 chat = ____
 chat.chat(
     "Give the food in this image a creative recipe title and description.",
-    chatlas.____(img_ziti)
+    chatlas.____(img_ziti),
 )
 
 # %% [markdown]
@@ -24,6 +24,5 @@ chat.chat(
 # Cheese image. (Don't tell it that it's Mac & Cheese!)
 chat = ____
 chat.chat(
-    "Write a recipe to make the food in this image.",
-    chatlas.____(img_mac_cheese)
+    "Write a recipe to make the food in this image.", chatlas.____(img_mac_cheese)
 )
