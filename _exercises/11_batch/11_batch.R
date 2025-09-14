@@ -4,8 +4,7 @@ library(ellmer)
 recipe_files <- fs::dir_ls(here::here("data/recipes/text"))
 recipes <- purrr::map(recipe_files, brio::read_file)
 
-# Use the type_recipe we defined in `10_structured-output`. Optionally replace
-# the `type_recipe` definition below with your own version if you want to.
+# Use the type_recipe we defined in `10_structured-output`
 type_recipe <- type_object(
   title = type_string(),
   description = type_string(),
@@ -24,10 +23,10 @@ type_recipe <- type_object(
 # First, we'll use a simple loop to process each recipe one at a time. This is
 # straightforward for our 8 recipes, but would be slow (and expensive) for a
 # larger dataset.
-recipes_data <- ____(
+recipes_data <- parallel_chat_structured(
   chat("openai/gpt-4.1-nano"),
-  prompts = ____,
-  type = ____
+  prompts = recipes,
+  type = type_recipe
 )
 
 # Hey, it's a table of recipes!
@@ -44,10 +43,10 @@ recipes_tbl
 # Because batching lets providers schedule requests more efficiently, it also
 # costs less per token than the standard API.
 
-res <- ____(
+res <- batch_chat_structured(
   chat("anthropic/claude-3-haiku-20240307"),
-  prompts = ____,
-  type = ____,
+  prompts = recipes,
+  type = type_recipe,
   path = here::here("data/recipes/batch_results_r_claude.json")
 )
 

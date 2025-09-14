@@ -47,6 +47,9 @@ class Recipe(BaseModel):
 # First, we'll use a simple loop to process each recipe one at a time. This is
 # straightforward for our 8 recipes, but would be slow (and expensive) for a
 # larger dataset.
+#
+# In a future version of `chatlas` (soon after conf!), you will be able to use
+# `chatlas.parallel_chat_structured()` to do this truly in parallel!
 
 # %%
 from tqdm import tqdm
@@ -85,10 +88,10 @@ recipes_df
 from chatlas import batch_chat_structured
 
 chat = chatlas.ChatAnthropic(model="claude-3-haiku-20240307")
-res = batch_chat_structured(
+res = ____(
     chat=chat,
-    prompts=recipes,
-    data_model=Recipe,
+    prompts=____,
+    data_model=____,
     path=here("data/recipes/batch_results_py_claude.json"),
 )
 

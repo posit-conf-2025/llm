@@ -45,8 +45,8 @@ type_recipe <- type_object(
     type_object(
       name = type_string(),
       quantity = type_number(),
-      unit = type_string(),
-      notes = type_string()
+      unit = type_string(required = FALSE),
+      notes = type_string(required = FALSE)
     ),
     instructions = type_array(type_string())
   )

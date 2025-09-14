@@ -4,7 +4,7 @@ library(ellmer)
 recipe_txt <- here::here("data/recipes/text")
 txt_waffles <- recipe_txt |>
   file.path("CinnamonPeachOatWaffles.md") |>
-  readLines()
+  brio::read_file() # Like readLines() but all in one string
 
 # Show the first 500 characters of the first recipe
 txt_waffles |> substring(1, 500) |> cat()
