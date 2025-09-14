@@ -8,7 +8,7 @@ editor:
   render-on-save: true
 ---
 
-# Providers and Models
+# [Providers and Models]{.white .ph4 style="background-color: #4ea8a7e6;"} {.no-invert-dark-mode background-image="assets/sunira-moses-Naj9-n5apvs-unsplash.jpg" background-size="cover" background-position="center"}
 
 ## {.center}
 
@@ -403,22 +403,173 @@ chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
 
 3. Feel free to change the prompt!
 
+## Favorite models for today
 
-# Multi-modal input
+* OpenAI
+    * `gpt-4.1-nano`
+    * `gpt-5`
 
-# Your Turn `08_vision` {.slide-your-turn}
+* Anthropic
+    * `claude-sonnet-4-20250514`
+    * `claude-3-5-haiku-20241022`
 
-# Your Turn `09_pdf` {.slide-your-turn}
 
-# Structured output
+# [Multi-modal input]{.hidden} {background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" background-size="cover" background-position="center"}
 
-# Your Turn `10_structured-output` {.slide-your-turn}
+[Multi-modal input]{.white .b .absolute top="-400px" right=0 style="font-size: 3em;"}
 
-# Parallel and batch calls
+## A picture is worth a thousand words {.center}
+
+::: fragment
+Or for an LLM, a picture is roughly 227 words, or [170 tokens]{.b .blue}.
+:::
+
+::: fragment
+🖼️ 🔍 [Open Images Dataset](https://storage.googleapis.com/openimages/web/visualizer/index.html?type=localized%20narratives&set=train&c=/m/06_fw&id=025d772e7181ca1f){preview-link=true}
+:::
+
+## 🌆 content_image_file {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="4-7"}
+library(ellmer)
+
+chat <- chat("openai/gpt-4.1-nano")
+chat$chat(
+  content_image_file("cute-cats.jpg"),
+  "What do you see in this image?"
+)
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="4-7"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat.chat(
+    chatlas.content_image_file("cute-cats.jpg"),
+    "What do you see in this image?"
+)
+```
+:::
+
+## [🐈](https://placecats.com/bella/400/400){target="_blank" rel="noopener noreferrer"} content_image_url {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="5"}
+library(ellmer)
+
+chat <- chat("openai/gpt-4.1-nano")
+chat$chat(
+  content_image_url("https://placecats.com/bella/400/400"),
+  "What do you see in this image?"
+)
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="5"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat.chat(
+    chatlas.content_image_url("https://placecats.com/bella/400/400"),
+    "What do you see in this image?"
+)
+```
+:::
+
+## Your Turn `08_vision` {.slide-your-turn}
+
+1. I've put some images of food in the `data/recipes/images` folder.
+
+2. Your job: show the food to the LLM and see if it gets hungry.
+
+{{< countdown 5:00 left=0 >}}
+
+## 📑 content_pdf_file
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="5"}
+library(ellmer)
+
+chat <- chat("openai/gpt-4.1-nano")
+chat$chat(
+  content_pdf_file("financial-report.pdf"),
+  "What's my tax liability for 2024?"
+)
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="5"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat.chat(
+    content_pdf_file("financial-report.pdf"),
+    "What's my tax liability for 2024?"
+)
+```
+:::
+
+## 📑 content_pdf_url
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="5"}
+library(ellmer)
+
+chat <- chat("openai/gpt-4.1-nano")
+chat$chat(
+  content_pdf_url("http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"),
+  "Describe Tesla’s executive compensation and stock award programs."
+)
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="5"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat.chat(
+    content_pdf_url("http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"),
+    "Describe Tesla’s executive compensation and stock award programs."
+)
+```
+:::
+
+## Your Turn `09_pdf` {.slide-your-turn}
+
+1. We have the actual recipes as PDFs in the `data/recipes/pdf` folder.
+
+2. Your job: ask the LLM to convert the recipes to markdown.
+
+{{< countdown 5:00 left=0 >}}
+
+# Structured output {background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" background-size="cover" background-position="center top"}
 
 ##
 
 - Explain `ellmer::type_*()` or [pydantic model in chatlas](https://posit-dev.github.io/chatlas/get-started/structured-data.html)
 - Note [use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
+
+# Your Turn `10_structured-output` {.slide-your-turn}
+
+# Parallel and batch calls
+
 
 # Your Turn `11_batch` {.slide-your-turn}

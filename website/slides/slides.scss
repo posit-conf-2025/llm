@@ -274,3 +274,8 @@ mark.squiggle {
     }
   }
 }
+
+// Don't use absolute positioning in overview mode, things go out of frame
+.reveal.overview .absolute {
+    position: static;
+}
