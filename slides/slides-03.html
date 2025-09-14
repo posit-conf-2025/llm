@@ -103,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-aa837e6abadd1cdf30a6c1a918fc28b7.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2482590a7dae2e84913d288f8f9dcdd7.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -225,8 +225,8 @@
   <p class="date">2025-09-16</p>
 </section>
 <section>
-<section id="providers-and-models" class="title-slide slide level1 center">
-<h1>Providers and Models</h1>
+<section id="providers-and-models" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/sunira-moses-Naj9-n5apvs-unsplash.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="white ph4" style="background-color: #4ea8a7e6;">Providers and Models</span></h1>
 
 </section>
 <section id="section" class="slide level2 center">
@@ -3889,9 +3889,10 @@ Reasoning
 <span id="cb8-3"><a></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-4.1-nano"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
+<section>
 <section id="your-turn-07_models" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>07_models</code></h1>
-<div id="timer_6933a341c18171e2131e753758315527092d350c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<div id="timer_f62fd4b6cde14e6dfc1b6e4ef366ceda233ad385" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -3904,35 +3905,150 @@ Reasoning
 <li><p>Feel free to change the prompt!</p></li>
 </ol>
 </section>
-
-<section id="multi-modal-input" class="title-slide slide level1 center">
-<h1>Multi-modal input</h1>
-
-</section>
-
-<section id="your-turn-08_vision" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>08_vision</code></h1>
-
-</section>
-
-<section id="your-turn-09_pdf" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>09_pdf</code></h1>
-
-</section>
-
-<section id="structured-output" class="title-slide slide level1 center">
-<h1>Structured output</h1>
-
-</section>
-
-<section id="your-turn-10_structured-output" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>10_structured-output</code></h1>
-
-</section>
-
+<section id="favorite-models-for-today" class="slide level2">
+<h2>Favorite models for today</h2>
+<ul>
+<li>OpenAI
+<ul>
+<li><code>gpt-4.1-nano</code></li>
+<li><code>gpt-5</code></li>
+</ul></li>
+<li>Anthropic
+<ul>
+<li><code>claude-sonnet-4-20250514</code></li>
+<li><code>claude-3-5-haiku-20241022</code></li>
+</ul></li>
+</ul>
+</section></section>
 <section>
-<section id="parallel-and-batch-calls" class="title-slide slide level1 center">
-<h1>Parallel and batch calls</h1>
+<section id="multi-modal-input" class="title-slide slide level1 center" data-background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">Multi-modal input</span></h1>
+<p><span class="white b absolute" style="font-size: 3em;top: -400px; right: 0px; ">Multi-modal input</span></p>
+</section>
+<section id="a-picture-is-worth-a-thousand-words" class="slide level2 center">
+<h2>A picture is worth a thousand words</h2>
+<div class="fragment">
+<p>Or for an LLM, a picture is roughly 227 words, or <span class="b blue">170 tokens</span>.</p>
+</div>
+<div class="fragment">
+<p>🖼️ 🔍 <a href="https://storage.googleapis.com/openimages/web/visualizer/index.html?type=localized%20narratives&amp;set=train&amp;c=/m/06_fw&amp;id=025d772e7181ca1f" data-preview-link="true">Open Images Dataset</a></p>
+</div>
+</section>
+<section id="content_image_file" class="slide level2" data-transition="fade">
+<h2>🌆 content_image_file</h2>
+<div style="--code-font-size: 0.66em">
+<p><span class="flex items-center gap-1"><img data-src="../assets/icons/r-color.svg" alt="R" height="36"> ellmer</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-code-line-numbers="4-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb9-4"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
+<span id="cb9-5"><a></a>  <span class="fu">content_image_file</span>(<span class="st">"cute-cats.jpg"</span>),</span>
+<span id="cb9-6"><a></a>  <span class="st">"What do you see in this image?"</span></span>
+<span id="cb9-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span class="flex items-center gap-1"><img data-src="../assets/icons/python-icon-color.svg" alt="Python" height="36"> chatlas</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-code-line-numbers="4-7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb10-4"><a></a>chat.chat(</span>
+<span id="cb10-5"><a></a>    chatlas.content_image_file(<span class="st">"cute-cats.jpg"</span>),</span>
+<span id="cb10-6"><a></a>    <span class="st">"What do you see in this image?"</span></span>
+<span id="cb10-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="content_image_url" class="slide level2" data-transition="fade">
+<h2><a href="https://placecats.com/bella/400/400" target="_blank" rel="noopener noreferrer">🐈</a> content_image_url</h2>
+<div style="--code-font-size: 0.66em">
+<p><span class="flex items-center gap-1"><img data-src="../assets/icons/r-color.svg" alt="R" height="36"> ellmer</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb11-2"><a></a></span>
+<span id="cb11-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb11-4"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
+<span id="cb11-5"><a></a>  <span class="fu">content_image_url</span>(<span class="st">"https://placecats.com/bella/400/400"</span>),</span>
+<span id="cb11-6"><a></a>  <span class="st">"What do you see in this image?"</span></span>
+<span id="cb11-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span class="flex items-center gap-1"><img data-src="../assets/icons/python-icon-color.svg" alt="Python" height="36"> chatlas</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb12-4"><a></a>chat.chat(</span>
+<span id="cb12-5"><a></a>    chatlas.content_image_url(<span class="st">"https://placecats.com/bella/400/400"</span>),</span>
+<span id="cb12-6"><a></a>    <span class="st">"What do you see in this image?"</span></span>
+<span id="cb12-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="your-turn-08_vision" class="slide level2 slide-your-turn">
+<h2>Your Turn <code>08_vision</code></h2>
+<ol type="1">
+<li><p>I’ve put some images of food in the <code>data/recipes/images</code> folder.</p></li>
+<li><p>Your job: show the food to the LLM and see if it gets hungry.</p></li>
+</ol>
+<div id="timer_f62fd4b6cde14e6dfc1b6e4ef366ceda233ad385" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="content_pdf_file" class="slide level2">
+<h2>📑 content_pdf_file</h2>
+<div style="--code-font-size: 0.66em">
+<p><span class="flex items-center gap-1"><img data-src="../assets/icons/r-color.svg" alt="R" height="36"> ellmer</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb13-2"><a></a></span>
+<span id="cb13-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb13-4"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
+<span id="cb13-5"><a></a>  <span class="fu">content_pdf_file</span>(<span class="st">"financial-report.pdf"</span>),</span>
+<span id="cb13-6"><a></a>  <span class="st">"What's my tax liability for 2024?"</span></span>
+<span id="cb13-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span class="flex items-center gap-1"><img data-src="../assets/icons/python-icon-color.svg" alt="Python" height="36"> chatlas</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb14-2"><a></a></span>
+<span id="cb14-3"><a></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb14-4"><a></a>chat.chat(</span>
+<span id="cb14-5"><a></a>    content_pdf_file(<span class="st">"financial-report.pdf"</span>),</span>
+<span id="cb14-6"><a></a>    <span class="st">"What's my tax liability for 2024?"</span></span>
+<span id="cb14-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="content_pdf_url" class="slide level2">
+<h2>📑 content_pdf_url</h2>
+<div style="--code-font-size: 0.66em">
+<p><span class="flex items-center gap-1"><img data-src="../assets/icons/r-color.svg" alt="R" height="36"> ellmer</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb15-2"><a></a></span>
+<span id="cb15-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb15-4"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(</span>
+<span id="cb15-5"><a></a>  <span class="fu">content_pdf_url</span>(<span class="st">"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"</span>),</span>
+<span id="cb15-6"><a></a>  <span class="st">"Describe Tesla’s executive compensation and stock award programs."</span></span>
+<span id="cb15-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span class="flex items-center gap-1"><img data-src="../assets/icons/python-icon-color.svg" alt="Python" height="36"> chatlas</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a>chat <span class="op">=</span> chatlas.ChatAuto(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb16-4"><a></a>chat.chat(</span>
+<span id="cb16-5"><a></a>    content_pdf_url(<span class="st">"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"</span>),</span>
+<span id="cb16-6"><a></a>    <span class="st">"Describe Tesla’s executive compensation and stock award programs."</span></span>
+<span id="cb16-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="your-turn-09_pdf" class="slide level2 slide-your-turn">
+<h2>Your Turn <code>09_pdf</code></h2>
+<ol type="1">
+<li><p>We have the actual recipes as PDFs in the <code>data/recipes/pdf</code> folder.</p></li>
+<li><p>Your job: ask the LLM to convert the recipes to markdown.</p></li>
+</ol>
+<div id="timer_f62fd4b6cde14e6dfc1b6e4ef366ceda233ad385" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section></section>
+<section>
+<section id="structured-output" class="title-slide slide level1 center" data-background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" data-background-size="cover" data-background-position="center top">
+<h1>Structured output</h1>
 
 </section>
 <section id="section-18" class="slide level2">
@@ -3942,6 +4058,16 @@ Reasoning
 <li>Note <a href="https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings">use_attribute_docstrings</a></li>
 </ul>
 </section></section>
+<section id="your-turn-10_structured-output" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>10_structured-output</code></h1>
+
+</section>
+
+<section id="parallel-and-batch-calls" class="title-slide slide level1 center">
+<h1>Parallel and batch calls</h1>
+
+</section>
+
 <section id="your-turn-11_batch" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>11_batch</code></h1>
 

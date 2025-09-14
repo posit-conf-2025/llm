@@ -147,6 +147,62 @@
     "text": "Chat in Easy Mode\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")"
   },
   {
+    "objectID": "slides/slides-03.html#favorite-models-for-today",
+    "href": "slides/slides-03.html#favorite-models-for-today",
+    "title": "Programming with LLMs",
+    "section": "Favorite models for today",
+    "text": "Favorite models for today\n\nOpenAI\n\ngpt-4.1-nano\ngpt-5\n\nAnthropic\n\nclaude-sonnet-4-20250514\nclaude-3-5-haiku-20241022"
+  },
+  {
+    "objectID": "slides/slides-03.html#a-picture-is-worth-a-thousand-words",
+    "href": "slides/slides-03.html#a-picture-is-worth-a-thousand-words",
+    "title": "Programming with LLMs",
+    "section": "A picture is worth a thousand words",
+    "text": "A picture is worth a thousand words\n\nOr for an LLM, a picture is roughly 227 words, or 170 tokens.\n\n\n🖼️ 🔍 Open Images Dataset"
+  },
+  {
+    "objectID": "slides/slides-03.html#content_image_file",
+    "href": "slides/slides-03.html#content_image_file",
+    "title": "Programming with LLMs",
+    "section": "🌆 content_image_file",
+    "text": "🌆 content_image_file\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_image_file(\"cute-cats.jpg\"),\n  \"What do you see in this image?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    chatlas.content_image_file(\"cute-cats.jpg\"),\n    \"What do you see in this image?\"\n)"
+  },
+  {
+    "objectID": "slides/slides-03.html#content_image_url",
+    "href": "slides/slides-03.html#content_image_url",
+    "title": "Programming with LLMs",
+    "section": "🐈 content_image_url",
+    "text": "🐈 content_image_url\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_image_url(\"https://placecats.com/bella/400/400\"),\n  \"What do you see in this image?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    chatlas.content_image_url(\"https://placecats.com/bella/400/400\"),\n    \"What do you see in this image?\"\n)"
+  },
+  {
+    "objectID": "slides/slides-03.html#your-turn-08_vision",
+    "href": "slides/slides-03.html#your-turn-08_vision",
+    "title": "Programming with LLMs",
+    "section": "Your Turn 08_vision",
+    "text": "Your Turn 08_vision\n\nI’ve put some images of food in the data/recipes/images folder.\nYour job: show the food to the LLM and see if it gets hungry.\n\n\n  \n    −\n    +\n \n 05:00"
+  },
+  {
+    "objectID": "slides/slides-03.html#content_pdf_file",
+    "href": "slides/slides-03.html#content_pdf_file",
+    "title": "Programming with LLMs",
+    "section": "📑 content_pdf_file",
+    "text": "📑 content_pdf_file\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_pdf_file(\"financial-report.pdf\"),\n  \"What's my tax liability for 2024?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    content_pdf_file(\"financial-report.pdf\"),\n    \"What's my tax liability for 2024?\"\n)"
+  },
+  {
+    "objectID": "slides/slides-03.html#content_pdf_url",
+    "href": "slides/slides-03.html#content_pdf_url",
+    "title": "Programming with LLMs",
+    "section": "📑 content_pdf_url",
+    "text": "📑 content_pdf_url\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_pdf_url(\"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf\"),\n  \"Describe Tesla’s executive compensation and stock award programs.\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    content_pdf_url(\"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf\"),\n    \"Describe Tesla’s executive compensation and stock award programs.\"\n)"
+  },
+  {
+    "objectID": "slides/slides-03.html#your-turn-09_pdf",
+    "href": "slides/slides-03.html#your-turn-09_pdf",
+    "title": "Programming with LLMs",
+    "section": "Your Turn 09_pdf",
+    "text": "Your Turn 09_pdf\n\nWe have the actual recipes as PDFs in the data/recipes/pdf folder.\nYour job: ask the LLM to convert the recipes to markdown.\n\n\n  \n    −\n    +\n \n 05:00"
+  },
+  {
     "objectID": "slides/slides-03.html#section-18",
     "href": "slides/slides-03.html#section-18",
     "title": "Programming with LLMs",
@@ -975,7 +1031,7 @@
     "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is bicycle."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is sandwich."
   },
   {
     "objectID": "slides/slides-02.html#interpolation-in-r-1",
@@ -989,6 +1045,6 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is bicycle.'"
   }
 ]
