@@ -1,5 +1,5 @@
 ---
-title: Prompt Engineering
+title: Programming with LLMs
 subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
 author: <code>posit::conf(2025)</code>
 date: 2025-09-16
@@ -8,16 +8,1013 @@ editor:
   render-on-save: true
 ---
 
-# Prompt engineering
+# [Providers and Models]{.white .ph4 style="background-color: #4ea8a7e6;"} {.no-invert-dark-mode background-image="assets/sunira-moses-Naj9-n5apvs-unsplash.jpg" background-size="cover" background-position="center"}
 
-straight into activity
+## {.center}
 
-# Your Turn `12_plot-image-1` {.slide-your-turn}
+::: {.r-fit-text .incremental}
+**Provider**
+:    company that hosts and serves models
 
-# Your Turn `13_plot-image-2` {.slide-your-turn}
+**Model**
+:    a specific LLM with particular capabilities
+:::
 
-# Prompt engineering
+```{=html}
+<style>
+dt {
+  line-height: 0.8;
+}
 
-actual discussion of prompt engineering
+dd {
+  margin-bottom: 1em;
+  margin-left: 0 !important;
+}
 
-# Your Turn `14_quiz-game-1` {.slide-your-turn}
+dd:before {
+  content: "\2192";
+  font-family: var(--r-code-font);
+  font-size: 0.8em;
+  opacity: 0.66;
+}
+</style>
+```
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-01.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-02.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-03.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-04.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-05.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-06.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-07.excalidraw.svg)
+
+## How are models different?
+
+::: incremental
+1. **Content:** How many tokens can you give the model?
+1. **Speed:** How many tokens per second?
+1. **Cost:** How much does it cost to use the model?
+1. **Intelligence:** How smart is the model?
+1. **Capabilities:** Vision, reasoning, tools, etc.
+:::
+
+::: notes
+1. Content: 200k tokens is normal, 1M tokens in some newer models
+1. Speed: Gemini Flash hits ~350 tokens/sec, 100-200 is very fast, 50-100 normal. Speed is often a trade-off with intelligence.
+1. Cost: $1-5 per million tokens is normal for big frontier models, < $1 for smaller, faster models
+1. Intelligence is a stand-in for lots of concepts
+:::
+
+## How are models different?
+
+1. **Content:** How many tokens can you give the model?
+1. [**Speed:** How many tokens per second?]{style="opacity: 0.25"}
+1. [**Cost:** How much does it cost to use the model?]{style="opacity: 0.25"}
+1. [**Intelligence:** How smart is the model?]{style="opacity: 0.25"}
+1. **Capabilities:** Vision, reasoning, tools, etc.
+
+## How are models different?
+
+1. [**Content:** How many tokens can you give the model?]{style="opacity: 0.25"}
+1. **Speed:** How many tokens per second?
+1. **Cost:** How much does it cost to use the model?
+1. **Intelligence:** How smart is the model?
+1. [**Capabilities:** Vision, reasoning, tools, etc.]{style="opacity: 0.25"}
+
+
+## {transition="fade"}
+
+![](assets/model-sizes-01.excalidraw.svg)
+
+::: notes
+We'll start with Anthropic, a company that builds LLMs, in particular a family of models they call Claude.
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-02.excalidraw.svg)
+
+::: notes
+Claude comes in different sizes, with different levels of intelligence.
+
+They have a small model that's fast and cheap,
+a large model that's intelligent but expensive,
+and a just-right sized model that balances speed, cost, and intelligence.
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-03.excalidraw.svg)
+
+::: notes
+In line with Anthropic's branding, these models are named after different types of poetry.
+
+* Haiku is small, fast, and cheap
+* Sonnet is larger, more expensive, and more intelligent
+* Opus is the largest, most expensive, and most intelligent
+
+Anthropic's poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry.
+(Yes, that's says a lot.)
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-04.excalidraw.svg)
+
+::: notes
+But there isn't just one Claude model at different sizes.
+Anthropic keeps training new models which they generally release with a new version number.
+
+* Claude 3.5 was released a year ago (in June 2024)
+* Claude 3.7 was released earlier this year (Feb. 2025)
+* Claude 4 was just released in May 2025
+
+All four of these models are still active and available.
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-04a.excalidraw.svg)
+
+::: notes
+When you're choosing a model, you can get higher quality responses by moving up a size tier.
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-04b.excalidraw.svg)
+
+::: notes
+And when new releases come out, you can often get similar quality improvements by moving up a version number.
+(This move tends to be cheaper than moving up a size tier.)
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-04c.excalidraw.svg)
+
+::: notes
+Oh, wait, sorry, to be very technically accurate, it turns out that the Opus models are only available for Claude 3 and Claude 4, but not for the intermediate versions 3.5 and 3.7.
+
+It remains to be seen if this will be an enduring pattern, or just they way things happened for 3.5 and 3.7.
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-07.excalidraw.svg)
+
+## {transition="fade"}
+
+![](assets/model-sizes-06.excalidraw.svg)
+
+## {transition="fade"}
+
+![](assets/model-sizes-05.excalidraw.svg)
+
+## {#model-comparison .smaller}
+
+{{< include ../partials/model-comparison.qmd >}}
+
+## Model Naming Philosophies {.smaller visibility="hidden"}
+
+| Company | Theme | Logic | Clarity |
+|---------|-------|-------|---------|
+| **OpenAI** | _nano_, mini, (regular), pro | Inconsistent across series | Confusing |
+| **Anthropic** | haiku, sonnet, opus | Size/capability hierarchy | Makes you think about it |
+| **Google** | flash, pro, ultra | Clear tier system | Very clear |
+
+: {tbl-colwidths="[10,35,25,20]"}
+
+
+## Choose a model {.smaller .table-spaced-out}
+
+| Task | OpenAI | Anthropic | Gemini |
+| :--- | :--- | :--- | :--- |
+| **Coding** | GPT-5 | Claude 4 Sonnet | Gemini 2.5 Pro |
+| **Fast/General** | GPT-5 mini | Claude 3.5 Sonnet | Gemini 2.0 Flash |
+| **Complex Tasks** | o3 | Claude 4 Opus | Gemini 2.5 Pro |
+| **Cost-Effective** | Mini | Haiku | Flash |
+
+```{=html}
+<style>
+.table-spaced-out table td,
+.table-spaced-out table th {
+  padding-top: 0.66em;
+  padding-bottom: 0.66em;
+}
+</style>
+```
+
+## Learn more
+
+* Ranking of models: [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models)
+* [OpenAI models](https://platform.openai.com/docs/models)
+* [Anthropic models](https://docs.anthropic.com/en/docs/about-claude/models/overview)
+* [Google Gemini models](https://ai.google.dev/gemini-api/docs/models)
+
+
+## {#ellmer .center transition="fade"}
+
+:::::: {style="display: flex; flex-direction: row; align-items: center; gap: 1em;"}
+::::: {.column}
+![](/assets/logos/ellmer.png){width="400px"}
+:::::
+
+::::: {.column}
+:::: fragment
+**Providers**
+
+::: incremental
+* `chat_openai()`
+
+* `chat_anthropic()`
+
+* `chat_google_gemini()`
+:::
+::::
+
+:::: fragment
+**Local models**
+
+* `chat_ollama()`
+::::
+
+:::: fragment
+**Enterprise**
+
+* `chat_aws_bedrock()`
+::::
+:::::
+::::::
+
+::: footer
+<https://ellmer.tidyverse.org/>
+:::
+
+## {#chatlas .center transition="fade"}
+
+::::: {style="display: flex; flex-direction: row; align-items: center; gap: 1em;"}
+:::: {.column}
+::: {style="text-align: center; width: 400px;"}
+**chatlas**
+
+![](/assets/logos/chatlas.png){width="300px"}
+:::
+::::
+
+:::: {.column}
+**Providers**
+
+* `ChatOpenAI()`
+
+* `ChatAnthropic()`
+
+* `ChatGoogle()`
+
+**Local models**
+
+* `ChatOllama()`
+
+**Enterprise**
+
+* `ChatBedrockAnthropic()`
+::::
+:::::
+
+::: footer
+<https://posit-dev.github.io/chatlas/get-started/models.html>
+:::
+
+## Chat in Easy Mode {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3"}
+library(ellmer)
+
+chat <- chat("anthropic")
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="3"}
+import chatlas
+
+chat = chatlas.ChatAuto("anthropic")
+```
+:::
+
+## Chat in Easy Mode {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3-4"}
+library(ellmer)
+
+chat <- chat("anthropic")
+#> Using model = "claude-sonnet-4-20250514".
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="3-4"}
+import chatlas
+
+chat = chatlas.ChatAuto("anthropic")
+#> Anthropic/claude-sonnet-4-0
+```
+:::
+
+## Chat in Easy Mode {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3"}
+library(ellmer)
+
+chat <- chat("openai")
+#> Using model = "gpt-4.1".
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="3"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai")
+#> OpenAI/gpt-4.1
+```
+:::
+
+## Chat in Easy Mode {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3"}
+library(ellmer)
+
+chat <- chat("openai/gpt-4.1-nano")
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="3"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+```
+:::
+
+# Your Turn `07_models` {.slide-your-turn}
+
+{{< countdown 4:00 top="-1em" >}}
+
+1. Use `chatlas` and `ellmer` to list available models from Anthropic and OpenAI.
+
+2. Send the same prompt to different models and compare the responses.
+
+3. Feel free to change the prompt!
+
+## Favorite models for today
+
+* OpenAI
+    * `gpt-4.1-nano`
+    * `gpt-5`
+
+* Anthropic
+    * `claude-sonnet-4-20250514`
+    * `claude-3-5-haiku-20241022`
+
+
+# [Multi-modal input]{.hidden} {background-image="assets/bud-helisson-kqguzgvYrtM-unsplash.jpg" background-size="cover" background-position="center"}
+
+[Multi-modal input]{.white .b .absolute top="-400px" right=0 style="font-size: 3em;"}
+
+## A picture is worth a thousand words {.center}
+
+::: fragment
+Or for an LLM, a picture is roughly 227 words, or [170 tokens]{.b .blue}.
+:::
+
+::: fragment
+🖼️ 🔍 [Open Images Dataset](https://storage.googleapis.com/openimages/web/visualizer/index.html?type=localized%20narratives&set=train&c=/m/06_fw&id=025d772e7181ca1f){preview-link=true}
+:::
+
+## 🌆 content_image_file {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="4-7"}
+library(ellmer)
+
+chat <- chat("openai/gpt-4.1-nano")
+chat$chat(
+  content_image_file("cute-cats.jpg"),
+  "What do you see in this image?"
+)
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="4-7"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat.chat(
+    chatlas.content_image_file("cute-cats.jpg"),
+    "What do you see in this image?"
+)
+```
+:::
+
+## [🐈](https://placecats.com/bella/400/400){target="_blank" rel="noopener noreferrer"} content_image_url {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="5"}
+library(ellmer)
+
+chat <- chat("openai/gpt-4.1-nano")
+chat$chat(
+  content_image_url("https://placecats.com/bella/400/400"),
+  "What do you see in this image?"
+)
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="5"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat.chat(
+    chatlas.content_image_url("https://placecats.com/bella/400/400"),
+    "What do you see in this image?"
+)
+```
+:::
+
+## Your Turn `08_vision` {.slide-your-turn}
+
+1. I've put some images of food in the `data/recipes/images` folder.
+
+2. Your job: show the food to the LLM and see if it gets hungry.
+
+{{< countdown 5:00 left=0 >}}
+
+## 📑 content_pdf_file
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="5"}
+library(ellmer)
+
+chat <- chat("openai/gpt-4.1-nano")
+chat$chat(
+  content_pdf_file("financial-report.pdf"),
+  "What's my tax liability for 2024?"
+)
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="5"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat.chat(
+    content_pdf_file("financial-report.pdf"),
+    "What's my tax liability for 2024?"
+)
+```
+:::
+
+## 📑 content_pdf_url
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="5"}
+library(ellmer)
+
+chat <- chat("openai/gpt-4.1-nano")
+chat$chat(
+  content_pdf_url("http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"),
+  "Describe Tesla’s executive compensation and stock award programs."
+)
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="5"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+chat.chat(
+    content_pdf_url("http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf"),
+    "Describe Tesla’s executive compensation and stock award programs."
+)
+```
+:::
+
+## Your Turn `09_pdf` {.slide-your-turn}
+
+1. We have the actual recipes as PDFs in the `data/recipes/pdf` folder.
+
+2. Your job: ask the LLM to convert the recipes to markdown.
+
+{{< countdown 5:00 left=0 >}}
+
+# Structured output {background-image="assets/vitaly-taranov-J6hE2DTWSEw-unsplash.jpg" background-size="cover" background-position="center top"}
+
+## How would you extract name and age? {style="--code-font-size: 0.66em"}
+
+```{r}
+#| echo: true
+
+age_free_text <- list(
+    "I go by Alex. 42 years on this planet and counting.",
+    "Pleased to meet you! I'm Jamal, age 27.",
+    "They call me Li Wei. Nineteen years young.",
+    "Fatima here. Just celebrated my 35th birthday last week.",
+    "The name's Robert - 51 years old and proud of it.",
+    "Kwame here - just hit the big 5-0 this year."
+)
+```
+
+## If you wrote R code, it might look like this... {.scrollable style="--code-font-size: 0.66em"}
+
+```{r}
+#| echo: true
+
+word_to_num <- function(x) {
+    # normalize
+    x <- tolower(x)
+    # direct numbers
+    if (grepl("\\b\\d+\\b", x)) return(as.integer(regmatches(x, regexpr("\\b\\d+\\b", x))))
+    # hyphenated like "5-0"
+    if (grepl("\\b\\d+\\s*-\\s*\\d+\\b", x)) {
+        parts <- as.integer(unlist(strsplit(regmatches(x, regexpr("\\b\\d+\\s*-\\s*\\d+\\b", x)), "\\s*-\\s*")))
+        return(10 * parts[1] + parts[2])
+    }
+    # simple word numbers
+    ones <- c(
+        zero=0, one=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9,
+        ten=10, eleven=11, twelve=12, thirteen=13, fourteen=14, fifteen=15, sixteen=16,
+        seventeen=17, eighteen=18, nineteen=19
+    )
+    tens <- c(twenty=20, thirty=30, forty=40, fifty=50, sixty=60, seventy=70, eighty=80, ninety=90)
+    # e.g., "nineteen"
+    if (x %in% names(ones)) return(ones[[x]])
+    # e.g., "thirty five" or "thirty-five"
+    x2 <- gsub("-", " ", x)
+    parts <- strsplit(x2, "\\s+")[[1]]
+    if (length(parts) == 2 && parts[1] %in% names(tens) && parts[2] %in% names(ones)) {
+        return(tens[[parts[1]]] + ones[[parts[2]]])
+    }
+    if (length(parts) == 1 && parts[1] %in% names(tens)) return(tens[[parts[1]]])
+    return(NA_integer_)
+}
+
+# Extract name candidates
+extract_name <- function(s) {
+    # patterns that introduce a name
+    pats <- c(
+        "I go by\\s+([A-Z][a-z]+)",
+        "I'm\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)?)",
+        "They call me\\s+([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)?)",
+        "^([A-Z][a-z]+) here",
+        "The name's\\s+([A-Z][a-z]+)",
+        "^([A-Z][a-z]+)\\s" # fallback: leading capital word
+    )
+    for (p in pats) {
+        m <- regexpr(p, s, perl = TRUE)
+        if (m[1] != -1) {
+            return(sub(p, "\\1", regmatches(s, m)))
+        }
+    }
+    NA_character_
+}
+
+# Extract age phrases and convert to number
+extract_age <- function(s) {
+    # capture common age phrases around a number
+    m <- regexpr("(\\b\\d+\\b|\\b\\d+\\s*-\\s*\\d+\\b|\\b[Nn][a-z-]+\\b)\\s*(years|year|birthday|young|this)", s, perl = TRUE)
+    if (m[1] != -1) {
+        token <- sub("(years|year|birthday|young|this)$", "", trimws(substring(s, m, m + attr(m, "match.length") - 1)))
+        return(word_to_num(token))
+    }
+    # handle pure word-number without trailing keyword (e.g., "Nineteen years young." handled above)
+    m2 <- regexpr("\\b([A-Z][a-z]+)\\b\\s+years", s, perl = TRUE)
+    if (m2[1] != -1) {
+        token <- tolower(sub("\\s+years.*", "", regmatches(s, m2)))
+        return(word_to_num(token))
+    }
+    # handle hyphenated "big 5-0"
+    m3 <- regexpr("big\\s+(\\d+\\s*-\\s*\\d+)", s, perl = TRUE)
+    if (m3[1] != -1) {
+        token <- sub("big\\s+", "", regmatches(s, m3))
+        return(word_to_num(token))
+    }
+    NA_integer_
+}
+```
+
+## If you wrote R code, it might look like this... {.scrollable}
+
+::: {.easy-columns .gap-2}
+```{r}
+#| echo: true
+
+dplyr::tibble(
+  name = purrr::map_chr(age_free_text, extract_name),
+  age = purrr::map_int(age_free_text, extract_age)
+)
+```
+
+```{r}
+#| echo: true
+
+age_free_text
+```
+:::
+
+::: footer
+😬 not great, `gpt-5`.
+:::
+
+## But if you ask an LLM... {transition="fade"}
+
+```{.r code-line-numbers="4-5|8,11"}
+library(ellmer)
+
+chat <- chat(
+  "openai/gpt-5-nano",
+  system_prompt = "Extract the name and age."
+)
+
+chat$chat(age_free_text[[1]])
+#>
+
+chat$chat(age_free_text[[2]])
+#>
+```
+
+## But if you ask an LLM... {transition="fade"}
+
+```{.r code-line-numbers="8-12"}
+library(ellmer)
+
+chat <- chat(
+  "openai/gpt-5-nano",
+  system_prompt = "Extract the name and age."
+)
+
+chat$chat(age_free_text[[1]])
+#> Name: Alex; Age: 42
+
+chat$chat(age_free_text[[2]])
+#> Name: Jamal; Age: 27
+```
+
+## Wouldn't this be nice? {transition="fade"}
+
+```{.r}
+chat$chat(age_free_text[[1]])
+#> list(
+#>   name = "Alex",
+#>   age = 42
+#> )
+```
+
+## Structured chat output {transition="fade"}
+
+```{.r code-line-numbers="1"}
+chat$chat_structured(age_free_text[[1]])
+#> list(
+#>   name = "Alex",
+#>   age = 42
+#> )
+```
+
+## Structured chat output {transition="fade"}
+
+```{.r code-line-numbers="1-4|6"}
+type_person <- type_object(
+  name = type_string(),
+  age = type_integer()
+)
+
+chat$chat_structured(age_free_text[[1]], type = type_person)
+#> list(
+#>   name = "Alex",
+#>   age = 42
+#> )
+```
+
+## Structured chat output {transition="fade"}
+
+```{.r code-line-numbers="7-11"}
+type_person <- type_object(
+  name = type_string(),
+  age = type_integer()
+)
+
+chat$chat_structured(age_free_text[[1]], type = type_person)
+#> $name
+#> [1] "Alex"
+#>
+#> $age
+#> [1] 42
+```
+
+## ellmer's type functions
+
+![](assets/ellmer-type-functions.png)
+
+::: fragment
+```{.r}
+type_person <- type_object(
+  name = type_string("The person's name"),
+  age = type_integer("The person's age in years")
+)
+```
+:::
+
+## In Python, use Pydantic {transition="fade"}
+
+```{.python code-line-numbers="2|4-6|9-12|13"}
+import chatlas
+from pydantic import BaseModel
+
+class Person(BaseModel):
+    name: str
+    age: int
+
+chat = chatlas.ChatAuto("openai/gpt-5-nano")
+chat.chat_structured(
+    "I go by Alex. 42 years on this planet and counting.",
+    data_model=Person
+)
+#> Person(name='Alex', age=42)
+```
+
+::: footer
+[chatlas: Structured Data](https://posit-dev.github.io/chatlas/get-started/structured-data.html)
+:::
+
+## In Python, use Pydantic {transition="fade"}
+
+```{.python code-line-numbers="2,4-6"}
+import chatlas
+from pydantic import BaseModel, Field
+
+class Person(BaseModel):
+    name: str = Field(..., description="The person's name")
+    age: int = Field(..., description="The person's age in years")
+
+chat = chatlas.ChatAuto("openai/gpt-5-nano")
+chat.chat_structured(
+    "I go by Alex. 42 years on this planet and counting.",
+    data_model=Person
+)
+#> Person(name='Alex', age=42)
+```
+
+## In Python, use Pydantic {transition="fade"}
+
+```{.python code-line-numbers="2|4-10"}
+import chatlas
+from pydantic import BaseModel, ConfigDict
+
+class Person(BaseModel):
+    model_config = ConfigDict(use_attribute_docstrings=True)
+
+    name: str
+    """The person's name"""
+    age: int
+    """The person's age in years"""
+```
+
+::: footer
+[pydantic: use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
+:::
+
+# Your Turn `10_structured-output` {.slide-your-turn}
+
+1. We also have text versions of the recipes in `data/recipes/txt`.
+
+1. Use `ellmer::type_*()` or a Pydantic model to extract structured data from the recipe you used in **activity 09**.
+
+1. I've given you the expected structure, you just need to implement it.
+
+{{< countdown 7:00 left=0 bottom="-1em" >}}
+
+# Parallel and batch calls {background-image="assets/barna-bartis-1DLPzq1kL3M-unsplash.jpg" background-size="cover" background-position="center"}
+
+## Structured chat output {transition="fade"}
+
+```{.r code-line-numbers="6-11"}
+type_person <- type_object(
+  name = type_string(),
+  age = type_integer()
+)
+
+chat$chat_structured(age_free_text[[1]], type = type_person)
+#> $name
+#> [1] "Alex"
+#>
+#> $age
+#> [1] 42
+```
+
+## Structured chat output {transition="fade"}
+
+```{.r code-line-numbers="6-7"}
+type_person <- type_object(
+  name = type_string(),
+  age = type_integer()
+)
+
+chat$chat_structured(age_free_text, type = type_person)
+#> ???
+```
+
+## Structured chat output {transition="fade"}
+
+```{.r code-line-numbers="6-11"}
+type_person <- type_object(
+  name = type_string(),
+  age = type_integer()
+)
+
+chat$chat_structured(age_free_text, type = type_person)
+#> Error in `FUN()`:
+#> ! `...` must be made up strings or <content> objects, not a list.
+```
+
+## Parallel chat calls {transition="fade"}
+
+```{.r}
+parallel_chat_structured(
+  chat,
+  age_free_text,
+  type = type_person
+)
+```
+
+## Parallel chat calls {transition="fade"}
+
+```{.r}
+parallel_chat_structured(
+  chat,
+  age_free_text,
+  type = type_person
+)
+#> [working] (0 + 0) -> 2 -> 4 | ■■■■■■■■■■■■■■■■■■■■■             67%
+```
+
+## Parallel chat calls {transition="fade"}
+
+```{.r}
+parallel_chat_structured(
+  chat,
+  age_free_text,
+  type = type_person
+)
+#>     name age
+#> 1   Alex  42
+#> 2  Jamal  27
+#> 3 Li Wei  19
+#> 4 Fatima  35
+#> 5 Robert  51
+#> 6  Kwame  50
+```
+
+## Batch chat calls {transition="fade"}
+
+```{.r code-line-numbers="1"}
+batch_chat_structured(
+  chat,
+  age_free_text,
+  type = type_person
+)
+```
+
+## Batch chat calls {transition="fade"}
+
+```{.r code-line-numbers="5"}
+batch_chat_structured(
+  chat,
+  age_free_text,
+  type = type_person,
+  path = "people.json"
+)
+```
+
+## Batch chat calls {transition="fade"}
+
+```{.r code-line-numbers="1"}
+chat <- chat("anthropic/claude-3-5-haiku-20241022")
+batch_chat_structured(
+  chat,
+  age_free_text,
+  type = type_person,
+  path = "people.json"
+)
+```
+
+## Batch vs. parallel
+
+::: easy-columns
+::: col
+### Parallel
+
+* 🌲 Works for any provider/model<br>&nbsp;
+
+* ⚡ Much faster for small jobs
+
+* 💸 More expensive
+
+* 😓 Not easy to stop/resume
+
+* [🔜 Coming soon to chatlas]{.fragment fragment-index=1}
+:::
+
+::: col
+### Batch
+
+* 🌱 Only works for some providers (OpenAI, Anthropic)
+
+* ⏲️ Finishes... eventually
+
+* 🏦 Much cheaper per prompt
+
+* 😎 Easy to stop/resume
+
+* [🧑‍🚀 Works in chatlas]{.fragment fragment-index=1}
+:::
+:::
+
+## chatlas.batch_chat_structured {transition="fade"}
+
+```{.python}
+from chatlas import ChatAuto, batch_chat_structured
+
+chat = chatlas.ChatAuto("anthropic/claude-3-haiku-20240307")
+res = batch_chat_structured(
+    chat=chat,
+    prompts=age_free_text,
+    data_model=Person,
+    path="people.json",
+)
+```
+
+# Your Turn `11_batch` {.slide-your-turn}
+
+1. Take your `type_recipe` or `Recipe` model from **activity 10**...
+
+2. And apply it to _all the text recipes_ in `data/recipes/txt`.
+
+3. Use parallel processing with `gpt-4.1-nano` from OpenAI.
+
+4. Use the Batch API with Claude 3.5 Haiku from Anthropic.
+
+5. Save the results to `data/recipes/recipes.json` and try out the Shiny recipe cookbook app!
+
+{{< countdown 7:00 left=0 bottom="-1em" >}}
