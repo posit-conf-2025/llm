@@ -8,14 +8,401 @@ editor:
   render-on-save: true
 ---
 
-# Choosing a Provider and Model
+# Providers and Models
 
-##
+## {.center}
 
-- Overview of major providers: OpenAI, Anthropic, Google, ollama
-- Tradeoffs: capability, context length, speed, cost, intelligence
+::: {.r-fit-text .incremental}
+**Provider**
+:    company that hosts and serves models
+
+**Model**
+:    a specific LLM with particular capabilities
+:::
+
+```{=html}
+<style>
+dt {
+  line-height: 0.8;
+}
+
+dd {
+  margin-bottom: 1em;
+  margin-left: 0 !important;
+}
+
+dd:before {
+  content: "\2192";
+  font-family: var(--r-code-font);
+  font-size: 0.8em;
+  opacity: 0.66;
+}
+</style>
+```
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-01.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-02.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-03.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-04.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-05.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-06.excalidraw.svg)
+
+## {.text-center transition="fade"}
+
+![](assets/providers-models-07.excalidraw.svg)
+
+## How are models different?
+
+::: incremental
+1. **Content:** How many tokens can you give the model?
+1. **Speed:** How many tokens per second?
+1. **Cost:** How much does it cost to use the model?
+1. **Intelligence:** How smart is the model?
+1. **Capabilities:** Vision, reasoning, tools, etc.
+:::
+
+::: notes
+1. Content: 200k tokens is normal, 1M tokens in some newer models
+1. Speed: Gemini Flash hits ~350 tokens/sec, 100-200 is very fast, 50-100 normal. Speed is often a trade-off with intelligence.
+1. Cost: $1-5 per million tokens is normal for big frontier models, < $1 for smaller, faster models
+1. Intelligence is a stand-in for lots of concepts
+:::
+
+## How are models different?
+
+1. **Content:** How many tokens can you give the model?
+1. [**Speed:** How many tokens per second?]{style="opacity: 0.25"}
+1. [**Cost:** How much does it cost to use the model?]{style="opacity: 0.25"}
+1. [**Intelligence:** How smart is the model?]{style="opacity: 0.25"}
+1. **Capabilities:** Vision, reasoning, tools, etc.
+
+## How are models different?
+
+1. [**Content:** How many tokens can you give the model?]{style="opacity: 0.25"}
+1. **Speed:** How many tokens per second?
+1. **Cost:** How much does it cost to use the model?
+1. **Intelligence:** How smart is the model?
+1. [**Capabilities:** Vision, reasoning, tools, etc.]{style="opacity: 0.25"}
+
+
+## {transition="fade"}
+
+![](assets/model-sizes-01.excalidraw.svg)
+
+::: notes
+We'll start with Anthropic, a company that builds LLMs, in particular a family of models they call Claude.
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-02.excalidraw.svg)
+
+::: notes
+Claude comes in different sizes, with different levels of intelligence.
+
+They have a small model that's fast and cheap,
+a large model that's intelligent but expensive,
+and a just-right sized model that balances speed, cost, and intelligence.
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-03.excalidraw.svg)
+
+::: notes
+In line with Anthropic's branding, these models are named after different types of poetry.
+
+* Haiku is small, fast, and cheap
+* Sonnet is larger, more expensive, and more intelligent
+* Opus is the largest, most expensive, and most intelligent
+
+Anthropic's poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry.
+(Yes, that's says a lot.)
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-04.excalidraw.svg)
+
+::: notes
+But there isn't just one Claude model at different sizes.
+Anthropic keeps training new models which they generally release with a new version number.
+
+* Claude 3.5 was released a year ago (in June 2024)
+* Claude 3.7 was released earlier this year (Feb. 2025)
+* Claude 4 was just released in May 2025
+
+All four of these models are still active and available.
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-04a.excalidraw.svg)
+
+::: notes
+When you're choosing a model, you can get higher quality responses by moving up a size tier.
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-04b.excalidraw.svg)
+
+::: notes
+And when new releases come out, you can often get similar quality improvements by moving up a version number.
+(This move tends to be cheaper than moving up a size tier.)
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-04c.excalidraw.svg)
+
+::: notes
+Oh, wait, sorry, to be very technically accurate, it turns out that the Opus models are only available for Claude 3 and Claude 4, but not for the intermediate versions 3.5 and 3.7.
+
+It remains to be seen if this will be an enduring pattern, or just they way things happened for 3.5 and 3.7.
+:::
+
+## {transition="fade"}
+
+![](assets/model-sizes-07.excalidraw.svg)
+
+## {transition="fade"}
+
+![](assets/model-sizes-06.excalidraw.svg)
+
+## {transition="fade"}
+
+![](assets/model-sizes-05.excalidraw.svg)
+
+## {#model-comparison .smaller}
+
+{{< include ../partials/model-comparison.qmd >}}
+
+## Model Naming Philosophies {.smaller visibility="hidden"}
+
+| Company | Theme | Logic | Clarity |
+|---------|-------|-------|---------|
+| **OpenAI** | _nano_, mini, (regular), pro | Inconsistent across series | Confusing |
+| **Anthropic** | haiku, sonnet, opus | Size/capability hierarchy | Makes you think about it |
+| **Google** | flash, pro, ultra | Clear tier system | Very clear |
+
+: {tbl-colwidths="[10,35,25,20]"}
+
+
+## Choose a model {.smaller .table-spaced-out}
+
+| Task | OpenAI | Anthropic | Gemini |
+| :--- | :--- | :--- | :--- |
+| **Coding** | GPT-5 | Claude 4 Sonnet | Gemini 2.5 Pro |
+| **Fast/General** | GPT-5 mini | Claude 3.5 Sonnet | Gemini 2.0 Flash |
+| **Complex Tasks** | o3 | Claude 4 Opus | Gemini 2.5 Pro |
+| **Cost-Effective** | Mini | Haiku | Flash |
+
+```{=html}
+<style>
+.table-spaced-out table td,
+.table-spaced-out table th {
+  padding-top: 0.66em;
+  padding-bottom: 0.66em;
+}
+</style>
+```
+
+## Learn more
+
+* Ranking of models: [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models)
+* [OpenAI models](https://platform.openai.com/docs/models)
+* [Anthropic models](https://docs.anthropic.com/en/docs/about-claude/models/overview)
+* [Google Gemini models](https://ai.google.dev/gemini-api/docs/models)
+
+
+## {#ellmer .center transition="fade"}
+
+:::::: {style="display: flex; flex-direction: row; align-items: center; gap: 1em;"}
+::::: {.column}
+![](/assets/logos/ellmer.png){width="400px"}
+:::::
+
+::::: {.column}
+:::: fragment
+**Providers**
+
+::: incremental
+* `chat_openai()`
+
+* `chat_anthropic()`
+
+* `chat_google_gemini()`
+:::
+::::
+
+:::: fragment
+**Local models**
+
+* `chat_ollama()`
+::::
+
+:::: fragment
+**Enterprise**
+
+* `chat_aws_bedrock()`
+::::
+:::::
+::::::
+
+::: footer
+<https://ellmer.tidyverse.org/>
+:::
+
+## {#chatlas .center transition="fade"}
+
+::::: {style="display: flex; flex-direction: row; align-items: center; gap: 1em;"}
+:::: {.column}
+::: {style="text-align: center; width: 400px;"}
+**chatlas**
+
+![](/assets/logos/chatlas.png){width="300px"}
+:::
+::::
+
+:::: {.column}
+**Providers**
+
+* `ChatOpenAI()`
+
+* `ChatAnthropic()`
+
+* `ChatGoogle()`
+
+**Local models**
+
+* `ChatOllama()`
+
+**Enterprise**
+
+* `ChatBedrockAnthropic()`
+::::
+:::::
+
+::: footer
+<https://posit-dev.github.io/chatlas/get-started/models.html>
+:::
+
+## Chat in Easy Mode {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3"}
+library(ellmer)
+
+chat <- chat("anthropic")
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="3"}
+import chatlas
+
+chat = chatlas.ChatAuto("anthropic")
+```
+:::
+
+## Chat in Easy Mode {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3-4"}
+library(ellmer)
+
+chat <- chat("anthropic")
+#> Using model = "claude-sonnet-4-20250514".
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="3-4"}
+import chatlas
+
+chat = chatlas.ChatAuto("anthropic")
+#> Anthropic/claude-sonnet-4-0
+```
+:::
+
+## Chat in Easy Mode {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3"}
+library(ellmer)
+
+chat <- chat("openai")
+#> Using model = "gpt-4.1".
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="3"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai")
+#> OpenAI/gpt-4.1
+```
+:::
+
+## Chat in Easy Mode {transition="fade"}
+
+::: {style="--code-font-size: 0.66em"}
+[![](../assets/icons/r-color.svg){height="36px" alt="R"} ellmer]{.flex .items-center .gap-1}
+
+```{.r code-line-numbers="3"}
+library(ellmer)
+
+chat <- chat("openai/gpt-4.1-nano")
+```
+
+
+[![](../assets/icons/python-icon-color.svg){height="36px" alt="Python"} chatlas]{.flex .items-center .gap-1}
+
+```{.python code-line-numbers="3"}
+import chatlas
+
+chat = chatlas.ChatAuto("openai/gpt-4.1-nano")
+```
+:::
 
 # Your Turn `07_models` {.slide-your-turn}
+
+{{< countdown 4:00 top="-1em" >}}
+
+1. Use `chatlas` and `ellmer` to list available models from Anthropic and OpenAI.
+
+2. Send the same prompt to different models and compare the responses.
+
+3. Feel free to change the prompt!
+
 
 # Multi-modal input
 

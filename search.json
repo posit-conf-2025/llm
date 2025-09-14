@@ -340,7 +340,7 @@
     "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is sandwich."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is bicycle."
   },
   {
     "objectID": "slides/slides-02.html#interpolation-in-r-1",
@@ -354,7 +354,7 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is sandwich.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is bicycle.'"
   },
   {
     "objectID": "workshop.html",
@@ -607,7 +607,7 @@
     "href": "workshop-04.html#resources",
     "title": "Programming with LLMs",
     "section": "Resources",
-    "text": "Resources\n\n(10m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(15m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
+    "text": "Resources\n\n(15m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(10m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
     "crumbs": [
       "Workshop",
       "Programming with LLMs"
@@ -842,11 +842,144 @@
     "href": "slides/slides-03.html#section",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "Overview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence"
+    "text": "Provider\n\ncompany that hosts and serves models\n\nModel\n\na specific LLM with particular capabilities"
   },
   {
-    "objectID": "slides/slides-03.html#section-1",
-    "href": "slides/slides-03.html#section-1",
+    "objectID": "slides/slides-03.html#how-are-models-different",
+    "href": "slides/slides-03.html#how-are-models-different",
+    "title": "Programming with LLMs",
+    "section": "How are models different?",
+    "text": "How are models different?\n\nContent: How many tokens can you give the model?\nSpeed: How many tokens per second?\nCost: How much does it cost to use the model?\nIntelligence: How smart is the model?\nCapabilities: Vision, reasoning, tools, etc.\n\n\n\nContent: 200k tokens is normal, 1M tokens in some newer models\nSpeed: Gemini Flash hits ~350 tokens/sec, 100-200 is very fast, 50-100 normal. Speed is often a trade-off with intelligence.\nCost: $1-5 per million tokens is normal for big frontier models, &lt; $1 for smaller, faster models\nIntelligence is a stand-in for lots of concepts"
+  },
+  {
+    "objectID": "slides/slides-03.html#how-are-models-different-1",
+    "href": "slides/slides-03.html#how-are-models-different-1",
+    "title": "Programming with LLMs",
+    "section": "How are models different?",
+    "text": "How are models different?\n\nContent: How many tokens can you give the model?\nSpeed: How many tokens per second?\nCost: How much does it cost to use the model?\nIntelligence: How smart is the model?\nCapabilities: Vision, reasoning, tools, etc."
+  },
+  {
+    "objectID": "slides/slides-03.html#how-are-models-different-2",
+    "href": "slides/slides-03.html#how-are-models-different-2",
+    "title": "Programming with LLMs",
+    "section": "How are models different?",
+    "text": "How are models different?\n\nContent: How many tokens can you give the model?\nSpeed: How many tokens per second?\nCost: How much does it cost to use the model?\nIntelligence: How smart is the model?\nCapabilities: Vision, reasoning, tools, etc."
+  },
+  {
+    "objectID": "slides/slides-03.html#section-8",
+    "href": "slides/slides-03.html#section-8",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "We’ll start with Anthropic, a company that builds LLMs, in particular a family of models they call Claude."
+  },
+  {
+    "objectID": "slides/slides-03.html#section-9",
+    "href": "slides/slides-03.html#section-9",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "Claude comes in different sizes, with different levels of intelligence.\nThey have a small model that’s fast and cheap, a large model that’s intelligent but expensive, and a just-right sized model that balances speed, cost, and intelligence."
+  },
+  {
+    "objectID": "slides/slides-03.html#section-10",
+    "href": "slides/slides-03.html#section-10",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "In line with Anthropic’s branding, these models are named after different types of poetry.\n\nHaiku is small, fast, and cheap\nSonnet is larger, more expensive, and more intelligent\nOpus is the largest, most expensive, and most intelligent\n\nAnthropic’s poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry. (Yes, that’s says a lot.)"
+  },
+  {
+    "objectID": "slides/slides-03.html#section-11",
+    "href": "slides/slides-03.html#section-11",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "But there isn’t just one Claude model at different sizes. Anthropic keeps training new models which they generally release with a new version number.\n\nClaude 3.5 was released a year ago (in June 2024)\nClaude 3.7 was released earlier this year (Feb. 2025)\nClaude 4 was just released in May 2025\n\nAll four of these models are still active and available."
+  },
+  {
+    "objectID": "slides/slides-03.html#section-12",
+    "href": "slides/slides-03.html#section-12",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "When you’re choosing a model, you can get higher quality responses by moving up a size tier."
+  },
+  {
+    "objectID": "slides/slides-03.html#section-13",
+    "href": "slides/slides-03.html#section-13",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "And when new releases come out, you can often get similar quality improvements by moving up a version number. (This move tends to be cheaper than moving up a size tier.)"
+  },
+  {
+    "objectID": "slides/slides-03.html#section-14",
+    "href": "slides/slides-03.html#section-14",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "Oh, wait, sorry, to be very technically accurate, it turns out that the Opus models are only available for Claude 3 and Claude 4, but not for the intermediate versions 3.5 and 3.7.\nIt remains to be seen if this will be an enduring pattern, or just they way things happened for 3.5 and 3.7."
+  },
+  {
+    "objectID": "slides/slides-03.html#model-comparison",
+    "href": "slides/slides-03.html#model-comparison",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "OpenAIAnthropicGeminiPerplexityMistral\n\n\n\n\n\n\n\n\n\n\nModel\nSpeed\nIntelligence\nContext\n\n\n\n\n\n\nGPT-4\n\n\n\n\n\n\n\n\n\n\n8K\n\n\n\n\n\n\n\n\nGPT-4 Turbo\n\n\n\n\n\n\n\n\n\n\n127K\n\n\n\n\n\n\n\n\nGPT-4.1\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\n\n\n\n\nGPT-4.1 mini\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\n\n\n\n\nGPT-4.1 nano\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\n\n\n\n\nGPT-4o\n\n\n\n\n\n\n\n\n\n\n127K\n\nVision\n\n\n\n\n\n\nGPT-4o mini\n\n\n\n\n\n\n\n\n\n\n127K\n\nVision\n\n\n\n\n\n\nGPT-5\n\n\n\n\n\n\n\n\n\n\n400K\n\nVision\n\n\n\n\n\n\nGPT-5 Reasoning\n\n\n\n\n\n\n\n\n\n\n400K\n\nVision\n\n\nReasoning\n\n\n\nGPT-5 mini\n\n\n\n\n\n\n\n\n\n\n400K\n\nVision\n\n\n\n\n\n\nGPT-5 nano\n\n\n\n\n\n\n\n\n\n\n400K\n\nVision\n\n\n\n\n\n\no1\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\no3\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\no3-mini\n\n\n\n\n\n\n\n\n\n\n200K\n\n\n\n\nReasoning\n\n\n\no4-mini\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nSpeed\nIntelligence\nContext\n\n\n\n\n\n\nClaude 3.5 Haiku\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 3.5 Sonnet\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 3.7 Sonnet\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 3.7 Sonnet (Reasoning)\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\nClaude 4 Opus\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 4 Opus (Reasoning)\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\nClaude 4 Sonnet\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 4 Sonnet (Reasoning)\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\nClaude 4.1 Opus\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 4.1 Opus (Reasoning)\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nSpeed\nIntelligence\nContext\n\n\n\n\n\n\nGemini 2.0 Flash\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\n\n\n\n\nGemini 2.5 Flash\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\nReasoning\n\n\n\nGemini 2.5 Flash Lite\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\n\n\n\n\nGemini 2.5 Pro\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\nReasoning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nSpeed\nIntelligence\nContext\n\n\n\n\n\n\nSonar\n\n\n\n\n\n\n\n\n\n\n127K\n\nVision\n\n\n\n\n\n\nSonar Pro\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nSonar Reasoning\n\n\n\n\n\n\n\n\n\n\n127K\n\nVision\n\n\nReasoning\n\n\n\nSonar Reasoning Pro\n\n\n\n\n\n\n\n\n\n\n127K\n\nVision\n\n\nReasoning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nSpeed\nIntelligence\nContext\n\n\n\n\n\n\nCodestral\n\n\n\n\n\n\n\n\n\n\n256K\n\n\n\n\n\n\n\n\nMistral Large\n\n\n\n\n\n\n\n\n\n\n128K\n\n\n\n\n\n\n\n\nMistral Medium\n\n\n\n\n\n\n\n\n\n\n128K\n\n\n\n\n\n\n\n\nMistral Nemo\n\n\n\n\n\n\n\n\n\n\n128K\n\n\n\n\n\n\n\n\nMistral Small 3\n\n\n\n\n\n\n\n\n\n\n32K\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpenAI: Widest adoption, most popular models, excellent API and tooling. Industry leader.\nAnthropic: Focus on safety and alignment, strong coding capabilities, excellent at complex analysis and creative tasks.\nGemini: Google’s offering, large context windows, cheap and integrates with all things Google.\nPerplexity: Real-time information, focus on reducing hallucinations, strong at fact-based tasks.\nMistral: Open-source models, GDPR compliant in Europe, transparent training."
+  },
+  {
+    "objectID": "slides/slides-03.html#choose-a-model",
+    "href": "slides/slides-03.html#choose-a-model",
+    "title": "Programming with LLMs",
+    "section": "Choose a model",
+    "text": "Choose a model\n\n\n\nTask\nOpenAI\nAnthropic\nGemini\n\n\n\n\nCoding\nGPT-5\nClaude 4 Sonnet\nGemini 2.5 Pro\n\n\nFast/General\nGPT-5 mini\nClaude 3.5 Sonnet\nGemini 2.0 Flash\n\n\nComplex Tasks\no3\nClaude 4 Opus\nGemini 2.5 Pro\n\n\nCost-Effective\nMini\nHaiku\nFlash"
+  },
+  {
+    "objectID": "slides/slides-03.html#learn-more",
+    "href": "slides/slides-03.html#learn-more",
+    "title": "Programming with LLMs",
+    "section": "Learn more",
+    "text": "Learn more\n\nRanking of models: Artificial Analysis\nOpenAI models\nAnthropic models\nGoogle Gemini models"
+  },
+  {
+    "objectID": "slides/slides-03.html#ellmer",
+    "href": "slides/slides-03.html#ellmer",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "Providers\n\nchat_openai()\nchat_anthropic()\nchat_google_gemini()\n\n\n\nLocal models\n\nchat_ollama()\n\n\n\nEnterprise\n\nchat_aws_bedrock()\n\n\n\n\nhttps://ellmer.tidyverse.org/"
+  },
+  {
+    "objectID": "slides/slides-03.html#chatlas",
+    "href": "slides/slides-03.html#chatlas",
+    "title": "Programming with LLMs",
+    "section": "",
+    "text": "chatlas\n\n\n\nProviders\n\nChatOpenAI()\nChatAnthropic()\nChatGoogle()\n\nLocal models\n\nChatOllama()\n\nEnterprise\n\nChatBedrockAnthropic()\n\n\n\nhttps://posit-dev.github.io/chatlas/get-started/models.html"
+  },
+  {
+    "objectID": "slides/slides-03.html#chat-in-easy-mode",
+    "href": "slides/slides-03.html#chat-in-easy-mode",
+    "title": "Programming with LLMs",
+    "section": "Chat in Easy Mode",
+    "text": "Chat in Easy Mode\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic\")\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"anthropic\")"
+  },
+  {
+    "objectID": "slides/slides-03.html#chat-in-easy-mode-1",
+    "href": "slides/slides-03.html#chat-in-easy-mode-1",
+    "title": "Programming with LLMs",
+    "section": "Chat in Easy Mode",
+    "text": "Chat in Easy Mode\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic\")\n#&gt; Using model = \"claude-sonnet-4-20250514\".\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"anthropic\")\n#&gt; Anthropic/claude-sonnet-4-0"
+  },
+  {
+    "objectID": "slides/slides-03.html#chat-in-easy-mode-2",
+    "href": "slides/slides-03.html#chat-in-easy-mode-2",
+    "title": "Programming with LLMs",
+    "section": "Chat in Easy Mode",
+    "text": "Chat in Easy Mode\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai\")\n#&gt; Using model = \"gpt-4.1\".\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai\")\n#&gt; OpenAI/gpt-4.1"
+  },
+  {
+    "objectID": "slides/slides-03.html#chat-in-easy-mode-3",
+    "href": "slides/slides-03.html#chat-in-easy-mode-3",
+    "title": "Programming with LLMs",
+    "section": "Chat in Easy Mode",
+    "text": "Chat in Easy Mode\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")"
+  },
+  {
+    "objectID": "slides/slides-03.html#section-18",
+    "href": "slides/slides-03.html#section-18",
     "title": "Programming with LLMs",
     "section": "",
     "text": "Explain ellmer::type_*() or pydantic model in chatlas\nNote use_attribute_docstrings"
