@@ -8,16 +8,69 @@ editor:
   render-on-save: true
 ---
 
-# Prompt engineering
-
-straight into activity
+# [Prompt engineering]{.white .dib style="text-align: center; width: 100%;"} {.no-invert-dark-mode background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" background-size="cover" background-position="bottom left"}
 
 # Your Turn `12_plot-image-1` {.slide-your-turn}
 
+1. ellmer and chatlas let you show the model your plots!
+
+2. Create a basic `mctars` scatter plot and ask GPT-5 to interpret it.
+
+3. How does it do?
+
+{{< countdown 3:00 left=0 bottom="-2em" >}}
+
 # Your Turn `13_plot-image-2` {.slide-your-turn}
 
-# Prompt engineering
+1. Replace the scatter plot with random noise.
 
-actual discussion of prompt engineering
+2. Show this new plot to GPT-5 and ask it to interpret it. How does it do this time?
+
+3. Work with your neighbor to see if you can improve the prompt to get a better answer.
+
+{{< countdown 6:00 left=0 bottom="-2em" >}}
+
+# [Prompt engineering]{.white .dib style="text-align: center; width: 100%;"} {.no-invert-dark-mode background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" background-size="cover" background-position="bottom left"}
+
+## Three questions to ask yourself
+
+::: incremental
+1. Did you use the best models?
+
+1. Did you explain what you want the model to do in the system prompt?
+
+1. Did you provide examples of what you want?
+:::
+
+::: notes
+> There's going to be 3 questions we're usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1
+>
+> so number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?
+>
+>  And then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see.
+:::
+
+## System prompt vs. user prompt
+
+Short answer: put instructions and background knowledge in the system prompt.
+
+<!-- TODO(jcheng5): More tips and examples here, please -->
+<!-- e.g. Use XML tags to give structure, etc. -->
 
 # Your Turn `14_quiz-game-1` {.slide-your-turn}
+
+::: {style="width: 90%;"}
+1. Your job: teach the model to play a quiz game with you:
+
+1. The user picks a theme from a short list provided by the model.
+
+1. They then answer multiple choice questions on that theme.
+
+1. After each question, tell the user if they were right or wrong and why.
+   Then go to the next question.
+
+1. After 5 questions, end the round and tell the user they won, regardless of their score.
+   Then, start a new round.
+:::
+
+{{< countdown 8:00 left=0 bottom="-1em" >}}
