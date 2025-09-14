@@ -870,7 +870,7 @@ def server(input, output, session):
 
 app = App(app_ui, server)
 ```
-o
+
 ## shinychat in Python {style="--code-font-size: var(--shinychat-code-font-size)" auto-animate=true}
 
 When the user submits a message...

@@ -947,18 +947,25 @@
     "href": "slides/slides-02.html#shinychat-in-python-3",
     "title": "Anatomy of a conversation",
     "section": "shinychat in Python",
-    "text": "shinychat in Python\nAdd the Chat UI and server logic (client and chat aren’t connected yet!)\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\")\n\napp = App(app_ui, server)\no ## shinychat in Python {style=“–code-font-size: var(–shinychat-code-font-size)” auto-animate=true}\nWhen the user submits a message…\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        # Send input to LLM\n        # Send response back to UI\n\napp = App(app_ui, server)"
+    "text": "shinychat in Python\nAdd the Chat UI and server logic (client and chat aren’t connected yet!)\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\")\n\napp = App(app_ui, server)"
   },
   {
     "objectID": "slides/slides-02.html#shinychat-in-python-4",
     "href": "slides/slides-02.html#shinychat-in-python-4",
     "title": "Anatomy of a conversation",
     "section": "shinychat in Python",
-    "text": "shinychat in Python\nwe’ll send the input to the LLM…\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        response = await client.stream_async(user_input)\n        # Send response back to UI\n\napp = App(app_ui, server)"
+    "text": "shinychat in Python\nWhen the user submits a message…\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        # Send input to LLM\n        # Send response back to UI\n\napp = App(app_ui, server)"
   },
   {
     "objectID": "slides/slides-02.html#shinychat-in-python-5",
     "href": "slides/slides-02.html#shinychat-in-python-5",
+    "title": "Anatomy of a conversation",
+    "section": "shinychat in Python",
+    "text": "shinychat in Python\nwe’ll send the input to the LLM…\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        response = await client.stream_async(user_input)\n        # Send response back to UI\n\napp = App(app_ui, server)"
+  },
+  {
+    "objectID": "slides/slides-02.html#shinychat-in-python-6",
+    "href": "slides/slides-02.html#shinychat-in-python-6",
     "title": "Anatomy of a conversation",
     "section": "shinychat in Python",
     "text": "shinychat in Python\n…and then stream the response back to the UI.\nimport chatlas\nfrom shiny import App, ui\n\napp_ui = ui.page_fillable(\n    ui.chat_ui(\"chat\")\n)\n\ndef server(input, output, session):\n    client = chatlas.ChatOpenAI()\n    chat = ui.Chat(\"chat\", client)\n\n    @chat.on_user_submit\n    async def _(user_input: str):\n        response = await client.stream_async(user_input)\n        await chat.append_message_stream(response)\n\napp = App(app_ui, server)"
@@ -982,6 +989,6 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is sandwich.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
   }
 ]

@@ -984,7 +984,7 @@ through hands-on experience.</p></li>
 <li><p>Share your best on Discord 😉</p></li>
 </ol>
 </div>
-<div id="timer_51f42e2ebc02b5d1822a543b6d90c55e9ed5e9e8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<div id="timer_9e4b64536bdc382350f263ede2d59c782d697f4c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1176,39 +1176,41 @@ through hands-on experience.</p></li>
 <section id="shinychat-in-python-3" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">shinychat in Python</h2>
 <p>Add the Chat UI and server logic (client and chat aren’t connected yet!)</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32" data-code-line-numbers="5,10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a><span class="im">import</span> chatlas</span>
-<span id="cb32-2"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
-<span id="cb32-3"><a></a></span>
-<span id="cb32-4"><a></a>app_ui <span class="op">=</span> ui.page_fillable(</span>
-<span id="cb32-5"><a></a>    ui.chat_ui(<span class="st">"chat"</span>)</span>
-<span id="cb32-6"><a></a>)</span>
-<span id="cb32-7"><a></a></span>
-<span id="cb32-8"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb32-9"><a></a>    client <span class="op">=</span> chatlas.ChatOpenAI()</span>
-<span id="cb32-10"><a></a>    chat <span class="op">=</span> ui.Chat(<span class="st">"chat"</span>)</span>
-<span id="cb32-11"><a></a></span>
-<span id="cb32-12"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>o ## shinychat in Python {style=“–code-font-size: var(–shinychat-code-font-size)” auto-animate=true}</p>
-<p>When the user submits a message…</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33" data-code-line-numbers="12-15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a><span class="im">import</span> chatlas</span>
-<span id="cb33-2"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
-<span id="cb33-3"><a></a></span>
-<span id="cb33-4"><a></a>app_ui <span class="op">=</span> ui.page_fillable(</span>
-<span id="cb33-5"><a></a>    ui.chat_ui(<span class="st">"chat"</span>)</span>
-<span id="cb33-6"><a></a>)</span>
-<span id="cb33-7"><a></a></span>
-<span id="cb33-8"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
-<span id="cb33-9"><a></a>    client <span class="op">=</span> chatlas.ChatOpenAI()</span>
-<span id="cb33-10"><a></a>    chat <span class="op">=</span> ui.Chat(<span class="st">"chat"</span>, client)</span>
-<span id="cb33-11"><a></a></span>
-<span id="cb33-12"><a></a>    <span class="at">@chat.on_user_submit</span></span>
-<span id="cb33-13"><a></a>    <span class="cf">async</span> <span class="kw">def</span> _(user_input: <span class="bu">str</span>):</span>
-<span id="cb33-14"><a></a>        <span class="co"># Send input to LLM</span></span>
-<span id="cb33-15"><a></a>        <span class="co"># Send response back to UI</span></span>
-<span id="cb33-16"><a></a></span>
-<span id="cb33-17"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32" data-code-line-numbers="5,10"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb32-1" class="hljs-ln-code"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb32-2" class="hljs-ln-code"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
+<span id="cb32-3" class="hljs-ln-code"><a></a></span>
+<span id="cb32-4" class="hljs-ln-code"><a></a>app_ui <span class="op">=</span> ui.page_fillable(</span>
+<span id="cb32-5" class="hljs-ln-code"><a></a>    ui.chat_ui(<span class="st">"chat"</span>)</span>
+<span id="cb32-6" class="hljs-ln-code"><a></a>)</span>
+<span id="cb32-7" class="hljs-ln-code"><a></a></span>
+<span id="cb32-8" class="hljs-ln-code"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb32-9" class="hljs-ln-code"><a></a>    client <span class="op">=</span> chatlas.ChatOpenAI()</span>
+<span id="cb32-10" class="hljs-ln-code"><a></a>    chat <span class="op">=</span> ui.Chat(<span class="st">"chat"</span>)</span>
+<span id="cb32-11" class="hljs-ln-code"><a></a></span>
+<span id="cb32-12" class="hljs-ln-code"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="shinychat-in-python-4" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">shinychat in Python</h2>
+<p>When the user submits a message…</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33" data-code-line-numbers="12-15"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb33-1" class="hljs-ln-code"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb33-2" class="hljs-ln-code"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, ui</span>
+<span id="cb33-3" class="hljs-ln-code"><a></a></span>
+<span id="cb33-4" class="hljs-ln-code"><a></a>app_ui <span class="op">=</span> ui.page_fillable(</span>
+<span id="cb33-5" class="hljs-ln-code"><a></a>    ui.chat_ui(<span class="st">"chat"</span>)</span>
+<span id="cb33-6" class="hljs-ln-code"><a></a>)</span>
+<span id="cb33-7" class="hljs-ln-code"><a></a></span>
+<span id="cb33-8" class="hljs-ln-code"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb33-9" class="hljs-ln-code"><a></a>    client <span class="op">=</span> chatlas.ChatOpenAI()</span>
+<span id="cb33-10" class="hljs-ln-code"><a></a>    chat <span class="op">=</span> ui.Chat(<span class="st">"chat"</span>, client)</span>
+<span id="cb33-11" class="hljs-ln-code"><a></a></span>
+<span id="cb33-12" class="hljs-ln-code"><a></a>    <span class="at">@chat.on_user_submit</span></span>
+<span id="cb33-13" class="hljs-ln-code"><a></a>    <span class="cf">async</span> <span class="kw">def</span> _(user_input: <span class="bu">str</span>):</span>
+<span id="cb33-14" class="hljs-ln-code"><a></a>        <span class="co"># Send input to LLM</span></span>
+<span id="cb33-15" class="hljs-ln-code"><a></a>        <span class="co"># Send response back to UI</span></span>
+<span id="cb33-16" class="hljs-ln-code"><a></a></span>
+<span id="cb33-17" class="hljs-ln-code"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="shinychat-in-python-5" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">shinychat in Python</h2>
 <p>we’ll send the input to the LLM…</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34" data-code-line-numbers="14"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb34-1" class="hljs-ln-code"><a></a><span class="im">import</span> chatlas</span>
@@ -1229,7 +1231,7 @@ through hands-on experience.</p></li>
 <span id="cb34-16" class="hljs-ln-code"><a></a></span>
 <span id="cb34-17" class="hljs-ln-code"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="shinychat-in-python-5" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
+<section id="shinychat-in-python-6" class="slide level2" style="--code-font-size: var(--shinychat-code-font-size)" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">shinychat in Python</h2>
 <p>…and then stream the response back to the UI.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35" data-code-line-numbers="15"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb35-1" class="hljs-ln-code"><a></a><span class="im">import</span> chatlas</span>
@@ -1258,7 +1260,7 @@ through hands-on experience.</p></li>
 <li><p>Your job: create a chatbot that plays the word guessing game with you.</p></li>
 <li><p>The twist: this time, you’re guessing the word.</p></li>
 </ol>
-<div id="timer_51f42e2ebc02b5d1822a543b6d90c55e9ed5e9e8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
+<div id="timer_9e4b64536bdc382350f263ede2d59c782d697f4c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: -1em;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1311,7 +1313,7 @@ through hands-on experience.</p></li>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>'The secret word is sandwich.'</code></pre>
+<pre><code>'The secret word is elephant.'</code></pre>
 </div>
 </div>
 
