@@ -7,365 +7,365 @@
     "text": "Joe Cheng\n        CTO, Posit\n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n            \n        \n    \n\n    \n        \n        Garrick Aden-Buie\n        Software Engineer, Shiny\n        \n            Instructor\n        \n        \n            \n            \n                 GitHub\n            \n                 Bluesky\n            \n                 LinkedIn\n            \n            \n        \n    \n\n    \n        \n        Karan Gathani\n        Software QA Engineer, Shiny\n        \n            Assistant\n        \n        \n    \n\n    \n        \n        Julia Silge\n        Engineering Manager, Positron\n        \n            Assistant\n        \n        \n    \n\n    \n        \n        Sam Clark\n        Software Engineer, Positron\n        \n            Assistant\n        \n        \n    \n\n    \n        \n        James Blair\n        Senior Product Manager, Posit Cloud\n        \n            Assistant\n        \n        \n    \n\n\nNo matching items"
   },
   {
-    "objectID": "slides/slides-03.html#section",
-    "href": "slides/slides-03.html#section",
+    "objectID": "slides/slides-04.html#section",
+    "href": "slides/slides-04.html#section",
     "title": "Programming with LLMs",
     "section": "",
     "text": "Provider\n\ncompany that hosts and serves models\n\nModel\n\na specific LLM with particular capabilities"
   },
   {
-    "objectID": "slides/slides-03.html#how-are-models-different",
-    "href": "slides/slides-03.html#how-are-models-different",
+    "objectID": "slides/slides-04.html#how-are-models-different",
+    "href": "slides/slides-04.html#how-are-models-different",
     "title": "Programming with LLMs",
     "section": "How are models different?",
     "text": "How are models different?\n\nContent: How many tokens can you give the model?\nSpeed: How many tokens per second?\nCost: How much does it cost to use the model?\nIntelligence: How smart is the model?\nCapabilities: Vision, reasoning, tools, etc.\n\n\n\nContent: 200k tokens is normal, 1M tokens in some newer models\nSpeed: Gemini Flash hits ~350 tokens/sec, 100-200 is very fast, 50-100 normal. Speed is often a trade-off with intelligence.\nCost: $1-5 per million tokens is normal for big frontier models, &lt; $1 for smaller, faster models\nIntelligence is a stand-in for lots of concepts"
   },
   {
-    "objectID": "slides/slides-03.html#how-are-models-different-1",
-    "href": "slides/slides-03.html#how-are-models-different-1",
+    "objectID": "slides/slides-04.html#how-are-models-different-1",
+    "href": "slides/slides-04.html#how-are-models-different-1",
     "title": "Programming with LLMs",
     "section": "How are models different?",
     "text": "How are models different?\n\nContent: How many tokens can you give the model?\nSpeed: How many tokens per second?\nCost: How much does it cost to use the model?\nIntelligence: How smart is the model?\nCapabilities: Vision, reasoning, tools, etc."
   },
   {
-    "objectID": "slides/slides-03.html#how-are-models-different-2",
-    "href": "slides/slides-03.html#how-are-models-different-2",
+    "objectID": "slides/slides-04.html#how-are-models-different-2",
+    "href": "slides/slides-04.html#how-are-models-different-2",
     "title": "Programming with LLMs",
     "section": "How are models different?",
     "text": "How are models different?\n\nContent: How many tokens can you give the model?\nSpeed: How many tokens per second?\nCost: How much does it cost to use the model?\nIntelligence: How smart is the model?\nCapabilities: Vision, reasoning, tools, etc."
   },
   {
-    "objectID": "slides/slides-03.html#section-8",
-    "href": "slides/slides-03.html#section-8",
+    "objectID": "slides/slides-04.html#section-8",
+    "href": "slides/slides-04.html#section-8",
     "title": "Programming with LLMs",
     "section": "",
     "text": "We’ll start with Anthropic, a company that builds LLMs, in particular a family of models they call Claude."
   },
   {
-    "objectID": "slides/slides-03.html#section-9",
-    "href": "slides/slides-03.html#section-9",
+    "objectID": "slides/slides-04.html#section-9",
+    "href": "slides/slides-04.html#section-9",
     "title": "Programming with LLMs",
     "section": "",
     "text": "Claude comes in different sizes, with different levels of intelligence.\nThey have a small model that’s fast and cheap, a large model that’s intelligent but expensive, and a just-right sized model that balances speed, cost, and intelligence."
   },
   {
-    "objectID": "slides/slides-03.html#section-10",
-    "href": "slides/slides-03.html#section-10",
+    "objectID": "slides/slides-04.html#section-10",
+    "href": "slides/slides-04.html#section-10",
     "title": "Programming with LLMs",
     "section": "",
     "text": "In line with Anthropic’s branding, these models are named after different types of poetry.\n\nHaiku is small, fast, and cheap\nSonnet is larger, more expensive, and more intelligent\nOpus is the largest, most expensive, and most intelligent\n\nAnthropic’s poetry naming offsets the fact that Anthropic has one of the most consistent naming schemes in the industry. (Yes, that’s says a lot.)"
   },
   {
-    "objectID": "slides/slides-03.html#section-11",
-    "href": "slides/slides-03.html#section-11",
+    "objectID": "slides/slides-04.html#section-11",
+    "href": "slides/slides-04.html#section-11",
     "title": "Programming with LLMs",
     "section": "",
     "text": "But there isn’t just one Claude model at different sizes. Anthropic keeps training new models which they generally release with a new version number.\n\nClaude 3.5 was released a year ago (in June 2024)\nClaude 3.7 was released earlier this year (Feb. 2025)\nClaude 4 was just released in May 2025\n\nAll four of these models are still active and available."
   },
   {
-    "objectID": "slides/slides-03.html#section-12",
-    "href": "slides/slides-03.html#section-12",
+    "objectID": "slides/slides-04.html#section-12",
+    "href": "slides/slides-04.html#section-12",
     "title": "Programming with LLMs",
     "section": "",
     "text": "When you’re choosing a model, you can get higher quality responses by moving up a size tier."
   },
   {
-    "objectID": "slides/slides-03.html#section-13",
-    "href": "slides/slides-03.html#section-13",
+    "objectID": "slides/slides-04.html#section-13",
+    "href": "slides/slides-04.html#section-13",
     "title": "Programming with LLMs",
     "section": "",
     "text": "And when new releases come out, you can often get similar quality improvements by moving up a version number. (This move tends to be cheaper than moving up a size tier.)"
   },
   {
-    "objectID": "slides/slides-03.html#section-14",
-    "href": "slides/slides-03.html#section-14",
+    "objectID": "slides/slides-04.html#section-14",
+    "href": "slides/slides-04.html#section-14",
     "title": "Programming with LLMs",
     "section": "",
     "text": "Oh, wait, sorry, to be very technically accurate, it turns out that the Opus models are only available for Claude 3 and Claude 4, but not for the intermediate versions 3.5 and 3.7.\nIt remains to be seen if this will be an enduring pattern, or just they way things happened for 3.5 and 3.7."
   },
   {
-    "objectID": "slides/slides-03.html#model-comparison",
-    "href": "slides/slides-03.html#model-comparison",
+    "objectID": "slides/slides-04.html#model-comparison",
+    "href": "slides/slides-04.html#model-comparison",
     "title": "Programming with LLMs",
     "section": "",
     "text": "OpenAIAnthropicGeminiPerplexityMistral\n\n\n\n\n\n\n\n\n\n\nModel\nSpeed\nIntelligence\nContext\n\n\n\n\n\n\nGPT-4\n\n\n\n\n\n\n\n\n\n\n8K\n\n\n\n\n\n\n\n\nGPT-4 Turbo\n\n\n\n\n\n\n\n\n\n\n127K\n\n\n\n\n\n\n\n\nGPT-4.1\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\n\n\n\n\nGPT-4.1 mini\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\n\n\n\n\nGPT-4.1 nano\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\n\n\n\n\nGPT-4o\n\n\n\n\n\n\n\n\n\n\n127K\n\nVision\n\n\n\n\n\n\nGPT-4o mini\n\n\n\n\n\n\n\n\n\n\n127K\n\nVision\n\n\n\n\n\n\nGPT-5\n\n\n\n\n\n\n\n\n\n\n400K\n\nVision\n\n\n\n\n\n\nGPT-5 Reasoning\n\n\n\n\n\n\n\n\n\n\n400K\n\nVision\n\n\nReasoning\n\n\n\nGPT-5 mini\n\n\n\n\n\n\n\n\n\n\n400K\n\nVision\n\n\n\n\n\n\nGPT-5 nano\n\n\n\n\n\n\n\n\n\n\n400K\n\nVision\n\n\n\n\n\n\no1\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\no3\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\no3-mini\n\n\n\n\n\n\n\n\n\n\n200K\n\n\n\n\nReasoning\n\n\n\no4-mini\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nSpeed\nIntelligence\nContext\n\n\n\n\n\n\nClaude 3.5 Haiku\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 3.5 Sonnet\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 3.7 Sonnet\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 3.7 Sonnet (Reasoning)\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\nClaude 4 Opus\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 4 Opus (Reasoning)\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\nClaude 4 Sonnet\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 4 Sonnet (Reasoning)\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\nClaude 4.1 Opus\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nClaude 4.1 Opus (Reasoning)\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\nReasoning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nSpeed\nIntelligence\nContext\n\n\n\n\n\n\nGemini 2.0 Flash\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\n\n\n\n\nGemini 2.5 Flash\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\nReasoning\n\n\n\nGemini 2.5 Flash Lite\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\n\n\n\n\nGemini 2.5 Pro\n\n\n\n\n\n\n\n\n\n\n1M\n\nVision\n\n\nReasoning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nSpeed\nIntelligence\nContext\n\n\n\n\n\n\nSonar\n\n\n\n\n\n\n\n\n\n\n127K\n\nVision\n\n\n\n\n\n\nSonar Pro\n\n\n\n\n\n\n\n\n\n\n200K\n\nVision\n\n\n\n\n\n\nSonar Reasoning\n\n\n\n\n\n\n\n\n\n\n127K\n\nVision\n\n\nReasoning\n\n\n\nSonar Reasoning Pro\n\n\n\n\n\n\n\n\n\n\n127K\n\nVision\n\n\nReasoning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nSpeed\nIntelligence\nContext\n\n\n\n\n\n\nCodestral\n\n\n\n\n\n\n\n\n\n\n256K\n\n\n\n\n\n\n\n\nMistral Large\n\n\n\n\n\n\n\n\n\n\n128K\n\n\n\n\n\n\n\n\nMistral Medium\n\n\n\n\n\n\n\n\n\n\n128K\n\n\n\n\n\n\n\n\nMistral Nemo\n\n\n\n\n\n\n\n\n\n\n128K\n\n\n\n\n\n\n\n\nMistral Small 3\n\n\n\n\n\n\n\n\n\n\n32K\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOpenAI: Widest adoption, most popular models, excellent API and tooling. Industry leader.\nAnthropic: Focus on safety and alignment, strong coding capabilities, excellent at complex analysis and creative tasks.\nGemini: Google’s offering, large context windows, cheap and integrates with all things Google.\nPerplexity: Real-time information, focus on reducing hallucinations, strong at fact-based tasks.\nMistral: Open-source models, GDPR compliant in Europe, transparent training."
   },
   {
-    "objectID": "slides/slides-03.html#choose-a-model",
-    "href": "slides/slides-03.html#choose-a-model",
+    "objectID": "slides/slides-04.html#choose-a-model",
+    "href": "slides/slides-04.html#choose-a-model",
     "title": "Programming with LLMs",
     "section": "Choose a model",
     "text": "Choose a model\n\n\n\nTask\nOpenAI\nAnthropic\nGemini\n\n\n\n\nCoding\nGPT-5\nClaude 4 Sonnet\nGemini 2.5 Pro\n\n\nFast/General\nGPT-5 mini\nClaude 3.5 Sonnet\nGemini 2.0 Flash\n\n\nComplex Tasks\no3\nClaude 4 Opus\nGemini 2.5 Pro\n\n\nCost-Effective\nMini\nHaiku\nFlash"
   },
   {
-    "objectID": "slides/slides-03.html#learn-more",
-    "href": "slides/slides-03.html#learn-more",
+    "objectID": "slides/slides-04.html#learn-more",
+    "href": "slides/slides-04.html#learn-more",
     "title": "Programming with LLMs",
     "section": "Learn more",
     "text": "Learn more\n\nRanking of models: Artificial Analysis\nOpenAI models\nAnthropic models\nGoogle Gemini models"
   },
   {
-    "objectID": "slides/slides-03.html#ellmer",
-    "href": "slides/slides-03.html#ellmer",
+    "objectID": "slides/slides-04.html#ellmer",
+    "href": "slides/slides-04.html#ellmer",
     "title": "Programming with LLMs",
     "section": "",
     "text": "Providers\n\nchat_openai()\nchat_anthropic()\nchat_google_gemini()\n\n\n\nLocal models\n\nchat_ollama()\n\n\n\nEnterprise\n\nchat_aws_bedrock()\n\n\n\n\nhttps://ellmer.tidyverse.org/"
   },
   {
-    "objectID": "slides/slides-03.html#chatlas",
-    "href": "slides/slides-03.html#chatlas",
+    "objectID": "slides/slides-04.html#chatlas",
+    "href": "slides/slides-04.html#chatlas",
     "title": "Programming with LLMs",
     "section": "",
     "text": "chatlas\n\n\n\nProviders\n\nChatOpenAI()\nChatAnthropic()\nChatGoogle()\n\nLocal models\n\nChatOllama()\n\nEnterprise\n\nChatBedrockAnthropic()\n\n\n\nhttps://posit-dev.github.io/chatlas/get-started/models.html"
   },
   {
-    "objectID": "slides/slides-03.html#chat-in-easy-mode",
-    "href": "slides/slides-03.html#chat-in-easy-mode",
+    "objectID": "slides/slides-04.html#chat-in-easy-mode",
+    "href": "slides/slides-04.html#chat-in-easy-mode",
     "title": "Programming with LLMs",
     "section": "Chat in Easy Mode",
     "text": "Chat in Easy Mode\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic\")\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"anthropic\")"
   },
   {
-    "objectID": "slides/slides-03.html#chat-in-easy-mode-1",
-    "href": "slides/slides-03.html#chat-in-easy-mode-1",
+    "objectID": "slides/slides-04.html#chat-in-easy-mode-1",
+    "href": "slides/slides-04.html#chat-in-easy-mode-1",
     "title": "Programming with LLMs",
     "section": "Chat in Easy Mode",
     "text": "Chat in Easy Mode\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"anthropic\")\n#&gt; Using model = \"claude-sonnet-4-20250514\".\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"anthropic\")\n#&gt; Anthropic/claude-sonnet-4-0"
   },
   {
-    "objectID": "slides/slides-03.html#chat-in-easy-mode-2",
-    "href": "slides/slides-03.html#chat-in-easy-mode-2",
+    "objectID": "slides/slides-04.html#chat-in-easy-mode-2",
+    "href": "slides/slides-04.html#chat-in-easy-mode-2",
     "title": "Programming with LLMs",
     "section": "Chat in Easy Mode",
     "text": "Chat in Easy Mode\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai\")\n#&gt; Using model = \"gpt-4.1\".\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai\")\n#&gt; OpenAI/gpt-4.1"
   },
   {
-    "objectID": "slides/slides-03.html#chat-in-easy-mode-3",
-    "href": "slides/slides-03.html#chat-in-easy-mode-3",
+    "objectID": "slides/slides-04.html#chat-in-easy-mode-3",
+    "href": "slides/slides-04.html#chat-in-easy-mode-3",
     "title": "Programming with LLMs",
     "section": "Chat in Easy Mode",
     "text": "Chat in Easy Mode\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")"
   },
   {
-    "objectID": "slides/slides-03.html#favorite-models-for-today",
-    "href": "slides/slides-03.html#favorite-models-for-today",
+    "objectID": "slides/slides-04.html#favorite-models-for-today",
+    "href": "slides/slides-04.html#favorite-models-for-today",
     "title": "Programming with LLMs",
     "section": "Favorite models for today",
     "text": "Favorite models for today\n\nOpenAI\n\ngpt-4.1-nano\ngpt-5\n\nAnthropic\n\nclaude-sonnet-4-20250514\nclaude-3-5-haiku-20241022"
   },
   {
-    "objectID": "slides/slides-03.html#a-picture-is-worth-a-thousand-words",
-    "href": "slides/slides-03.html#a-picture-is-worth-a-thousand-words",
+    "objectID": "slides/slides-04.html#a-picture-is-worth-a-thousand-words",
+    "href": "slides/slides-04.html#a-picture-is-worth-a-thousand-words",
     "title": "Programming with LLMs",
     "section": "A picture is worth a thousand words",
     "text": "A picture is worth a thousand words\n\nOr for an LLM, a picture is roughly 227 words, or 170 tokens.\n\n\n🖼️ 🔍 Open Images Dataset"
   },
   {
-    "objectID": "slides/slides-03.html#content_image_file",
-    "href": "slides/slides-03.html#content_image_file",
+    "objectID": "slides/slides-04.html#content_image_file",
+    "href": "slides/slides-04.html#content_image_file",
     "title": "Programming with LLMs",
     "section": "🌆 content_image_file",
     "text": "🌆 content_image_file\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_image_file(\"cute-cats.jpg\"),\n  \"What do you see in this image?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    chatlas.content_image_file(\"cute-cats.jpg\"),\n    \"What do you see in this image?\"\n)"
   },
   {
-    "objectID": "slides/slides-03.html#content_image_url",
-    "href": "slides/slides-03.html#content_image_url",
+    "objectID": "slides/slides-04.html#content_image_url",
+    "href": "slides/slides-04.html#content_image_url",
     "title": "Programming with LLMs",
     "section": "🐈 content_image_url",
     "text": "🐈 content_image_url\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_image_url(\"https://placecats.com/bella/400/400\"),\n  \"What do you see in this image?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    chatlas.content_image_url(\"https://placecats.com/bella/400/400\"),\n    \"What do you see in this image?\"\n)"
   },
   {
-    "objectID": "slides/slides-03.html#your-turn-08_vision",
-    "href": "slides/slides-03.html#your-turn-08_vision",
+    "objectID": "slides/slides-04.html#your-turn-08_vision",
+    "href": "slides/slides-04.html#your-turn-08_vision",
     "title": "Programming with LLMs",
     "section": "Your Turn 08_vision",
     "text": "Your Turn 08_vision\n\nI’ve put some images of food in the data/recipes/images folder.\nYour job: show the food to the LLM and see if it gets hungry.\n\n\n  \n    −\n    +\n \n 05:00"
   },
   {
-    "objectID": "slides/slides-03.html#content_pdf_file",
-    "href": "slides/slides-03.html#content_pdf_file",
+    "objectID": "slides/slides-04.html#content_pdf_file",
+    "href": "slides/slides-04.html#content_pdf_file",
     "title": "Programming with LLMs",
     "section": "📑 content_pdf_file",
     "text": "📑 content_pdf_file\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_pdf_file(\"financial-report.pdf\"),\n  \"What's my tax liability for 2024?\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    content_pdf_file(\"financial-report.pdf\"),\n    \"What's my tax liability for 2024?\"\n)"
   },
   {
-    "objectID": "slides/slides-03.html#content_pdf_url",
-    "href": "slides/slides-03.html#content_pdf_url",
+    "objectID": "slides/slides-04.html#content_pdf_url",
+    "href": "slides/slides-04.html#content_pdf_url",
     "title": "Programming with LLMs",
     "section": "📑 content_pdf_url",
     "text": "📑 content_pdf_url\n\n ellmer\nlibrary(ellmer)\n\nchat &lt;- chat(\"openai/gpt-4.1-nano\")\nchat$chat(\n  content_pdf_url(\"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf\"),\n  \"Describe Tesla’s executive compensation and stock award programs.\"\n)\n chatlas\nimport chatlas\n\nchat = chatlas.ChatAuto(\"openai/gpt-4.1-nano\")\nchat.chat(\n    content_pdf_url(\"http://pdf.secdatabase.com/1757/0001104659-25-042659.pdf\"),\n    \"Describe Tesla’s executive compensation and stock award programs.\"\n)"
   },
   {
-    "objectID": "slides/slides-03.html#your-turn-09_pdf",
-    "href": "slides/slides-03.html#your-turn-09_pdf",
+    "objectID": "slides/slides-04.html#your-turn-09_pdf",
+    "href": "slides/slides-04.html#your-turn-09_pdf",
     "title": "Programming with LLMs",
     "section": "Your Turn 09_pdf",
     "text": "Your Turn 09_pdf\n\nWe have the actual recipes as PDFs in the data/recipes/pdf folder.\nYour job: ask the LLM to convert the recipes to markdown.\n\n\n  \n    −\n    +\n \n 05:00"
   },
   {
-    "objectID": "slides/slides-03.html#how-would-you-extract-name-and-age",
-    "href": "slides/slides-03.html#how-would-you-extract-name-and-age",
+    "objectID": "slides/slides-04.html#how-would-you-extract-name-and-age",
+    "href": "slides/slides-04.html#how-would-you-extract-name-and-age",
     "title": "Programming with LLMs",
     "section": "How would you extract name and age?",
     "text": "How would you extract name and age?\n\nage_free_text &lt;- list(\n    \"I go by Alex. 42 years on this planet and counting.\",\n    \"Pleased to meet you! I'm Jamal, age 27.\",\n    \"They call me Li Wei. Nineteen years young.\",\n    \"Fatima here. Just celebrated my 35th birthday last week.\",\n    \"The name's Robert - 51 years old and proud of it.\",\n    \"Kwame here - just hit the big 5-0 this year.\"\n)"
   },
   {
-    "objectID": "slides/slides-03.html#if-you-wrote-r-code-it-might-look-like-this",
-    "href": "slides/slides-03.html#if-you-wrote-r-code-it-might-look-like-this",
+    "objectID": "slides/slides-04.html#if-you-wrote-r-code-it-might-look-like-this",
+    "href": "slides/slides-04.html#if-you-wrote-r-code-it-might-look-like-this",
     "title": "Programming with LLMs",
     "section": "If you wrote R code, it might look like this…",
     "text": "If you wrote R code, it might look like this…\n\nword_to_num &lt;- function(x) {\n    # normalize\n    x &lt;- tolower(x)\n    # direct numbers\n    if (grepl(\"\\\\b\\\\d+\\\\b\", x)) return(as.integer(regmatches(x, regexpr(\"\\\\b\\\\d+\\\\b\", x))))\n    # hyphenated like \"5-0\"\n    if (grepl(\"\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b\", x)) {\n        parts &lt;- as.integer(unlist(strsplit(regmatches(x, regexpr(\"\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b\", x)), \"\\\\s*-\\\\s*\")))\n        return(10 * parts[1] + parts[2])\n    }\n    # simple word numbers\n    ones &lt;- c(\n        zero=0, one=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9,\n        ten=10, eleven=11, twelve=12, thirteen=13, fourteen=14, fifteen=15, sixteen=16,\n        seventeen=17, eighteen=18, nineteen=19\n    )\n    tens &lt;- c(twenty=20, thirty=30, forty=40, fifty=50, sixty=60, seventy=70, eighty=80, ninety=90)\n    # e.g., \"nineteen\"\n    if (x %in% names(ones)) return(ones[[x]])\n    # e.g., \"thirty five\" or \"thirty-five\"\n    x2 &lt;- gsub(\"-\", \" \", x)\n    parts &lt;- strsplit(x2, \"\\\\s+\")[[1]]\n    if (length(parts) == 2 && parts[1] %in% names(tens) && parts[2] %in% names(ones)) {\n        return(tens[[parts[1]]] + ones[[parts[2]]])\n    }\n    if (length(parts) == 1 && parts[1] %in% names(tens)) return(tens[[parts[1]]])\n    return(NA_integer_)\n}\n\n# Extract name candidates\nextract_name &lt;- function(s) {\n    # patterns that introduce a name\n    pats &lt;- c(\n        \"I go by\\\\s+([A-Z][a-z]+)\",\n        \"I'm\\\\s+([A-Z][a-z]+(?:\\\\s+[A-Z][a-z]+)?)\",\n        \"They call me\\\\s+([A-Z][a-z]+(?:\\\\s+[A-Z][a-z]+)?)\",\n        \"^([A-Z][a-z]+) here\",\n        \"The name's\\\\s+([A-Z][a-z]+)\",\n        \"^([A-Z][a-z]+)\\\\s\" # fallback: leading capital word\n    )\n    for (p in pats) {\n        m &lt;- regexpr(p, s, perl = TRUE)\n        if (m[1] != -1) {\n            return(sub(p, \"\\\\1\", regmatches(s, m)))\n        }\n    }\n    NA_character_\n}\n\n# Extract age phrases and convert to number\nextract_age &lt;- function(s) {\n    # capture common age phrases around a number\n    m &lt;- regexpr(\"(\\\\b\\\\d+\\\\b|\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b|\\\\b[Nn][a-z-]+\\\\b)\\\\s*(years|year|birthday|young|this)\", s, perl = TRUE)\n    if (m[1] != -1) {\n        token &lt;- sub(\"(years|year|birthday|young|this)$\", \"\", trimws(substring(s, m, m + attr(m, \"match.length\") - 1)))\n        return(word_to_num(token))\n    }\n    # handle pure word-number without trailing keyword (e.g., \"Nineteen years young.\" handled above)\n    m2 &lt;- regexpr(\"\\\\b([A-Z][a-z]+)\\\\b\\\\s+years\", s, perl = TRUE)\n    if (m2[1] != -1) {\n        token &lt;- tolower(sub(\"\\\\s+years.*\", \"\", regmatches(s, m2)))\n        return(word_to_num(token))\n    }\n    # handle hyphenated \"big 5-0\"\n    m3 &lt;- regexpr(\"big\\\\s+(\\\\d+\\\\s*-\\\\s*\\\\d+)\", s, perl = TRUE)\n    if (m3[1] != -1) {\n        token &lt;- sub(\"big\\\\s+\", \"\", regmatches(s, m3))\n        return(word_to_num(token))\n    }\n    NA_integer_\n}"
   },
   {
-    "objectID": "slides/slides-03.html#if-you-wrote-r-code-it-might-look-like-this-1",
-    "href": "slides/slides-03.html#if-you-wrote-r-code-it-might-look-like-this-1",
+    "objectID": "slides/slides-04.html#if-you-wrote-r-code-it-might-look-like-this-1",
+    "href": "slides/slides-04.html#if-you-wrote-r-code-it-might-look-like-this-1",
     "title": "Programming with LLMs",
     "section": "If you wrote R code, it might look like this…",
     "text": "If you wrote R code, it might look like this…\n\n\ndplyr::tibble(\n  name = purrr::map_chr(age_free_text, extract_name),\n  age = purrr::map_int(age_free_text, extract_age)\n)\n\n# A tibble: 6 × 2\n  name     age\n  &lt;chr&gt;  &lt;int&gt;\n1 Alex      42\n2 Jamal     NA\n3 Li Wei    NA\n4 Fatima    NA\n5 Robert    51\n6 Kwame      5\n\n\n\nage_free_text\n\n[[1]]\n[1] \"I go by Alex. 42 years on this planet and counting.\"\n\n[[2]]\n[1] \"Pleased to meet you! I'm Jamal, age 27.\"\n\n[[3]]\n[1] \"They call me Li Wei. Nineteen years young.\"\n\n[[4]]\n[1] \"Fatima here. Just celebrated my 35th birthday last week.\"\n\n[[5]]\n[1] \"The name's Robert - 51 years old and proud of it.\"\n\n[[6]]\n[1] \"Kwame here - just hit the big 5-0 this year.\"\n\n\n\n\n😬 not great, gpt-5."
   },
   {
-    "objectID": "slides/slides-03.html#but-if-you-ask-an-llm",
-    "href": "slides/slides-03.html#but-if-you-ask-an-llm",
+    "objectID": "slides/slides-04.html#but-if-you-ask-an-llm",
+    "href": "slides/slides-04.html#but-if-you-ask-an-llm",
     "title": "Programming with LLMs",
     "section": "But if you ask an LLM…",
     "text": "But if you ask an LLM…\nlibrary(ellmer)\n\nchat &lt;- chat(\n  \"openai/gpt-5-nano\",\n  system_prompt = \"Extract the name and age.\"\n)\n\nchat$chat(age_free_text[[1]])\n#&gt;\n\nchat$chat(age_free_text[[2]])\n#&gt;"
   },
   {
-    "objectID": "slides/slides-03.html#but-if-you-ask-an-llm-1",
-    "href": "slides/slides-03.html#but-if-you-ask-an-llm-1",
+    "objectID": "slides/slides-04.html#but-if-you-ask-an-llm-1",
+    "href": "slides/slides-04.html#but-if-you-ask-an-llm-1",
     "title": "Programming with LLMs",
     "section": "But if you ask an LLM…",
     "text": "But if you ask an LLM…\nlibrary(ellmer)\n\nchat &lt;- chat(\n  \"openai/gpt-5-nano\",\n  system_prompt = \"Extract the name and age.\"\n)\n\nchat$chat(age_free_text[[1]])\n#&gt; Name: Alex; Age: 42\n\nchat$chat(age_free_text[[2]])\n#&gt; Name: Jamal; Age: 27"
   },
   {
-    "objectID": "slides/slides-03.html#wouldnt-this-be-nice",
-    "href": "slides/slides-03.html#wouldnt-this-be-nice",
+    "objectID": "slides/slides-04.html#wouldnt-this-be-nice",
+    "href": "slides/slides-04.html#wouldnt-this-be-nice",
     "title": "Programming with LLMs",
     "section": "Wouldn’t this be nice?",
     "text": "Wouldn’t this be nice?\nchat$chat(age_free_text[[1]])\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
   },
   {
-    "objectID": "slides/slides-03.html#structured-chat-output",
-    "href": "slides/slides-03.html#structured-chat-output",
+    "objectID": "slides/slides-04.html#structured-chat-output",
+    "href": "slides/slides-04.html#structured-chat-output",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
     "text": "Structured chat output\nchat$chat_structured(age_free_text[[1]])\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
   },
   {
-    "objectID": "slides/slides-03.html#structured-chat-output-1",
-    "href": "slides/slides-03.html#structured-chat-output-1",
+    "objectID": "slides/slides-04.html#structured-chat-output-1",
+    "href": "slides/slides-04.html#structured-chat-output-1",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
     "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
   },
   {
-    "objectID": "slides/slides-03.html#structured-chat-output-2",
-    "href": "slides/slides-03.html#structured-chat-output-2",
+    "objectID": "slides/slides-04.html#structured-chat-output-2",
+    "href": "slides/slides-04.html#structured-chat-output-2",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
     "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; $name\n#&gt; [1] \"Alex\"\n#&gt;\n#&gt; $age\n#&gt; [1] 42"
   },
   {
-    "objectID": "slides/slides-03.html#ellmers-type-functions",
-    "href": "slides/slides-03.html#ellmers-type-functions",
+    "objectID": "slides/slides-04.html#ellmers-type-functions",
+    "href": "slides/slides-04.html#ellmers-type-functions",
     "title": "Programming with LLMs",
     "section": "ellmer’s type functions",
     "text": "ellmer’s type functions\n\n\ntype_person &lt;- type_object(\n  name = type_string(\"The person's name\"),\n  age = type_integer(\"The person's age in years\")\n)"
   },
   {
-    "objectID": "slides/slides-03.html#in-python-use-pydantic",
-    "href": "slides/slides-03.html#in-python-use-pydantic",
+    "objectID": "slides/slides-04.html#in-python-use-pydantic",
+    "href": "slides/slides-04.html#in-python-use-pydantic",
     "title": "Programming with LLMs",
     "section": "In Python, use Pydantic",
     "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel\n\nclass Person(BaseModel):\n    name: str\n    age: int\n\nchat = chatlas.ChatAuto(\"openai/gpt-5-nano\")\nchat.chat_structured(\n    \"I go by Alex. 42 years on this planet and counting.\",\n    data_model=Person\n)\n#&gt; Person(name='Alex', age=42)\n\nchatlas: Structured Data"
   },
   {
-    "objectID": "slides/slides-03.html#in-python-use-pydantic-1",
-    "href": "slides/slides-03.html#in-python-use-pydantic-1",
+    "objectID": "slides/slides-04.html#in-python-use-pydantic-1",
+    "href": "slides/slides-04.html#in-python-use-pydantic-1",
     "title": "Programming with LLMs",
     "section": "In Python, use Pydantic",
     "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel, Field\n\nclass Person(BaseModel):\n    name: str = Field(..., description=\"The person's name\")\n    age: int = Field(..., description=\"The person's age in years\")\n\nchat = chatlas.ChatAuto(\"openai/gpt-5-nano\")\nchat.chat_structured(\n    \"I go by Alex. 42 years on this planet and counting.\",\n    data_model=Person\n)\n#&gt; Person(name='Alex', age=42)"
   },
   {
-    "objectID": "slides/slides-03.html#in-python-use-pydantic-2",
-    "href": "slides/slides-03.html#in-python-use-pydantic-2",
+    "objectID": "slides/slides-04.html#in-python-use-pydantic-2",
+    "href": "slides/slides-04.html#in-python-use-pydantic-2",
     "title": "Programming with LLMs",
     "section": "In Python, use Pydantic",
     "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel, ConfigDict\n\nclass Person(BaseModel):\n    model_config = ConfigDict(use_attribute_docstrings=True)\n\n    name: str\n    \"\"\"The person's name\"\"\"\n    age: int\n    \"\"\"The person's age in years\"\"\"\n\npydantic: use_attribute_docstrings"
   },
   {
-    "objectID": "slides/slides-03.html#structured-chat-output-3",
-    "href": "slides/slides-03.html#structured-chat-output-3",
+    "objectID": "slides/slides-04.html#structured-chat-output-3",
+    "href": "slides/slides-04.html#structured-chat-output-3",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
     "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; $name\n#&gt; [1] \"Alex\"\n#&gt;\n#&gt; $age\n#&gt; [1] 42"
   },
   {
-    "objectID": "slides/slides-03.html#structured-chat-output-4",
-    "href": "slides/slides-03.html#structured-chat-output-4",
+    "objectID": "slides/slides-04.html#structured-chat-output-4",
+    "href": "slides/slides-04.html#structured-chat-output-4",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
     "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text, type = type_person)\n#&gt; ???"
   },
   {
-    "objectID": "slides/slides-03.html#structured-chat-output-5",
-    "href": "slides/slides-03.html#structured-chat-output-5",
+    "objectID": "slides/slides-04.html#structured-chat-output-5",
+    "href": "slides/slides-04.html#structured-chat-output-5",
     "title": "Programming with LLMs",
     "section": "Structured chat output",
     "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text, type = type_person)\n#&gt; Error in `FUN()`:\n#&gt; ! `...` must be made up strings or &lt;content&gt; objects, not a list."
   },
   {
-    "objectID": "slides/slides-03.html#parallel-chat-calls",
-    "href": "slides/slides-03.html#parallel-chat-calls",
+    "objectID": "slides/slides-04.html#parallel-chat-calls",
+    "href": "slides/slides-04.html#parallel-chat-calls",
     "title": "Programming with LLMs",
     "section": "Parallel chat calls",
     "text": "Parallel chat calls\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)"
   },
   {
-    "objectID": "slides/slides-03.html#parallel-chat-calls-1",
-    "href": "slides/slides-03.html#parallel-chat-calls-1",
+    "objectID": "slides/slides-04.html#parallel-chat-calls-1",
+    "href": "slides/slides-04.html#parallel-chat-calls-1",
     "title": "Programming with LLMs",
     "section": "Parallel chat calls",
     "text": "Parallel chat calls\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)\n#&gt; [working] (0 + 0) -&gt; 2 -&gt; 4 | ■■■■■■■■■■■■■■■■■■■■■             67%"
   },
   {
-    "objectID": "slides/slides-03.html#parallel-chat-calls-2",
-    "href": "slides/slides-03.html#parallel-chat-calls-2",
+    "objectID": "slides/slides-04.html#parallel-chat-calls-2",
+    "href": "slides/slides-04.html#parallel-chat-calls-2",
     "title": "Programming with LLMs",
     "section": "Parallel chat calls",
     "text": "Parallel chat calls\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)\n#&gt;     name age\n#&gt; 1   Alex  42\n#&gt; 2  Jamal  27\n#&gt; 3 Li Wei  19\n#&gt; 4 Fatima  35\n#&gt; 5 Robert  51\n#&gt; 6  Kwame  50"
   },
   {
-    "objectID": "slides/slides-03.html#batch-chat-calls",
-    "href": "slides/slides-03.html#batch-chat-calls",
+    "objectID": "slides/slides-04.html#batch-chat-calls",
+    "href": "slides/slides-04.html#batch-chat-calls",
     "title": "Programming with LLMs",
     "section": "Batch chat calls",
     "text": "Batch chat calls\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)"
   },
   {
-    "objectID": "slides/slides-03.html#batch-chat-calls-1",
-    "href": "slides/slides-03.html#batch-chat-calls-1",
+    "objectID": "slides/slides-04.html#batch-chat-calls-1",
+    "href": "slides/slides-04.html#batch-chat-calls-1",
     "title": "Programming with LLMs",
     "section": "Batch chat calls",
     "text": "Batch chat calls\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  path = \"people.json\"\n)"
   },
   {
-    "objectID": "slides/slides-03.html#batch-chat-calls-2",
-    "href": "slides/slides-03.html#batch-chat-calls-2",
+    "objectID": "slides/slides-04.html#batch-chat-calls-2",
+    "href": "slides/slides-04.html#batch-chat-calls-2",
     "title": "Programming with LLMs",
     "section": "Batch chat calls",
     "text": "Batch chat calls\nchat &lt;- chat(\"anthropic/claude-3-5-haiku-20241022\")\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  path = \"people.json\"\n)"
   },
   {
-    "objectID": "slides/slides-03.html#batch-vs.-parallel",
-    "href": "slides/slides-03.html#batch-vs.-parallel",
+    "objectID": "slides/slides-04.html#batch-vs.-parallel",
+    "href": "slides/slides-04.html#batch-vs.-parallel",
     "title": "Programming with LLMs",
     "section": "Batch vs. parallel",
     "text": "Batch vs. parallel\n\n\nParallel\n\n🌲 Works for any provider/model \n⚡ Much faster for small jobs\n💸 More expensive\n😓 Not easy to stop/resume\n🔜 Coming soon to chatlas\n\n\n\nBatch\n\n🌱 Only works for some providers (OpenAI, Anthropic)\n⏲️ Finishes… eventually\n🏦 Much cheaper per prompt\n😎 Easy to stop/resume\n🧑‍🚀 Works in chatlas"
   },
   {
-    "objectID": "slides/slides-03.html#chatlas.batch_chat_structured",
-    "href": "slides/slides-03.html#chatlas.batch_chat_structured",
+    "objectID": "slides/slides-04.html#chatlas.batch_chat_structured",
+    "href": "slides/slides-04.html#chatlas.batch_chat_structured",
     "title": "Programming with LLMs",
     "section": "chatlas.batch_chat_structured",
     "text": "chatlas.batch_chat_structured\nfrom chatlas import ChatAuto, batch_chat_structured\n\nchat = chatlas.ChatAuto(\"anthropic/claude-3-haiku-20240307\")\nres = batch_chat_structured(\n    chat=chat,\n    prompts=age_free_text,\n    data_model=Person,\n    path=\"people.json\",\n)"
