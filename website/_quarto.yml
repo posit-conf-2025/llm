@@ -87,6 +87,8 @@ format:
     theme: [zephyr, styles.scss, styles-page-transition.scss]
     toc: true
     lightbox: true
+    include-in-header:
+      - text: '<meta name="theme-color" content="black">'
     include-before-body:
       - text: <script>document.querySelector('.navbar').dataset.bsTheme = 'dark';</script>
       - text: |
