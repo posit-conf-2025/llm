@@ -203,11 +203,172 @@
     "text": "Your Turn 09_pdf\n\nWe have the actual recipes as PDFs in the data/recipes/pdf folder.\nYour job: ask the LLM to convert the recipes to markdown.\n\n\n  \n    −\n    +\n \n 05:00"
   },
   {
-    "objectID": "slides/slides-03.html#section-18",
-    "href": "slides/slides-03.html#section-18",
+    "objectID": "slides/slides-03.html#how-would-you-extract-name-and-age",
+    "href": "slides/slides-03.html#how-would-you-extract-name-and-age",
     "title": "Programming with LLMs",
-    "section": "",
-    "text": "Explain ellmer::type_*() or pydantic model in chatlas\nNote use_attribute_docstrings"
+    "section": "How would you extract name and age?",
+    "text": "How would you extract name and age?\n\nage_free_text &lt;- list(\n    \"I go by Alex. 42 years on this planet and counting.\",\n    \"Pleased to meet you! I'm Jamal, age 27.\",\n    \"They call me Li Wei. Nineteen years young.\",\n    \"Fatima here. Just celebrated my 35th birthday last week.\",\n    \"The name's Robert - 51 years old and proud of it.\",\n    \"Kwame here - just hit the big 5-0 this year.\"\n)"
+  },
+  {
+    "objectID": "slides/slides-03.html#if-you-wrote-r-code-it-might-look-like-this",
+    "href": "slides/slides-03.html#if-you-wrote-r-code-it-might-look-like-this",
+    "title": "Programming with LLMs",
+    "section": "If you wrote R code, it might look like this…",
+    "text": "If you wrote R code, it might look like this…\n\nword_to_num &lt;- function(x) {\n    # normalize\n    x &lt;- tolower(x)\n    # direct numbers\n    if (grepl(\"\\\\b\\\\d+\\\\b\", x)) return(as.integer(regmatches(x, regexpr(\"\\\\b\\\\d+\\\\b\", x))))\n    # hyphenated like \"5-0\"\n    if (grepl(\"\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b\", x)) {\n        parts &lt;- as.integer(unlist(strsplit(regmatches(x, regexpr(\"\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b\", x)), \"\\\\s*-\\\\s*\")))\n        return(10 * parts[1] + parts[2])\n    }\n    # simple word numbers\n    ones &lt;- c(\n        zero=0, one=1, two=2, three=3, four=4, five=5, six=6, seven=7, eight=8, nine=9,\n        ten=10, eleven=11, twelve=12, thirteen=13, fourteen=14, fifteen=15, sixteen=16,\n        seventeen=17, eighteen=18, nineteen=19\n    )\n    tens &lt;- c(twenty=20, thirty=30, forty=40, fifty=50, sixty=60, seventy=70, eighty=80, ninety=90)\n    # e.g., \"nineteen\"\n    if (x %in% names(ones)) return(ones[[x]])\n    # e.g., \"thirty five\" or \"thirty-five\"\n    x2 &lt;- gsub(\"-\", \" \", x)\n    parts &lt;- strsplit(x2, \"\\\\s+\")[[1]]\n    if (length(parts) == 2 && parts[1] %in% names(tens) && parts[2] %in% names(ones)) {\n        return(tens[[parts[1]]] + ones[[parts[2]]])\n    }\n    if (length(parts) == 1 && parts[1] %in% names(tens)) return(tens[[parts[1]]])\n    return(NA_integer_)\n}\n\n# Extract name candidates\nextract_name &lt;- function(s) {\n    # patterns that introduce a name\n    pats &lt;- c(\n        \"I go by\\\\s+([A-Z][a-z]+)\",\n        \"I'm\\\\s+([A-Z][a-z]+(?:\\\\s+[A-Z][a-z]+)?)\",\n        \"They call me\\\\s+([A-Z][a-z]+(?:\\\\s+[A-Z][a-z]+)?)\",\n        \"^([A-Z][a-z]+) here\",\n        \"The name's\\\\s+([A-Z][a-z]+)\",\n        \"^([A-Z][a-z]+)\\\\s\" # fallback: leading capital word\n    )\n    for (p in pats) {\n        m &lt;- regexpr(p, s, perl = TRUE)\n        if (m[1] != -1) {\n            return(sub(p, \"\\\\1\", regmatches(s, m)))\n        }\n    }\n    NA_character_\n}\n\n# Extract age phrases and convert to number\nextract_age &lt;- function(s) {\n    # capture common age phrases around a number\n    m &lt;- regexpr(\"(\\\\b\\\\d+\\\\b|\\\\b\\\\d+\\\\s*-\\\\s*\\\\d+\\\\b|\\\\b[Nn][a-z-]+\\\\b)\\\\s*(years|year|birthday|young|this)\", s, perl = TRUE)\n    if (m[1] != -1) {\n        token &lt;- sub(\"(years|year|birthday|young|this)$\", \"\", trimws(substring(s, m, m + attr(m, \"match.length\") - 1)))\n        return(word_to_num(token))\n    }\n    # handle pure word-number without trailing keyword (e.g., \"Nineteen years young.\" handled above)\n    m2 &lt;- regexpr(\"\\\\b([A-Z][a-z]+)\\\\b\\\\s+years\", s, perl = TRUE)\n    if (m2[1] != -1) {\n        token &lt;- tolower(sub(\"\\\\s+years.*\", \"\", regmatches(s, m2)))\n        return(word_to_num(token))\n    }\n    # handle hyphenated \"big 5-0\"\n    m3 &lt;- regexpr(\"big\\\\s+(\\\\d+\\\\s*-\\\\s*\\\\d+)\", s, perl = TRUE)\n    if (m3[1] != -1) {\n        token &lt;- sub(\"big\\\\s+\", \"\", regmatches(s, m3))\n        return(word_to_num(token))\n    }\n    NA_integer_\n}"
+  },
+  {
+    "objectID": "slides/slides-03.html#if-you-wrote-r-code-it-might-look-like-this-1",
+    "href": "slides/slides-03.html#if-you-wrote-r-code-it-might-look-like-this-1",
+    "title": "Programming with LLMs",
+    "section": "If you wrote R code, it might look like this…",
+    "text": "If you wrote R code, it might look like this…\n\n\ndplyr::tibble(\n  name = purrr::map_chr(age_free_text, extract_name),\n  age = purrr::map_int(age_free_text, extract_age)\n)\n\n# A tibble: 6 × 2\n  name     age\n  &lt;chr&gt;  &lt;int&gt;\n1 Alex      42\n2 Jamal     NA\n3 Li Wei    NA\n4 Fatima    NA\n5 Robert    51\n6 Kwame      5\n\n\n\nage_free_text\n\n[[1]]\n[1] \"I go by Alex. 42 years on this planet and counting.\"\n\n[[2]]\n[1] \"Pleased to meet you! I'm Jamal, age 27.\"\n\n[[3]]\n[1] \"They call me Li Wei. Nineteen years young.\"\n\n[[4]]\n[1] \"Fatima here. Just celebrated my 35th birthday last week.\"\n\n[[5]]\n[1] \"The name's Robert - 51 years old and proud of it.\"\n\n[[6]]\n[1] \"Kwame here - just hit the big 5-0 this year.\"\n\n\n\n\n😬 not great, gpt-5."
+  },
+  {
+    "objectID": "slides/slides-03.html#but-if-you-ask-an-llm",
+    "href": "slides/slides-03.html#but-if-you-ask-an-llm",
+    "title": "Programming with LLMs",
+    "section": "But if you ask an LLM…",
+    "text": "But if you ask an LLM…\nlibrary(ellmer)\n\nchat &lt;- chat(\n  \"openai/gpt-5-nano\",\n  system_prompt = \"Extract the name and age.\"\n)\n\nchat$chat(age_free_text[[1]])\n#&gt;\n\nchat$chat(age_free_text[[2]])\n#&gt;"
+  },
+  {
+    "objectID": "slides/slides-03.html#but-if-you-ask-an-llm-1",
+    "href": "slides/slides-03.html#but-if-you-ask-an-llm-1",
+    "title": "Programming with LLMs",
+    "section": "But if you ask an LLM…",
+    "text": "But if you ask an LLM…\nlibrary(ellmer)\n\nchat &lt;- chat(\n  \"openai/gpt-5-nano\",\n  system_prompt = \"Extract the name and age.\"\n)\n\nchat$chat(age_free_text[[1]])\n#&gt; Name: Alex; Age: 42\n\nchat$chat(age_free_text[[2]])\n#&gt; Name: Jamal; Age: 27"
+  },
+  {
+    "objectID": "slides/slides-03.html#wouldnt-this-be-nice",
+    "href": "slides/slides-03.html#wouldnt-this-be-nice",
+    "title": "Programming with LLMs",
+    "section": "Wouldn’t this be nice?",
+    "text": "Wouldn’t this be nice?\nchat$chat(age_free_text[[1]])\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
+  },
+  {
+    "objectID": "slides/slides-03.html#structured-chat-output",
+    "href": "slides/slides-03.html#structured-chat-output",
+    "title": "Programming with LLMs",
+    "section": "Structured chat output",
+    "text": "Structured chat output\nchat$chat_structured(age_free_text[[1]])\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
+  },
+  {
+    "objectID": "slides/slides-03.html#structured-chat-output-1",
+    "href": "slides/slides-03.html#structured-chat-output-1",
+    "title": "Programming with LLMs",
+    "section": "Structured chat output",
+    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; list(\n#&gt;   name = \"Alex\",\n#&gt;   age = 42\n#&gt; )"
+  },
+  {
+    "objectID": "slides/slides-03.html#structured-chat-output-2",
+    "href": "slides/slides-03.html#structured-chat-output-2",
+    "title": "Programming with LLMs",
+    "section": "Structured chat output",
+    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; $name\n#&gt; [1] \"Alex\"\n#&gt;\n#&gt; $age\n#&gt; [1] 42"
+  },
+  {
+    "objectID": "slides/slides-03.html#ellmers-type-functions",
+    "href": "slides/slides-03.html#ellmers-type-functions",
+    "title": "Programming with LLMs",
+    "section": "ellmer’s type functions",
+    "text": "ellmer’s type functions\n\n\ntype_person &lt;- type_object(\n  name = type_string(\"The person's name\"),\n  age = type_integer(\"The person's age in years\")\n)"
+  },
+  {
+    "objectID": "slides/slides-03.html#in-python-use-pydantic",
+    "href": "slides/slides-03.html#in-python-use-pydantic",
+    "title": "Programming with LLMs",
+    "section": "In Python, use Pydantic",
+    "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel\n\nclass Person(BaseModel):\n    name: str\n    age: int\n\nchat = chatlas.ChatAuto(\"openai/gpt-5-nano\")\nchat.chat_structured(\n    \"I go by Alex. 42 years on this planet and counting.\",\n    data_model=Person\n)\n#&gt; Person(name='Alex', age=42)\n\nchatlas: Structured Data"
+  },
+  {
+    "objectID": "slides/slides-03.html#in-python-use-pydantic-1",
+    "href": "slides/slides-03.html#in-python-use-pydantic-1",
+    "title": "Programming with LLMs",
+    "section": "In Python, use Pydantic",
+    "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel, Field\n\nclass Person(BaseModel):\n    name: str = Field(..., description=\"The person's name\")\n    age: int = Field(..., description=\"The person's age in years\")\n\nchat = chatlas.ChatAuto(\"openai/gpt-5-nano\")\nchat.chat_structured(\n    \"I go by Alex. 42 years on this planet and counting.\",\n    data_model=Person\n)\n#&gt; Person(name='Alex', age=42)"
+  },
+  {
+    "objectID": "slides/slides-03.html#in-python-use-pydantic-2",
+    "href": "slides/slides-03.html#in-python-use-pydantic-2",
+    "title": "Programming with LLMs",
+    "section": "In Python, use Pydantic",
+    "text": "In Python, use Pydantic\nimport chatlas\nfrom pydantic import BaseModel, ConfigDict\n\nclass Person(BaseModel):\n    model_config = ConfigDict(use_attribute_docstrings=True)\n\n    name: str\n    \"\"\"The person's name\"\"\"\n    age: int\n    \"\"\"The person's age in years\"\"\"\n\npydantic: use_attribute_docstrings"
+  },
+  {
+    "objectID": "slides/slides-03.html#structured-chat-output-3",
+    "href": "slides/slides-03.html#structured-chat-output-3",
+    "title": "Programming with LLMs",
+    "section": "Structured chat output",
+    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text[[1]], type = type_person)\n#&gt; $name\n#&gt; [1] \"Alex\"\n#&gt;\n#&gt; $age\n#&gt; [1] 42"
+  },
+  {
+    "objectID": "slides/slides-03.html#structured-chat-output-4",
+    "href": "slides/slides-03.html#structured-chat-output-4",
+    "title": "Programming with LLMs",
+    "section": "Structured chat output",
+    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text, type = type_person)\n#&gt; ???"
+  },
+  {
+    "objectID": "slides/slides-03.html#structured-chat-output-5",
+    "href": "slides/slides-03.html#structured-chat-output-5",
+    "title": "Programming with LLMs",
+    "section": "Structured chat output",
+    "text": "Structured chat output\ntype_person &lt;- type_object(\n  name = type_string(),\n  age = type_integer()\n)\n\nchat$chat_structured(age_free_text, type = type_person)\n#&gt; Error in `FUN()`:\n#&gt; ! `...` must be made up strings or &lt;content&gt; objects, not a list."
+  },
+  {
+    "objectID": "slides/slides-03.html#parallel-chat-calls",
+    "href": "slides/slides-03.html#parallel-chat-calls",
+    "title": "Programming with LLMs",
+    "section": "Parallel chat calls",
+    "text": "Parallel chat calls\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)"
+  },
+  {
+    "objectID": "slides/slides-03.html#parallel-chat-calls-1",
+    "href": "slides/slides-03.html#parallel-chat-calls-1",
+    "title": "Programming with LLMs",
+    "section": "Parallel chat calls",
+    "text": "Parallel chat calls\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)\n#&gt; [working] (0 + 0) -&gt; 2 -&gt; 4 | ■■■■■■■■■■■■■■■■■■■■■             67%"
+  },
+  {
+    "objectID": "slides/slides-03.html#parallel-chat-calls-2",
+    "href": "slides/slides-03.html#parallel-chat-calls-2",
+    "title": "Programming with LLMs",
+    "section": "Parallel chat calls",
+    "text": "Parallel chat calls\nparallel_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)\n#&gt;     name age\n#&gt; 1   Alex  42\n#&gt; 2  Jamal  27\n#&gt; 3 Li Wei  19\n#&gt; 4 Fatima  35\n#&gt; 5 Robert  51\n#&gt; 6  Kwame  50"
+  },
+  {
+    "objectID": "slides/slides-03.html#batch-chat-calls",
+    "href": "slides/slides-03.html#batch-chat-calls",
+    "title": "Programming with LLMs",
+    "section": "Batch chat calls",
+    "text": "Batch chat calls\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person\n)"
+  },
+  {
+    "objectID": "slides/slides-03.html#batch-chat-calls-1",
+    "href": "slides/slides-03.html#batch-chat-calls-1",
+    "title": "Programming with LLMs",
+    "section": "Batch chat calls",
+    "text": "Batch chat calls\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  path = \"people.json\"\n)"
+  },
+  {
+    "objectID": "slides/slides-03.html#batch-chat-calls-2",
+    "href": "slides/slides-03.html#batch-chat-calls-2",
+    "title": "Programming with LLMs",
+    "section": "Batch chat calls",
+    "text": "Batch chat calls\nchat &lt;- chat(\"anthropic/claude-3-5-haiku-20241022\")\nbatch_chat_structured(\n  chat,\n  age_free_text,\n  type = type_person,\n  path = \"people.json\"\n)"
+  },
+  {
+    "objectID": "slides/slides-03.html#batch-vs.-parallel",
+    "href": "slides/slides-03.html#batch-vs.-parallel",
+    "title": "Programming with LLMs",
+    "section": "Batch vs. parallel",
+    "text": "Batch vs. parallel\n\n\nParallel\n\n🌲 Works for any provider/model \n⚡ Much faster for small jobs\n💸 More expensive\n😓 Not easy to stop/resume\n🔜 Coming soon to chatlas\n\n\n\nBatch\n\n🌱 Only works for some providers (OpenAI, Anthropic)\n⏲️ Finishes… eventually\n🏦 Much cheaper per prompt\n😎 Easy to stop/resume\n🧑‍🚀 Works in chatlas"
+  },
+  {
+    "objectID": "slides/slides-03.html#chatlas.batch_chat_structured",
+    "href": "slides/slides-03.html#chatlas.batch_chat_structured",
+    "title": "Programming with LLMs",
+    "section": "chatlas.batch_chat_structured",
+    "text": "chatlas.batch_chat_structured\nfrom chatlas import ChatAuto, batch_chat_structured\n\nchat = chatlas.ChatAuto(\"anthropic/claude-3-haiku-20240307\")\nres = batch_chat_structured(\n    chat=chat,\n    prompts=age_free_text,\n    data_model=Person,\n    path=\"people.json\",\n)"
   },
   {
     "objectID": "slides/slides-01-intro.html#welcome-to-programming-with-llm-apis",
@@ -1031,7 +1192,7 @@
     "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is sandwich."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is bicycle."
   },
   {
     "objectID": "slides/slides-02.html#interpolation-in-r-1",
