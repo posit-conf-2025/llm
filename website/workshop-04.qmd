@@ -7,7 +7,7 @@ duration: 50min
 
 ## Slides
 
-{{< revealjs "slides/slides-04.html" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-03.html" class="ratio ratio-16x9" >}}
 
 ## Resources
 
