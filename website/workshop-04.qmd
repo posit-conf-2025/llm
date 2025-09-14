@@ -26,5 +26,4 @@ duration: 50min
   - Note [use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
 
 - (15m) Parallel/batch calls
-  - Support will hopefully land in chatlas before conf
   - Activity: Extract recipe data in parallel or batch

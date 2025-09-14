@@ -1,0 +1,51 @@
+---
+title: Programming with LLMs
+subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
+author: <code>posit::conf(2025)</code>
+date: 2025-09-16
+
+editor:
+  render-on-save: true
+---
+
+# Choosing a Provider and Model
+
+##
+
+- Overview of major providers: OpenAI, Anthropic, Google, ollama
+- Tradeoffs: capability, context length, speed, cost, intelligence
+
+# Your Turn `07_models` {.slide-your-turn}
+
+# Multi-modal input
+
+# Your Turn `08_vision` {.slide-your-turn}
+
+# Your Turn `09_pdf` {.slide-your-turn}
+
+# Structured output
+
+# Your Turn `10_structured-output` {.slide-your-turn}
+
+# Parallel and batch calls
+
+##
+
+- Explain `ellmer::type_*()` or [pydantic model in chatlas](https://posit-dev.github.io/chatlas/get-started/structured-data.html)
+- Note [use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
+
+# Your Turn `11_batch` {.slide-your-turn}
+
+# Prompt engineering
+
+straight into activity
+
+# Your Turn `12_plot-image-1` {.slide-your-turn}
+
+# Your Turn `13_plot-image-2` {.slide-your-turn}
+
+# Prompt engineering
+
+actual discussion of prompt engineering
+
+# Your Turn `14_quiz-game-1` {.slide-your-turn}
