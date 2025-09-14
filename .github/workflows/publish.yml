@@ -51,7 +51,7 @@ jobs:
       - name: 📦 Install R packages
         shell: Rscript {0}
         run: |
-          pak::pak(c("ellmer", "fs"", "rmarkdown"))
+          pak::pak(c("ellmer", "fs", "rmarkdown"))
 
       - name: 📰 Render and Publish to GitHub Pages
         uses: gadenbuie/quarto-actions/publish@quarto-render-working-dir
