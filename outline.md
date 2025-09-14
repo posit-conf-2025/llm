@@ -49,7 +49,7 @@
 
 > A deeper dive into the things you can do with LLMs when you're programming with them that are harder to do in a chat UI.
 
-- (10m) Choosing a model
+- (15m) Choosing a model
   - Overview of major providers: OpenAI, Anthropic, Google, ollama
   - Tradeoffs: capability, context length, speed, cost, intelligence
   - Activity: same question, change one string to switch models, e.g. `chat("openai")`, `chat("anthropic")`.
@@ -63,7 +63,7 @@
   - Activity: Extract rich data from the recipe PDF
   - Note [use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
 
-- (15m) Parallel/batch calls
+- (10m) Parallel/batch calls
   - Support will hopefully land in chatlas before conf
   - Activity: Extract recipe data in parallel or batch
 

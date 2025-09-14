@@ -1,0 +1,113 @@
+"id","provider","model","model_name","provider_name","description","provider_brand","speed","intelligence","context","vision_supported","thinking_supported","tools_supported"
+"raycast-ray1","raycast","ray1","Ray-1","Raycast","GPT-4o-based model optimized for Raycast AI Extensions.
+","raycast",3,4,127000,TRUE,FALSE,TRUE
+"raycast-ray1-mini","raycast","ray1-mini","Ray-1 mini","Raycast","GPT-4o mini-based model for Raycast AI Extensions.
+","raycast",1,3,127000,FALSE,FALSE,TRUE
+"openai-gpt-5-mini","openai","gpt-5-mini","GPT-5 mini","OpenAI","OpenAI's latest model, great for well-defined tasks and precise prompts.
+","openai",1,4,4e+05,TRUE,FALSE,TRUE
+"openai-gpt-5-nano","openai","gpt-5-nano","GPT-5 nano","OpenAI","OpenAI's latest model, great for summarization and classification tasks.
+","openai",2,3,4e+05,TRUE,FALSE,TRUE
+"openai-gpt-4.1","openai","gpt-4.1","GPT-4.1","OpenAI","OpenAI's flagship model optimized for complex problem solving.
+","openai",2,3,1e+06,TRUE,FALSE,TRUE
+"openai-gpt-4.1-mini","openai","gpt-4.1-mini","GPT-4.1 mini","OpenAI","Balanced GPT-4.1 variant optimized for speed and cost efficiency.
+","openai",1,3,1e+06,TRUE,FALSE,TRUE
+"openai-gpt-4.1-nano","openai","gpt-4.1-nano","GPT-4.1 nano","OpenAI","Fastest and most cost-effective GPT-4.1 variant.
+","openai",1,2,1e+06,TRUE,FALSE,TRUE
+"openai-gpt-4","openai","gpt-4","GPT-4","OpenAI","Previous generation GPT-4 model with broad knowledge and complex instruction handling.
+","openai",1,1,8000,FALSE,FALSE,FALSE
+"openai-gpt-4-turbo","openai","gpt-4-turbo","GPT-4 Turbo","OpenAI","Previous generation GPT-4 with expanded context window.
+","openai",1,1,127000,FALSE,FALSE,FALSE
+"openai-gpt-4o","openai","gpt-4o","GPT-4o","OpenAI","Advanced OpenAI model optimized for speed and complex problem solving.
+","openai",2,2,127000,TRUE,FALSE,TRUE
+"openai-gpt-4o-mini","openai","gpt-4o-mini","GPT-4o mini","OpenAI","Fast and intelligent model for everyday tasks.
+","openai",1,2,127000,TRUE,FALSE,TRUE
+"openai_o1-gpt-5","openai","gpt-5","GPT-5","OpenAI","OpenAI's latest model, great for coding and agentic tasks across domains.
+","openai",2,5,4e+05,TRUE,FALSE,TRUE
+"openai-gpt-5-reasoning","openai","gpt-5-reasoning","GPT-5 Reasoning","OpenAI","OpenAI's latest model, great for coding and agentic tasks across domains.
+","openai",2,5,4e+05,TRUE,TRUE,TRUE
+"openai_o1-o3","openai","o3","o3","OpenAI","Advanced model excelling in math, science, coding, and visual tasks.
+","openai",2,4,2e+05,TRUE,TRUE,TRUE
+"openai_o1-o4-mini","openai","o4-mini","o4-mini","OpenAI","Fast, efficient model optimized for coding and visual tasks.
+","openai",2,4,2e+05,TRUE,TRUE,TRUE
+"openai_o1-o1","openai","o1-2024-12-17","o1","OpenAI","Advanced reasoning model for complex STEM problems.
+","openai",2,4,2e+05,TRUE,TRUE,FALSE
+"openai_o1-o3-mini","openai","o3-mini","o3-mini","OpenAI","Fast reasoning model optimized for STEM tasks.
+","openai",2,3,2e+05,FALSE,TRUE,TRUE
+"groq-openai/gpt-oss-20b","groq","openai/gpt-oss-20b","GPT-OSS 20b","Groq","OpenAI's first open-source model, 20b variant.","openai",5,3,131000,FALSE,TRUE,FALSE
+"groq-openai/gpt-oss-120b","groq","openai/gpt-oss-120b","GPT-OSS 120b","Groq","OpenAI's first open-source model, 120b variant.","openai",4,4,131000,FALSE,TRUE,FALSE
+"anthropic-claude-haiku","anthropic","claude-3-5-haiku-latest","Claude 3.5 Haiku","Anthropic","Anthropic's fastest model with large context window for code and text analysis.
+","anthropic",1,3,2e+05,TRUE,FALSE,TRUE
+"anthropic-claude-sonnet","anthropic","claude-3-5-sonnet-latest","Claude 3.5 Sonnet","Anthropic","Enhanced Claude model for complex tasks and visual reasoning.
+","anthropic",1,4,2e+05,TRUE,FALSE,TRUE
+"anthropic-claude-3-7-sonnet-latest","anthropic","claude-3-7-sonnet-latest","Claude 3.7 Sonnet","Anthropic","Anthropic's most intelligent model.
+","anthropic",1,3,2e+05,TRUE,FALSE,TRUE
+"anthropic-claude-3-7-sonnet-latest-reasoning","anthropic","claude-3-7-sonnet-latest-reasoning","Claude 3.7 Sonnet (Reasoning)","Anthropic","Most intelligent Claude model with enhanced reasoning capabilities.
+","anthropic",1,4,2e+05,TRUE,TRUE,FALSE
+"anthropic-claude-sonnet-4","anthropic","claude-sonnet-4-20250514","Claude 4 Sonnet","Anthropic","Anthropic's most intelligent model.
+","anthropic",1,4,2e+05,TRUE,FALSE,TRUE
+"anthropic-claude-opus-4","anthropic","claude-opus-4-20250514","Claude 4 Opus","Anthropic","Anthropic's model for complex tasks with exceptional fluency.
+","anthropic",1,3,2e+05,TRUE,FALSE,FALSE
+"anthropic-claude-sonnet-4-reasoning","anthropic","claude-sonnet-4-20250514-reasoning","Claude 4 Sonnet (Reasoning)","Anthropic","Most intelligent Claude model with enhanced reasoning capabilities.
+","anthropic",1,3,2e+05,TRUE,TRUE,FALSE
+"anthropic-claude-opus-4-reasoning","anthropic","claude-opus-4-20250514-reasoning","Claude 4 Opus (Reasoning)","Anthropic","Most intelligent Claude model with enhanced reasoning capabilities.
+","anthropic",1,4,2e+05,TRUE,TRUE,FALSE
+"anthropic-claude-opus-4-1","anthropic","claude-opus-4-1-20250805","Claude 4.1 Opus","Anthropic","Anthropic's model for complex tasks with exceptional fluency.
+","anthropic",1,4,2e+05,TRUE,FALSE,FALSE
+"anthropic-claude-opus-4-1-reasoning","anthropic","claude-opus-4-1-20250805-reasoning","Claude 4.1 Opus (Reasoning)","Anthropic","Most intelligent Claude model with enhanced reasoning capabilities.
+","anthropic",1,3,2e+05,TRUE,TRUE,FALSE
+"perplexity-sonar","perplexity","sonar","Sonar","Perplexity","Fast Perplexity model with integrated search capabilities.
+","perplexity",1,3,127000,TRUE,FALSE,FALSE
+"perplexity-sonar-pro","perplexity","sonar-pro","Sonar Pro","Perplexity","Advanced Perplexity model for complex queries with search integration.
+","perplexity",1,3,2e+05,TRUE,FALSE,FALSE
+"perplexity-sonar-reasoning","perplexity","sonar-reasoning","Sonar Reasoning","Perplexity","Fast reasoning model powered by DeepSeek R1.
+","perplexity",1,3,127000,TRUE,TRUE,FALSE
+"perplexity-sonar-reasoning-pro","perplexity","sonar-reasoning-pro","Sonar Reasoning Pro","Perplexity","Premium reasoning model with DeepSeek R1 capabilities.
+","perplexity",1,3,127000,TRUE,TRUE,FALSE
+"groq-meta-llama/llama-4-scout-17b-16e-instruct","groq","meta-llama/llama-4-scout-17b-16e-instruct","Llama 4 Scout","Groq","Advanced 17B parameter multimodal model with 16 experts.
+","meta",4,2,131000,FALSE,FALSE,TRUE
+"groq-llama-3.3-70b-versatile","groq","llama-3.3-70b-versatile","Llama 3.3 70B","Groq","Meta's state-of-the-art model for reasoning and general knowledge.
+","meta",3,2,128000,FALSE,FALSE,TRUE
+"groq-llama-3.1-8b-instant","groq","llama-3.1-8b-instant","Llama 3.1 8B","Groq","Fast, instruction-optimized open-source model.
+","meta",4,2,128000,FALSE,FALSE,FALSE
+"together-meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo","together","meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo","Llama 3.1 405B","Together AI","Meta's flagship model with advanced capabilities across multiple domains.
+","meta",1,2,8000,FALSE,FALSE,FALSE
+"mistral-open-mistral-nemo","mistral","open-mistral-nemo","Mistral Nemo","Mistral","Small, Apache-licensed model built with NVIDIA.
+","mistral",2,2,128000,FALSE,FALSE,FALSE
+"mistral-mistral-large-latest","mistral","mistral-large-latest","Mistral Large","Mistral","Top-tier reasoning model with strong multilingual support.
+","mistral",1,3,128000,FALSE,FALSE,TRUE
+"mistral-mistral-medium-latest","mistral","mistral-medium-latest","Mistral Medium","Mistral","A powerful, cost-effective, frontier-class multimodal model.
+","mistral",1,3,128000,FALSE,FALSE,TRUE
+"mistral-mistral-small-latest","mistral","mistral-small-latest","Mistral Small 3","Mistral","Latest enterprise-grade small model with improved reasoning.
+","mistral",2,2,32000,FALSE,FALSE,TRUE
+"mistral-codestral-latest","mistral","codestral-latest","Codestral","Mistral","Specialized model for code-related tasks and testing.
+","mistral",2,1,256000,FALSE,FALSE,FALSE
+"groq-moonshotai/kimi-k2-instruct","groq","moonshotai/kimi-k2-instruct-0905","Kimi K2 Instruct","Groq","Kimi K2 is a powerful and versatile AI model designed for a wide range of tasks.
+","moonshotai",3,3,128000,FALSE,TRUE,TRUE
+"groq-qwen/qwen3-32b","groq","qwen/qwen3-32b","Qwen3-32B","Groq","The latest generation of large language models in the Qwen series.
+","qwen",4,3,131000,FALSE,TRUE,TRUE
+"groq-deepseek-r1-distill-llama-70b","groq","deepseek-r1-distill-llama-70b","DeepSeek R1 Distill Llama 3.3 70B","Groq","Fine-tuned Llama model with enhanced reasoning capabilities.
+","deepseek",3,3,128000,FALSE,TRUE,FALSE
+"google-gemini-2.5-pro","google","gemini-2.5-pro","Gemini 2.5 Pro","Google","Advanced thinking model for complex problem solving.
+","google",2,4,1e+06,TRUE,TRUE,TRUE
+"google-gemini-2.5-flash","google","gemini-2.5-flash","Gemini 2.5 Flash","Google","Fast, well-rounded thinking model.
+","google",3,4,1e+06,TRUE,TRUE,TRUE
+"google-gemini-2.5-flash-lite","google","gemini-2.5-flash-lite","Gemini 2.5 Flash Lite","Google","Fast model optimized for large-scale text output.
+","google",4,2,1e+06,TRUE,FALSE,TRUE
+"google-gemini-2.0-flash","google","gemini-2.0-flash","Gemini 2.0 Flash","Google","Low-latency model optimized for agentic experiences.
+","google",3,3,1e+06,TRUE,FALSE,TRUE
+"together-Qwen/Qwen3-235B-A22B-Instruct-2507-tput","together","Qwen/Qwen3-235B-A22B-Instruct-2507-tput","Qwen3-235B-A22B-Instruct-2507-tput","Together AI","A varied model with enhanced reasoning.
+","qwen",1,3,132000,FALSE,TRUE,TRUE
+"together-deepseek-ai/DeepSeek-R1","together","deepseek-ai/DeepSeek-R1","DeepSeek-R1","Together AI","Open-source model matching OpenAI-o1 performance.
+","deepseek",1,4,64000,FALSE,TRUE,FALSE
+"together-deepseek-ai/DeepSeek-V3","together","deepseek-ai/DeepSeek-V3","DeepSeek-V3","Together AI","Advanced Mixture-of-Experts model.
+","deepseek",1,3,128000,FALSE,FALSE,FALSE
+"xai-grok-4","xai","grok-4-0709","Grok-4","xAI","Advanced language model with enhanced reasoning and tool capabilities.
+","xai",1,4,256000,FALSE,TRUE,TRUE
+"xai-grok-code-fast","xai","grok-code-fast","Grok Code Fast 1","xAI","Grok Code Fast 1 is xAI's Coding Agent focused model
+","xai",3,3,256000,FALSE,TRUE,TRUE
+"xai-grok-3","xai","grok-3-fast-beta","Grok-3 Beta","xAI","Enterprise-focused model for data, coding, and summarization tasks.
+","xai",1,3,127000,FALSE,FALSE,TRUE
+"xai-grok-3-mini","xai","grok-3-mini-fast-beta","Grok-3 Mini Beta","xAI","Fast, lightweight model for logic-based tasks.
+","xai",2,4,127000,FALSE,TRUE,TRUE
+"xai-grok-2-latest","xai","grok-2-latest","Grok-2","xAI","Advanced language model with strong reasoning capabilities.
+","xai",1,3,127000,TRUE,FALSE,TRUE

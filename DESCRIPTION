@@ -29,6 +29,7 @@ Imports:
     leaflet,
     magick,
     mcptools,
+    pak,
     purrr,
     querychat (>= 0.0.1.9000),
     ragnar,
@@ -37,12 +38,13 @@ Imports:
     scales,
     shiny (>= 1.11.1.9000),
     shinychat (>= 0.2.0.9000),
+    tidyr,
     vitals,
     watcher,
     weathR
 Remotes:
     posit-dev/btw
-Config/Needs/dev: lionel-/codegrip
+Config/Needs/dev: lionel-/codegrip, gt, gtExtras
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

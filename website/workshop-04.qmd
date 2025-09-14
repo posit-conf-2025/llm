@@ -11,7 +11,7 @@ duration: 50min
 
 ## Resources
 
-- (10m) Choosing a model
+- (15m) Choosing a model
   - Overview of major providers: OpenAI, Anthropic, Google, ollama
   - Tradeoffs: capability, context length, speed, cost, intelligence
   - Activity: same question, change one string to switch models, e.g. `chat("openai")`, `chat("anthropic")`.
@@ -25,5 +25,5 @@ duration: 50min
   - Activity: Extract rich data from the recipe PDF
   - Note [use_attribute_docstrings](https://docs.pydantic.dev/latest/api/config/#pydantic.config.ConfigDict.use_attribute_docstrings)
 
-- (15m) Parallel/batch calls
+- (10m) Parallel/batch calls
   - Activity: Extract recipe data in parallel or batch

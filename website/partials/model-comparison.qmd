@@ -1,0 +1,264 @@
+
+```{r}
+#| echo: false
+#| message: false
+#| output: false
+
+path_models_csv <- here::here("website/partials/raycast-models.csv")
+
+if (!file.exists(path_models_csv)) {
+  path_models_json <- fs::path_ext_set(path_models_csv, "json")
+
+  download.file(
+    "https://www.raycast.com/api/v1/ai/models",
+    path_models_json
+  )
+
+  models <- jsonlite::fromJSON(path_models_json)$models |> dplyr::as_tibble()
+
+  models <-
+    models |>
+    tidyr::unnest(capabilities, names_sep = "_") |>
+    tidyr::unnest(abilities) |>
+    tidyr::unnest(web_search:thinking, names_sep = "_") |>
+    dplyr::mutate(
+      context = context * 1000,
+      vision_supported = purrr::map_lgl(vision_formats, \(x) length(x) > 0),
+    ) |>
+    dplyr::select(
+      id,
+      provider,
+      model,
+      model_name = name,
+      provider_name,
+      description,
+      provider_brand,
+      speed,
+      intelligence,
+      context,
+      vision_supported,
+      thinking_supported,
+      tools_supported
+    ) |>
+    tidyr::replace_na(list(
+      vision_supported = FALSE,
+      thinking_supported = FALSE,
+      tools_supported = FALSE
+    )) |>
+    write.csv(path_models_csv, row.names = FALSE)
+} else {
+  models <- read.csv(path_models_csv, stringsAsFactors = FALSE)
+}
+
+table_provider <- function(provider) {
+  library(gt)
+  library(gtExtras)
+
+  models |>
+    dplyr::filter(provider %in% !!provider) |>
+    dplyr::select(
+      model_name,
+      description,
+      speed,
+      intelligence,
+      context,
+      vision_supported,
+      thinking_supported
+    ) |>
+    dplyr::arrange(model_name) |>
+    # Create new columns for the badges from the boolean flags
+    dplyr::mutate(
+      model_name = purrr::map2_vec(model_name, description, \(x, y) htmltools::tags$abbr(x, class = "quicktip", title = trimws(y)) |> format()),
+      vision = dplyr::if_else(vision_supported, "Vision", ""),
+      reasoning = dplyr::if_else(thinking_supported, "Reasoning", "")
+    ) |>
+    gt(id = "model-comparison-table") |>
+    # Create a badge for the 'vision' column
+    gt_badge(
+      column = vision,
+      palette = c("Vision" = "#007bff")
+    ) |>
+    # Create a badge for the 'reasoning' column
+    gt_badge(
+      column = reasoning,
+      palette = c("Reasoning" = "#28a745")
+    ) |>
+    cols_hide(
+      columns = c(vision_supported, thinking_supported, description)
+    ) |>
+    # Create percentage-based bar plots
+    gt_plt_bar_pct(column = speed, fill = "#2271B1", background = "#e1e1e1") |>
+    gt_plt_bar_pct(
+      column = intelligence,
+      fill = "#2271B1",
+      background = "#e1e1e1"
+    ) |>
+    # Format the context window size
+    fmt_number(
+      columns = context,
+      decimals = 0,
+      scale_by = 1000,
+      suffixing = TRUE
+    ) |>
+    fmt_markdown(model_name) |>
+    cols_width(
+      model_name ~ px(500),
+      vision ~ px(100),
+      reasoning ~ px(100),
+    ) |>
+    # Relabel columns for the final display
+    cols_label(
+      model_name = "Model",
+      # vision = "Features", # Relabel the merged column
+      speed = "Speed",
+      intelligence = "Intelligence",
+      context = "Context",
+      vision = "",
+      reasoning = ""
+    ) |>
+    # Align columns for better readability
+    cols_align(
+      align = "left",
+      columns = c(model_name, vision)
+    ) |>
+    cols_align(
+      align = "right",
+      columns = context
+    )
+}
+```
+
+```{=html}
+<style>
+#model-comparison-table th:first-child {
+  width: 200px;
+}
+#model-comparison-table th:nth-child(2),
+#model-comparison-table th:nth-child(3) {
+  width: 80px;
+}
+#model-comparison-table th:nth-child(5) {
+  width: 60px;
+}
+#model-comparison-table th:nth-child(6) {
+  width: 90px;
+}
+div.quicktip {
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;
+  max-width: 200px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  font-family: sans-serif;
+}
+
+div.quicktip.visible {
+  opacity: 1;
+}
+
+abbr.quicktip:hover {
+  cursor: help;
+  text-decoration: dotted;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'quicktip';
+  document.body.appendChild(tooltip);
+
+  const tooltipTargets = document.querySelectorAll('abbr.quicktip');
+
+  tooltipTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      const titleText = el.getAttribute('title');
+      if (!titleText) return;
+
+      el.setAttribute('data-tooltip', titleText);
+      el.removeAttribute('title');
+
+      tooltip.textContent = titleText;
+      tooltip.classList.add('visible');
+    });
+
+    el.addEventListener('mouseleave', () => {
+      const originalTitle = el.getAttribute('data-tooltip');
+      if (originalTitle) {
+        el.setAttribute('title', originalTitle);
+        el.removeAttribute('data-tooltip');
+      }
+      tooltip.classList.remove('visible');
+    });
+
+    el.addEventListener('mousemove', e => {
+      tooltip.style.left = `${e.pageX + 20}px`;
+      tooltip.style.top = `${e.pageY + 10}px`;
+    });
+  });
+});
+</script>
+```
+
+::: {#model-comparison-tabset .panel-tabset}
+#### ![](/assets/logos/openai.png){width="50px"}<br>OpenAI
+
+```{r}
+table_provider(c("openai", "openai_o1"))
+```
+
+#### ![](/assets/logos/anthropic.png){width="50px"}<br>Anthropic
+
+```{r}
+table_provider("anthropic")
+```
+
+#### ![](/assets/logos/googlegemini.png){width="50px"}<br>Gemini
+
+```{r}
+table_provider("google")
+```
+
+#### ![](/assets/logos/perplexity.png){width="50px"}<br>Perplexity
+
+```{r}
+table_provider("perplexity")
+```
+
+#### ![](/assets/logos/mistral.svg){width="50px"}<br>Mistral
+
+```{r}
+table_provider("mistral")
+```
+:::
+
+```{=html}
+<style>
+#model-comparison-tabset > ul > li > a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.5;
+  padding-bottom: 1em;
+}
+
+#model-comparison-tabset > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+</style>
+```
+
+::: notes
+* **OpenAI**: Widest adoption, most popular models, excellent API and tooling. Industry leader.
+* **Anthropic**: Focus on safety and alignment, strong coding capabilities, excellent at complex analysis and creative tasks.
+* **Gemini**: Google's offering, large context windows, cheap and integrates with all things Google.
+* **Perplexity**: Real-time information, focus on reducing hallucinations, strong at fact-based tasks.
+* **Mistral**: Open-source models, GDPR compliant in Europe, transparent training.
+:::
