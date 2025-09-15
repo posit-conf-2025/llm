@@ -1,0 +1,72 @@
+---
+title: Beyond Tools
+subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
+author: <code>posit::conf(2025)</code>
+date: 2025-09-16
+
+editor:
+  render-on-save: true
+---
+
+# [querychat]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-querychat.jpg" background-size="cover" background-position="center"}
+
+# Your Turn `25_querychat` {.slide-your-turn}
+
+1. Step 1
+
+1. Step 2
+
+1. Step 3
+
+{{< countdown 8:00 left=0 bottom=0 >}}
+
+# [MCP]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-mcp.jpg" background-size="cover" background-position="center"}
+
+::: {.tc .white .pa1 .br3 .w-50 .absolute bottom="-2em" left=0 style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);"}
+MCP
+:::
+
+# Your Turn `26_mcp` {.slide-your-turn}
+
+1. Step 1
+
+1. Step 2
+
+1. Step 3
+
+{{< countdown 8:00 left=0 bottom=0 >}}
+
+# [Agents]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-agent.jpg" background-size="cover" background-position="center"}
+
+::: {.tc .white .pa1 .br3 .w-50 .absolute bottom="-5em" left=0 style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);"}
+Agents
+:::
+
+## What's an agent?
+
+- Hadley/Willison definition: Agents are LLMs with a read tool and a write tool
+
+- The "you know it when you see it" definition: autonomous LLMs, long context, minimal intervention
+
+## Demo: Databot {.slide-demo}
+
+👨‍💻 [_demos/27_demo_databot/README.md]{.code .b .purple}
+
+> Let's look at `data/airbnb-asheville.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC.
+
+# The Future of AI
+
+# [Wrap-up]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-survey.jpg" background-size="cover" background-position="center"}
+
+::: {.fragment .f1 .tc .white .pa4 .br3 style="background-color: rgba(0, 0, 0, 0.8);"}
+Please take 5-10 minutes to fill out the workshop survey.\
+Your feedback is important to us!
+
+[[pos.it/conf-workshop-survey]{.yellow .code}](https://pos.it/conf-workshop-survey)
+:::
+
+## {background-image="assets/thank-you.png" background-size="cover" background-position="center"}
+
+::: {.f1 .code .tc .white .absolute bottom=0 left=0 right=0}
+Enjoy posit::conf(2025)!
+:::
