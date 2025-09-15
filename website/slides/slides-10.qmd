@@ -91,15 +91,82 @@ app = App(app_ui, server)
 MCP
 :::
 
+## Recall: Tools {.center}
+
+a.k.a. _functions_, _tool calling_ or _function calling_
+
+* Bring real-time or up-to-date information to the model
+
+* Let the model interact with the world
+
+## 🤔 What other tools could be useful?
+
+```{=html}
+<ul contenteditable="true">
+<li>Get the weather</li>
+<li>Search the <code>posit::conf()</code> schedule</li>
+<li>...</li>
+</ul>
+```
+
+::: notes
+Some ideas:
+
+* web search
+* search a ticket system (zendesk)
+* search a website or knowledge base
+* Create tickets
+* Send emails
+* Read your calendar
+* Summarize your email
+:::
+
+## 🤔 What GitHub-related tools would be useful?
+
+```{=html}
+<ul contenteditable="true">
+<li>List issues</li>
+<li>...</li>
+</ul>
+```
+
+::: notes
+Some ideas:
+
+* web search
+* search a ticket system (zendesk)
+* search a website or knowledge base
+* Create tickets
+* Send emails
+* Read your calendar
+* Summarize your email
+:::
+
+## Who should write tools for GitHub? {.center}
+
+::: fragment
+MCP solves this problem! GitHub writes tools...
+:::
+
+::: fragment
+and lets ~~you~~ your models use them.
+
+[GitHub MCP Server](https://github.com/github/github-mcp-server#tools){preview-link=true}
+:::
+
+<!-- TODO: Adding MCP tools to ellmer, chatlas -->
+
 # Your Turn `26_mcp` {.slide-your-turn}
 
-1. Step 1
+Follow the instructions in `README.R.md` or `README.py.md` for this task.
 
-1. Step 2
+1. What MCP servers are out there?
 
-1. Step 3
+1. Set up [context7](https://context7.com/) as an MCP server in Positron.
 
-{{< countdown 8:00 left=0 bottom=0 >}}
+1. Use [context7](https://context7.com/) tools to answer a coding translation question.
+
+{{< countdown 6:00 left=0 bottom="-1.5em" >}}
 
 # [Agents]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-agent.jpg" background-size="cover" background-position="center"}
 
@@ -119,7 +186,7 @@ Agents
 
 > Let's look at `data/airbnb-asheville.csv`, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC.
 
-# The Future of AI
+# [The Future of AI]{.white style="text-shadow: 5px 5px 15px black;"} {.no-invert-dark-mode background-image="assets/robot-hologram.jpg" background-size="cover" background-position="center"}
 
 # [Wrap-up]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-survey.jpg" background-size="cover" background-position="center"}
 

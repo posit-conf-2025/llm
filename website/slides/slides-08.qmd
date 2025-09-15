@@ -70,7 +70,7 @@ a.k.a. _functions_, _tool calling_ or _function calling_
 ::: incremental
 * Bring real-time or up-to-date information to the model
 
-* Letting the model interact with the world<sup>*</sup>
+* Let the model interact with the world
 :::
 
 ::: notes
