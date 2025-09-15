@@ -10,7 +10,7 @@ editor: { render-on-save: true }
 
 ## Slides
 
-{{< revealjs "slides/slides-01-intro.html" height="600px" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-01.html" height="600px" class="ratio ratio-16x9" >}}
 
 ## Outline
 
