@@ -26,7 +26,7 @@ website:
     icon: ""
     dismissable: false
     content: |
-      🍑 We can't wait to see you in Atlanta! We're still finalizing the workshop materials, but you can get ready by following the <a class="alert-link" href="setup.qmd">setup instructions</a>.
+      🍑 We can't wait to see you in Atlanta! We're still finalizing the workshop materials, but you can get ready by following the <a class="alert-link" href="/setup.qmd">setup instructions</a>.
     type: warning
 
   page-footer: |
