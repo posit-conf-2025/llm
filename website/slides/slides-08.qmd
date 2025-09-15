@@ -332,7 +332,7 @@ tool_get_weather <- tool(
 ```
 
 ::: footer
-[ellmer (R): Tool Annotations](https://ellmer.tidyverse.org/reference/tool_annotations.html){preview-link=true}
+[ellmer: Tool Annotations](https://ellmer.tidyverse.org/reference/tool_annotations.html){preview-link=true}
 :::
 
 ## Tool Annotations in Python
@@ -361,17 +361,110 @@ chat.register_tool(
 
 2. Pick an icon from [FontAwesome free icons](https://fontawesome.com/search?q=speaker&ic=free&o=r)
 
-{{< countdown 8:00 left=0 bottom="-2em" >}}
+{{< countdown 8:00 left=0 bottom=0 >}}
 
-## Content Tool Results
+## What if we want to decide `title` and `icon` dynamically _in the tool_? {.center}
+
+## ellmer::ContentToolResult
+
+```{.r code-line-numbers="true"}
+get_weather <- function(lat, lon) {
+  weathR::point_forecast(lat, lon)
+}
+```
+
+::: footer
+[ellmer: ContentToolResult](https://ellmer.tidyverse.org/reference/Content.html){preview-link=true}
+:::
+
+## ellmer::ContentToolResult
+
+```{.r code-line-numbers="true"}
+get_weather <- function(lat, lon) {
+  forecast <- weathR::point_forecast(lat, lon)
+
+  ContentToolResult(
+    forecast
+  )
+}
+```
+
+::: footer
+[ellmer: ContentToolResult](https://ellmer.tidyverse.org/reference/Content.html){preview-link=true}
+:::
+
+## ellmer::ContentToolResult
+
+```{.r code-line-numbers="true"}
+get_weather <- function(lat, lon) {
+  forecast <- weathR::point_forecast(lat, lon)
+
+  ContentToolResult(
+    forecast,
+    extra = list(
+      display = list(
+        title = paste("Weather for", lat, lon),
+        icon = fontawesome::fa_i("cloud-sun")
+      )
+    )
+  )
+}
+```
+
+::: footer
+[ellmer: ContentToolResult](https://ellmer.tidyverse.org/reference/Content.html){preview-link=true}
+:::
+
+## ellmer::ContentToolResult
+
+```{.r code-line-numbers="true"}
+get_weather <- function(lat, lon, location_name) {
+  forecast <- weathR::point_forecast(lat, lon)
+
+  ContentToolResult(
+    forecast,
+    extra = list(
+      display = list(
+        title = paste("Weather for", location_name),
+        icon = fontawesome::fa_i("cloud-sun")
+      )
+    )
+  )
+}
+```
+
+::: footer
+[ellmer: ContentToolResult](https://ellmer.tidyverse.org/reference/Content.html){preview-link=true}
+:::
+
+## chatlas.ContentToolResult
+
+```{.python code-line-numbers="|2|4-5,12|6-11"}
+def get_weather(lat: float, lon: float, location_name: str):
+    forecast = NWS.GetCurrentForecast(lat, lon)
+
+    return ContentToolResult(
+        forecast,
+        extra={
+            "display": {
+                "title": f"Weather for {location_name}",
+                "icon": faicons.fa_i("cloud-sun"),
+            }
+        },
+    )
+```
+
+::: footer
+[chatlas: ContentToolResult](https://posit-dev.github.io/chatlas/reference/types.ContentToolResult.html){preview-link=true}
+:::
 
 ## Your Turn `22_quiz-game-4` {.slide-your-turn}
 
-1. Step 1
+1. Pick an `icon` and a `title` for each action in the Quiz show app.
 
-1. Step 2
+1. Return a `ContentToolResult` from each tool that sets the `icon` and `title`.
 
-1. Step 3
+1. Play the game again to see the icons and titles in action.
 
 {{< countdown 8:00 left=0 bottom="-2em" >}}
 
