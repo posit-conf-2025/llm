@@ -17,7 +17,7 @@
 
   <meta name="author" content="posit::conf(2025)">
   <meta name="dcterms.date" content="2025-09-16">
-  <title>Programming with LLMs – Augmented Generation</title>
+  <title>Programming with LLMs – Tool Calling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -195,11 +195,11 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Augmented Generation – Programming with LLMs">
+<meta property="og:title" content="Tool Calling – Programming with LLMs">
 <meta property="og:description" content="Programming with LLM APIsA Beginner’s Guide in R and Python">
 <meta property="og:image" content="https://posit-conf-2025.github.io/llm/slides/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs">
-<meta name="twitter:title" content="Augmented Generation – Programming with LLMs">
+<meta name="twitter:title" content="Tool Calling – Programming with LLMs">
 <meta name="twitter:description" content="Programming with LLM APIsA Beginner’s Guide in R and Python">
 <meta name="twitter:image" content="https://posit-conf-2025.github.io/llm/slides/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
@@ -211,7 +211,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Augmented Generation</h1>
+  <h1 class="title">Tool Calling</h1>
   <p class="subtitle">Programming with LLM APIs<br>A Beginner’s Guide in R and Python</p>
 
 <div class="quarto-title-authors">
@@ -224,19 +224,319 @@
 
   <p class="date">2025-09-16</p>
 </section>
-<section id="welcome-back-to-work" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/jwww26np0drm80cs98ytx6znmg.jpg" data-background-size="cover" data-background-position="center">
-<h1><span class="hidden">Welcome back to work</span></h1>
+<section>
+<section id="tool-calling" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-tools.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">Tool calling</span></h1>
+<div class="hidden">
+<p>A robot wearing a tool belt, selects a tool from a wall of futuristic space tools. A sign above the wall reads “Tools”.</p>
+</div>
+</section>
+<section id="recall-how-do-llms-work" class="slide level2 center">
+<h2>Recall: How do LLMs work?</h2>
+<ol type="1">
+<li class="fragment"><p>You write some words</p></li>
+<li class="fragment"><p>The LLM writes some more words</p></li>
+<li class="fragment"><p>You <em>use those words</em></p></li>
+</ol>
+<div class="fragment">
+<p><em>On their own, can LLMs… access the internet? send an email? interact with the world?</em></p>
+</div>
+</section>
+<section id="lets-try-it" class="slide level2">
+<h2>Let’s try it</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>chat <span class="ot">&lt;-</span> <span class="fu">chat</span>(<span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"What's the weather like in Atlanta, GA?"</span>)</span>
+<span id="cb1-6"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Who are the keynote speakers at posit::conf(2025)?"</span>)</span>
+<span id="cb1-7"><a></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"What day is it?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="mt3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> chatlas</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a>chat <span class="op">=</span> chatlas.Chat(model<span class="op">=</span><span class="st">"openai/gpt-4.1-nano"</span>)</span>
+<span id="cb2-4"><a></a>chat.chat(<span class="st">"What's the weather like in Atlanta, GA?"</span>)</span>
+<span id="cb2-5"><a></a>chat.chat(<span class="st">"Who are the keynote speakers at posit::conf(2025)?"</span>)</span>
+<span id="cb2-6"><a></a>chat.chat(<span class="st">"What day is it?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<aside class="notes">
+<p>Run these in the terminal.</p>
+<p>Ask: how could we get the model to know these answers? Let’s start with the easiest one: what day is it?</p>
+<p>Answer: we could just tell it in the system prompt.</p>
+<p>What about keynote speakers? We could include that in the system prompt too. But what if the schedule changes?</p>
+<p>What about the weather? The model can’t know that because it’s not connected to the internet.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tools" class="slide level2 center">
+<h2>Tools</h2>
+<p>a.k.a. <em>functions</em>, <em>tool calling</em> or <em>function calling</em></p>
+<ul>
+<li class="fragment"><p>Bring real-time or up-to-date information to the model</p></li>
+<li class="fragment"><p>Letting the model interact with the world<sup>*</sup></p></li>
+</ul>
+<aside class="notes">
+<p>Tools are extra capabilities that you give to the LLM, like the ability to search the posit::conf(2025) schedule. These capabilities are things that the model can’t do on its own. The goal is let the model pull in real-time, or up-to-date, or high-quality information as needed, depending on the conversation.</p>
+<p>They can also give the model new abilities to take action on behalf of the user.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="chatbot-systems" class="title-slide slide level1 center">
+<h1>Chatbot Systems</h1>
 
 </section>
+<section id="section" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
 
-<section id="your-turn-15_coding-assistant" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>15_coding-assistant</code></h1>
+<img data-src="assets/chat-systems-user-06.excalidraw.svg" class="r-stretch"><div class="footer">
+<p>user vs.&nbsp;programmer</p>
+</div>
+</section>
+<section id="section-1" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/chat-systems-user-07.excalidraw.svg" class="r-stretch"></section>
+<section id="section-2" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/chat-systems-user-08.excalidraw.svg" class="r-stretch"></section>
+<section id="section-3" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/chat-systems-user-16.excalidraw.svg" class="r-stretch"></section>
+<section id="section-4" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/chat-systems-user-17.excalidraw.svg" class="r-stretch"></section>
+<section id="section-5" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/chat-systems-user-18.excalidraw.svg" class="r-stretch"></section>
+<section id="section-6" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/chat-systems-user-19.excalidraw.svg" class="r-stretch"></section>
+<section id="section-7" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/chat-systems-user-20.excalidraw.svg" class="r-stretch"></section>
+<section id="section-8" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/chat-systems-user-21.excalidraw.svg" class="r-stretch"></section>
+<section id="how-do-tool-calls-work" class="slide level2 center">
+<h2>How do tool calls work?</h2>
+<p>What should I wear to posit::conf(2025) in Atlanta?</p>
+<aside class="notes">
+<p>So how do we connect the LLM to the code that this data scientist has written (or could write) to give the model new abilities?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="human-in-the-loop" class="slide level2 center">
+<h2>Human in the loop</h2>
+<p>👨‍💻 <span class="code b purple">_demos/18_manual-tools/app.R</span></p>
+</section>
+<section id="wait-i-can-write-code" class="slide level2 center">
+<h2>Wait… I can write code!</h2>
+<p>👨‍💻 <span class="code b purple">_demos/19_tools/19_weather-tool.R</span></p>
+<p>👨‍💻 <span class="code b purple">_demos/19_tools/19_weather-tool.py</span></p>
+</section>
+<section id="section-9" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/tools-how-it-works-01.excalidraw.svg" class="r-stretch"><aside class="notes">
+<p>Zooming out again, the conversation starts with a user sending a message to the chatbot.</p>
+<p>In this case, the user asks the model whether they can go to the pool today. (I live in Atlanta, GA.)</p>
+<p>How much does the model know about the weather in Atlanta, GA?</p>
+<p><strong>What’s the weather like today in Atlanta, GA?</strong></p>
+<blockquote>
+<p>I’m unable to provide real-time weather updates. For the latest weather forecast in Atlanta, GA, please check a trusted weather service such as the National Weather Service, Weather.com, or a weather app on your device.</p>
+</blockquote>
+<p><strong>Go ahead and guess</strong></p>
+<blockquote>
+<p>Sure! Since it’s July in Atlanta, GA, you can generally expect hot and humid weather. Temperatures might range from the mid-80s to mid-90s Fahrenheit (around 29-35°C). There could also be some afternoon thunderstorms or showers, which are common during summer months in Georgia. Keep a fan or air conditioning handy if you’re indoors, and stay hydrated!</p>
+</blockquote>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-10" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/tools-how-it-works-02.excalidraw.svg" class="r-stretch"><aside class="notes">
+<p>Now imagine we’ve told the LLM that it has access to a tool called <code>get_weather()</code>. Knowing that it 1) needs to know the weather in Atlanta and 2) it doesn’t know the weather in Atlanta, GA; the model decides to use the weather tool.</p>
+<p>It sends back a message that includes a tool call, basically instructions to call the <code>get_weather()</code> function with the argument <code>30303</code>. Notice that the model <em>does know</em> that Atlanta, GA is in the 30303 ZIP code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-11" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/tools-how-it-works-03.excalidraw.svg" class="r-stretch"><aside class="notes">
+<p>The programmer can then take that message from the LLM with the instructions to call the tool and they go off and run the code that that satisfies the tool request, in this case querying the weather API for the weather in 30303 because that has been a stable fact for a long time.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-12" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/tools-how-it-works-04.excalidraw.svg" class="r-stretch"><aside class="notes">
+<p>The weather API sends back some data:</p>
+<ul>
+<li>The forecast is mostly sunny</li>
+<li>High of 98ºF</li>
+<li>Low of 78ºF</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-13" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/tools-how-it-works-05.excalidraw.svg" class="r-stretch"><aside class="notes">
+<p>The programmer sends that data back to the LLM. Note that it’s often in a pretty raw format, like JSON. Not the kind of thing you’d want to read directly unless you’re the kind of person who likes reading computer data formats.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-14" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/tools-how-it-works-06.excalidraw.svg" class="r-stretch"><aside class="notes">
+<p>The LLM doesn’t mind JSON though, so it reads the data and generates a response that <em>incorporates</em> the data from the tool call.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-15" class="slide level2 center" style="text-align: center" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/tools-how-it-works-07.excalidraw.svg" class="r-stretch"></section>
+<section id="recap-tool-definitions-in-r" class="slide level2">
+<h2>Recap: Tool definitions in R</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-code-line-numbers="|1|2|3|4-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>tool_get_weather <span class="ot">&lt;-</span> <span class="fu">tool</span>(</span>
+<span id="cb3-2"><a></a>  tool_fn,</span>
+<span id="cb3-3"><a></a>  <span class="at">description =</span> <span class="st">"How and when to use the tool"</span>,</span>
+<span id="cb3-4"><a></a>  <span class="at">arguments =</span> <span class="fu">list</span>(</span>
+<span id="cb3-5"><a></a>    <span class="at">.... =</span> <span class="fu">type_string</span>(),</span>
+<span id="cb3-6"><a></a>    <span class="at">.... =</span> <span class="fu">type_integer</span>(),</span>
+<span id="cb3-7"><a></a>    <span class="at">.... =</span> <span class="fu">type_enum</span>(</span>
+<span id="cb3-8"><a></a>      <span class="fu">c</span>(<span class="st">"choice1"</span>, <span class="st">"choice2"</span>),</span>
+<span id="cb3-9"><a></a>      <span class="at">required =</span> <span class="cn">FALSE</span></span>
+<span id="cb3-10"><a></a>    )</span>
+<span id="cb3-11"><a></a>  )</span>
+<span id="cb3-12"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="recap-tool-definitions-in-python" class="slide level2">
+<h2>Recap: Tool definitions in Python</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="kw">def</span> get_weather(lat, lon):</span>
+<span id="cb4-2"><a></a>    <span class="cf">return</span> NWS.GetCurrentForecast(lat, lon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="recap-tool-definitions-in-python-1" class="slide level2">
+<h2>Recap: Tool definitions in Python</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-code-line-numbers="1-1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="kw">def</span> get_weather(lat: <span class="bu">float</span>, lon: <span class="bu">float</span>):</span>
+<span id="cb5-2"><a></a>    <span class="cf">return</span> NWS.GetCurrentForecast(lat, lon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="recap-tool-definitions-in-python-2" class="slide level2">
+<h2>Recap: Tool definitions in Python</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-code-line-numbers="2-11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="kw">def</span> get_weather(lat: <span class="bu">float</span>, lon: <span class="bu">float</span>):</span>
+<span id="cb6-2"><a></a>    <span class="co">"""</span></span>
+<span id="cb6-3"><a></a><span class="co">    Get forecast data for a specific latitude and longitude.</span></span>
+<span id="cb6-4"><a></a></span>
+<span id="cb6-5"><a></a><span class="co">    Parameters</span></span>
+<span id="cb6-6"><a></a><span class="co">    ----------</span></span>
+<span id="cb6-7"><a></a><span class="co">    lat : str</span></span>
+<span id="cb6-8"><a></a><span class="co">        Latitude of the location.</span></span>
+<span id="cb6-9"><a></a><span class="co">    lon : str</span></span>
+<span id="cb6-10"><a></a><span class="co">        Longitude of the location.</span></span>
+<span id="cb6-11"><a></a><span class="co">    """</span></span>
+<span id="cb6-12"><a></a>    <span class="cf">return</span> NWS.GetCurrentForecast(lat, lon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section></section>
+<section id="your-turn-20_quiz-game-2" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>20_quiz-game-2</code></h1>
 <ol type="1">
-<li><p>Use Claude 3.5 Sonnet to write a function that gets the weather.<br>
-The first time, use Claude on its own.</p></li>
-<li><p>Do some basic research for Claude about<br>
-how to use a specific package to get the weather.</p></li>
-<li><p>How does Claude do with the same task now?</p></li>
+<li><p>I’ve given you a function that plays a sound when called.</p></li>
+<li><p>Your job: teach the model to play sounds in the Quiz Show game we made earlier today.</p></li>
+<li><p><em>You can use your prompt or switch <code>_exercises</code> → <code>_solutions</code> to use ours.</em></p></li>
 </ol>
 <div id="timer_e23e5b94825a0aea4656e18e38e9d28d8bd8d316" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
@@ -245,169 +545,75 @@ how to use a specific package to get the weather.</p></li>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">06</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
+<aside class="notes">
+<p>Follow up question: why send a string back to the LLM that says the sound was played?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section>
-<section id="augmented-generation" class="title-slide slide level1 no-invert-dark-mode h-100 center" data-background-image="assets/replicate-prediction-jwcp35drqdrmc0cs9bc8mtmxqm.webp" data-background-size="cover" data-background-position="center">
-<h1><span class="hidden">Augmented Generation</span></h1>
-<p><span class="white b absolute" style="font-size: 2em;top: -50px; left: 100px; ">Augmented Generation</span></p>
-</section>
-<section id="section" class="slide level2 center">
-<h2></h2>
-
-<img data-src="assets/augmented-generation-01.excalidraw.svg" class="r-stretch"></section>
-<section id="section-1" class="slide level2 center">
-<h2></h2>
-
-<img data-src="assets/augmented-generation-02.excalidraw.svg" class="r-stretch"></section>
-<section id="section-2" class="slide level2 center">
-<h2></h2>
-
-<img data-src="assets/augmented-generation-03.excalidraw.svg" class="r-stretch"></section>
-<section id="section-3" class="slide level2 center">
-<h2></h2>
-
-<img data-src="assets/augmented-generation-04.excalidraw.svg" class="r-stretch"></section>
-<section id="retrieval-augmented-generation-rag" class="slide level2 center">
-<h2>Retrieval-Augmented Generation (RAG)</h2>
-<aside class="notes">
-<p>RAG is a technique to automatically find and add relevant context to your prompts, rather than needing you to go out and copy-pasting it into the prompt yourself.</p>
-<p>In a RAG system, you have a whole pile of documents. They’re not all immediately relevant to every question you might ask, but there’s a lot of useful information in this pile of document.</p>
-<p>When you talk to the LLM, the RAG system can take your prompt, search for documents that seem related to your prompt and then add those documents to your prompt. Then the LLM sees both your prompt and these extra documents, and it uses both when generating a response.</p>
-<p>In the end, you get a much better response that’s more likely to be correct and to include accurate information.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="retrieval-augmented-generation-rag-1" class="slide level2 center">
-<h2>Retrieval-Augmented Generation (RAG)</h2>
-
-<img data-src="assets/rag-diagram-01.excalidraw.svg" class="r-stretch"></section>
-<section id="retrieval-augmented-generation-rag-2" class="slide level2 center">
-<h2>Retrieval-Augmented Generation (RAG)</h2>
-
-<img data-src="assets/rag-diagram-02.excalidraw.svg" class="r-stretch"></section>
-<section id="retrieval-augmented-generation-rag-3" class="slide level2 center">
-<h2>Retrieval-Augmented Generation (RAG)</h2>
-
-<img data-src="assets/rag-diagram-03.excalidraw.svg" class="r-stretch"></section>
-<section id="retrieval-augmented-generation-rag-4" class="slide level2 center">
-<h2>Retrieval-Augmented Generation (RAG)</h2>
-
-<img data-src="assets/rag-diagram-04.excalidraw.svg" class="r-stretch"></section>
-<section id="how-do-we-find-relevant-documents" class="slide level2 center">
-<h2>How do we find relevant documents?</h2>
-<div class="fragment">
-<p>Answer: word vector embeddings <span class="fragment">→ turn words into vectors</span></p>
-</div>
-<aside class="notes">
-<p>How do we actually find the most relevant documents?</p>
-<p>Word vector embeddings are a way to represent words as dense, real-valued vectors in a continuous space.</p>
-<p>The idea is to capture semantic and syntactic relationships between words such that geometrical relationships in the vector space correspond to linguistic relationships in the language.</p>
-<p>Each word is mapped to a fixed-length vector with real-valued components. Distances and directions in this space encode similarity and relational structure. Words with similar meanings or usage tend to have similar vectors (small cosine distance, or Euclidean distance). Beyond meaning, embeddings can capture grammatical or functional similarities (e.g., verbs in present tense vs.&nbsp;past tense, or plural vs.&nbsp;singular forms).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="section-4" class="slide level2 center tc">
-<h2><span class="no-invert-dark-mode" style="font-size: 2em">🤴 - 🧔‍♂️ + 💁‍♀️ = ❓</span></h2>
-</section>
-<section id="section-5" class="slide level2 center tc">
-<h2><span class="no-invert-dark-mode" style="font-size: 2em">🤴 - 🧔‍♂️ = 👑<br>👑 + 💁‍♀️ = ❓</span></h2>
-</section>
-<section id="section-6" class="slide level2 center tc">
-<h2><span class="no-invert-dark-mode" style="font-size: 2em">🤴 - 🧔‍♂️ = 👑<br>👑 + 💁‍♀️ = 👸</span></h2>
-</section>
-<section id="openai-text-embedding-3-small" class="slide level2">
-<h2>OpenAI: text-embedding-3-small</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>text_embedding_3_small(<span class="st">"dplyr::left_join"</span>)</span>
-<span id="cb1-2"><a></a><span class="co">#&gt; [-0.0384574,  0.00796838,  0.04896307, ..., -0.01687562, 0.00051399,  0.01020856]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="fragment mt4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>text_embedding_3_small(<span class="st">"LEFT JOIN"</span>)</span>
-<span id="cb2-2"><a></a><span class="co">#&gt; [-0.0114895,  0.01873610,  0.04436858, ...,  0.0055124, 0.01100459, -0.00588281],</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="fragment mt4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>text_embedding_3_small(<span class="st">"suitcase"</span>)</span>
-<span id="cb3-2"><a></a><span class="co">#&gt; [ 0.01323017, -0.00844115, -0.02530578, ..., -0.00054488, -0.0285338, -0.02933492]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="fragment mt4 tc">
-<p><img data-src="assets/rag-left-join.excalidraw.svg" style="width:75.0%"></p>
+<section id="tool-ui" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-tools-shinychat.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">Tool UI</span></h1>
+<div class="hidden">
+<p>A robot is standing in front of a display case, pointing at a holographic interface showing various tools and options. The robot appears to be selecting a tool from the interface.</p>
 </div>
 </section>
-<section id="two-ways-that-users-encounter-rag" class="slide level2 center">
-<h2>Two ways that users encounter RAG</h2>
+<section id="your-turn-21_quiz-game-3" class="slide level2 slide-your-turn">
+<h2>Your Turn <code>21_quiz-game-3</code></h2>
 <ol type="1">
-<li class="fragment"><p>Every prompt you send gets passed through<br>
-a RAG system and is augmented</p></li>
-<li class="fragment"><p>The LLM can decide when to call the RAG system</p></li>
+<li><p>Step 1</p></li>
+<li><p>Step 2</p></li>
+<li><p>Step 3</p></li>
 </ol>
-</section>
-<section id="ragnar" class="slide level2 center" data-transition="fade">
-<h2>In R…</h2>
-<div style="display: flex; flex-direction: row; align-items: center; gap: 1em; text-align: center;">
-<div class="column">
-<p><img data-src="../assets/logos/ellmer.png" width="400"></p>
-</div><div class="column">
-<p><img data-src="../assets/logos/ragnar.png" width="400"></p>
-</div></div>
-<div class="footer">
-<p><a href="https://ragnar.tidyverse.org/" class="uri">https://ragnar.tidyverse.org/</a></p>
-</div>
-</section>
-<section id="llama-index" class="slide level2 center" data-transition="fade">
-<h2>In Python…</h2>
-<div style="display: flex; flex-direction: row; align-items: center; gap: 1em; text-align: center;">
-<div class="column">
-<p><img data-src="../assets/logos/chatlas.png" width="400"></p>
-</div><div class="column">
-<ul>
-<li><p><a href="https://docs.llamaindex.ai/en/stable/">LlamaIndex</a></p></li>
-<li><p><a href="https://docs.pinecone.io/reference/python-sdk">pinecone</a></p></li>
-<li><p><a href="https://www.trychroma.com/">chromadb</a></p></li>
-</ul>
-</div></div>
-<div class="footer">
-<p><a href="https://posit-dev.github.io/chatlas/misc/RAG.html">chatlas: RAG</a></p>
-</div>
-</section></section>
-<section id="your-turn-16_rag" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>16_rag</code></h1>
-<p>Follow the steps in the <code>16_rag</code> exercise, which are roughly:</p>
-<ol type="1">
-<li><p>First, you’ll create a vector database from a set of documents:</p>
-<ul>
-<li>In R: <em><a href="https://r4ds.had.co.nz/">R for Data Science</a></em> (R4DS)</li>
-<li>In Python: <em><a href="https://github.com/escobar-west/polars-cookbook">The Polars Cookbook</a></em></li>
-</ul></li>
-<li><p>Test out the vector database with a simple query.</p></li>
-<li><p>Attach a retrieval tool to a chat client and try it in a Shiny app.</p></li>
-</ol>
-<div id="timer_e23e5b94825a0aea4656e18e38e9d28d8bd8d316" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+<div id="timer_e23e5b94825a0aea4656e18e38e9d28d8bd8d316" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
- <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="your-turn-22_quiz-game-4" class="slide level2 slide-your-turn">
+<h2>Your Turn <code>22_quiz-game-4</code></h2>
+<ol type="1">
+<li><p>Step 1</p></li>
+<li><p>Step 2</p></li>
+<li><p>Step 3</p></li>
+</ol>
+<div id="timer_e23e5b94825a0aea4656e18e38e9d28d8bd8d316" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="your-turn-23_quiz-game-5" class="slide level2 slide-your-turn">
+<h2>Your Turn <code>23_quiz-game-5</code></h2>
+<ol type="1">
+<li><p>Step 1</p></li>
+<li><p>Step 2</p></li>
+<li><p>Step 3</p></li>
+</ol>
+<div id="timer_e23e5b94825a0aea4656e18e38e9d28d8bd8d316" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
