@@ -36,6 +36,72 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-b86b37e4326de2141a6411f63d78ad4f.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -166,11 +232,13 @@
 <section id="your-turn-15_coding-assistant" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>15_coding-assistant</code></h1>
 <ol type="1">
-<li><p>Step 1</p></li>
-<li><p>Step 2</p></li>
-<li><p>Step 3</p></li>
+<li><p>Use Claude 3.5 Sonnet to write a function that gets the weather.<br>
+The first time, use Claude on its own.</p></li>
+<li><p>Do some basic research for Claude about<br>
+how to use a specific package to get the weather.</p></li>
+<li><p>How does Claude do with the same task now?</p></li>
 </ol>
-<div id="timer_4f7255cac3f1efd12ed8396ab8a5f3fa1f544f63" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_f87a31826cfee25eecb2b5bca481c281efbe8842" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -180,21 +248,157 @@
 </section>
 
 <section>
-<section id="augmented-generation" class="title-slide slide level1 center">
-<h1>Augmented Generation</h1>
-
+<section id="augmented-generation" class="title-slide slide level1 no-invert-dark-mode h-100 center" data-background-image="assets/replicate-prediction-jwcp35drqdrmc0cs9bc8mtmxqm.webp" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">Augmented Generation</span></h1>
+<p><span class="white b absolute" style="font-size: 2em;top: -50px; left: 100px; ">Augmented Generation</span></p>
 </section>
-<section id="high-level-overview-of-how-rag-works" class="slide level2">
-<h2>High-level overview of how RAG works</h2>
+<section id="section" class="slide level2 center">
+<h2></h2>
+
+<img data-src="assets/augmented-generation-01.excalidraw.svg" class="r-stretch"></section>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+
+<img data-src="assets/augmented-generation-02.excalidraw.svg" class="r-stretch"></section>
+<section id="section-2" class="slide level2 center">
+<h2></h2>
+
+<img data-src="assets/augmented-generation-03.excalidraw.svg" class="r-stretch"></section>
+<section id="section-3" class="slide level2 center">
+<h2></h2>
+
+<img data-src="assets/augmented-generation-04.excalidraw.svg" class="r-stretch"></section>
+<section id="retrieval-augmented-generation-rag" class="slide level2 center">
+<h2>Retrieval-Augmented Generation (RAG)</h2>
+<aside class="notes">
+<p>RAG is a technique to automatically find and add relevant context to your prompts, rather than needing you to go out and copy-pasting it into the prompt yourself.</p>
+<p>In a RAG system, you have a whole pile of documents. They’re not all immediately relevant to every question you might ask, but there’s a lot of useful information in this pile of document.</p>
+<p>When you talk to the LLM, the RAG system can take your prompt, search for documents that seem related to your prompt and then add those documents to your prompt. Then the LLM sees both your prompt and these extra documents, and it uses both when generating a response.</p>
+<p>In the end, you get a much better response that’s more likely to be correct and to include accurate information.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="retrieval-augmented-generation-rag-1" class="slide level2 center">
+<h2>Retrieval-Augmented Generation (RAG)</h2>
+
+<img data-src="assets/rag-diagram-01.excalidraw.svg" class="r-stretch"></section>
+<section id="retrieval-augmented-generation-rag-2" class="slide level2 center">
+<h2>Retrieval-Augmented Generation (RAG)</h2>
+
+<img data-src="assets/rag-diagram-02.excalidraw.svg" class="r-stretch"></section>
+<section id="retrieval-augmented-generation-rag-3" class="slide level2 center">
+<h2>Retrieval-Augmented Generation (RAG)</h2>
+
+<img data-src="assets/rag-diagram-03.excalidraw.svg" class="r-stretch"></section>
+<section id="retrieval-augmented-generation-rag-4" class="slide level2 center">
+<h2>Retrieval-Augmented Generation (RAG)</h2>
+
+<img data-src="assets/rag-diagram-04.excalidraw.svg" class="r-stretch"></section>
+<section id="how-do-we-find-relevant-documents" class="slide level2 center">
+<h2>How do we find relevant documents?</h2>
+<div class="fragment">
+<p>Answer: word vector embeddings <span class="fragment">→ turn words into vectors</span></p>
+</div>
+<aside class="notes">
+<p>How do we actually find the most relevant documents?</p>
+<p>Word vector embeddings are a way to represent words as dense, real-valued vectors in a continuous space.</p>
+<p>The idea is to capture semantic and syntactic relationships between words such that geometrical relationships in the vector space correspond to linguistic relationships in the language.</p>
+<p>Each word is mapped to a fixed-length vector with real-valued components. Distances and directions in this space encode similarity and relational structure. Words with similar meanings or usage tend to have similar vectors (small cosine distance, or Euclidean distance). Beyond meaning, embeddings can capture grammatical or functional similarities (e.g., verbs in present tense vs.&nbsp;past tense, or plural vs.&nbsp;singular forms).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-4" class="slide level2 center tc">
+<h2><span class="no-invert-dark-mode" style="font-size: 2em">🤴 - 🧔‍♂️ + 💁‍♀️ = ❓</span></h2>
+</section>
+<section id="section-5" class="slide level2 center tc">
+<h2><span class="no-invert-dark-mode" style="font-size: 2em">🤴 - 🧔‍♂️ = 👑<br>👑 + 💁‍♀️ = ❓</span></h2>
+</section>
+<section id="section-6" class="slide level2 center tc">
+<h2><span class="no-invert-dark-mode" style="font-size: 2em">🤴 - 🧔‍♂️ = 👑<br>👑 + 💁‍♀️ = 👸</span></h2>
+</section>
+<section id="openai-text-embedding-3-small" class="slide level2">
+<h2>OpenAI: text-embedding-3-small</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a>text_embedding_3_small(<span class="st">"dplyr::left_join"</span>)</span>
+<span id="cb1-2"><a></a><span class="co">#&gt; [-0.0384574,  0.00796838,  0.04896307, ..., -0.01687562, 0.00051399,  0.01020856]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment mt4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>text_embedding_3_small(<span class="st">"LEFT JOIN"</span>)</span>
+<span id="cb2-2"><a></a><span class="co">#&gt; [-0.0114895,  0.01873610,  0.04436858, ...,  0.0055124, 0.01100459, -0.00588281],</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment mt4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>text_embedding_3_small(<span class="st">"suitcase"</span>)</span>
+<span id="cb3-2"><a></a><span class="co">#&gt; [ 0.01323017, -0.00844115, -0.02530578, ..., -0.00054488, -0.0285338, -0.02933492]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment mt4 tc">
+<p><img data-src="assets/rag-left-join.excalidraw.svg" style="width:75.0%"></p>
+</div>
+</section>
+<section id="two-ways-that-users-encounter-rag" class="slide level2 center">
+<h2>Two ways that users encounter RAG</h2>
+<ol type="1">
+<li class="fragment"><p>Every prompt you send gets passed through<br>
+a RAG system and is augmented</p></li>
+<li class="fragment"><p>The LLM can decide when to call the RAG system</p></li>
+</ol>
+</section>
+<section id="ragnar" class="slide level2 center" data-transition="fade">
+<h2>In R…</h2>
+<div style="display: flex; flex-direction: row; align-items: center; gap: 1em; text-align: center;">
+<div class="column">
+<p><img data-src="../assets/logos/ellmer.png" width="400"></p>
+</div><div class="column">
+<p><img data-src="../assets/logos/ragnar.png" width="400"></p>
+</div></div>
+<div class="footer">
+<p><a href="https://ragnar.tidyverse.org/" class="uri">https://ragnar.tidyverse.org/</a></p>
+</div>
+</section>
+<section id="ragnar" class="slide level2 center" data-transition="fade">
+<h2>In Python…</h2>
+<div style="display: flex; flex-direction: row; align-items: center; gap: 1em; text-align: center;">
+<div class="column">
+<p><img data-src="../assets/logos/chatlas.png" width="400"></p>
+</div><div class="column">
+<ul>
+<li><p><a href="https://docs.llamaindex.ai/en/stable/">LlamaIndex</a></p></li>
+<li><p><a href="https://docs.pinecone.io/reference/python-sdk">pinecone</a></p></li>
+<li><p><a href="https://www.trychroma.com/">chromadb</a></p></li>
+</ul>
+</div></div>
+<div class="footer">
+<p><a href="https://posit-dev.github.io/chatlas/misc/RAG.html">chatlas: RAG</a></p>
+</div>
 </section></section>
 <section id="your-turn-16_rag" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>16_rag</code></h1>
+<p>Follow the steps in the <code>16_rag</code> exercise, which are roughly:</p>
 <ol type="1">
-<li><p>Step 1</p></li>
-<li><p>Step 2</p></li>
-<li><p>Step 3</p></li>
+<li><p>First, you’ll create a vector database from a set of documents:</p>
+<ul>
+<li>In R: <em><a href="https://r4ds.had.co.nz/">R for Data Science</a></em> (R4DS)</li>
+<li>In Python: <em><a href="https://github.com/escobar-west/polars-cookbook">The Polars Cookbook</a></em></li>
+</ul></li>
+<li><p>Test out the vector database with a simple query.</p></li>
+<li><p>Attach a retrieval tool to a chat client and try it in a Shiny app.</p></li>
 </ol>
-<div id="timer_4f7255cac3f1efd12ed8396ab8a5f3fa1f544f63" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_f87a31826cfee25eecb2b5bca481c281efbe8842" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>

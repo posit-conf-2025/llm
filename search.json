@@ -375,7 +375,7 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is bicycle.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
   },
   {
     "objectID": "workshop.html",
@@ -1223,10 +1223,87 @@
     "text": "chatlas.batch_chat_structured\nfrom chatlas import ChatAuto, batch_chat_structured\n\nchat = chatlas.ChatAuto(\"anthropic/claude-3-haiku-20240307\")\nres = batch_chat_structured(\n    chat=chat,\n    prompts=age_free_text,\n    data_model=Person,\n    path=\"people.json\",\n)"
   },
   {
-    "objectID": "slides/slides-07.html#high-level-overview-of-how-rag-works",
-    "href": "slides/slides-07.html#high-level-overview-of-how-rag-works",
+    "objectID": "slides/slides-07.html#retrieval-augmented-generation-rag",
+    "href": "slides/slides-07.html#retrieval-augmented-generation-rag",
     "title": "Augmented Generation",
-    "section": "High-level overview of how RAG works",
-    "text": "High-level overview of how RAG works"
+    "section": "Retrieval-Augmented Generation (RAG)",
+    "text": "Retrieval-Augmented Generation (RAG)\n\nRAG is a technique to automatically find and add relevant context to your prompts, rather than needing you to go out and copy-pasting it into the prompt yourself.\nIn a RAG system, you have a whole pile of documents. They’re not all immediately relevant to every question you might ask, but there’s a lot of useful information in this pile of document.\nWhen you talk to the LLM, the RAG system can take your prompt, search for documents that seem related to your prompt and then add those documents to your prompt. Then the LLM sees both your prompt and these extra documents, and it uses both when generating a response.\nIn the end, you get a much better response that’s more likely to be correct and to include accurate information."
+  },
+  {
+    "objectID": "slides/slides-07.html#retrieval-augmented-generation-rag-1",
+    "href": "slides/slides-07.html#retrieval-augmented-generation-rag-1",
+    "title": "Augmented Generation",
+    "section": "Retrieval-Augmented Generation (RAG)",
+    "text": "Retrieval-Augmented Generation (RAG)"
+  },
+  {
+    "objectID": "slides/slides-07.html#retrieval-augmented-generation-rag-2",
+    "href": "slides/slides-07.html#retrieval-augmented-generation-rag-2",
+    "title": "Augmented Generation",
+    "section": "Retrieval-Augmented Generation (RAG)",
+    "text": "Retrieval-Augmented Generation (RAG)"
+  },
+  {
+    "objectID": "slides/slides-07.html#retrieval-augmented-generation-rag-3",
+    "href": "slides/slides-07.html#retrieval-augmented-generation-rag-3",
+    "title": "Augmented Generation",
+    "section": "Retrieval-Augmented Generation (RAG)",
+    "text": "Retrieval-Augmented Generation (RAG)"
+  },
+  {
+    "objectID": "slides/slides-07.html#retrieval-augmented-generation-rag-4",
+    "href": "slides/slides-07.html#retrieval-augmented-generation-rag-4",
+    "title": "Augmented Generation",
+    "section": "Retrieval-Augmented Generation (RAG)",
+    "text": "Retrieval-Augmented Generation (RAG)"
+  },
+  {
+    "objectID": "slides/slides-07.html#how-do-we-find-relevant-documents",
+    "href": "slides/slides-07.html#how-do-we-find-relevant-documents",
+    "title": "Augmented Generation",
+    "section": "How do we find relevant documents?",
+    "text": "How do we find relevant documents?\n\nAnswer: word vector embeddings → turn words into vectors\n\n\nHow do we actually find the most relevant documents?\nWord vector embeddings are a way to represent words as dense, real-valued vectors in a continuous space.\nThe idea is to capture semantic and syntactic relationships between words such that geometrical relationships in the vector space correspond to linguistic relationships in the language.\nEach word is mapped to a fixed-length vector with real-valued components. Distances and directions in this space encode similarity and relational structure. Words with similar meanings or usage tend to have similar vectors (small cosine distance, or Euclidean distance). Beyond meaning, embeddings can capture grammatical or functional similarities (e.g., verbs in present tense vs. past tense, or plural vs. singular forms)."
+  },
+  {
+    "objectID": "slides/slides-07.html#section-4",
+    "href": "slides/slides-07.html#section-4",
+    "title": "Augmented Generation",
+    "section": "🤴 - 🧔‍♂️ + 💁‍♀️ = ❓",
+    "text": "🤴 - 🧔‍♂️ + 💁‍♀️ = ❓"
+  },
+  {
+    "objectID": "slides/slides-07.html#section-5",
+    "href": "slides/slides-07.html#section-5",
+    "title": "Augmented Generation",
+    "section": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = ❓",
+    "text": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = ❓"
+  },
+  {
+    "objectID": "slides/slides-07.html#section-6",
+    "href": "slides/slides-07.html#section-6",
+    "title": "Augmented Generation",
+    "section": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = 👸",
+    "text": "🤴 - 🧔‍♂️ = 👑👑 + 💁‍♀️ = 👸"
+  },
+  {
+    "objectID": "slides/slides-07.html#openai-text-embedding-3-small",
+    "href": "slides/slides-07.html#openai-text-embedding-3-small",
+    "title": "Augmented Generation",
+    "section": "OpenAI: text-embedding-3-small",
+    "text": "OpenAI: text-embedding-3-small\ntext_embedding_3_small(\"dplyr::left_join\")\n#&gt; [-0.0384574,  0.00796838,  0.04896307, ..., -0.01687562, 0.00051399,  0.01020856]\n\ntext_embedding_3_small(\"LEFT JOIN\")\n#&gt; [-0.0114895,  0.01873610,  0.04436858, ...,  0.0055124, 0.01100459, -0.00588281],\n\n\ntext_embedding_3_small(\"suitcase\")\n#&gt; [ 0.01323017, -0.00844115, -0.02530578, ..., -0.00054488, -0.0285338, -0.02933492]"
+  },
+  {
+    "objectID": "slides/slides-07.html#two-ways-that-users-encounter-rag",
+    "href": "slides/slides-07.html#two-ways-that-users-encounter-rag",
+    "title": "Augmented Generation",
+    "section": "Two ways that users encounter RAG",
+    "text": "Two ways that users encounter RAG\n\nEvery prompt you send gets passed through\na RAG system and is augmented\nThe LLM can decide when to call the RAG system"
+  },
+  {
+    "objectID": "slides/slides-07.html#ragnar",
+    "href": "slides/slides-07.html#ragnar",
+    "title": "Augmented Generation",
+    "section": "In Python…",
+    "text": "In Python…\n\n\n\n\n\nLlamaIndex\npinecone\nchromadb\n\n\n\nchatlas: RAG"
   }
 ]
