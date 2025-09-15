@@ -238,7 +238,7 @@ RStudio and VS Code are great, too!
     a. **R**: Run [secret.R]{class="b--light-red red ph2 pv1 ba br2 code"}
 
     b. **Python:** Run [make secret-decrypt]{class="b--blue blue ph2 pv1 ba br2 code"} in terminal \
-      or run [python secret.py decrypt .env.secret > .env]{class="b--blue blue ph2 pv1 ba br2 code"}
+      or run [uv run secret.py decrypt .env.secret > .env]{class="b--blue blue ph2 pv1 ba br2 code"}
 
 2. 🤫 The special phrase is: \
    [positconf2025-llm-workshop]{class="b--purple purple ph2 pv1 ba br2 code" contenteditable="true" style="font-size: 1.25em"}

@@ -613,7 +613,7 @@
     "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is sandwich."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is bicycle."
   },
   {
     "objectID": "slides/slides-02.html#interpolation-in-r-1",
@@ -627,7 +627,7 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is bicycle.'"
   },
   {
     "objectID": "workshop.html",
@@ -1108,7 +1108,7 @@
     "href": "slides/slides-01-intro.html#your-turn-01_hello-llm",
     "title": "Welcome!",
     "section": "Your Turn 01_hello-llm",
-    "text": "Your Turn 01_hello-llm\n\n\n🔓 Decrypt the .env.secret → .env:\n\nR: Run secret.R\nPython: Run make secret-decrypt in terminal\nor run python secret.py decrypt .env.secret &gt; .env\n\n🤫 The special phrase is:\npositconf2025-llm-workshop\n🤖 Run the code in _exercises/01_hello-llm"
+    "text": "Your Turn 01_hello-llm\n\n\n🔓 Decrypt the .env.secret → .env:\n\nR: Run secret.R\nPython: Run make secret-decrypt in terminal\nor run uv run secret.py decrypt .env.secret &gt; .env\n\n🤫 The special phrase is:\npositconf2025-llm-workshop\n🤖 Run the code in _exercises/01_hello-llm"
   },
   {
     "objectID": "slides/slides-04.html#section",
