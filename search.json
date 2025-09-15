@@ -1283,7 +1283,7 @@
     "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is sandwich."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is bicycle."
   },
   {
     "objectID": "slides/slides-02.html#interpolation-in-r-1",
@@ -1297,7 +1297,7 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is sandwich.'"
   },
   {
     "objectID": "slides/slides-05.html#three-questions-to-ask-yourself",
@@ -1433,24 +1433,101 @@
     "text": "Recap: Tool definitions in Python\ndef get_weather(lat: float, lon: float):\n    \"\"\"\n    Get forecast data for a specific latitude and longitude.\n\n    Parameters\n    ----------\n    lat : str\n        Latitude of the location.\n    lon : str\n        Longitude of the location.\n    \"\"\"\n    return NWS.GetCurrentForecast(lat, lon)"
   },
   {
+    "objectID": "slides/slides-08.html#tool-annotations",
+    "href": "slides/slides-08.html#tool-annotations",
+    "title": "Tool Calling",
+    "section": "Tool Annotations",
+    "text": "Tool Annotations\n\nProvide hints to clients about tool behavior\nHelp humans and AI systems make informed decisions about tool usage\nAll properties are hints only - not guaranteed to be accurate\nMCP Tool Annotations Spec"
+  },
+  {
+    "objectID": "slides/slides-08.html#key-properties",
+    "href": "slides/slides-08.html#key-properties",
+    "title": "Tool Calling",
+    "section": "Key Properties",
+    "text": "Key Properties\n\n\n\n\n\n\n\nProperty\nDescription\n\n\n\n\ntitle\nHuman-readable tool name\n\n\nreadOnlyHint\nTool doesn’t modify environment\n\n\ndestructiveHint\nMay perform destructive updates\n\n\nidempotentHint\nRepeated calls with same arguments return same\n\n\nopenWorldHint\nInteracts with external entities vs. closed domain"
+  },
+  {
+    "objectID": "slides/slides-08.html#tool-annotations-in-r",
+    "href": "slides/slides-08.html#tool-annotations-in-r",
+    "title": "Tool Calling",
+    "section": "Tool Annotations in R",
+    "text": "Tool Annotations in R\ntool_get_weather &lt;- tool(\n  get_weather,\n  # description, arguments, ...\n  annotations = tool_annotations(\n    title = \"Get Weather\",\n    readOnlyHint = TRUE,\n    icon = fontawesome::fa_i(\"cloud-sun\")\n  )\n)\n\nellmer: Tool Annotations"
+  },
+  {
+    "objectID": "slides/slides-08.html#tool-annotations-in-python",
+    "href": "slides/slides-08.html#tool-annotations-in-python",
+    "title": "Tool Calling",
+    "section": "Tool Annotations in Python",
+    "text": "Tool Annotations in Python\nchat.register_tool(\n    get_weather,\n    annotations={\n        \"title\": \"Get Weather\",\n        \"readOnlyHint\": True,\n        \"extra\": {\n            \"icon\": faicons.fa_i(\"cloud-sun\"),\n        },\n    },\n)\n\nchatlas (Python): ToolAnnotations"
+  },
+  {
     "objectID": "slides/slides-08.html#your-turn-21_quiz-game-3",
     "href": "slides/slides-08.html#your-turn-21_quiz-game-3",
     "title": "Tool Calling",
     "section": "Your Turn 21_quiz-game-3",
-    "text": "Your Turn 21_quiz-game-3\n\nStep 1\nStep 2\nStep 3\n\n\n  \n    −\n    +\n \n 08:00"
+    "text": "Your Turn 21_quiz-game-3\n\nAdd tool annotations to our play_sound tools.\nPick an icon from FontAwesome free icons\n\n\n  \n    −\n    +\n \n 08:00"
+  },
+  {
+    "objectID": "slides/slides-08.html#what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool",
+    "href": "slides/slides-08.html#what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool",
+    "title": "Tool Calling",
+    "section": "What if we want to decide title and icon dynamically in the tool?",
+    "text": "What if we want to decide title and icon dynamically in the tool?"
+  },
+  {
+    "objectID": "slides/slides-08.html#ellmercontenttoolresult",
+    "href": "slides/slides-08.html#ellmercontenttoolresult",
+    "title": "Tool Calling",
+    "section": "ellmer::ContentToolResult",
+    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon) {\n  weathR::point_forecast(lat, lon)\n}\n\nellmer: ContentToolResult"
+  },
+  {
+    "objectID": "slides/slides-08.html#ellmercontenttoolresult-1",
+    "href": "slides/slides-08.html#ellmercontenttoolresult-1",
+    "title": "Tool Calling",
+    "section": "ellmer::ContentToolResult",
+    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon) {\n  forecast &lt;- weathR::point_forecast(lat, lon)\n\n  ContentToolResult(\n    forecast\n  )\n}\n\nellmer: ContentToolResult"
+  },
+  {
+    "objectID": "slides/slides-08.html#ellmercontenttoolresult-2",
+    "href": "slides/slides-08.html#ellmercontenttoolresult-2",
+    "title": "Tool Calling",
+    "section": "ellmer::ContentToolResult",
+    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon) {\n  forecast &lt;- weathR::point_forecast(lat, lon)\n\n  ContentToolResult(\n    forecast,\n    extra = list(\n      display = list(\n        title = paste(\"Weather for\", lat, lon),\n        icon = fontawesome::fa_i(\"cloud-sun\")\n      )\n    )\n  )\n}\n\nellmer: ContentToolResult"
+  },
+  {
+    "objectID": "slides/slides-08.html#ellmercontenttoolresult-3",
+    "href": "slides/slides-08.html#ellmercontenttoolresult-3",
+    "title": "Tool Calling",
+    "section": "ellmer::ContentToolResult",
+    "text": "ellmer::ContentToolResult\nget_weather &lt;- function(lat, lon, location_name) {\n  forecast &lt;- weathR::point_forecast(lat, lon)\n\n  ContentToolResult(\n    forecast,\n    extra = list(\n      display = list(\n        title = paste(\"Weather for\", location_name),\n        icon = fontawesome::fa_i(\"cloud-sun\")\n      )\n    )\n  )\n}\n\nellmer: ContentToolResult"
+  },
+  {
+    "objectID": "slides/slides-08.html#chatlas.contenttoolresult",
+    "href": "slides/slides-08.html#chatlas.contenttoolresult",
+    "title": "Tool Calling",
+    "section": "chatlas.ContentToolResult",
+    "text": "chatlas.ContentToolResult\ndef get_weather(lat: float, lon: float, location_name: str):\n    forecast = NWS.GetCurrentForecast(lat, lon)\n\n    return ContentToolResult(\n        forecast,\n        extra={\n            \"display\": {\n                \"title\": f\"Weather for {location_name}\",\n                \"icon\": faicons.fa_i(\"cloud-sun\"),\n            }\n        },\n    )\n\nchatlas: ContentToolResult"
   },
   {
     "objectID": "slides/slides-08.html#your-turn-22_quiz-game-4",
     "href": "slides/slides-08.html#your-turn-22_quiz-game-4",
     "title": "Tool Calling",
     "section": "Your Turn 22_quiz-game-4",
-    "text": "Your Turn 22_quiz-game-4\n\nStep 1\nStep 2\nStep 3\n\n\n  \n    −\n    +\n \n 08:00"
+    "text": "Your Turn 22_quiz-game-4\n\nPick an icon and a title for each action in the Quiz show app.\nReturn a ContentToolResult from each tool that sets the icon and title.\nPlay the game again to see the icons and titles in action.\n\n\n  \n    −\n    +\n \n 08:00"
+  },
+  {
+    "objectID": "slides/slides-08.html#tools-in-shiny",
+    "href": "slides/slides-08.html#tools-in-shiny",
+    "title": "Tool Calling",
+    "section": "Tools in Shiny",
+    "text": "Tools in Shiny\n\nDefine the tool function inside the server\nYou can update reactive values in the tool function!\nYou can read reactive values, if you isolate() reads. (Be careful!)"
   },
   {
     "objectID": "slides/slides-08.html#your-turn-23_quiz-game-5",
     "href": "slides/slides-08.html#your-turn-23_quiz-game-5",
     "title": "Tool Calling",
     "section": "Your Turn 23_quiz-game-5",
-    "text": "Your Turn 23_quiz-game-5\n\nStep 1\nStep 2\nStep 3\n\n\n  \n    −\n    +\n \n 08:00"
+    "text": "Your Turn 23_quiz-game-5\nI’ve updated the app to show the score in value boxes.\n(And turned off the sounds.)\n\nIn the system prompt, tell the model when to use update_score.\nRead update_score(). It should update a reactive value in the app when called. Finish implementing it.\nComplete the tool definition.\nAdd tool annotations (optional, but fun!)\n\n\n  \n    −\n    +\n \n 08:00"
   }
 ]

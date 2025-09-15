@@ -538,7 +538,7 @@
 <li><p>Your job: teach the model to play sounds in the Quiz Show game we made earlier today.</p></li>
 <li><p><em>You can use your prompt or switch <code>_exercises</code> → <code>_solutions</code> to use ours.</em></p></li>
 </ol>
-<div id="timer_e23e5b94825a0aea4656e18e38e9d28d8bd8d316" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_d0be80b08e04c7d265ac920de706a2c360c682e6" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -567,29 +567,186 @@
 <p>A robot is standing in front of a display case, pointing at a holographic interface showing various tools and options. The robot appears to be selecting a tool from the interface.</p>
 </div>
 </section>
+<section id="tool-annotations" class="slide level2">
+<h2>Tool Annotations</h2>
+<ul>
+<li><p>Provide <strong>hints</strong> to clients about tool behavior</p></li>
+<li><p>Help humans and AI systems make informed decisions about tool usage</p></li>
+<li><p>All properties are <strong>hints only</strong> - not guaranteed to be accurate</p></li>
+<li><p><a href="https://modelcontextprotocol.io/specification/2025-06-18/schema#toolannotations" data-preview-link="true">MCP Tool Annotations Spec</a></p></li>
+</ul>
+</section>
+<section id="key-properties" class="slide level2">
+<h2>Key Properties</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Property</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>title</code></strong></td>
+<td style="text-align: left;">Human-readable tool name</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>readOnlyHint</code></strong></td>
+<td style="text-align: left;">Tool doesn’t modify environment</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>destructiveHint</code></strong></td>
+<td style="text-align: left;">May perform destructive updates</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>idempotentHint</code></strong></td>
+<td style="text-align: left;">Repeated calls with same arguments return same</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>openWorldHint</code></strong></td>
+<td style="text-align: left;">Interacts with external entities vs.&nbsp;closed domain</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-annotations-in-r" class="slide level2">
+<h2>Tool Annotations in R</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-code-line-numbers="|4-8|5-6|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>tool_get_weather <span class="ot">&lt;-</span> <span class="fu">tool</span>(</span>
+<span id="cb7-2"><a></a>  get_weather,</span>
+<span id="cb7-3"><a></a>  <span class="co"># description, arguments, ...</span></span>
+<span id="cb7-4"><a></a>  <span class="at">annotations =</span> <span class="fu">tool_annotations</span>(</span>
+<span id="cb7-5"><a></a>    <span class="at">title =</span> <span class="st">"Get Weather"</span>,</span>
+<span id="cb7-6"><a></a>    <span class="at">readOnlyHint =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-7"><a></a>    <span class="at">icon =</span> fontawesome<span class="sc">::</span><span class="fu">fa_i</span>(<span class="st">"cloud-sun"</span>)</span>
+<span id="cb7-8"><a></a>  )</span>
+<span id="cb7-9"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="footer">
+<p><a href="https://ellmer.tidyverse.org/reference/tool_annotations.html" data-preview-link="true">ellmer: Tool Annotations</a></p>
+</div>
+</section>
+<section id="tool-annotations-in-python" class="slide level2">
+<h2>Tool Annotations in Python</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-code-line-numbers="1|2|3-9|4-5|6-8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>chat.register_tool(</span>
+<span id="cb8-2"><a></a>    get_weather,</span>
+<span id="cb8-3"><a></a>    annotations<span class="op">=</span>{</span>
+<span id="cb8-4"><a></a>        <span class="st">"title"</span>: <span class="st">"Get Weather"</span>,</span>
+<span id="cb8-5"><a></a>        <span class="st">"readOnlyHint"</span>: <span class="va">True</span>,</span>
+<span id="cb8-6"><a></a>        <span class="st">"extra"</span>: {</span>
+<span id="cb8-7"><a></a>            <span class="st">"icon"</span>: faicons.fa_i(<span class="st">"cloud-sun"</span>),</span>
+<span id="cb8-8"><a></a>        },</span>
+<span id="cb8-9"><a></a>    },</span>
+<span id="cb8-10"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="footer">
+<p><a href="https://posit-dev.github.io/chatlas/reference/types.ToolAnnotations.html" data-preview-link="true">chatlas (Python): ToolAnnotations</a></p>
+</div>
+</section>
 <section id="your-turn-21_quiz-game-3" class="slide level2 slide-your-turn">
 <h2>Your Turn <code>21_quiz-game-3</code></h2>
 <ol type="1">
-<li><p>Step 1</p></li>
-<li><p>Step 2</p></li>
-<li><p>Step 3</p></li>
+<li><p>Add tool annotations to our <code>play_sound</code> tools.</p></li>
+<li><p>Pick an icon from <a href="https://fontawesome.com/search?q=speaker&amp;ic=free&amp;o=r">FontAwesome free icons</a></p></li>
 </ol>
-<div id="timer_e23e5b94825a0aea4656e18e38e9d28d8bd8d316" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_d0be80b08e04c7d265ac920de706a2c360c682e6" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
+</section>
+<section id="what-if-we-want-to-decide-title-and-icon-dynamically-in-the-tool" class="slide level2 center">
+<h2>What if we want to decide <code>title</code> and <code>icon</code> dynamically <em>in the tool</em>?</h2>
+</section>
+<section id="ellmercontenttoolresult" class="slide level2">
+<h2>ellmer::ContentToolResult</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(lat, lon) {</span>
+<span id="cb9-2"><a></a>  weathR<span class="sc">::</span><span class="fu">point_forecast</span>(lat, lon)</span>
+<span id="cb9-3"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="footer">
+<p><a href="https://ellmer.tidyverse.org/reference/Content.html" data-preview-link="true">ellmer: ContentToolResult</a></p>
+</div>
+</section>
+<section id="ellmercontenttoolresult-1" class="slide level2">
+<h2>ellmer::ContentToolResult</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(lat, lon) {</span>
+<span id="cb10-2"><a></a>  forecast <span class="ot">&lt;-</span> weathR<span class="sc">::</span><span class="fu">point_forecast</span>(lat, lon)</span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a>  <span class="fu">ContentToolResult</span>(</span>
+<span id="cb10-5"><a></a>    forecast</span>
+<span id="cb10-6"><a></a>  )</span>
+<span id="cb10-7"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="footer">
+<p><a href="https://ellmer.tidyverse.org/reference/Content.html" data-preview-link="true">ellmer: ContentToolResult</a></p>
+</div>
+</section>
+<section id="ellmercontenttoolresult-2" class="slide level2">
+<h2>ellmer::ContentToolResult</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(lat, lon) {</span>
+<span id="cb11-2"><a></a>  forecast <span class="ot">&lt;-</span> weathR<span class="sc">::</span><span class="fu">point_forecast</span>(lat, lon)</span>
+<span id="cb11-3"><a></a></span>
+<span id="cb11-4"><a></a>  <span class="fu">ContentToolResult</span>(</span>
+<span id="cb11-5"><a></a>    forecast,</span>
+<span id="cb11-6"><a></a>    <span class="at">extra =</span> <span class="fu">list</span>(</span>
+<span id="cb11-7"><a></a>      <span class="at">display =</span> <span class="fu">list</span>(</span>
+<span id="cb11-8"><a></a>        <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Weather for"</span>, lat, lon),</span>
+<span id="cb11-9"><a></a>        <span class="at">icon =</span> fontawesome<span class="sc">::</span><span class="fu">fa_i</span>(<span class="st">"cloud-sun"</span>)</span>
+<span id="cb11-10"><a></a>      )</span>
+<span id="cb11-11"><a></a>    )</span>
+<span id="cb11-12"><a></a>  )</span>
+<span id="cb11-13"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="footer">
+<p><a href="https://ellmer.tidyverse.org/reference/Content.html" data-preview-link="true">ellmer: ContentToolResult</a></p>
+</div>
+</section>
+<section id="ellmercontenttoolresult-3" class="slide level2">
+<h2>ellmer::ContentToolResult</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>get_weather <span class="ot">&lt;-</span> <span class="cf">function</span>(lat, lon, location_name) {</span>
+<span id="cb12-2"><a></a>  forecast <span class="ot">&lt;-</span> weathR<span class="sc">::</span><span class="fu">point_forecast</span>(lat, lon)</span>
+<span id="cb12-3"><a></a></span>
+<span id="cb12-4"><a></a>  <span class="fu">ContentToolResult</span>(</span>
+<span id="cb12-5"><a></a>    forecast,</span>
+<span id="cb12-6"><a></a>    <span class="at">extra =</span> <span class="fu">list</span>(</span>
+<span id="cb12-7"><a></a>      <span class="at">display =</span> <span class="fu">list</span>(</span>
+<span id="cb12-8"><a></a>        <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Weather for"</span>, location_name),</span>
+<span id="cb12-9"><a></a>        <span class="at">icon =</span> fontawesome<span class="sc">::</span><span class="fu">fa_i</span>(<span class="st">"cloud-sun"</span>)</span>
+<span id="cb12-10"><a></a>      )</span>
+<span id="cb12-11"><a></a>    )</span>
+<span id="cb12-12"><a></a>  )</span>
+<span id="cb12-13"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="footer">
+<p><a href="https://ellmer.tidyverse.org/reference/Content.html" data-preview-link="true">ellmer: ContentToolResult</a></p>
+</div>
+</section>
+<section id="chatlas.contenttoolresult" class="slide level2">
+<h2>chatlas.ContentToolResult</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" data-code-line-numbers="|2|4-5,12|6-11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="kw">def</span> get_weather(lat: <span class="bu">float</span>, lon: <span class="bu">float</span>, location_name: <span class="bu">str</span>):</span>
+<span id="cb13-2"><a></a>    forecast <span class="op">=</span> NWS.GetCurrentForecast(lat, lon)</span>
+<span id="cb13-3"><a></a></span>
+<span id="cb13-4"><a></a>    <span class="cf">return</span> ContentToolResult(</span>
+<span id="cb13-5"><a></a>        forecast,</span>
+<span id="cb13-6"><a></a>        extra<span class="op">=</span>{</span>
+<span id="cb13-7"><a></a>            <span class="st">"display"</span>: {</span>
+<span id="cb13-8"><a></a>                <span class="st">"title"</span>: <span class="ss">f"Weather for </span><span class="sc">{</span>location_name<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb13-9"><a></a>                <span class="st">"icon"</span>: faicons.fa_i(<span class="st">"cloud-sun"</span>),</span>
+<span id="cb13-10"><a></a>            }</span>
+<span id="cb13-11"><a></a>        },</span>
+<span id="cb13-12"><a></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="footer">
+<p><a href="https://posit-dev.github.io/chatlas/reference/types.ContentToolResult.html" data-preview-link="true">chatlas: ContentToolResult</a></p>
+</div>
 </section>
 <section id="your-turn-22_quiz-game-4" class="slide level2 slide-your-turn">
 <h2>Your Turn <code>22_quiz-game-4</code></h2>
 <ol type="1">
-<li><p>Step 1</p></li>
-<li><p>Step 2</p></li>
-<li><p>Step 3</p></li>
+<li><p>Pick an <code>icon</code> and a <code>title</code> for each action in the Quiz show app.</p></li>
+<li><p>Return a <code>ContentToolResult</code> from each tool that sets the <code>icon</code> and <code>title</code>.</p></li>
+<li><p>Play the game again to see the icons and titles in action.</p></li>
 </ol>
-<div id="timer_e23e5b94825a0aea4656e18e38e9d28d8bd8d316" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_d0be80b08e04c7d265ac920de706a2c360c682e6" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -597,14 +754,26 @@
  <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
 </section>
+<section id="tools-in-shiny" class="slide level2">
+<h2>Tools in Shiny</h2>
+<ul>
+<li class="fragment"><p>Define the tool function <strong>inside the server</strong></p></li>
+<li class="fragment"><p>You can <strong>update reactive values</strong> in the tool function!</p></li>
+<li class="fragment"><p>You can <strong>read reactive values</strong>, <em>if you <code>isolate()</code> reads</em>. (Be careful!)</p></li>
+</ul>
+<!-- TODO: Demo app with a tool that updates a reactive value -->
+</section>
 <section id="your-turn-23_quiz-game-5" class="slide level2 slide-your-turn">
 <h2>Your Turn <code>23_quiz-game-5</code></h2>
+<p><em>I’ve updated the app to show the score in value boxes.<br>
+(And turned off the sounds.)</em></p>
 <ol type="1">
-<li><p>Step 1</p></li>
-<li><p>Step 2</p></li>
-<li><p>Step 3</p></li>
+<li><p>In the <strong>system prompt</strong>, tell the model when to use <code>update_score</code>.</p></li>
+<li><p>Read <code>update_score()</code>. It should update a reactive value in the app when called. Finish implementing it.</p></li>
+<li><p>Complete the tool definition.</p></li>
+<li><p>Add tool annotations (optional, but fun!)</p></li>
 </ol>
-<div id="timer_e23e5b94825a0aea4656e18e38e9d28d8bd8d316" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_d0be80b08e04c7d265ac920de706a2c360c682e6" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
