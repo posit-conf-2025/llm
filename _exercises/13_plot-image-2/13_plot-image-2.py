@@ -39,13 +39,13 @@ p = (
 p.show()
 
 # %% [markdown]
-# Step 2: Ask GPT-5 to interpret the plot. How does it do this time?
+# Step 2: Ask Claude 4 Sonnet to interpret the plot. How does it do this time?
 
 # %%
 # Register the plot with matplotlib's current figure
 plt.figure(p.draw())
 
-chat = chatlas.ChatAuto("openai/gpt-5")
+chat = chatlas.ChatAuto("anthropic/claude-sonnet-4-20250514")
 chat.chat(
     "Interpret this plot.",
     chatlas.content_image_plot(),

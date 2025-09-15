@@ -14,7 +14,7 @@ ggplot(mtcars) +
   ) +
   theme_bw()
 
-chat <- chat("openai/gpt-5", echo = "output")
+chat <- chat("anthropic/claude-sonnet-4-20250514", echo = "output")
 chat$chat(
   "Interpret this plot.",
   content_image_plot()

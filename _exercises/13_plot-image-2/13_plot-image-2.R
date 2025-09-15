@@ -22,8 +22,8 @@ ggplot() +
   ) +
   theme_bw()
 
-# Step 2: Ask GPT-5 to interpret the plot. How does it do this time?
-chat <- chat("openai/gpt-5", echo = "output")
+# Step 2: Ask Claude 4 Sonnet to interpret the plot. How does it do this time?
+chat <- chat("anthropic/claude-sonnet-4-20250514", echo = "output")
 chat$chat(
   "Interpret this plot.",
   content_image_plot()

@@ -38,8 +38,8 @@ p.show()
 # Register the plot with matplotlib's current figure
 plt.figure(p.draw())
 
-chat = chatlas.ChatAuto("openai/gpt-5")
+chat = chatlas.ChatAuto("anthropic/claude-sonnet-4-20250514")
 chat.chat(
-    "Interpret this plot.",
+    "Interpret this plot of mtcars.",
     chatlas.content_image_plot(),
 )

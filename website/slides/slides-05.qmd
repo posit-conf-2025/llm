@@ -14,7 +14,7 @@ editor:
 
 1. ellmer and chatlas let you show the model your plots!
 
-2. Create a basic `mctars` scatter plot and ask GPT-5 to interpret it.
+2. Create a basic `mctars` scatter plot and ask Claude 4 Sonnet to interpret it.
 
 3. How does it do?
 
@@ -24,7 +24,7 @@ editor:
 
 1. Replace the scatter plot with random noise.
 
-2. Show this new plot to GPT-5 and ask it to interpret it. How does it do this time?
+2. Show this new plot to Claude 4 Sonnet and ask it to interpret it. How does it do this time?
 
 3. Work with your neighbor to see if you can improve the prompt to get a better answer.
 

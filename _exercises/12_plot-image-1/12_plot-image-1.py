@@ -31,7 +31,8 @@ p.show()
 plt.figure(p.draw())
 
 # %% [markdown]
-# Step 2: Ask GPT-5 to interpret the plot. (Hint: see `content_image_...`)
+# Step 2: Ask Claude 4 Sonnet to interpret the plot.
+# (Hint: see `content_image_...`)
 
 # %%
 chat = chatlas.ChatAuto("____")

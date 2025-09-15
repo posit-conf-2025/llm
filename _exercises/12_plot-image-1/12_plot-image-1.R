@@ -15,7 +15,8 @@ ggplot(mtcars) +
   ) +
   theme_bw()
 
-# Step 2: Ask GPT-5 to interpret the plot. (Hint: see `content_image_...`)
+# Step 2: Ask Claude 4 Sonnet to interpret the plot.
+# (Hint: see `content_image_...`)
 chat <- chat("____", echo = "output")
 chat$chat(
   "Interpret this plot.",
