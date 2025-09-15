@@ -8,7 +8,7 @@ duration: 90
 
 ## Slides
 
-{{< revealjs "slides/slides-13-thanks.html" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-10.html" class="ratio ratio-16x9" >}}
 
 ## Outline
 

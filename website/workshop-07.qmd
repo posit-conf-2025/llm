@@ -7,7 +7,7 @@ duration: 40min
 
 ## Slides
 
-{{< revealjs "slides/slides-06-javascript.html" class="ratio ratio-16x9" >}}
+{{< revealjs "slides/slides-07.html" class="ratio ratio-16x9" >}}
 
 ## Outline
 
