@@ -35,7 +35,14 @@ store <- ragnar_store_create(
 cli::cli_progress_bar(total = length(pages))
 for (page in pages) {
   cli::cli_progress_update(status = page)
-  chunks <- page |> read_as_markdown() |> markdown_chunk()
+
+  chunks <- page |>
+    read_as_markdown() |>
+    # The next step breaks the markdown into chunks. This is where you have the
+    # most control over what content is grouped together for embedding and later
+    # retrieval. Feel free to experiment with settings in `?markdown_chunk()`.
+    markdown_chunk()
+
   ragnar_store_insert(store, chunks)
 }
 cli::cli_progress_done()

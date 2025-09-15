@@ -12,14 +12,16 @@ duration: 40min
 ## Outline
 
 - (10m) Manual RAG
-  - Activity: Data science coding assistant
-    - Given a data science task using `polars` or `dplyr`, ask an LLM to generate or explain code, first without any context.
-    - Then, give it the relevant section of the `polars` or `dplyr` documentation and see how much better the response is.
+  - Activity `15_coding-assistant`: Use an LLM as a coding assistant
+    - Write a function that uses `{weathR}` (R) or `NWS` (Python) to get the weather for a location.
+    - Then, give the LLM the `{weathR}` (R) or `NWS` (Python) README and see how much better the response is.
 
 - (30m) RAG
   - High-level overview of how RAG works
-  - Activity: Build a dynamic RAG system
-    - We'll have the complete, raw `dplyr` or `polars` documentation.
+  - Activity `16_rag`: Build a dynamic RAG system
+    - Make a chatbot that can draw from the knowledge of:
+      - [The R for Data Science book](https://r4ds.hadley.nz)
+      - [The Polars Cookbook](https://github.com/escobar-west/polars-cookbook)
     - Preprocess and compute embeddings for each chunk using `ragnar` or `llama-index`
       - https://posit-dev.github.io/chatlas/misc/RAG.html#dynamic-retrieval
       - https://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag
