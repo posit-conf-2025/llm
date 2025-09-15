@@ -17,7 +17,7 @@
 
   <meta name="author" content="posit::conf(2025)">
   <meta name="dcterms.date" content="2025-09-16">
-  <title>Programming with LLMs – Prompt Engineering</title>
+  <title>Programming with LLMs – Beyond Tools</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -129,11 +129,11 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Prompt Engineering – Programming with LLMs">
+<meta property="og:title" content="Beyond Tools – Programming with LLMs">
 <meta property="og:description" content="Programming with LLM APIsA Beginner’s Guide in R and Python">
 <meta property="og:image" content="https://posit-conf-2025.github.io/llm/slides/assets/open-graph-card.png">
 <meta property="og:site_name" content="Programming with LLMs">
-<meta name="twitter:title" content="Prompt Engineering – Programming with LLMs">
+<meta name="twitter:title" content="Beyond Tools – Programming with LLMs">
 <meta name="twitter:description" content="Programming with LLM APIsA Beginner’s Guide in R and Python">
 <meta name="twitter:image" content="https://posit-conf-2025.github.io/llm/slides/assets/open-graph-card.png">
 <meta name="twitter:creator" content="@grrrck">
@@ -145,7 +145,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Prompt Engineering</h1>
+  <h1 class="title">Beyond Tools</h1>
   <p class="subtitle">Programming with LLM APIs<br>A Beginner’s Guide in R and Python</p>
 
 <div class="quarto-title-authors">
@@ -158,100 +158,93 @@
 
   <p class="date">2025-09-16</p>
 </section>
-<section id="prompt-engineering" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" data-background-size="cover" data-background-position="bottom left">
-<h1><span class="white dib" style="text-align: center; width: 100%;">Prompt engineering</span></h1>
+<section id="querychat" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-querychat.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">querychat</span></h1>
 
 </section>
 
-<section id="your-turn-12_plot-image-1" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>12_plot-image-1</code></h1>
+<section id="your-turn-25_querychat" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>25_querychat</code></h1>
 <ol type="1">
-<li><p>ellmer and chatlas let you show the model your plots!</p></li>
-<li><p>Create a basic <code>mctars</code> scatter plot and ask GPT-5 to interpret it.</p></li>
-<li><p>How does it do?</p></li>
+<li><p>Step 1</p></li>
+<li><p>Step 2</p></li>
+<li><p>Step 3</p></li>
 </ol>
-<div id="timer_da28401306b09ca0b7972e02128b462b87efaf7f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
-</section>
-
-<section id="your-turn-13_plot-image-2" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>13_plot-image-2</code></h1>
-<ol type="1">
-<li><p>Replace the scatter plot with random noise.</p></li>
-<li><p>Show this new plot to GPT-5 and ask it to interpret it. How does it do this time?</p></li>
-<li><p>Work with your neighbor to see if you can improve the prompt to get a better answer.</p></li>
-</ol>
-<div id="timer_da28401306b09ca0b7972e02128b462b87efaf7f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
-</section>
-
-<section>
-<section id="prompt-engineering-1" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/kelly-sikkema-tk9RQCq5eQo-unsplash.jpg" data-background-size="cover" data-background-position="bottom left">
-<h1><span class="white dib" style="text-align: center; width: 100%;">Prompt engineering</span></h1>
-
-</section>
-<section id="three-questions-to-ask-yourself" class="slide level2">
-<h2>Three questions to ask yourself</h2>
-<ol type="1">
-<li class="fragment"><p>Did you use the best models?</p></li>
-<li class="fragment"><p>Did you explain what you want the model to do in the system prompt?</p></li>
-<li class="fragment"><p>Did you provide examples of what you want?</p></li>
-</ol>
-<aside class="notes">
-<blockquote>
-<p>There’s going to be 3 questions we’re usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1</p>
-<p>so number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?</p>
-<p>And then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see.</p>
-</blockquote>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="system-prompt-vs.-user-prompt" class="slide level2">
-<h2>System prompt vs.&nbsp;user prompt</h2>
-<p>Short answer: put instructions and background knowledge in the system prompt.</p>
-<!-- TODO(jcheng5): More tips and examples here, please -->
-<!-- e.g. Use XML tags to give structure, etc. -->
-</section></section>
-<section id="your-turn-14_quiz-game-1" class="title-slide slide level1 slide-your-turn center">
-<h1>Your Turn <code>14_quiz-game-1</code></h1>
-<div style="width: 90%;">
-<ol type="1">
-<li><p>Your job: teach the model to play a quiz game with you:</p></li>
-<li><p>The user picks a theme from a short list provided by the model.</p></li>
-<li><p>They then answer multiple choice questions on that theme.</p></li>
-<li><p>After each question, tell the user if they were right or wrong and why. Then go to the next question.</p></li>
-<li><p>After 5 questions, end the round and tell the user they won, regardless of their score. Then, start a new round.</p></li>
-</ol>
-</div>
-<div id="timer_da28401306b09ca0b7972e02128b462b87efaf7f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+<div id="timer_0d8c4f16a5fd68d4c08953bbb8a9bf36282eb35a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
+</section>
 
+<section id="mcp" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-mcp.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">MCP</span></h1>
+<div class="tc white pa1 br3 w-50 absolute" style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);left: 0px; bottom: -2em; ">
+<p>MCP</p>
+</div>
+</section>
+
+<section id="your-turn-26_mcp" class="title-slide slide level1 slide-your-turn center">
+<h1>Your Turn <code>26_mcp</code></h1>
+<ol type="1">
+<li><p>Step 1</p></li>
+<li><p>Step 2</p></li>
+<li><p>Step 3</p></li>
+</ol>
+<div id="timer_0d8c4f16a5fd68d4c08953bbb8a9bf36282eb35a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+
+<section>
+<section id="agents" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-agent.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">Agents</span></h1>
+<div class="tc white pa1 br3 w-50 absolute" style="font-size: 3em; background-color: rgba(0, 0, 0, 0.8);left: 0px; bottom: -5em; ">
+<p>Agents</p>
+</div>
+</section>
+<section id="whats-an-agent" class="slide level2">
+<h2>What’s an agent?</h2>
+<ul>
+<li><p>Hadley/Willison definition: Agents are LLMs with a read tool and a write tool</p></li>
+<li><p>The “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention</p></li>
+</ul>
+</section>
+<section id="demo-databot" class="slide level2 slide-demo">
+<h2>Demo: Databot</h2>
+<p>👨‍💻 <span class="code b purple">_demos/27_demo_databot/README.md</span></p>
+<blockquote>
+<p>Let’s look at <code>data/airbnb-asheville.csv</code>, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC.</p>
+</blockquote>
+</section></section>
+<section id="the-future-of-ai" class="title-slide slide level1 center">
+<h1>The Future of AI</h1>
 
 </section>
+
+<section>
+<section id="wrap-up" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-survey.jpg" data-background-size="cover" data-background-position="center">
+<h1><span class="hidden">Wrap-up</span></h1>
+<div class="fragment f1 tc white pa4 br3" style="background-color: rgba(0, 0, 0, 0.8);">
+<p>Please take 5-10 minutes to fill out the workshop survey.<br>
+Your feedback is important to us!</p>
+<p><a href="https://pos.it/conf-workshop-survey"><span class="yellow code">pos.it/conf-workshop-survey</span></a></p>
+</div>
+</section>
+<section id="section" class="slide level2" data-background-image="assets/thank-you.png" data-background-size="cover" data-background-position="center">
+<h2></h2>
+<div class="f1 code tc white absolute" style="left: 0px; bottom: 0px; right: 0px; ">
+<p>Enjoy posit::conf(2025)!</p>
+</div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
