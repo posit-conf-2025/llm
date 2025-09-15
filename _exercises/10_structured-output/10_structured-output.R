@@ -50,9 +50,9 @@ type_recipe <- type_____(
       quantity = ____(),
       unit = ____(),
       notes = ____()
-    ),
-    instructions = type_array(____())
-  )
+    )
+  ),
+  instructions = type_array(____())
 )
 
 chat <- chat("openai/gpt-4.1-nano")

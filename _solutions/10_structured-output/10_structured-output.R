@@ -48,8 +48,8 @@ type_recipe <- type_object(
       unit = type_string(required = FALSE),
       notes = type_string(required = FALSE)
     ),
-    instructions = type_array(type_string())
-  )
+  ),
+  instructions = type_array(type_string())
 )
 
 chat <- chat("openai/gpt-4.1-nano")
