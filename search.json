@@ -228,7 +228,7 @@
     "href": "slides/slides-05.html#three-questions-to-ask-yourself",
     "title": "Prompt Engineering",
     "section": "Three questions to ask yourself",
-    "text": "Three questions to ask yourself\n\nDid you use the best models?\nDid you explain what you want the model to do in the system prompt?\nDid you provide examples of what you want?\n\n\n\nThere’s going to be 3 questions we’re usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1\nso number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?\nAnd then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see."
+    "text": "Three questions to ask yourself\n\nDid you use the best models?\nDid you clearly explain what you want the model to do in the system prompt?\nDid you provide examples of what you want?\n\n\n\nThere’s going to be 3 questions we’re usually going to ask you in this order? Number one, did you try the best models? Did you try this with at least like Claude? Sonnet 4, or GPT 4.1\nso number one like, did you use the best models number 2 is, did you ask for what you wanted in the system prompt like. Did you describe the behavior that you were looking for from the model in the system prompt?\nAnd then number 3, if you did do that. Did you provide an example of what you wanted? And usually that, that, you know, takes care of a lot of the the kind of misbehaving that people see."
   },
   {
     "objectID": "slides/slides-05.html#system-prompt-vs.-user-prompt",
@@ -236,6 +236,41 @@
     "title": "Prompt Engineering",
     "section": "System prompt vs. user prompt",
     "text": "System prompt vs. user prompt\nShort answer: put instructions and background knowledge in the system prompt."
+  },
+  {
+    "objectID": "slides/slides-05.html#more-tips",
+    "href": "slides/slides-05.html#more-tips",
+    "title": "Prompt Engineering",
+    "section": "More tips",
+    "text": "More tips\nUse LLMs to help draft or improve your prompts.\nE.g., this input to Claude’s prompt generator:\n\nMake a data science agent that can run Python data analysis code via a tool. Make the agent maniacally focused on data quality issues, such as missing data, misspelled categorical values, inconsistent data types, outlier values, impossible values (like negative physical dimensions), etc.\n\nGenerates this prompt:\nYou are a data science agent with an obsessive focus on data quality. You have been given access to a dataset and a Python code execution tool. Your primary mission is to identify and analyze data quality issues with extreme thoroughness and attention to detail.\n\nHere is the dataset description:\n&lt;dataset_description&gt;\n{{DATASET_DESCRIPTION}}\n&lt;/dataset_description&gt;\n\nYou have access to the following Python code execution tool:\n&lt;python_tool&gt;\n{{PYTHON_CODE_TOOL}}\n&lt;/python_tool&gt;\n\nYour role is to act as a maniacally thorough data quality inspector. You should be suspicious of every aspect of the data and leave no stone unturned in your quest to find data quality issues.\n\nFocus intensively on these categories of data quality problems:\n- Missing data (nulls, empty strings, placeholder values like \"N/A\", \"Unknown\", etc.)\n- Inconsistent data types (mixed types in columns, incorrect data types)\n- Misspelled or inconsistent categorical values (typos, case inconsistencies, extra spaces)\n- Outlier values (statistical outliers, values that seem unreasonable)\n- Impossible or illogical values (negative ages, future birth dates, negative physical dimensions)\n- Duplicate records or near-duplicates\n- Inconsistent formatting (date formats, phone numbers, addresses)\n- Data entry errors (obvious typos, transposed digits)\n- Referential integrity issues (if applicable)\n- Range violations (values outside expected bounds)\n\nYour analysis process should be systematic and comprehensive:\n\n1. Start by loading and examining the basic structure of the dataset\n2. Check data types and identify any type inconsistencies\n3. Examine missing data patterns thoroughly\n4. Analyze each column individually for quality issues specific to its data type\n5. Look for statistical outliers and impossible values\n6. Check for duplicates and near-duplicates\n7. Examine categorical variables for inconsistencies\n8. Validate logical relationships between columns\n9. Look for formatting inconsistencies\n\nUse the Python tool to write and execute code that will help you uncover these issues. Be creative in your analysis - write code to check for subtle problems that others might miss.\n\nBefore providing your final analysis, use the scratchpad to plan your investigation strategy:\n\n&lt;scratchpad&gt;\n[Plan your systematic approach to analyzing the data quality, thinking through what specific checks you want to perform and in what order]\n&lt;/scratchpad&gt;\n\nThen execute your analysis using the Python tool. After completing your investigation, provide your findings in this format:\n\n&lt;data_quality_report&gt;\n**CRITICAL ISSUES FOUND:**\n[List the most severe data quality problems]\n\n**MODERATE ISSUES FOUND:**\n[List issues that should be addressed but aren't critical]\n\n**MINOR ISSUES FOUND:**\n[List smaller issues that could be improved]\n\n**DETAILED ANALYSIS:**\n[Provide detailed explanations of each issue found, including specific examples and the potential impact]\n\n**RECOMMENDATIONS:**\n[Provide specific, actionable recommendations for fixing each category of issues]\n\n**DATA QUALITY SCORE:**\n[Provide an overall data quality score from 1-10, where 10 is perfect quality]\n&lt;/data_quality_report&gt;\n\nRemember: Be obsessively thorough. Assume there are data quality issues hiding in the dataset and don't stop until you've found them. Question everything and trust nothing until you've verified it through code analysis. Your reputation depends on catching every possible data quality issue."
+  },
+  {
+    "objectID": "slides/slides-05.html#more-tips-1",
+    "href": "slides/slides-05.html#more-tips-1",
+    "title": "Prompt Engineering",
+    "section": "More tips",
+    "text": "More tips\n\nUse Markdown headings and XML tags to give structure to your prompts.\nUse variables to insert dynamic content into your prompts–BUT be aware of prompt injection!\n\nYour task is to provide feedback on a research paper summary.\nHere is a summary of a medical research paper:\n&lt;summary&gt;\n{{SUMMARY}}\n&lt;/summary&gt;\n\nHere is the research paper:\n&lt;paper&gt;\n{{RESEARCH_PAPER}}\n&lt;/paper&gt;\n\nReview this summary for accuracy, clarity, and completeness on\na graded A-F scale."
+  },
+  {
+    "objectID": "slides/slides-05.html#more-tips-2",
+    "href": "slides/slides-05.html#more-tips-2",
+    "title": "Prompt Engineering",
+    "section": "More tips",
+    "text": "More tips\nGet large prompts out of the code and into separate files.\n\nEasier to read (both locally and on GitHub)\nEasier to read diffs in version control\nWe will do this in one of our exercises later"
+  },
+  {
+    "objectID": "slides/slides-05.html#more-tips-3",
+    "href": "slides/slides-05.html#more-tips-3",
+    "title": "Prompt Engineering",
+    "section": "More tips",
+    "text": "More tips\n(Advanced) Force the model to say things out loud.\nE.g., “Use no more than three rounds of tool calls” =&gt; “Before answering, note how many tool calls you have made inside  tags. If you have made three, stop and answer.”"
+  },
+  {
+    "objectID": "slides/slides-05.html#more-tips-4",
+    "href": "slides/slides-05.html#more-tips-4",
+    "title": "Prompt Engineering",
+    "section": "More tips",
+    "text": "More tips\nSee Anthropic’s Prompt Engineering Overview and OpenAI’s OpenAI Cookbook are excellent, and contain lots of tips and examples.\nGoogle’s Prompt Design Strategies may also be useful."
   },
   {
     "objectID": "slides/slides-02.html#think-empirically-not-theoretically",
@@ -578,7 +613,7 @@
     "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is bicycle."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is elephant."
   },
   {
     "objectID": "slides/slides-02.html#interpolation-in-r-1",
