@@ -220,12 +220,14 @@ Run the following command in the R console to get started:
 renv::restore()
 ```
 
+<!-- TODO: Add this back in if we figure out how to make pak work
 For very speedy installation, I recommend telling `renv` to use [pak](https://pak.r-lib.org/) to install packages:
 
 ``` r
 Sys.setenv(RENV_CONFIG_PAK_ENABLED = "true")
 renv::restore()
 ```
+-->
 
 ##### Without renv
 
