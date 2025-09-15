@@ -14,7 +14,7 @@ editor:
 
 1. ellmer and chatlas let you show the model your plots!
 
-2. Create a basic `mctars` scatter plot and ask Claude 4 Sonnet to interpret it.
+2. Create a basic `mtcars` scatter plot and ask Claude 4 Sonnet to interpret it.
 
 3. How does it do?
 
@@ -37,7 +37,7 @@ editor:
 ::: incremental
 1. Did you use the best models?
 
-1. Did you explain what you want the model to do in the system prompt?
+1. Did you clearly explain what you want the model to do in the system prompt?
 
 1. Did you provide examples of what you want?
 :::
@@ -54,8 +54,130 @@ editor:
 
 Short answer: put instructions and background knowledge in the system prompt.
 
-<!-- TODO(jcheng5): More tips and examples here, please -->
-<!-- e.g. Use XML tags to give structure, etc. -->
+## More tips {.scrollable}
+
+**Use LLMs to help draft or improve your prompts.**
+
+E.g., this input to Claude's prompt generator:
+
+> Make a data science agent that can run Python data analysis code via a tool. Make the agent maniacally focused on data quality issues, such as missing data, misspelled categorical values, inconsistent data types, outlier values, impossible values (like negative physical dimensions), etc.
+
+Generates this prompt:
+
+```{.markdown .code-overflow-wrap}
+You are a data science agent with an obsessive focus on data quality. You have been given access to a dataset and a Python code execution tool. Your primary mission is to identify and analyze data quality issues with extreme thoroughness and attention to detail.
+
+Here is the dataset description:
+<dataset_description>
+{{DATASET_DESCRIPTION}}
+</dataset_description>
+
+You have access to the following Python code execution tool:
+<python_tool>
+{{PYTHON_CODE_TOOL}}
+</python_tool>
+
+Your role is to act as a maniacally thorough data quality inspector. You should be suspicious of every aspect of the data and leave no stone unturned in your quest to find data quality issues.
+
+Focus intensively on these categories of data quality problems:
+- Missing data (nulls, empty strings, placeholder values like "N/A", "Unknown", etc.)
+- Inconsistent data types (mixed types in columns, incorrect data types)
+- Misspelled or inconsistent categorical values (typos, case inconsistencies, extra spaces)
+- Outlier values (statistical outliers, values that seem unreasonable)
+- Impossible or illogical values (negative ages, future birth dates, negative physical dimensions)
+- Duplicate records or near-duplicates
+- Inconsistent formatting (date formats, phone numbers, addresses)
+- Data entry errors (obvious typos, transposed digits)
+- Referential integrity issues (if applicable)
+- Range violations (values outside expected bounds)
+
+Your analysis process should be systematic and comprehensive:
+
+1. Start by loading and examining the basic structure of the dataset
+2. Check data types and identify any type inconsistencies
+3. Examine missing data patterns thoroughly
+4. Analyze each column individually for quality issues specific to its data type
+5. Look for statistical outliers and impossible values
+6. Check for duplicates and near-duplicates
+7. Examine categorical variables for inconsistencies
+8. Validate logical relationships between columns
+9. Look for formatting inconsistencies
+
+Use the Python tool to write and execute code that will help you uncover these issues. Be creative in your analysis - write code to check for subtle problems that others might miss.
+
+Before providing your final analysis, use the scratchpad to plan your investigation strategy:
+
+<scratchpad>
+[Plan your systematic approach to analyzing the data quality, thinking through what specific checks you want to perform and in what order]
+</scratchpad>
+
+Then execute your analysis using the Python tool. After completing your investigation, provide your findings in this format:
+
+<data_quality_report>
+**CRITICAL ISSUES FOUND:**
+[List the most severe data quality problems]
+
+**MODERATE ISSUES FOUND:**
+[List issues that should be addressed but aren't critical]
+
+**MINOR ISSUES FOUND:**
+[List smaller issues that could be improved]
+
+**DETAILED ANALYSIS:**
+[Provide detailed explanations of each issue found, including specific examples and the potential impact]
+
+**RECOMMENDATIONS:**
+[Provide specific, actionable recommendations for fixing each category of issues]
+
+**DATA QUALITY SCORE:**
+[Provide an overall data quality score from 1-10, where 10 is perfect quality]
+</data_quality_report>
+
+Remember: Be obsessively thorough. Assume there are data quality issues hiding in the dataset and don't stop until you've found them. Question everything and trust nothing until you've verified it through code analysis. Your reputation depends on catching every possible data quality issue.
+```
+
+## More tips {.scrollable}
+
+- **Use Markdown headings and XML tags to give structure to your prompts.**
+- **Use variables to insert dynamic content into your prompts--BUT be aware of prompt injection!**
+
+```markdown
+Your task is to provide feedback on a research paper summary.
+Here is a summary of a medical research paper:
+<summary>
+{{SUMMARY}}
+</summary>
+
+Here is the research paper:
+<paper>
+{{RESEARCH_PAPER}}
+</paper>
+
+Review this summary for accuracy, clarity, and completeness on
+a graded A-F scale.
+```
+
+## More tips
+
+**Get large prompts out of the code and into separate files.**
+
+- Easier to read (both locally and on GitHub)
+
+- Easier to read diffs in version control
+
+- We will do this in one of our exercises later
+
+## More tips
+
+**(Advanced) Force the model to say things out loud.**
+
+E.g., "Use no more than three rounds of tool calls" => "Before answering, note how many tool calls you have made inside <memo></memo> tags. If you have made three, stop and answer."
+
+## More tips
+
+See Anthropic's [_Prompt Engineering Overview_](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) and OpenAI's [_OpenAI Cookbook_](https://cookbook.openai.com/) are excellent, and contain lots of tips and examples.
+
+Google's [_Prompt Design Strategies_](https://ai.google.dev/gemini-api/docs/prompting-strategies) may also be useful.
 
 # Your Turn `14_quiz-game-1` {.slide-your-turn}
 
