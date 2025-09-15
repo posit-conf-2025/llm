@@ -197,6 +197,12 @@ cd llm
 
 ### Set up your environment
 
+This workshop is designed so that you can use either R or Python.
+You can choose to use only one language throughout, or you can even switch between R and Python during the workshop!
+
+Even if you're only planning to use R, consider installing [`uv`, a package and environment manager for Python](https://docs.astral.sh/uv/) (see the Python instructions below).
+That way, could easily try out the Python examples during the workshop if you want to.
+
 :::: {.panel-tabset group="lang"}
 #### ![](assets/icons/r-color.svg){height="36px" alt="R"}
 
