@@ -52,7 +52,7 @@ jobs:
         shell: Rscript {0}
         run: |
           install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
-          pak::pak(c("ellmer", "fs", "rmarkdown", "here@1.0.1", "reticulate", "dplyr", "tidyr", "gt", "gtExtras", "purrr", "jsonlite"))
+          pak::pak(c("ellmer", "fs", "rmarkdown", "here>=1.0.2", "reticulate", "dplyr", "tidyr", "gt", "gtExtras", "purrr", "jsonlite"))
 
       - name: 📰 Render and Publish to GitHub Pages
         uses: gadenbuie/quarto-actions/publish@quarto-render-working-dir

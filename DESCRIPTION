@@ -25,7 +25,7 @@ Imports:
     forcats,
     fs,
     ggplot2,
-    here (<= 1.0.1),
+    here (>= 1.0.2),
     leaflet,
     magick,
     mcptools,

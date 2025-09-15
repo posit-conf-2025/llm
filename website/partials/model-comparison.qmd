@@ -4,7 +4,7 @@
 #| message: false
 #| output: false
 
-path_models_csv <- here::here("website/partials/raycast-models.csv")
+path_models_csv <- here::here("partials/raycast-models.csv")
 
 if (!file.exists(path_models_csv)) {
   path_models_json <- fs::path_ext_set(path_models_csv, "json")
