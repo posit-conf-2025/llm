@@ -1108,7 +1108,7 @@
     "href": "slides/slides-01-intro.html#your-turn-01_hello-llm",
     "title": "Welcome!",
     "section": "Your Turn 01_hello-llm",
-    "text": "Your Turn 01_hello-llm\n\n\n🔓 Decrypt the .env.secret → .env:\n\nR: Run secrets.R\nPython: Run make secret-decrypt in terminal\nor run python secrets.py decrypt .env.secret &gt; .env\n\n🤫 The special phrase is:\npositconf2025-llm-workshop\n🤖 Run the code in _exercises/01_hello-llm"
+    "text": "Your Turn 01_hello-llm\n\n\n🔓 Decrypt the .env.secret → .env:\n\nR: Run secret.R\nPython: Run make secret-decrypt in terminal\nor run python secret.py decrypt .env.secret &gt; .env\n\n🤫 The special phrase is:\npositconf2025-llm-workshop\n🤖 Run the code in _exercises/01_hello-llm"
   },
   {
     "objectID": "slides/slides-04.html#section",
