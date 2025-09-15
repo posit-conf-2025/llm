@@ -64,7 +64,7 @@ E.g., this input to Claude's prompt generator:
 
 Generates this prompt:
 
-```{.markdown .code-overflow-wrap}
+```{.markdown .code-overflow-wrap code-line-numbers="false"}
 You are a data science agent with an obsessive focus on data quality. You have been given access to a dataset and a Python code execution tool. Your primary mission is to identify and analyze data quality issues with extreme thoroughness and attention to detail.
 
 Here is the dataset description:

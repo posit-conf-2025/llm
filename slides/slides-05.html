@@ -103,7 +103,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-b86b37e4326de2141a6411f63d78ad4f.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-c8eb6cfe60727cad23570332ae8102d9.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -236,7 +236,7 @@
 <li><p>Create a basic <code>mtcars</code> scatter plot and ask Claude 4 Sonnet to interpret it.</p></li>
 <li><p>How does it do?</p></li>
 </ol>
-<div id="timer_954a7ad3e832b0195969f6d87d020ba9f31d6a6b" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_e7c608222be0d8baf2eafaa5a7dabe05eeedaf57" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -252,7 +252,7 @@
 <li><p>Show this new plot to Claude 4 Sonnet and ask it to interpret it. How does it do this time?</p></li>
 <li><p>Work with your neighbor to see if you can improve the prompt to get a better answer.</p></li>
 </ol>
-<div id="timer_954a7ad3e832b0195969f6d87d020ba9f31d6a6b" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
+<div id="timer_e7c608222be0d8baf2eafaa5a7dabe05eeedaf57" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -2em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -303,75 +303,75 @@
 <p>Make a data science agent that can run Python data analysis code via a tool. Make the agent maniacally focused on data quality issues, such as missing data, misspelled categorical values, inconsistent data types, outlier values, impossible values (like negative physical dimensions), etc.</p>
 </blockquote>
 <p>Generates this prompt:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown code-overflow-wrap number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a></a>You are a data science agent with an obsessive focus on data quality. You have been given access to a dataset and a Python code execution tool. Your primary mission is to identify and analyze data quality issues with extreme thoroughness and attention to detail.</span>
-<span id="cb1-2"><a></a></span>
-<span id="cb1-3"><a></a>Here is the dataset description:</span>
-<span id="cb1-4"><a></a><span class="dt">&lt;</span><span class="kw">dataset_description</span><span class="dt">&gt;</span></span>
-<span id="cb1-5"><a></a>{{DATASET_DESCRIPTION}}</span>
-<span id="cb1-6"><a></a><span class="dt">&lt;/</span><span class="kw">dataset_description</span><span class="dt">&gt;</span></span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a>You have access to the following Python code execution tool:</span>
-<span id="cb1-9"><a></a><span class="dt">&lt;</span><span class="kw">python_tool</span><span class="dt">&gt;</span></span>
-<span id="cb1-10"><a></a>{{PYTHON_CODE_TOOL}}</span>
-<span id="cb1-11"><a></a><span class="dt">&lt;/</span><span class="kw">python_tool</span><span class="dt">&gt;</span></span>
-<span id="cb1-12"><a></a></span>
-<span id="cb1-13"><a></a>Your role is to act as a maniacally thorough data quality inspector. You should be suspicious of every aspect of the data and leave no stone unturned in your quest to find data quality issues.</span>
-<span id="cb1-14"><a></a></span>
-<span id="cb1-15"><a></a>Focus intensively on these categories of data quality problems:</span>
-<span id="cb1-16"><a></a><span class="ss">- </span>Missing data (nulls, empty strings, placeholder values like "N/A", "Unknown", etc.)</span>
-<span id="cb1-17"><a></a><span class="ss">- </span>Inconsistent data types (mixed types in columns, incorrect data types)</span>
-<span id="cb1-18"><a></a><span class="ss">- </span>Misspelled or inconsistent categorical values (typos, case inconsistencies, extra spaces)</span>
-<span id="cb1-19"><a></a><span class="ss">- </span>Outlier values (statistical outliers, values that seem unreasonable)</span>
-<span id="cb1-20"><a></a><span class="ss">- </span>Impossible or illogical values (negative ages, future birth dates, negative physical dimensions)</span>
-<span id="cb1-21"><a></a><span class="ss">- </span>Duplicate records or near-duplicates</span>
-<span id="cb1-22"><a></a><span class="ss">- </span>Inconsistent formatting (date formats, phone numbers, addresses)</span>
-<span id="cb1-23"><a></a><span class="ss">- </span>Data entry errors (obvious typos, transposed digits)</span>
-<span id="cb1-24"><a></a><span class="ss">- </span>Referential integrity issues (if applicable)</span>
-<span id="cb1-25"><a></a><span class="ss">- </span>Range violations (values outside expected bounds)</span>
-<span id="cb1-26"><a></a></span>
-<span id="cb1-27"><a></a>Your analysis process should be systematic and comprehensive:</span>
-<span id="cb1-28"><a></a></span>
-<span id="cb1-29"><a></a><span class="ss">1. </span>Start by loading and examining the basic structure of the dataset</span>
-<span id="cb1-30"><a></a><span class="ss">2. </span>Check data types and identify any type inconsistencies</span>
-<span id="cb1-31"><a></a><span class="ss">3. </span>Examine missing data patterns thoroughly</span>
-<span id="cb1-32"><a></a><span class="ss">4. </span>Analyze each column individually for quality issues specific to its data type</span>
-<span id="cb1-33"><a></a><span class="ss">5. </span>Look for statistical outliers and impossible values</span>
-<span id="cb1-34"><a></a><span class="ss">6. </span>Check for duplicates and near-duplicates</span>
-<span id="cb1-35"><a></a><span class="ss">7. </span>Examine categorical variables for inconsistencies</span>
-<span id="cb1-36"><a></a><span class="ss">8. </span>Validate logical relationships between columns</span>
-<span id="cb1-37"><a></a><span class="ss">9. </span>Look for formatting inconsistencies</span>
-<span id="cb1-38"><a></a></span>
-<span id="cb1-39"><a></a>Use the Python tool to write and execute code that will help you uncover these issues. Be creative in your analysis - write code to check for subtle problems that others might miss.</span>
-<span id="cb1-40"><a></a></span>
-<span id="cb1-41"><a></a>Before providing your final analysis, use the scratchpad to plan your investigation strategy:</span>
-<span id="cb1-42"><a></a></span>
-<span id="cb1-43"><a></a><span class="dt">&lt;</span><span class="kw">scratchpad</span><span class="dt">&gt;</span></span>
-<span id="cb1-44"><a></a><span class="co">[</span><span class="ot">Plan your systematic approach to analyzing the data quality, thinking through what specific checks you want to perform and in what order</span><span class="co">]</span></span>
-<span id="cb1-45"><a></a><span class="dt">&lt;/</span><span class="kw">scratchpad</span><span class="dt">&gt;</span></span>
-<span id="cb1-46"><a></a></span>
-<span id="cb1-47"><a></a>Then execute your analysis using the Python tool. After completing your investigation, provide your findings in this format:</span>
-<span id="cb1-48"><a></a></span>
-<span id="cb1-49"><a></a><span class="dt">&lt;</span><span class="kw">data_quality_report</span><span class="dt">&gt;</span></span>
-<span id="cb1-50"><a></a>**CRITICAL ISSUES FOUND:**</span>
-<span id="cb1-51"><a></a><span class="co">[</span><span class="ot">List the most severe data quality problems</span><span class="co">]</span></span>
-<span id="cb1-52"><a></a></span>
-<span id="cb1-53"><a></a>**MODERATE ISSUES FOUND:**</span>
-<span id="cb1-54"><a></a><span class="co">[</span><span class="ot">List issues that should be addressed but aren't critical</span><span class="co">]</span></span>
-<span id="cb1-55"><a></a></span>
-<span id="cb1-56"><a></a>**MINOR ISSUES FOUND:**</span>
-<span id="cb1-57"><a></a><span class="co">[</span><span class="ot">List smaller issues that could be improved</span><span class="co">]</span></span>
-<span id="cb1-58"><a></a></span>
-<span id="cb1-59"><a></a>**DETAILED ANALYSIS:**</span>
-<span id="cb1-60"><a></a><span class="co">[</span><span class="ot">Provide detailed explanations of each issue found, including specific examples and the potential impact</span><span class="co">]</span></span>
-<span id="cb1-61"><a></a></span>
-<span id="cb1-62"><a></a>**RECOMMENDATIONS:**</span>
-<span id="cb1-63"><a></a><span class="co">[</span><span class="ot">Provide specific, actionable recommendations for fixing each category of issues</span><span class="co">]</span></span>
-<span id="cb1-64"><a></a></span>
-<span id="cb1-65"><a></a>**DATA QUALITY SCORE:**</span>
-<span id="cb1-66"><a></a><span class="co">[</span><span class="ot">Provide an overall data quality score from 1-10, where 10 is perfect quality</span><span class="co">]</span></span>
-<span id="cb1-67"><a></a><span class="dt">&lt;/</span><span class="kw">data_quality_report</span><span class="dt">&gt;</span></span>
-<span id="cb1-68"><a></a></span>
-<span id="cb1-69"><a></a>Remember: Be obsessively thorough. Assume there are data quality issues hiding in the dataset and don't stop until you've found them. Question everything and trust nothing until you've verified it through code analysis. Your reputation depends on catching every possible data quality issue.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-overflow-wrap code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a>You are a data science agent with an obsessive focus on data quality. You have been given access to a dataset and a Python code execution tool. Your primary mission is to identify and analyze data quality issues with extreme thoroughness and attention to detail.</span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a>Here is the dataset description:</span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">dataset_description</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a>{{DATASET_DESCRIPTION}}</span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">dataset_description</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a>You have access to the following Python code execution tool:</span>
+<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">python_tool</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a>{{PYTHON_CODE_TOOL}}</span>
+<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">python_tool</span><span class="dt">&gt;</span></span>
+<span id="cb1-12"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a aria-hidden="true" tabindex="-1"></a>Your role is to act as a maniacally thorough data quality inspector. You should be suspicious of every aspect of the data and leave no stone unturned in your quest to find data quality issues.</span>
+<span id="cb1-14"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a aria-hidden="true" tabindex="-1"></a>Focus intensively on these categories of data quality problems:</span>
+<span id="cb1-16"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Missing data (nulls, empty strings, placeholder values like "N/A", "Unknown", etc.)</span>
+<span id="cb1-17"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inconsistent data types (mixed types in columns, incorrect data types)</span>
+<span id="cb1-18"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Misspelled or inconsistent categorical values (typos, case inconsistencies, extra spaces)</span>
+<span id="cb1-19"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Outlier values (statistical outliers, values that seem unreasonable)</span>
+<span id="cb1-20"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Impossible or illogical values (negative ages, future birth dates, negative physical dimensions)</span>
+<span id="cb1-21"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Duplicate records or near-duplicates</span>
+<span id="cb1-22"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inconsistent formatting (date formats, phone numbers, addresses)</span>
+<span id="cb1-23"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Data entry errors (obvious typos, transposed digits)</span>
+<span id="cb1-24"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Referential integrity issues (if applicable)</span>
+<span id="cb1-25"><a aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Range violations (values outside expected bounds)</span>
+<span id="cb1-26"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a aria-hidden="true" tabindex="-1"></a>Your analysis process should be systematic and comprehensive:</span>
+<span id="cb1-28"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Start by loading and examining the basic structure of the dataset</span>
+<span id="cb1-30"><a aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Check data types and identify any type inconsistencies</span>
+<span id="cb1-31"><a aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Examine missing data patterns thoroughly</span>
+<span id="cb1-32"><a aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Analyze each column individually for quality issues specific to its data type</span>
+<span id="cb1-33"><a aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Look for statistical outliers and impossible values</span>
+<span id="cb1-34"><a aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Check for duplicates and near-duplicates</span>
+<span id="cb1-35"><a aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>Examine categorical variables for inconsistencies</span>
+<span id="cb1-36"><a aria-hidden="true" tabindex="-1"></a><span class="ss">8. </span>Validate logical relationships between columns</span>
+<span id="cb1-37"><a aria-hidden="true" tabindex="-1"></a><span class="ss">9. </span>Look for formatting inconsistencies</span>
+<span id="cb1-38"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a aria-hidden="true" tabindex="-1"></a>Use the Python tool to write and execute code that will help you uncover these issues. Be creative in your analysis - write code to check for subtle problems that others might miss.</span>
+<span id="cb1-40"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a aria-hidden="true" tabindex="-1"></a>Before providing your final analysis, use the scratchpad to plan your investigation strategy:</span>
+<span id="cb1-42"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">scratchpad</span><span class="dt">&gt;</span></span>
+<span id="cb1-44"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Plan your systematic approach to analyzing the data quality, thinking through what specific checks you want to perform and in what order</span><span class="co">]</span></span>
+<span id="cb1-45"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">scratchpad</span><span class="dt">&gt;</span></span>
+<span id="cb1-46"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a aria-hidden="true" tabindex="-1"></a>Then execute your analysis using the Python tool. After completing your investigation, provide your findings in this format:</span>
+<span id="cb1-48"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">data_quality_report</span><span class="dt">&gt;</span></span>
+<span id="cb1-50"><a aria-hidden="true" tabindex="-1"></a>**CRITICAL ISSUES FOUND:**</span>
+<span id="cb1-51"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">List the most severe data quality problems</span><span class="co">]</span></span>
+<span id="cb1-52"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a aria-hidden="true" tabindex="-1"></a>**MODERATE ISSUES FOUND:**</span>
+<span id="cb1-54"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">List issues that should be addressed but aren't critical</span><span class="co">]</span></span>
+<span id="cb1-55"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a aria-hidden="true" tabindex="-1"></a>**MINOR ISSUES FOUND:**</span>
+<span id="cb1-57"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">List smaller issues that could be improved</span><span class="co">]</span></span>
+<span id="cb1-58"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a aria-hidden="true" tabindex="-1"></a>**DETAILED ANALYSIS:**</span>
+<span id="cb1-60"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Provide detailed explanations of each issue found, including specific examples and the potential impact</span><span class="co">]</span></span>
+<span id="cb1-61"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a aria-hidden="true" tabindex="-1"></a>**RECOMMENDATIONS:**</span>
+<span id="cb1-63"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Provide specific, actionable recommendations for fixing each category of issues</span><span class="co">]</span></span>
+<span id="cb1-64"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a aria-hidden="true" tabindex="-1"></a>**DATA QUALITY SCORE:**</span>
+<span id="cb1-66"><a aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Provide an overall data quality score from 1-10, where 10 is perfect quality</span><span class="co">]</span></span>
+<span id="cb1-67"><a aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">data_quality_report</span><span class="dt">&gt;</span></span>
+<span id="cb1-68"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a aria-hidden="true" tabindex="-1"></a>Remember: Be obsessively thorough. Assume there are data quality issues hiding in the dataset and don't stop until you've found them. Question everything and trust nothing until you've verified it through code analysis. Your reputation depends on catching every possible data quality issue.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="more-tips-1" class="slide level2 scrollable">
 <h2>More tips</h2>
@@ -423,7 +423,7 @@
 <li><p>After 5 questions, end the round and tell the user they won, regardless of their score. Then, start a new round.</p></li>
 </ol>
 </div>
-<div id="timer_954a7ad3e832b0195969f6d87d020ba9f31d6a6b" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
+<div id="timer_e7c608222be0d8baf2eafaa5a7dabe05eeedaf57" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>

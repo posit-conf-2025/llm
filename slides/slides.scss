@@ -91,6 +91,11 @@
   white-space: pre;
 }
 
+.reveal pre.code-overflow-wrap code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 .reveal .slides .slide {
 
   ul li,
