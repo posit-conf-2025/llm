@@ -310,18 +310,22 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>(10m) Manual RAG
 <ul>
-<li>Activity: Data science coding assistant
+<li>Activity <code>15_coding-assistant</code>: Use an LLM as a coding assistant
 <ul>
-<li>Given a data science task using <code>polars</code> or <code>dplyr</code>, ask an LLM to generate or explain code, first without any context.</li>
-<li>Then, give it the relevant section of the <code>polars</code> or <code>dplyr</code> documentation and see how much better the response is.</li>
+<li>Write a function that uses <code>{weathR}</code> (R) or <code>NWS</code> (Python) to get the weather for a location.</li>
+<li>Then, give the LLM the <code>{weathR}</code> (R) or <code>NWS</code> (Python) README and see how much better the response is.</li>
 </ul></li>
 </ul></li>
 <li>(30m) RAG
 <ul>
 <li>High-level overview of how RAG works</li>
-<li>Activity: Build a dynamic RAG system
+<li>Activity <code>16_rag</code>: Build a dynamic RAG system
 <ul>
-<li>We’ll have the complete, raw <code>dplyr</code> or <code>polars</code> documentation.</li>
+<li>Make a chatbot that can draw from the knowledge of:
+<ul>
+<li><a href="https://r4ds.hadley.nz">The R for Data Science book</a></li>
+<li><a href="https://github.com/escobar-west/polars-cookbook">The Polars Cookbook</a></li>
+</ul></li>
 <li>Preprocess and compute embeddings for each chunk using <code>ragnar</code> or <code>llama-index</code>
 <ul>
 <li>https://posit-dev.github.io/chatlas/misc/RAG.html#dynamic-retrieval</li>
