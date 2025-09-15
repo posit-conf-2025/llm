@@ -25,7 +25,7 @@
     "href": "slides/slides-08.html#tools",
     "title": "Tool Calling",
     "section": "Tools",
-    "text": "Tools\na.k.a. functions, tool calling or function calling\n\nBring real-time or up-to-date information to the model\nLetting the model interact with the world*\n\n\nTools are extra capabilities that you give to the LLM, like the ability to search the posit::conf(2025) schedule. These capabilities are things that the model can’t do on its own. The goal is let the model pull in real-time, or up-to-date, or high-quality information as needed, depending on the conversation.\nThey can also give the model new abilities to take action on behalf of the user."
+    "text": "Tools\na.k.a. functions, tool calling or function calling\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world\n\n\nTools are extra capabilities that you give to the LLM, like the ability to search the posit::conf(2025) schedule. These capabilities are things that the model can’t do on its own. The goal is let the model pull in real-time, or up-to-date, or high-quality information as needed, depending on the conversation.\nThey can also give the model new abilities to take action on behalf of the user."
   },
   {
     "objectID": "slides/slides-08.html#section",
@@ -613,7 +613,7 @@
     "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is elephant."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is bicycle."
   },
   {
     "objectID": "slides/slides-02.html#interpolation-in-r-1",
@@ -627,7 +627,7 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is bicycle.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
   },
   {
     "objectID": "workshop.html",
@@ -1578,6 +1578,34 @@
     "title": "Beyond Tools",
     "section": "querychat in Python",
     "text": "querychat in Python\nimport polars as pl\nimport querychat\nfrom shiny import App, render, ui\n\nmtcars = pl.read_csv(\"data/mtcars.csv\")\n\nmtcars_qc_config = querychat.init(mtcars, \"mtcars\")\n\napp_ui = ui.page_sidebar(\n    querychat.sidebar(\"mtcars\"),\n    # plots, tables, etc.\n)\n\ndef server(input, output, session):\n    mtcars_qc = querychat.server(\"mtcars\", mtcars_qc_config)\n\n    @render.data_frame\n    def data_table():\n        return qc.df()\n\napp = App(app_ui, server)"
+  },
+  {
+    "objectID": "slides/slides-10.html#recall-tools",
+    "href": "slides/slides-10.html#recall-tools",
+    "title": "Beyond Tools",
+    "section": "Recall: Tools",
+    "text": "Recall: Tools\na.k.a. functions, tool calling or function calling\n\nBring real-time or up-to-date information to the model\nLet the model interact with the world"
+  },
+  {
+    "objectID": "slides/slides-10.html#what-other-tools-could-be-useful",
+    "href": "slides/slides-10.html#what-other-tools-could-be-useful",
+    "title": "Beyond Tools",
+    "section": "🤔 What other tools could be useful?",
+    "text": "🤔 What other tools could be useful?\n\nGet the weather\nSearch the posit::conf() schedule\n...\n\n\nSome ideas:\n\nweb search\nsearch a ticket system (zendesk)\nsearch a website or knowledge base\nCreate tickets\nSend emails\nRead your calendar\nSummarize your email"
+  },
+  {
+    "objectID": "slides/slides-10.html#what-github-related-tools-would-be-useful",
+    "href": "slides/slides-10.html#what-github-related-tools-would-be-useful",
+    "title": "Beyond Tools",
+    "section": "🤔 What GitHub-related tools would be useful?",
+    "text": "🤔 What GitHub-related tools would be useful?\n\nList issues\n...\n\n\nSome ideas:\n\nweb search\nsearch a ticket system (zendesk)\nsearch a website or knowledge base\nCreate tickets\nSend emails\nRead your calendar\nSummarize your email"
+  },
+  {
+    "objectID": "slides/slides-10.html#who-should-write-tools-for-github",
+    "href": "slides/slides-10.html#who-should-write-tools-for-github",
+    "title": "Beyond Tools",
+    "section": "Who should write tools for GitHub?",
+    "text": "Who should write tools for GitHub?\n\nMCP solves this problem! GitHub writes tools…\n\n\nand lets you your models use them.\nGitHub MCP Server"
   },
   {
     "objectID": "slides/slides-10.html#whats-an-agent",
