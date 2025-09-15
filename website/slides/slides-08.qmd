@@ -466,14 +466,31 @@ def get_weather(lat: float, lon: float, location_name: str):
 
 1. Play the game again to see the icons and titles in action.
 
-{{< countdown 8:00 left=0 bottom="-2em" >}}
+{{< countdown 8:00 left=0 bottom=0 >}}
+
+## Tools in Shiny
+
+::: incremental
+* Define the tool function **inside the server**
+
+* You can **update reactive values** in the tool function!
+
+* You can **read reactive values**, _if you `isolate()` reads_. (Be careful!)
+:::
+
+<!-- TODO: Demo app with a tool that updates a reactive value -->
 
 ## Your Turn `23_quiz-game-5` {.slide-your-turn}
 
-1. Step 1
+_I've updated the app to show the score in value boxes.\
+(And turned off the sounds.)_
 
-1. Step 2
+1. In the **system prompt**, tell the model when to use `update_score`.
 
-1. Step 3
+1. Read `update_score()`. It should update a reactive value in the app when called. Finish implementing it.
 
-{{< countdown 8:00 left=0 bottom="-2em" >}}
+1. Complete the tool definition.
+
+1. Add tool annotations (optional, but fun!)
+
+{{< countdown 8:00 left=0 bottom=0 >}}
