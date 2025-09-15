@@ -5,6 +5,14 @@
       {
         "Name": "CRAN",
         "URL": "https://cran.rstudio.com"
+      },
+      {
+        "Name": "posit-dev.r-universe.dev",
+        "URL": "https://posit-dev.r-universe.dev"
+      },
+      {
+        "Name": "rstudio.r-universe.dev",
+        "URL": "https://rstudio.r-universe.dev"
       }
     ]
   },
