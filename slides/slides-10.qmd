@@ -10,15 +10,80 @@ editor:
 
 # [querychat]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-querychat.jpg" background-size="cover" background-position="center"}
 
+## {.center .tc transition="fade"}
+
+![](assets/querychat-standard-shiny.excalidraw.svg)
+
+## {.center .tc transition="fade"}
+
+![](assets/querychat.excalidraw.svg)
+
+## {.center .tc transition="fade"}
+
+![](assets/querychat-parts.excalidraw.svg)
+
+## querychat in R
+
+```{.r .scrollable code-line-numbers="|3|5|8|13|8,13|15-17"}
+library(shiny)
+library(bslib)
+library(querychat)
+
+mtcars_qc_config <- querychat_init(mtcars)
+
+ui <- page_sidebar(
+  sidebar = querychat_sidebar("mtcars"),
+  # plots, tables, etc.
+)
+
+server <- function(input, output, session) {
+  mtcars_qc <- querychat_server("mtcars", mtcars_qc_config)
+
+  output$table <- renderTable({
+    mtcars_qc$df()
+  })
+}
+
+shinyApp(ui, server)
+```
+
+## querychat in Python
+
+```{.python .scrollable code-line-numbers="|2|5-7|10|15|10,15|17-19"}
+import polars as pl
+import querychat
+from shiny import App, render, ui
+
+mtcars = pl.read_csv("data/mtcars.csv")
+
+mtcars_qc_config = querychat.init(mtcars, "mtcars")
+
+app_ui = ui.page_sidebar(
+    querychat.sidebar("mtcars"),
+    # plots, tables, etc.
+)
+
+def server(input, output, session):
+    mtcars_qc = querychat.server("mtcars", mtcars_qc_config)
+
+    @render.data_frame
+    def data_table():
+        return qc.df()
+
+app = App(app_ui, server)
+```
+
 # Your Turn `25_querychat` {.slide-your-turn}
 
-1. Step 1
+1. I've made a Shiny dashboard to explore Airbnb listings in Asheville, NC.
+   * Spend 1-2 min: which Neighborhood has most private rooms?
 
-1. Step 2
+1. Work through the steps in the comments to use `querychat`.
 
-1. Step 3
+1. Spend a few minutes exploring the data and chatting with the app. \
+   Which area has the most private rooms?
 
-{{< countdown 8:00 left=0 bottom=0 >}}
+{{< countdown 8:00 left=0 bottom="-1.5em" >}}
 
 # [MCP]{.hidden} {.no-invert-dark-mode .center background-image="assets/robot-mcp.jpg" background-size="cover" background-position="center"}
 

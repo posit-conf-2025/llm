@@ -613,7 +613,7 @@
     "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is bicycle."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is elephant."
   },
   {
     "objectID": "slides/slides-02.html#interpolation-in-r-1",
@@ -964,148 +964,148 @@
     ]
   },
   {
-    "objectID": "slides/slides-01-intro.html#welcome-to-programming-with-llm-apis",
-    "href": "slides/slides-01-intro.html#welcome-to-programming-with-llm-apis",
+    "objectID": "slides/slides-01.html#welcome-to-programming-with-llm-apis",
+    "href": "slides/slides-01.html#welcome-to-programming-with-llm-apis",
     "title": "Welcome!",
     "section": "Welcome to Programming with LLM APIs !",
     "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nUpdate your local copy of the workshop:\nposit-conf-2025.github.io/llm/setup.html\nJoin the Discord: https://pos.it/conf\nwifi(  network=“Posit Conf 2025”,  password=“conf2025”)"
   },
   {
-    "objectID": "slides/slides-01-intro.html#meet-us",
-    "href": "slides/slides-01-intro.html#meet-us",
+    "objectID": "slides/slides-01.html#meet-us",
+    "href": "slides/slides-01.html#meet-us",
     "title": "Welcome!",
     "section": "Meet us",
     "text": "Meet us\n\nOur team: Joe Cheng, Garrick Aden-Buie, Karan Gathani, Julia Silge, Sam Clark, James Blair"
   },
   {
-    "objectID": "slides/slides-01-intro.html#code-of-conduct",
-    "href": "slides/slides-01-intro.html#code-of-conduct",
+    "objectID": "slides/slides-01.html#code-of-conduct",
+    "href": "slides/slides-01.html#code-of-conduct",
     "title": "Welcome!",
     "section": "Code of Conduct",
     "text": "Code of Conduct\nPlease Review: posit.co/code-of-conduct\n💙 Treat everyone with respect\n🧡 Everyone should feel welcome and safe\nReporting:\n🗣️ any posit::conf staff member (t-shirt) or Info desk\n📧 codeofconduct@posit.co"
   },
   {
-    "objectID": "slides/slides-01-intro.html#meet-each-other",
-    "href": "slides/slides-01-intro.html#meet-each-other",
+    "objectID": "slides/slides-01.html#meet-each-other",
+    "href": "slides/slides-01.html#meet-each-other",
     "title": "Welcome!",
     "section": "Meet each other",
     "text": "Meet each other\n\n👋 Hi, my name is …\n🤖 I’d call myself an AI… [skeptic, pragmatist, enthusiast]\n⚡ Share a moment when AI surprised you"
   },
   {
-    "objectID": "slides/slides-01-intro.html#wifi",
-    "href": "slides/slides-01-intro.html#wifi",
+    "objectID": "slides/slides-01.html#wifi",
+    "href": "slides/slides-01.html#wifi",
     "title": "Welcome!",
     "section": "WiFi",
     "text": "WiFi\nwifi(“Posit Conf 2025”, password=“conf2025”)"
   },
   {
-    "objectID": "slides/slides-01-intro.html#positconf2025-things-to-know",
-    "href": "slides/slides-01-intro.html#positconf2025-things-to-know",
+    "objectID": "slides/slides-01.html#positconf2025-things-to-know",
+    "href": "slides/slides-01.html#positconf2025-things-to-know",
     "title": "Welcome!",
     "section": "posit::conf(2025) Things to Know",
     "text": "posit::conf(2025) Things to Know\n\n🚻 Gender-neutral bathroom: LL2 next to Chicago A\n🧘 Meditation/prayer room: LL2 Chicago A\n🤱 Lactation room: LL2 Chicago B\n🎉 Welcome reception: Tonight 5-7 pm, LL2 Grand Hall West\n🐠 Aquarium Night: Tomorrow 7-10 pm, Georgia Aquarium"
   },
   {
-    "objectID": "slides/slides-01-intro.html#positconf2025-social-media",
-    "href": "slides/slides-01-intro.html#positconf2025-social-media",
+    "objectID": "slides/slides-01.html#positconf2025-social-media",
+    "href": "slides/slides-01.html#positconf2025-social-media",
     "title": "Welcome!",
     "section": "posit::conf(2025) Social Media",
     "text": "posit::conf(2025) Social Media\n\nRed lanyards available to those who don’t wish to be photographed\n#PositConf2025 for all things conf"
   },
   {
-    "objectID": "slides/slides-01-intro.html#questions",
-    "href": "slides/slides-01-intro.html#questions",
+    "objectID": "slides/slides-01.html#questions",
+    "href": "slides/slides-01.html#questions",
     "title": "Welcome!",
     "section": "Questions",
     "text": "Questions\n\n🙋 🙋‍♀️ 🙋‍♂️\nPlease ask questions!"
   },
   {
-    "objectID": "slides/slides-01-intro.html#posit-conf-2025.github.iollm",
-    "href": "slides/slides-01-intro.html#posit-conf-2025.github.iollm",
+    "objectID": "slides/slides-01.html#posit-conf-2025.github.iollm",
+    "href": "slides/slides-01.html#posit-conf-2025.github.iollm",
     "title": "Welcome!",
     "section": "🏡 posit-conf-2025.github.io/llm",
     "text": "🏡 posit-conf-2025.github.io/llm\nEverything you need, in one place."
   },
   {
-    "objectID": "slides/slides-01-intro.html#discord",
-    "href": "slides/slides-01-intro.html#discord",
+    "objectID": "slides/slides-01.html#discord",
+    "href": "slides/slides-01.html#discord",
     "title": "Welcome!",
     "section": "Discord",
     "text": "Discord\n\n\n\nGo posit.co/conference\nClick Login\nFind and click the discord banner\nJoin us in #workshop-llm"
   },
   {
-    "objectID": "slides/slides-01-intro.html#schedule",
-    "href": "slides/slides-01-intro.html#schedule",
+    "objectID": "slides/slides-01.html#schedule",
+    "href": "slides/slides-01.html#schedule",
     "title": "Welcome!",
     "section": "Schedule",
     "text": "Schedule\n\n\n\nTime\n\nActivity\n\n\n\n\n09:00 - 10:30\n💬\nTalking with LLMs via Code\n\n\n10:30 - 11:00\n☕\nCoffee break\n\n\n11:00 - 12:30\n💻\nProgramming with LLMs\n\n\n12:30 - 13:30\n🍽️\nLunch break\n\n\n13:30 - 15:00\n🔍\nAugmented Generation\n\n\n15:00 - 15:30\n☕\nCoffee break\n\n\n15:30 - 17:00\n🚀\nBeyond Tools"
   },
   {
-    "objectID": "slides/slides-01-intro.html#schedule-the-important-bits",
-    "href": "slides/slides-01-intro.html#schedule-the-important-bits",
+    "objectID": "slides/slides-01.html#schedule-the-important-bits",
+    "href": "slides/slides-01.html#schedule-the-important-bits",
     "title": "Welcome!",
     "section": "Schedule (the important bits)",
     "text": "Schedule (the important bits)\n\n\n\n\nTime\n\nActivity\n\n\n\n\n09:00 - 10:30\n💬\nTalking with LLMs via Code\n\n\n10:30 - 11:00\n☕\nCoffee break\n\n\n11:00 - 12:30\n💻\nProgramming with LLMs\n\n\n12:30 - 13:30\n🍽️\nLunch break\n\n\n13:30 - 15:00\n🔍\nAugmented Generation\n\n\n15:00 - 15:30\n☕\nCoffee break\n\n\n15:30 - 17:00\n🚀\nBeyond Tools"
   },
   {
-    "objectID": "slides/slides-01-intro.html#stickies",
-    "href": "slides/slides-01-intro.html#stickies",
+    "objectID": "slides/slides-01.html#stickies",
+    "href": "slides/slides-01.html#stickies",
     "title": "Welcome!",
     "section": "Stickies",
     "text": "Stickies\n\n\n🟩\nAll good\nI’m done\n\n\n🟥\nNot great\nNeed time or help"
   },
   {
-    "objectID": "slides/slides-01-intro.html#setup",
-    "href": "slides/slides-01-intro.html#setup",
+    "objectID": "slides/slides-01.html#setup",
+    "href": "slides/slides-01.html#setup",
     "title": "Welcome!",
     "section": "Setup",
     "text": "Setup\n\nHead to posit-conf-2025.github.io/llm/setup.html\nClone our workshop repo posit-conf-2025/llm\nOpen the project in Positron\nInstall all the packages:\n\nR: renv::restore()\nPython: uv sync"
   },
   {
-    "objectID": "slides/slides-01-intro.html#were-using-positron",
-    "href": "slides/slides-01-intro.html#were-using-positron",
+    "objectID": "slides/slides-01.html#were-using-positron",
+    "href": "slides/slides-01.html#were-using-positron",
     "title": "Welcome!",
     "section": "We’re using Positron",
     "text": "We’re using Positron\n\n\n\n\nRStudio and VS Code are great, too!"
   },
   {
-    "objectID": "slides/slides-01-intro.html#file-organization",
-    "href": "slides/slides-01-intro.html#file-organization",
+    "objectID": "slides/slides-01.html#file-organization",
+    "href": "slides/slides-01.html#file-organization",
     "title": "Welcome!",
     "section": "File organization",
     "text": "File organization\n\n\n\n\n_exercises/\nFiles for Your Turn exercises\n\n\n_solutions/\nSolutions to those exercises\n\n\n_demos/\nFiles for stuff we demo\n\n\nwebsite/\nThe website and slides\n\n\n./*\nLots of project related files you can ignore"
   },
   {
-    "objectID": "slides/slides-01-intro.html#exercise-solutions",
-    "href": "slides/slides-01-intro.html#exercise-solutions",
+    "objectID": "slides/slides-01.html#exercise-solutions",
+    "href": "slides/slides-01.html#exercise-solutions",
     "title": "Welcome!",
     "section": "Exercise Solutions",
     "text": "Exercise Solutions\n\n👨‍💻 👩‍💻 _exercises/01_hello-llm/01_hello-llm.R\n   🫣    _solutions/01_hello-llm/01_hello-llm.R\n\n\nAlso in Python:\n👨‍💻 👩‍💻 _exercises/01_hello-llm/01_hello-llm.py\n   📓    _exercises/01_hello-llm/01_hello-llm.pynb\n   🫣    _solutions/01_hello-llm/01_hello-llm.py"
   },
   {
-    "objectID": "slides/slides-01-intro.html#to-use-an-ai-api",
-    "href": "slides/slides-01-intro.html#to-use-an-ai-api",
+    "objectID": "slides/slides-01.html#to-use-an-ai-api",
+    "href": "slides/slides-01.html#to-use-an-ai-api",
     "title": "Welcome!",
     "section": "To use an AI API…",
     "text": "To use an AI API…\n\n…you need an API key!"
   },
   {
-    "objectID": "slides/slides-01-intro.html#how-to-get-an-api-key-the-usual-way",
-    "href": "slides/slides-01-intro.html#how-to-get-an-api-key-the-usual-way",
+    "objectID": "slides/slides-01.html#how-to-get-an-api-key-the-usual-way",
+    "href": "slides/slides-01.html#how-to-get-an-api-key-the-usual-way",
     "title": "Welcome!",
     "section": "How to get an API key, the usual way",
     "text": "How to get an API key, the usual way\naka. how to give OpenAI your money\n\n\n🆙 Sign up for an account with OpenAI or Anthropic\n💳 Add a payment method\n🔑 Get an API key\n💾 Store it in .Renviron or .env fileas OPENAI_API_KEY or ANTHROPIC_API_KEY"
   },
   {
-    "objectID": "slides/slides-01-intro.html#but-well-give-you-api-keys-to-use-today",
-    "href": "slides/slides-01-intro.html#but-well-give-you-api-keys-to-use-today",
+    "objectID": "slides/slides-01.html#but-well-give-you-api-keys-to-use-today",
+    "href": "slides/slides-01.html#but-well-give-you-api-keys-to-use-today",
     "title": "Welcome!",
     "section": "But we’ll give you API keys to use today!",
     "text": "But we’ll give you API keys to use today!\n\nUse these keys for all of our activities today\nPlay and explore! But please be considerate :)\nWe’ll turn them off at the end of the workshop"
   },
   {
-    "objectID": "slides/slides-01-intro.html#your-turn-01_hello-llm",
-    "href": "slides/slides-01-intro.html#your-turn-01_hello-llm",
+    "objectID": "slides/slides-01.html#your-turn-01_hello-llm",
+    "href": "slides/slides-01.html#your-turn-01_hello-llm",
     "title": "Welcome!",
     "section": "Your Turn 01_hello-llm",
     "text": "Your Turn 01_hello-llm\n\n\n🔓 Decrypt the .env.secret → .env:\n\nR: Run secret.R\nPython: Run make secret-decrypt in terminal\nor run uv run secret.py decrypt .env.secret &gt; .env\n\n🤫 The special phrase is:\npositconf2025-llm-workshop\n🤖 Run the code in _exercises/01_hello-llm"
@@ -1566,6 +1566,20 @@
     "text": "In Python…\n\n\n\n\n\nLlamaIndex\npinecone\nchromadb\n\n\n\nchatlas: RAG"
   },
   {
+    "objectID": "slides/slides-10.html#querychat-in-r",
+    "href": "slides/slides-10.html#querychat-in-r",
+    "title": "Beyond Tools",
+    "section": "querychat in R",
+    "text": "querychat in R\nlibrary(shiny)\nlibrary(bslib)\nlibrary(querychat)\n\nmtcars_qc_config &lt;- querychat_init(mtcars)\n\nui &lt;- page_sidebar(\n  sidebar = querychat_sidebar(\"mtcars\"),\n  # plots, tables, etc.\n)\n\nserver &lt;- function(input, output, session) {\n  mtcars_qc &lt;- querychat_server(\"mtcars\", mtcars_qc_config)\n\n  output$table &lt;- renderTable({\n    mtcars_qc$df()\n  })\n}\n\nshinyApp(ui, server)"
+  },
+  {
+    "objectID": "slides/slides-10.html#querychat-in-python",
+    "href": "slides/slides-10.html#querychat-in-python",
+    "title": "Beyond Tools",
+    "section": "querychat in Python",
+    "text": "querychat in Python\nimport polars as pl\nimport querychat\nfrom shiny import App, render, ui\n\nmtcars = pl.read_csv(\"data/mtcars.csv\")\n\nmtcars_qc_config = querychat.init(mtcars, \"mtcars\")\n\napp_ui = ui.page_sidebar(\n    querychat.sidebar(\"mtcars\"),\n    # plots, tables, etc.\n)\n\ndef server(input, output, session):\n    mtcars_qc = querychat.server(\"mtcars\", mtcars_qc_config)\n\n    @render.data_frame\n    def data_table():\n        return qc.df()\n\napp = App(app_ui, server)"
+  },
+  {
     "objectID": "slides/slides-10.html#whats-an-agent",
     "href": "slides/slides-10.html#whats-an-agent",
     "title": "Beyond Tools",
@@ -1580,8 +1594,8 @@
     "text": "Demo: Databot\n👨‍💻 _demos/27_demo_databot/README.md\n\nLet’s look at data/airbnb-asheville.csv, do some basic work to familiarize ourselves with the data, and then find interesting patterns that would be relevant to someone looking to open an Airbnb in Asheville, NC."
   },
   {
-    "objectID": "slides/slides-10.html#section",
-    "href": "slides/slides-10.html#section",
+    "objectID": "slides/slides-10.html#section-3",
+    "href": "slides/slides-10.html#section-3",
     "title": "Beyond Tools",
     "section": "",
     "text": "Enjoy posit::conf(2025)!"

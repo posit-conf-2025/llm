@@ -36,6 +36,72 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-c8eb6cfe60727cad23570332ae8102d9.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -158,19 +224,82 @@
 
   <p class="date">2025-09-16</p>
 </section>
+<section>
 <section id="querychat" class="title-slide slide level1 no-invert-dark-mode center" data-background-image="assets/robot-querychat.jpg" data-background-size="cover" data-background-position="center">
 <h1><span class="hidden">querychat</span></h1>
 
 </section>
+<section id="section" class="slide level2 center tc" data-transition="fade">
+<h2></h2>
 
+<img data-src="assets/querychat-standard-shiny.excalidraw.svg" class="r-stretch"></section>
+<section id="section-1" class="slide level2 center tc" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/querychat.excalidraw.svg" class="r-stretch"></section>
+<section id="section-2" class="slide level2 center tc" data-transition="fade">
+<h2></h2>
+
+<img data-src="assets/querychat-parts.excalidraw.svg" class="r-stretch"></section>
+<section id="querychat-in-r" class="slide level2">
+<h2>querychat in R</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="|3|5|8|13|8,13|15-17"><pre class="sourceCode numberSource r scrollable number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(shiny)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(bslib)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(querychat)</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a>mtcars_qc_config <span class="ot">&lt;-</span> <span class="fu">querychat_init</span>(mtcars)</span>
+<span id="cb1-6"><a></a></span>
+<span id="cb1-7"><a></a>ui <span class="ot">&lt;-</span> <span class="fu">page_sidebar</span>(</span>
+<span id="cb1-8"><a></a>  <span class="at">sidebar =</span> <span class="fu">querychat_sidebar</span>(<span class="st">"mtcars"</span>),</span>
+<span id="cb1-9"><a></a>  <span class="co"># plots, tables, etc.</span></span>
+<span id="cb1-10"><a></a>)</span>
+<span id="cb1-11"><a></a></span>
+<span id="cb1-12"><a></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb1-13"><a></a>  mtcars_qc <span class="ot">&lt;-</span> <span class="fu">querychat_server</span>(<span class="st">"mtcars"</span>, mtcars_qc_config)</span>
+<span id="cb1-14"><a></a></span>
+<span id="cb1-15"><a></a>  output<span class="sc">$</span>table <span class="ot">&lt;-</span> <span class="fu">renderTable</span>({</span>
+<span id="cb1-16"><a></a>    mtcars_qc<span class="sc">$</span><span class="fu">df</span>()</span>
+<span id="cb1-17"><a></a>  })</span>
+<span id="cb1-18"><a></a>}</span>
+<span id="cb1-19"><a></a></span>
+<span id="cb1-20"><a></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="querychat-in-python" class="slide level2">
+<h2>querychat in Python</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-code-line-numbers="|2|5-7|10|15|10,15|17-19"><pre class="sourceCode numberSource python scrollable number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb2-2"><a></a><span class="im">import</span> querychat</span>
+<span id="cb2-3"><a></a><span class="im">from</span> shiny <span class="im">import</span> App, render, ui</span>
+<span id="cb2-4"><a></a></span>
+<span id="cb2-5"><a></a>mtcars <span class="op">=</span> pl.read_csv(<span class="st">"data/mtcars.csv"</span>)</span>
+<span id="cb2-6"><a></a></span>
+<span id="cb2-7"><a></a>mtcars_qc_config <span class="op">=</span> querychat.init(mtcars, <span class="st">"mtcars"</span>)</span>
+<span id="cb2-8"><a></a></span>
+<span id="cb2-9"><a></a>app_ui <span class="op">=</span> ui.page_sidebar(</span>
+<span id="cb2-10"><a></a>    querychat.sidebar(<span class="st">"mtcars"</span>),</span>
+<span id="cb2-11"><a></a>    <span class="co"># plots, tables, etc.</span></span>
+<span id="cb2-12"><a></a>)</span>
+<span id="cb2-13"><a></a></span>
+<span id="cb2-14"><a></a><span class="kw">def</span> server(<span class="bu">input</span>, output, session):</span>
+<span id="cb2-15"><a></a>    mtcars_qc <span class="op">=</span> querychat.server(<span class="st">"mtcars"</span>, mtcars_qc_config)</span>
+<span id="cb2-16"><a></a></span>
+<span id="cb2-17"><a></a>    <span class="at">@render.data_frame</span></span>
+<span id="cb2-18"><a></a>    <span class="kw">def</span> data_table():</span>
+<span id="cb2-19"><a></a>        <span class="cf">return</span> qc.df()</span>
+<span id="cb2-20"><a></a></span>
+<span id="cb2-21"><a></a>app <span class="op">=</span> App(app_ui, server)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section></section>
 <section id="your-turn-25_querychat" class="title-slide slide level1 slide-your-turn center">
 <h1>Your Turn <code>25_querychat</code></h1>
 <ol type="1">
-<li><p>Step 1</p></li>
-<li><p>Step 2</p></li>
-<li><p>Step 3</p></li>
+<li><p>I’ve made a Shiny dashboard to explore Airbnb listings in Asheville, NC.</p>
+<ul>
+<li>Spend 1-2 min: which Neighborhood has most private rooms?</li>
+</ul></li>
+<li><p>Work through the steps in the comments to use <code>querychat</code>.</p></li>
+<li><p>Spend a few minutes exploring the data and chatting with the app.<br>
+Which area has the most private rooms?</p></li>
 </ol>
-<div id="timer_e29307a340b0d779ab95c757d579aee759d7e5f7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+<div id="timer_5451db8ca6f3660f9aba516ba2b33edb86c16cfa" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: -1.5em;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -193,7 +322,7 @@
 <li><p>Step 2</p></li>
 <li><p>Step 3</p></li>
 </ol>
-<div id="timer_e29307a340b0d779ab95c757d579aee759d7e5f7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
+<div id="timer_5451db8ca6f3660f9aba516ba2b33edb86c16cfa" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="bottom: 0;left: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -237,7 +366,7 @@ Your feedback is important to us!</p>
 <p><a href="https://pos.it/conf-workshop-survey"><span class="yellow code">pos.it/conf-workshop-survey</span></a></p>
 </div>
 </section>
-<section id="section" class="slide level2" data-background-image="assets/thank-you.png" data-background-size="cover" data-background-position="center">
+<section id="section-3" class="slide level2" data-background-image="assets/thank-you.png" data-background-size="cover" data-background-position="center">
 <h2></h2>
 <div class="f1 code tc white absolute" style="left: 0px; bottom: 0px; right: 0px; ">
 <p>Enjoy posit::conf(2025)!</p>
