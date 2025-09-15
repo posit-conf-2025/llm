@@ -11,7 +11,7 @@ editor:
 # How to think about LLMs {.dark-blue background-image="assets/retro-mac.jpg" background-size="cover" background-position="bottom left"}
 
 ```{r}
-source(here::here("website/slides/_incremental_slides.R"))
+source(here::here("slides/_incremental_slides.R"))
 ```
 
 ::: notes

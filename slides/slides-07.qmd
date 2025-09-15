@@ -145,7 +145,7 @@ text_embedding_3_small("suitcase")
 <https://ragnar.tidyverse.org/>
 :::
 
-## In Python... {#ragnar .center transition="fade"}
+## In Python... {#llama-index .center transition="fade"}
 
 :::::: {style="display: flex; flex-direction: row; align-items: center; gap: 1em; text-align: center;"}
 ::::: {.column}

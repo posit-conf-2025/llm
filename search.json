@@ -1303,6 +1303,13 @@
     "objectID": "slides/slides-07.html#ragnar",
     "href": "slides/slides-07.html#ragnar",
     "title": "Augmented Generation",
+    "section": "In R…",
+    "text": "In R…\n\n\n\n\n\n\n\nhttps://ragnar.tidyverse.org/"
+  },
+  {
+    "objectID": "slides/slides-07.html#llama-index",
+    "href": "slides/slides-07.html#llama-index",
+    "title": "Augmented Generation",
     "section": "In Python…",
     "text": "In Python…\n\n\n\n\n\nLlamaIndex\npinecone\nchromadb\n\n\n\nchatlas: RAG"
   }
