@@ -2,7 +2,21 @@
 library(ragnar)
 
 # Step 1: Read, chunk and create embeddings for "R for Data Science" ----------
-# This example is based on https://ragnar.tidyverse.org/#usage
+
+#' This example is based on https://ragnar.tidyverse.org/#usage.
+#'
+#' The first step is to crawl the R for Data Science website to find all the
+#' pages we'll need to read in.
+#'
+#' Then, we create a new ragnar document store that will use OpenAI's
+#' `text-embedding-3-small` model to create embeddings for each chunk of text.
+#'
+#' Finally, we read each page as markdown, use `markdown_chunk()` to split that
+#' markdown into reasonably-sized chunks, finally inserting each chunk into the
+#' vector store. That insertion step automatically sends the chunk text to
+#' OpenAI to create the embedding, and ragnar stores the embedding alongside the
+#' original text of the chunk.
+
 #+ create-store
 
 base_url <- "https://r4ds.hadley.nz"
@@ -29,10 +43,15 @@ cli::cli_progress_done()
 ragnar_store_build_index(store)
 
 # Step 2: Inspect your document store -----------------------------------------
-#+ inspect-store
 
+#' Now that we have the vector store, what chunks are surfaced when we ask a
+#' question? To do that, we'll use the ragnar store inspector app and an
+#' example question.
+#'
 # Here's a question someone might ask an LLM. Copy the task markdown to use in
 # the ragnar store inspector app.
+
+#+ inspect-store
 task <- r"--(
 Could someone help me filter one data frame by matching values in another?
 
@@ -69,7 +88,16 @@ This returns zero rows. What’s the simplest way to do this?
 
 ragnar_store_inspect(store)
 
+
 # Step 3: Use document store in a chatbot --------------------------------------
+
+#' Finally, ragnar provides a special tool that attaches to an ellmer chat
+#' client and lets the model retrieve relevant chunks from the vector store on
+#' demand. Run the code below to launch a chatbot backed by all the knowledge in
+#' the R for Data Science book. Paste the task markdown from above into the chat
+#' and see how the chatbot uses the retrieved chunks to improve its answer, or
+#' ask it your own questions about R for Data Science.
+
 #+ chatbot
 
 library(ellmer)
@@ -85,8 +113,8 @@ working link for every source you cite.
   )--"
 )
 
+# Attach the retrieval tool to the chat client. You can choose how many chunks
+# or documents are retrieved each time the model uses the tool.
 ragnar_register_tool_retrieve(chat, store, top_k = 10)
 
-# Launch the chatbot and then paste the task from above in the chat again to
-# see how the chatbot uses these answer to improve its response.
 live_browser(chat)

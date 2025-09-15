@@ -10,6 +10,7 @@
 - [x] Set up renv and uv lockfiles
 - [ ] Finalize `renv.lock` and `uv.lock`
 - [ ] Remove `quarto.path` from `.vscode/settings.json`
+- [ ] Verify no unexpected `_solutions` paths in `_exercises`
 
 ### Morning 1
 
