@@ -58,6 +58,7 @@ def server(input, output, session):
     # Set up the chat instance
     client = chatlas.ChatAnthropic(
         model="claude-3-7-sonnet-20250219",
+        # Use your quiz game system prompt, or switch to _solutions to use ours
         system_prompt=f"""
 {here("_solutions/14_quiz-game-1/prompt.md").read_text()}
 
@@ -129,13 +130,11 @@ the question.
 
     @chat_ui.on_user_submit
     async def handle_user_input(user_input: str):
-        # Use `content="all"` to include tool calls in the response stream
         response = await client.stream_async(user_input, content="all")
         await chat_ui.append_message_stream(response)
 
     @reactive.effect
     def _():
-        # Start the game when the app launches
         chat_ui.update_user_input(value="Let's play the quiz game!", submit=True)
 
 

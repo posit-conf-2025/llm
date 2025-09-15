@@ -295,16 +295,75 @@ Follow up question: why send a string back to the LLM that says the sound was pl
 A robot is standing in front of a display case, pointing at a holographic interface showing various tools and options. The robot appears to be selecting a tool from the interface.
 :::
 
+## Tool Annotations
+
+* Provide **hints** to clients about tool behavior
+
+* Help humans and AI systems make informed decisions about tool usage
+
+* All properties are **hints only** - not guaranteed to be accurate
+
+* [MCP Tool Annotations Spec](https://modelcontextprotocol.io/specification/2025-06-18/schema#toolannotations){preview-link=true}
+
+## Key Properties
+
+| Property | Description |
+|:---------|:------------|
+| **`title`** | Human-readable tool name |
+| **`readOnlyHint`** | Tool doesn't modify environment |
+| **`destructiveHint`** | May perform destructive updates |
+| **`idempotentHint`** | Repeated calls with same arguments return same |
+| **`openWorldHint`** | Interacts with external entities vs. closed domain |
+
+: {tbl-colwidths="[30, 70]"}
+
+## Tool Annotations in R
+
+```{.r code-line-numbers="|4-8|5-6|7"}
+tool_get_weather <- tool(
+  get_weather,
+  # description, arguments, ...
+  annotations = tool_annotations(
+    title = "Get Weather",
+    readOnlyHint = TRUE,
+    icon = fontawesome::fa_i("cloud-sun")
+  )
+)
+```
+
+::: footer
+[ellmer (R): Tool Annotations](https://ellmer.tidyverse.org/reference/tool_annotations.html){preview-link=true}
+:::
+
+## Tool Annotations in Python
+
+```{.python code-line-numbers="1|2|3-9|4-5|6-8"}
+chat.register_tool(
+    get_weather,
+    annotations={
+        "title": "Get Weather",
+        "readOnlyHint": True,
+        "extra": {
+            "icon": faicons.fa_i("cloud-sun"),
+        },
+    },
+)
+```
+
+::: footer
+[chatlas (Python): ToolAnnotations](https://posit-dev.github.io/chatlas/reference/types.ToolAnnotations.html){preview-link=true}
+:::
+
 
 ## Your Turn `21_quiz-game-3` {.slide-your-turn}
 
-1. Step 1
+1. Add tool annotations to our `play_sound` tools.
 
-1. Step 2
-
-1. Step 3
+2. Pick an icon from [FontAwesome free icons](https://fontawesome.com/search?q=speaker&ic=free&o=r)
 
 {{< countdown 8:00 left=0 bottom="-2em" >}}
+
+## Content Tool Results
 
 ## Your Turn `22_quiz-game-4` {.slide-your-turn}
 

@@ -21,7 +21,7 @@ sound_map: dict[SoundChoice, Path] = {
 
 
 # STEP 1: Document this function so the LLM knows how to use it ----
-def play_sound(sound = "correct"):
+def play_sound(sound="correct"):
     if sound not in sound_map.keys():
         raise ValueError(
             f"sound must be one of {sorted(sound_map.keys())}; got {sound!r}"

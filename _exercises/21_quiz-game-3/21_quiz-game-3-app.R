@@ -27,15 +27,29 @@ play_sound <- function(
   glue::glue("The '{sound}' sound was played.")
 }
 
-# STEP 1: Create a tool definition with documentation ----
-# Remember: you're teaching the LLM how and when to use this function.
 tool_play_sound <- tool(
   play_sound,
-  description = "____",
+  description = "Play a sound effect",
   arguments = list(
-    ____ = type_____()
+    sound = type_enum(
+      c("correct", "incorrect", "new-round", "you-win"),
+      description = paste(
+        "Which sound effect to play.",
+        "Play 'new-round' after the user picks a theme for the round.",
+        "Play 'correct' or 'incorrect' after the user answers a question.",
+        "Play 'you-win' at the end of a round of questions."
+      )
+    )
+  ),
+  # STEP 1: Add nice title and icon for the tool button ----
+  annotations = ____(
+    ____ = "____",
+    # Pick a Font Awesome icon from the "free" choices
+    # https://fontawesome.com/search?q=speaker&ic=free&o=r
+    ____ = fontawesome::fa_i("____")
   )
 )
+
 
 # UI ---------------------------------------------------------------------------
 
@@ -54,8 +68,7 @@ server <- function(input, output, session) {
     )
   )
 
-  # STEP 2: Register the tool with the chat client ----
-  client$____(____)
+  client$register_tool(tool_play_sound)
 
   chat <- chat_mod_server("chat", client)
 

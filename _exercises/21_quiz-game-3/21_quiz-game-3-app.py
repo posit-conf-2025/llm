@@ -1,9 +1,9 @@
 from pathlib import Path
-from typing import Any, Literal
+from typing import Literal
 
 import chatlas
 import dotenv
-from faicons import icon_svg
+import faicons
 from playsound3 import playsound
 from pyhere import here
 from shiny import App, reactive, ui
@@ -18,20 +18,6 @@ sound_map: dict[SoundChoice, Path] = {
     "incorrect": here("data/sounds/wilhelm.wav"),
     "new-round": here("data/sounds/victory_fanfare_mono.wav"),
     "you-win": here("data/sounds/smb_stage_clear.wav"),
-}
-
-icon_map: dict[SoundChoice, Any] = {
-    "correct": icon_svg("circle-check", fill="var(--bs-success)"),
-    "incorrect": icon_svg("circle-xmark", fill="var(--bs-danger)"),
-    "new-round": icon_svg("circle-play", fill="var(--bs-primary)"),
-    "you-win": icon_svg("trophy", fill="var(--bs-warning)"),
-}
-
-title_map: dict[SoundChoice, str] = {
-    "correct": "That's right!",
-    "incorrect": "Oops, not quite.",
-    "new-round": "Let's goooooooo!",
-    "you-win": "You Win",
 }
 
 
@@ -58,15 +44,7 @@ def play_sound(sound: SoundChoice = "correct") -> str:
 
     playsound(sound_map[sound])
 
-    return chatlas.ContentToolResult(
-        value=f"The '{sound}' sound was played.",
-        extra={
-            "display": {
-                "title": title_map[sound],
-                "icon": icon_map[sound],
-            }
-        },
-    )
+    return f"The '{sound}' sound was played."
 
 
 # UI ---------------------------------------------------------------------------
@@ -83,12 +61,20 @@ def server(input, output, session):
     client = chatlas.ChatAnthropic(
         model="claude-3-7-sonnet-20250219",
         # Use your quiz game system prompt, or switch to _solutions to use ours
-        system_prompt=here("_solutions/14_quiz-game-1/prompt.md").read_text(),
+        system_prompt=here("_exercises/14_quiz-game-1/prompt.md").read_text(),
     )
 
     client.register_tool(
         play_sound,
-        annotations={"title": "Play Sound Effect"},
+        # STEP 1: Add nice title and icon for the tool button ----
+        annotations={
+            "____": "____",
+            "extra": {
+                # Pick a Font Awesome icon from the "free" choices
+                # https://fontawesome.com/search?q=speaker&ic=free&o=r
+                "____": faicons.icon_svg("____"),
+            },
+        },
     )
 
     @chat_ui.on_user_submit
