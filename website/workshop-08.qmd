@@ -14,13 +14,13 @@ duration: 50min
 - (20m) Tool calling
   - Explain how tool calling pattern, mostly following <https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny>
   - Activity: quiz show
-    - We provide an R/Python function that plays a sound
+    - We've provided an R/Python function that plays a sound
       - R: `beepr`, Python: [playsound](https://pypi.org/project/playsound3/)
-    - They document the function and register it as a tool in the Quiz Show app
+    - Document the function and register it as a tool in the Quiz Show app
 
 - (30m) Tool calling UI
   - Primarily a series of activities that progressively enhance the quiz show app
   - Activity: Add tool annotations to give the tool an icon and title
   - Activity: Use `ContentToolResult` to return custom title and icon
   - Activity: Track answers and score in the app (add/update value boxes)
-  - Activity: Add tool to check score and finalize a round with a display of the final score and questions asked.
+

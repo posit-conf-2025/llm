@@ -30,4 +30,4 @@ chat <- chat_openai(model = "gpt-4.1-nano", echo = "output")
 # Register the tool with the chatbot
 chat$register_tool(get_weather)
 
-chat$chat("What should I wear for a walk during posit::conf() in Atlanta?")
+chat$chat("What should I wear to posit::conf(2025) in Atlanta?")

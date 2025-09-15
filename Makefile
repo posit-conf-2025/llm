@@ -64,13 +64,13 @@ py-ipynb:  py-format ## Convert all Python scripts to Jupyter notebooks
 	@echo "📝 Converting Python scripts to Jupyter notebooks"
 	find _exercises -name "*.py" -not -name "*app.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
 	find _solutions -name "*.py" -not -name "*app.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
-	uv run jupytext --update --to ipynb _demos/19_tools/19_weather-tool.py
+	find _demos/19_tools -name "*.py" -not -name "*app.py" -print0 | xargs -0 -I{} uv run jupytext --update --to ipynb "{}"
 
 	@echo "\n\n\n"
 	@echo "🧹 Cleaning Jupyter notebook outputs"
 	find _exercises -name "*.ipynb" -print0 | xargs -0 -I{} uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "{}"
 	find _solutions -name "*.ipynb" -print0 | xargs -0 -I{} uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "{}"
-	uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace _demos/19_tools/19_weather-tool.ipynb
+	find _demos/19_tools -name "*.ipynb" -print0 | xargs -0 -I{} uv run jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "{}"
 
 .PHONY: help
 help:  ## Show help messages for make targets
