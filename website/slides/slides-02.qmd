@@ -653,7 +653,7 @@ one or the other would start to feel unnatural to use.
 
 {{< countdown 3:00 top="-1em" >}}
 
-# [shinychat]{.hidden} {.no-invert-dark-mode background-image="assets/shinychat-robot2.webp" background-size="cover" background-position="center"}
+# [shinychat]{.hidden} {.no-invert-dark-mode background-image="assets/shinychat-robot2.png" background-size="cover" background-position="center"}
 
 ## {.center}
 

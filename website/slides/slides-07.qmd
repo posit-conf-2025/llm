@@ -22,7 +22,7 @@ editor:
 
 {{< countdown 6:00 left=0 bottom="-2em" >}}
 
-# [Augmented Generation]{.hidden} {.no-invert-dark-mode background-image="assets/replicate-prediction-jwcp35drqdrmc0cs9bc8mtmxqm.webp" background-size="cover" background-position="center" .h-100}
+# [Augmented Generation]{.hidden} {.no-invert-dark-mode background-image="assets/robot-reading.png" background-size="cover" background-position="center" .h-100}
 
 [Augmented Generation]{.white .b .absolute top="-50px" left=100 style="font-size: 2em;"}
 

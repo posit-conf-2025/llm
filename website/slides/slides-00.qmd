@@ -1,0 +1,59 @@
+---
+title: Welcome!
+subtitle: Programming with LLM APIs<br>A Beginner's Guide in R and Python
+author: <code>posit::conf(2025)</code>
+date: 2025-09-16
+
+format:
+  revealjs:
+    auto-slide: 15000
+    loop: true
+
+footer: posit-conf-2025.github.io/llm
+
+title-slide-attributes:
+    class: no-invert-dark-mode title-slide-white
+    data-background-image: assets/space-window.png
+    data-background-size: cover
+    # data-background-opacity: "0.5"
+
+editor:
+  render-on-save: true
+---
+
+## {background-video="assets/robot-logs-in.mp4" background-video-loop="true" background-video-muted="true"}
+
+```{=html}
+<style>
+.title-slide-white * {
+  color: white !important;
+  font-weight: bold !important;
+}
+.title-slide-white .quarto-title-authors *,
+.title-slide-white .date {
+  color: black !important;
+}
+</style>
+```
+
+## Welcome to [Programming&nbsp;with&nbsp;LLM&nbsp;APIs&nbsp;]{.dark-blue}! {.fs-step-2 background-image="assets/retro-mac.jpg" background-size="cover" background-position="bottom left" autoslide=20000}
+
+* Find a seat where you can see the screen!
+
+* Update your local copy of the workshop: \
+  [posit-conf-2025.github.io/llm/setup.html]{.code .b .orange}
+
+* Join the Discord: [https://pos.it/conf]{.code .orange .b}
+
+* [wifi(<br>&nbsp;&nbsp;network="Posit Conf 2025",<br>&nbsp;&nbsp;password="conf2025"<br>)]{.code}
+
+```{=html}
+<style>
+.reveal .footer {
+  font-size: 0.5em !important;
+  color: white !important;
+}
+</style>
+```
+
+## {.no-invert-dark-mode background-image="assets/space-git-pull.png" background-size="contain" background-position="bottom right"}

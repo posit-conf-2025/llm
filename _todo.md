@@ -11,7 +11,7 @@
 - [x] Finalize `renv.lock` and `uv.lock`
 - [x] Remove `quarto.path` from `.vscode/settings.json`
 - [x] Verify no unexpected `_solutions` paths in `_exercises`
-- [ ] Rotating welcome slides
+- [x] Rotating welcome slides
 
 ### Morning 1
 
