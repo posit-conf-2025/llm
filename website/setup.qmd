@@ -234,25 +234,15 @@ renv::restore()
 Sometimes `renv` can be a little tricky to get set up.
 Fortunately, there's an alternative installation method that should work just as well.
 
-First, disable `renv`:
+Follow the instructions in `_setup.R` to deactivate renv and install the packages you need.
 
-``` r
-renv::deactivate()
+<details><summary>Backup setup code</summary>
+
+```{.r}
+{{< include ../_setup.R >}}
 ```
 
-Then install use [pak](https://pak.r-lib.org) to install the necessary packages:
-
-``` r
-# install.packages("pak")
-pak::local_install_deps(dependencies = TRUE)
-```
-
-Or with [remotes](https://remotes.r-lib.org):
-
-``` r
-# install.packages("remotes")
-remotes::install_deps(dependencies = TRUE)
-```
+</details>
 :::
 
 #### ![](assets/icons/python-icon-color.svg){height="36px" alt="Python"}
