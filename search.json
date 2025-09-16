@@ -613,7 +613,7 @@
     "href": "slides/slides-02.html#interpolation-in-r",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in R",
-    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is bicycle."
+    "text": "Interpolation in R\n\nlibrary(ellmer)\n\nwords &lt;- c(\"elephant\", \"bicycle\", \"sandwich\")\n\ninterpolate(\n  \"The secret word is {{ sample(words, 1) }}.\"\n)\n\n\n\n[1] │ The secret word is elephant."
   },
   {
     "objectID": "slides/slides-02.html#interpolation-in-r-1",
@@ -627,149 +627,157 @@
     "href": "slides/slides-02.html#interpolation-in-python",
     "title": "Anatomy of a conversation",
     "section": "Interpolation in Python",
-    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is elephant.'"
+    "text": "Interpolation in Python\n\nimport random\n\nwords = [\"elephant\", \"bicycle\", \"sandwich\"]\n\nf\"The secret word is {random.choice(words)}.\"\n\n\n\n'The secret word is sandwich.'"
   },
   {
-    "objectID": "workshop.html",
-    "href": "workshop.html",
-    "title": "Overview",
-    "section": "",
-    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Workshop",
-      "Overview"
-    ]
+    "objectID": "slides/slides-00.html#welcome-to-programming-with-llm-apis",
+    "href": "slides/slides-00.html#welcome-to-programming-with-llm-apis",
+    "title": "Welcome!",
+    "section": "Welcome to Programming with LLM APIs !",
+    "text": "Welcome to Programming with LLM APIs !\n\nFind a seat where you can see the screen!\nUpdate your local copy of the workshop:\nposit-conf-2025.github.io/llm/setup.html\nJoin the Discord: https://pos.it/conf\nwifi(  network=“Posit Conf 2025”,  password=“conf2025”)"
   },
   {
-    "objectID": "workshop.html#schedule",
-    "href": "workshop.html#schedule",
-    "title": "Overview",
-    "section": "",
-    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Workshop",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "workshop-07.html",
-    "href": "workshop-07.html",
-    "title": "Augmented Generation",
+    "objectID": "workshop-10.html",
+    "href": "workshop-10.html",
+    "title": "Beyond Tools",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Augmented Generation"
+      "Beyond Tools"
     ]
   },
   {
-    "objectID": "workshop-07.html#slides",
-    "href": "workshop-07.html#slides",
-    "title": "Augmented Generation",
+    "objectID": "workshop-10.html#slides",
+    "href": "workshop-10.html#slides",
+    "title": "Beyond Tools",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Augmented Generation"
+      "Beyond Tools"
     ]
   },
   {
-    "objectID": "workshop-07.html#outline",
-    "href": "workshop-07.html#outline",
-    "title": "Augmented Generation",
+    "objectID": "workshop-10.html#outline",
+    "href": "workshop-10.html#outline",
+    "title": "Beyond Tools",
     "section": "Outline",
-    "text": "Outline\n\n(10m) Manual RAG\n\nActivity 15_coding-assistant: Use an LLM as a coding assistant\n\nWrite a function that uses {weathR} (R) or NWS (Python) to get the weather for a location.\nThen, give the LLM the {weathR} (R) or NWS (Python) README and see how much better the response is.\n\n\n(30m) RAG\n\nHigh-level overview of how RAG works\nActivity 16_rag: Build a dynamic RAG system\n\nMake a chatbot that can draw from the knowledge of:\n\nThe R for Data Science book\nThe Polars Cookbook\n\nPreprocess and compute embeddings for each chunk using ragnar or llama-index\n\nhttps://posit-dev.github.io/chatlas/misc/RAG.html#dynamic-retrieval\nhttps://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag\n\nAdd a tool that searches the embeddings and returns the top few chunks\n\nchatlas: this means writing a function\nellmer: Use ragnar",
+    "text": "Outline\n\n(10m) querychat\n\nActivity: Add querychat into an existing shiny app\n\n(10m) MCP\n\nOverview of MCP and how it works\nActivity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)\n\nArXiV: https://github.com/andybrandt/mcp-simple-arxiv\nwebpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp\nstocky: https://github.com/joelio/stocky\nfetcher: https://github.com/jae-jae/fetcher-mcp\ngit-ingest: https://github.com/adhikasp/mcp-git-ingest\ngithub: https://arc.net/l/quote/bvfqahnx\ncontext7: https://github.com/upstash/context7\n\n\n(30m) Agents\n\nHadley/Willison definition: Agents are LLMs with a read tool and a write tool\nThe “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention\nDemobot demo\n\n(30m) The Future of AI\n\nWhere do we go from here? Let’s talk fears and hopes.\n\n(5m) Wrap-up\n\nFeedback survey",
     "crumbs": [
       "Workshop",
-      "Augmented Generation"
+      "Beyond Tools"
     ]
   },
   {
-    "objectID": "workshop-05.html",
-    "href": "workshop-05.html",
-    "title": "Prompt Engineering",
+    "objectID": "workshop-10.html#workshop-survey",
+    "href": "workshop-10.html#workshop-survey",
+    "title": "Beyond Tools",
+    "section": "Workshop Survey",
+    "text": "Workshop Survey\nPlease take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!\npos.it/conf-workshop-survey",
+    "crumbs": [
+      "Workshop",
+      "Beyond Tools"
+    ]
+  },
+  {
+    "objectID": "workshop-08.html",
+    "href": "workshop-08.html",
+    "title": "Tool Calling",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
+      "Tool Calling"
     ]
   },
   {
-    "objectID": "workshop-05.html#slides",
-    "href": "workshop-05.html#slides",
-    "title": "Prompt Engineering",
+    "objectID": "workshop-08.html#slides",
+    "href": "workshop-08.html#slides",
+    "title": "Tool Calling",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
+      "Tool Calling"
     ]
   },
   {
-    "objectID": "workshop-05.html#outline",
-    "href": "workshop-05.html#outline",
-    "title": "Prompt Engineering",
+    "objectID": "workshop-08.html#outline",
+    "href": "workshop-08.html#outline",
+    "title": "Tool Calling",
     "section": "Outline",
-    "text": "Outline\n\n(35m) Prompting engineering and hallucinations\n\nActivity: images of mpg vs weight and ask for interpretation\nActivity (part 1): same question, but we’ve replaced the image with random noise\nActivity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image\nPrompt engineering best practices, in particular the system prompt\nActivity: create the prompt for the quiz game show",
+    "text": "Outline\n\n(20m) Tool calling\n\nExplain how tool calling pattern, mostly following https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny\nActivity: quiz show\n\nWe’ve provided an R/Python function that plays a sound\n\nR: beepr, Python: playsound\n\nDocument the function and register it as a tool in the Quiz Show app\n\n\n(30m) Tool calling UI\n\nPrimarily a series of activities that progressively enhance the quiz show app\nActivity: Add tool annotations to give the tool an icon and title\nActivity: Use ContentToolResult to return custom title and icon\nActivity: Track answers and score in the app (add/update value boxes)",
     "crumbs": [
       "Workshop",
-      "Prompt Engineering"
+      "Tool Calling"
     ]
   },
   {
-    "objectID": "workshop-01.html",
-    "href": "workshop-01.html",
-    "title": "Welcome and getting started",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Welcome and getting started"
-    ]
-  },
-  {
-    "objectID": "workshop-01.html#slides",
-    "href": "workshop-01.html#slides",
-    "title": "Welcome and getting started",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Welcome and getting started"
-    ]
-  },
-  {
-    "objectID": "workshop-01.html#outline",
-    "href": "workshop-01.html#outline",
-    "title": "Welcome and getting started",
-    "section": "Outline",
-    "text": "Outline\n\nWelcome, introductions, workshop expectations\n\nActivity: introduce yourself to your neighbors\n\nSet-up and verify API access\n\nActivity: Set up our API keys and make our first API calls!",
-    "crumbs": [
-      "Workshop",
-      "Welcome and getting started"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "workshop-04.html",
+    "href": "workshop-04.html",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "Workshop at posit::conf(2025) in Atlanta, GASeptember 16, 2025 :: 09:00 - 17:00Room: Regency VII"
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Programming with LLMs"
+    ]
   },
   {
-    "objectID": "index.html#introduction",
-    "href": "index.html#introduction",
+    "objectID": "workshop-04.html#slides",
+    "href": "workshop-04.html#slides",
     "title": "Programming with LLMs",
-    "section": "Introduction",
-    "text": "Introduction\nLarge Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.\nParticipants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:\n\nCoding with LLMs unlocks possibilities beyond standard tools\nNo advanced AI background is required\nImplementing AI can be both accessible and exciting\n\nDesigned for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and touches on advanced topics like Retrieval-Augmented Generation (RAG) and tool calling. Attendees will gain hands-on experience through guided exercises, providing the confidence to start their LLM journey."
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Programming with LLMs"
+    ]
   },
   {
-    "objectID": "index.html#links",
-    "href": "index.html#links",
+    "objectID": "workshop-04.html#resources",
+    "href": "workshop-04.html#resources",
     "title": "Programming with LLMs",
-    "section": "Links",
-    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n\n👾 Discord (signup instructions)\n📦 Repository\n🍑 posit::conf(2025)"
+    "section": "Resources",
+    "text": "Resources\n\n(15m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(10m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
+    "crumbs": [
+      "Workshop",
+      "Programming with LLMs"
+    ]
+  },
+  {
+    "objectID": "workshop-02.html",
+    "href": "workshop-02.html",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Anatomy of a conversation"
+    ]
+  },
+  {
+    "objectID": "workshop-02.html#slides",
+    "href": "workshop-02.html#slides",
+    "title": "Anatomy of a conversation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Anatomy of a conversation"
+    ]
+  },
+  {
+    "objectID": "workshop-02.html#outline",
+    "href": "workshop-02.html#outline",
+    "title": "Anatomy of a conversation",
+    "section": "Outline",
+    "text": "Outline\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nHow to approach this workshop\nExtra time to work with participants on setup if needed\n\n(20m) Anatomy of a conversation\n\nTo get a get a response, you send a message via HTTP\nMessage roles: system, user, assistant\nActivity (02_word-game): Word guessing game\nHow does the LLM remember the conversation? demos/03_clearbot\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides\nTokens as the fundamental unit\nExample: _demos/04_token-possibilities\n\n(20m) Shinychat basics\n\nActivity (05_live): live_console() and live_browser() (or chat.console() and chat.app())\nMaking your own shinychat app with chat.ui() and chat.append(). R users can use the chat module with chat_mod_server().\nActivity (06_word-games): Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.",
+    "crumbs": [
+      "Workshop",
+      "Anatomy of a conversation"
+    ]
   },
   {
     "objectID": "setup.html",
@@ -821,146 +829,145 @@
     "text": "Footnotes\n\n\nThe best open-weights model you can run on a typical laptop (with 16GB of RAM and a decent processor, like an M1 Mac) is [gpt-oss:20b][ollama-gpt-oss]. For something a little bit smaller, try [qwen3:8b][ollama-qwen3-8b].↩︎"
   },
   {
-    "objectID": "workshop-02.html",
-    "href": "workshop-02.html",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
-    "objectID": "workshop-02.html#slides",
-    "href": "workshop-02.html#slides",
-    "title": "Anatomy of a conversation",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
-    "objectID": "workshop-02.html#outline",
-    "href": "workshop-02.html#outline",
-    "title": "Anatomy of a conversation",
-    "section": "Outline",
-    "text": "Outline\n\n(10m) Think empirically, be pragmatic\n\nGetting into the right mindset for working with LLMs\nHow to approach this workshop\nExtra time to work with participants on setup if needed\n\n(20m) Anatomy of a conversation\n\nTo get a get a response, you send a message via HTTP\nMessage roles: system, user, assistant\nActivity (02_word-game): Word guessing game\nHow does the LLM remember the conversation? demos/03_clearbot\n\n(20m) How do LLMs work?\n\nHow to Talk to Robots slides\nTokens as the fundamental unit\nExample: _demos/04_token-possibilities\n\n(20m) Shinychat basics\n\nActivity (05_live): live_console() and live_browser() (or chat.console() and chat.app())\nMaking your own shinychat app with chat.ui() and chat.append(). R users can use the chat module with chat_mod_server().\nActivity (06_word-games): Reverse the word-guessing game with the word to guess in the system prompt. User has to guess, LLM gives hints.",
-    "crumbs": [
-      "Workshop",
-      "Anatomy of a conversation"
-    ]
-  },
-  {
-    "objectID": "workshop-04.html",
-    "href": "workshop-04.html",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Programming with LLMs",
     "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Programming with LLMs"
-    ]
+    "text": "Workshop at posit::conf(2025) in Atlanta, GASeptember 16, 2025 :: 09:00 - 17:00Room: Regency VII"
   },
   {
-    "objectID": "workshop-04.html#slides",
-    "href": "workshop-04.html#slides",
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
     "title": "Programming with LLMs",
-    "section": "",
-    "text": "View slides in full screen",
-    "crumbs": [
-      "Workshop",
-      "Programming with LLMs"
-    ]
+    "section": "Introduction",
+    "text": "Introduction\nLarge Language Models (LLMs) offer developers unprecedented programmatic capabilities. This workshop introduces ellmer (R) and chatlas (Python), Posit packages that simplify LLM API integration, handling conversation complexities and enabling seamless interactions with AI models.\nParticipants will explore system prompt design, token management, and tool calling while building familiarity with current AI technologies. The workshop demonstrates that:\n\nCoding with LLMs unlocks possibilities beyond standard tools\nNo advanced AI background is required\nImplementing AI can be both accessible and exciting\n\nDesigned for AI newcomers and experienced developers, the session covers LLM integration, Shiny web app development, and touches on advanced topics like Retrieval-Augmented Generation (RAG) and tool calling. Attendees will gain hands-on experience through guided exercises, providing the confidence to start their LLM journey."
   },
   {
-    "objectID": "workshop-04.html#resources",
-    "href": "workshop-04.html#resources",
+    "objectID": "index.html#links",
+    "href": "index.html#links",
     "title": "Programming with LLMs",
-    "section": "Resources",
-    "text": "Resources\n\n(15m) Choosing a model\n\nOverview of major providers: OpenAI, Anthropic, Google, ollama\nTradeoffs: capability, context length, speed, cost, intelligence\nActivity: same question, change one string to switch models, e.g. chat(\"openai\"), chat(\"anthropic\").\n\n(15m) Multi-modal input (vision, PDF)\n\nActivity: images of food and ask for recipes\nActivity: take a PDF of a recipe, turn it into markdown\n\n(15m) Structured output\n\nExplain ellmer::type_*() or pydantic model in chatlas\nActivity: Extract rich data from the recipe PDF\nNote use_attribute_docstrings\n\n(10m) Parallel/batch calls\n\nActivity: Extract recipe data in parallel or batch",
-    "crumbs": [
-      "Workshop",
-      "Programming with LLMs"
-    ]
+    "section": "Links",
+    "text": "Links\n\n📘 Workshop Materials\n🔧 Getting Setup\n\n👾 Discord (signup instructions)\n📦 Repository\n🍑 posit::conf(2025)"
   },
   {
-    "objectID": "workshop-08.html",
-    "href": "workshop-08.html",
-    "title": "Tool Calling",
+    "objectID": "workshop-01.html",
+    "href": "workshop-01.html",
+    "title": "Welcome and getting started",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Tool Calling"
+      "Welcome and getting started"
     ]
   },
   {
-    "objectID": "workshop-08.html#slides",
-    "href": "workshop-08.html#slides",
-    "title": "Tool Calling",
+    "objectID": "workshop-01.html#slides",
+    "href": "workshop-01.html#slides",
+    "title": "Welcome and getting started",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Tool Calling"
+      "Welcome and getting started"
     ]
   },
   {
-    "objectID": "workshop-08.html#outline",
-    "href": "workshop-08.html#outline",
-    "title": "Tool Calling",
+    "objectID": "workshop-01.html#outline",
+    "href": "workshop-01.html#outline",
+    "title": "Welcome and getting started",
     "section": "Outline",
-    "text": "Outline\n\n(20m) Tool calling\n\nExplain how tool calling pattern, mostly following https://pkg.garrickadenbuie.com/genAI-2025-llms-meet-shiny\nActivity: quiz show\n\nWe’ve provided an R/Python function that plays a sound\n\nR: beepr, Python: playsound\n\nDocument the function and register it as a tool in the Quiz Show app\n\n\n(30m) Tool calling UI\n\nPrimarily a series of activities that progressively enhance the quiz show app\nActivity: Add tool annotations to give the tool an icon and title\nActivity: Use ContentToolResult to return custom title and icon\nActivity: Track answers and score in the app (add/update value boxes)",
+    "text": "Outline\n\nWelcome, introductions, workshop expectations\n\nActivity: introduce yourself to your neighbors\n\nSet-up and verify API access\n\nActivity: Set up our API keys and make our first API calls!",
     "crumbs": [
       "Workshop",
-      "Tool Calling"
+      "Welcome and getting started"
     ]
   },
   {
-    "objectID": "workshop-10.html",
-    "href": "workshop-10.html",
-    "title": "Beyond Tools",
+    "objectID": "workshop-05.html",
+    "href": "workshop-05.html",
+    "title": "Prompt Engineering",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Beyond Tools"
+      "Prompt Engineering"
     ]
   },
   {
-    "objectID": "workshop-10.html#slides",
-    "href": "workshop-10.html#slides",
-    "title": "Beyond Tools",
+    "objectID": "workshop-05.html#slides",
+    "href": "workshop-05.html#slides",
+    "title": "Prompt Engineering",
     "section": "",
     "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Beyond Tools"
+      "Prompt Engineering"
     ]
   },
   {
-    "objectID": "workshop-10.html#outline",
-    "href": "workshop-10.html#outline",
-    "title": "Beyond Tools",
+    "objectID": "workshop-05.html#outline",
+    "href": "workshop-05.html#outline",
+    "title": "Prompt Engineering",
     "section": "Outline",
-    "text": "Outline\n\n(10m) querychat\n\nActivity: Add querychat into an existing shiny app\n\n(10m) MCP\n\nOverview of MCP and how it works\nActivity: Connect an MCP server to ellmer/chatlas (options from https://github.com/punkpeye/awesome-mcp-servers below)\n\nArXiV: https://github.com/andybrandt/mcp-simple-arxiv\nwebpage screenshot: https://github.com/ananddtyagi/webpage-screenshot-mcp\nstocky: https://github.com/joelio/stocky\nfetcher: https://github.com/jae-jae/fetcher-mcp\ngit-ingest: https://github.com/adhikasp/mcp-git-ingest\ngithub: https://arc.net/l/quote/bvfqahnx\ncontext7: https://github.com/upstash/context7\n\n\n(30m) Agents\n\nHadley/Willison definition: Agents are LLMs with a read tool and a write tool\nThe “you know it when you see it” definition: autonomous LLMs, long context, minimal intervention\nDemobot demo\n\n(30m) The Future of AI\n\nWhere do we go from here? Let’s talk fears and hopes.\n\n(5m) Wrap-up\n\nFeedback survey",
+    "text": "Outline\n\n(35m) Prompting engineering and hallucinations\n\nActivity: images of mpg vs weight and ask for interpretation\nActivity (part 1): same question, but we’ve replaced the image with random noise\nActivity (part 2): work with partner to try to get the model to give you a decent interpretation of the random noise image\nPrompt engineering best practices, in particular the system prompt\nActivity: create the prompt for the quiz game show",
     "crumbs": [
       "Workshop",
-      "Beyond Tools"
+      "Prompt Engineering"
     ]
   },
   {
-    "objectID": "workshop-10.html#workshop-survey",
-    "href": "workshop-10.html#workshop-survey",
-    "title": "Beyond Tools",
-    "section": "Workshop Survey",
-    "text": "Workshop Survey\nPlease take 5-10 minutes to fill out the workshop survey. Your feedback is important to us!\npos.it/conf-workshop-survey",
+    "objectID": "workshop-07.html",
+    "href": "workshop-07.html",
+    "title": "Augmented Generation",
+    "section": "",
+    "text": "View slides in full screen",
     "crumbs": [
       "Workshop",
-      "Beyond Tools"
+      "Augmented Generation"
+    ]
+  },
+  {
+    "objectID": "workshop-07.html#slides",
+    "href": "workshop-07.html#slides",
+    "title": "Augmented Generation",
+    "section": "",
+    "text": "View slides in full screen",
+    "crumbs": [
+      "Workshop",
+      "Augmented Generation"
+    ]
+  },
+  {
+    "objectID": "workshop-07.html#outline",
+    "href": "workshop-07.html#outline",
+    "title": "Augmented Generation",
+    "section": "Outline",
+    "text": "Outline\n\n(10m) Manual RAG\n\nActivity 15_coding-assistant: Use an LLM as a coding assistant\n\nWrite a function that uses {weathR} (R) or NWS (Python) to get the weather for a location.\nThen, give the LLM the {weathR} (R) or NWS (Python) README and see how much better the response is.\n\n\n(30m) RAG\n\nHigh-level overview of how RAG works\nActivity 16_rag: Build a dynamic RAG system\n\nMake a chatbot that can draw from the knowledge of:\n\nThe R for Data Science book\nThe Polars Cookbook\n\nPreprocess and compute embeddings for each chunk using ragnar or llama-index\n\nhttps://posit-dev.github.io/chatlas/misc/RAG.html#dynamic-retrieval\nhttps://ragnar.tidyverse.org/articles/ragnar.html#setting-up-rag\n\nAdd a tool that searches the embeddings and returns the top few chunks\n\nchatlas: this means writing a function\nellmer: Use ragnar",
+    "crumbs": [
+      "Workshop",
+      "Augmented Generation"
+    ]
+  },
+  {
+    "objectID": "workshop.html",
+    "href": "workshop.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Workshop",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "workshop.html#schedule",
+    "href": "workshop.html#schedule",
+    "title": "Overview",
+    "section": "",
+    "text": "Title\n\n\n\ntime\n\n\n\nDescription\n\n\n\n\n\n\n\n\nWelcome and getting started\n\n\n9:00\n\n\nHello and welcome to the workshop!\n\n\n\n\n\n\nAnatomy of a conversation\n\n\n \n\n\nProgrammatically conversing with LLMs\n\n\n\n\n\n\n☕ Break\n\n\n10:30 - 11:00\n\n\n \n\n\n\n\n\n\nProgramming with LLMs\n\n\n \n\n\nAdvanced LLM programming techniques\n\n\n\n\n\n\nPrompt Engineering\n\n\n \n\n\nGetting LLMs to do what you want\n\n\n\n\n\n\n🍱 Lunch\n\n\n12:30 - 13:30\n\n\n \n\n\n\n\n\n\nAugmented Generation\n\n\n \n\n\nAdding knowledge to LLMs\n\n\n\n\n\n\nTool Calling\n\n\n \n\n\nHelp LLMs interact with the world\n\n\n\n\n\n\n☕ Break\n\n\n15:00 - 15:30\n\n\n \n\n\n\n\n\n\nBeyond Tools\n\n\n \n\n\nExploring the future of AI\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Workshop",
+      "Overview"
     ]
   },
   {
