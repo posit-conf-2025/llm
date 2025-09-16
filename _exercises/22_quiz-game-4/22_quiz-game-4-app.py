@@ -87,7 +87,7 @@ def server(input, output, session):
     client = chatlas.ChatAnthropic(
         model="claude-3-7-sonnet-20250219",
         # Use your quiz game system prompt, or switch to _solutions to use ours
-        system_prompt=here("_solutions/14_quiz-game-1/prompt.md").read_text(),
+        system_prompt=here("_exercises/14_quiz-game-1/prompt.md").read_text(),
     )
 
     client.register_tool(

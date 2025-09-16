@@ -2,15 +2,16 @@
 
 ### Setup
 
-- [ ] Quarto website
+- [x] Quarto website
   - [x] hero image
   - [x] favicons
   - [x] update setup page
 - [x] App for sharing API keys
 - [x] Set up renv and uv lockfiles
-- [ ] Finalize `renv.lock` and `uv.lock`
-- [ ] Remove `quarto.path` from `.vscode/settings.json`
-- [ ] Verify no unexpected `_solutions` paths in `_exercises`
+- [x] Finalize `renv.lock` and `uv.lock`
+- [x] Remove `quarto.path` from `.vscode/settings.json`
+- [x] Verify no unexpected `_solutions` paths in `_exercises`
+- [ ] Rotating welcome slides
 
 ### Morning 1
 
@@ -18,7 +19,7 @@
 - [x] 02_word-games: Word guessing game
 - [x] 03_demo_clearbot
 - [x] 04_demo_token-possibilities
-- [ ] 05_live: Basic live console/app script (don't need a script for this)
+- [x] 05_live: Basic live console/app script (don't need a script for this)
 - [x] 06_word-games-2: Reverse word guessing game
 
 ### Morning 2
@@ -35,7 +36,7 @@
 
 ### Afternoon 1
 
-- [x] 15_manual-rag: Getting the weather with a niche R/Python package
+- [x] 15_coding-assistant: Getting the weather with a niche R/Python package
 - [x] 16_rag: Create dynamic RAG system with dplyr or polars documentation
 - [x] 18_demo_manual-tools: Human-in-the-loop weather tool
 - [x] 19_demo_tools: Automated weather tool
