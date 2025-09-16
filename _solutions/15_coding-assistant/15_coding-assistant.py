@@ -22,7 +22,7 @@ chat = chatlas.ChatAuto("anthropic/claude-3-5-sonnet-20241022")
 
 chat.chat(
     # Extra context from package docs
-    here("_solutions/15_manual-rag/docs.py.md").read_text(),
+    here("_solutions/15_coding-assistant/docs.py.md").read_text(),
     # Task prompt
     "Write a simple function that takes latitude and longitude as inputs "
     "and returns the weather forecast for that location using the NWS "
