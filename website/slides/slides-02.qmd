@@ -885,7 +885,7 @@ app_ui = ui.page_fillable(
 
 def server(input, output, session):
     client = chatlas.ChatOpenAI()
-    chat = ui.Chat("chat", client)
+    chat = ui.Chat("chat")
 
     @chat.on_user_submit
     async def _(user_input: str):
