@@ -222,4 +222,6 @@ Designed for AI newcomers and experienced developers, the session covers LLM int
 📦 [Repository]({{< meta workshop.links.repo >}})
 
 🍑 [{{< meta workshop.links.conf.name >}}]({{< meta workshop.links.conf.href >}})
+
+📝 [Workshop Survey](https://pos.it/conf-workshop-survey)
 :::

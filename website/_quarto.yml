@@ -26,8 +26,9 @@ website:
     icon: ""
     dismissable: false
     content: |
-      🍑 We can't wait to see you in Atlanta! We're still finalizing the workshop materials, but you can get ready by following the <a class="alert-link" href="/setup.qmd">setup instructions</a>.
-    type: warning
+      🍑 Thanks for joining us at <code>posit::conf(2025)</code>!
+      Please fill out our <a href="https://pos.it/conf-workshop-survey" target="_blank">workshop feedback form</a>, it's quick and easy!
+    type: info
 
   page-footer: |
     <a href="https:://posi.it/conf-event-portal">posit::conf(2025)</a>
