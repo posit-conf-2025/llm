@@ -22,13 +22,13 @@ website:
   open-graph:
     image: assets/open-graph-card.png
 
-  announcement:
-    icon: ""
-    dismissable: false
-    content: |
-      🍑 Thanks for joining us at <code>posit::conf(2025)</code>!
-      Please fill out our <a href="https://pos.it/conf-workshop-survey" target="_blank">workshop feedback form</a>, it's quick and easy!
-    type: info
+  # announcement:
+  #   icon: ""
+  #   dismissable: false
+  #   content: |
+  #     🍑 Thanks for joining us at <code>posit::conf(2025)</code>!
+  #     Please fill out our <a href="https://pos.it/conf-workshop-survey" target="_blank">workshop feedback form</a>, it's quick and easy!
+  #   type: info
 
   page-footer: |
     <a href="https:://posi.it/conf-event-portal">posit::conf(2025)</a>
