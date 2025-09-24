@@ -1,6 +1,3 @@
-# Deactivate renv; letting you use your globally installed packages
-renv::deactivate()
-
 # Install {pak} (it's fast and smart at installing packages)
 if (!requireNamespace("pak", quietly = TRUE)) {
   # fmt: skip

@@ -42,8 +42,6 @@ Imports:
     vitals,
     watcher,
     weathR
-Remotes:
-    posit-dev/btw
 Config/Needs/dev: lionel-/codegrip, gt, gtExtras
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

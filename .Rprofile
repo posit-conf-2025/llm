@@ -1,5 +1,5 @@
 if (!nzchar(Sys.getenv("CI", ""))) {
-  source("renv/activate.R")
+  # source("renv/activate.R")
 }
 
 local({

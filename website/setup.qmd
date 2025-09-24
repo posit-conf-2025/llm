@@ -208,42 +208,28 @@ That way, could easily try out the Python examples during the workshop if you wa
 
 First, make sure you're using [a recent version of R](https://r-project.org).
 I used [R 4.5](https://r-project.org) but any recent version of R (\>= 4.1) should work.
+I also use [rig](https://github.com/r-lib/rig) to manage my R installations, since it makes it easy to install new versions of R and switch between them.
 
-::: panel-tabset
-##### With renv (recommended)
+Then, open the project in your IDE and run the following commands in the R console:
 
-Inside the project, use the `renv` package to install the necessary packages.
-`renv` will automatically install when you open the project in Positron or RStudio.
-Run the following command in the R console to get started:
+```r
+# Install pak if you don't have it already
+# install.packages("pak")
 
-``` r
-renv::restore()
+# Add the Posit and RStudio R-Universe repos for easy dev package installation
+pak::repo_add("https://posit-dev.r-universe.dev")
+pak::repo_add("https://rstudio.r-universe.dev")
+
+pak::local_install_deps()
 ```
 
-<!-- TODO: Add this back in if we figure out how to make pak work
-For very speedy installation, I recommend telling `renv` to use [pak](https://pak.r-lib.org/) to install packages:
+<details><summary>Alternative: Direct package installation</summary>
 
-``` r
-Sys.setenv(RENV_CONFIG_PAK_ENABLED = "true")
-renv::restore()
-```
--->
-
-##### Without renv
-
-Sometimes `renv` can be a little tricky to get set up.
-Fortunately, there's an alternative installation method that should work just as well.
-
-Follow the instructions in `_setup.R` to deactivate renv and install the packages you need.
-
-<details><summary>Backup setup code</summary>
-
-```{.r}
+```r
 {{< include ../_setup.R >}}
 ```
 
 </details>
-:::
 
 #### ![](assets/icons/python-icon-color.svg){height="36px" alt="Python"}
 
