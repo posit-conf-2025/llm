@@ -12,11 +12,15 @@ library(ellmer)
 # **Step 3:** Uncomment the extra lines to include these docs in the prompt and
 # try again.
 
-chat <- chat("anthropic/claude-3-5-sonnet-20241022", echo = "output")
+chat <- chat(
+  "anthropic/claude-3-5-sonnet-20241022",
+  echo = "output",
+  system_prompt = brio::read_file(here::here(
+    "_solutions/15_coding-assistant/docs.R.md"
+  ))
+)
 
 chat$chat(
-  # Extra context from package docs
-  brio::read_file(here::here("_solutions/15_coding-assistant/docs.R.md")),
   # Task prompt
   paste(
     "Write a simple function that takes latitude and longitude as inputs",

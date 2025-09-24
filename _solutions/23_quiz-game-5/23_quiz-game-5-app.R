@@ -45,6 +45,10 @@ server <- function(input, output, session) {
       )
   )
 
+  output$tbl_scores <- renderTable(scores())
+  output$txt_correct <- renderText(sum(scores()$is_correct, na.rm = TRUE))
+  output$txt_incorrect <- renderText(sum(!scores()$is_correct, na.rm = TRUE))
+
   scores <- reactiveVal(
     data.frame(
       theme = character(),
@@ -55,23 +59,13 @@ server <- function(input, output, session) {
     )
   )
 
-  output$tbl_scores <- renderTable(scores())
-  output$txt_correct <- renderText(sum(scores()$is_correct, na.rm = TRUE))
-  output$txt_incorrect <- renderText(sum(!scores()$is_correct, na.rm = TRUE))
-
   update_score <- function(theme, question, answer, your_answer, is_correct) {
     the_scores <- isolate(scores())
-    the_scores <- rbind(
-      the_scores,
-      data.frame(
-        theme = theme,
-        question = question,
-        answer = answer,
-        your_answer = your_answer,
-        is_correct = is_correct
-      )
-    )
+
+    new_score <- data.frame(theme = theme, question = question, answer = answer, your_answer = your_answer, is_correct = is_correct) # fmt: skip
+    the_scores <- rbind(the_scores, new_score)
     scores(the_scores)
+
     correct <- sum(the_scores$answer == the_scores$your_answer)
     list(correct = correct, incorrect = nrow(the_scores) - correct)
   }
